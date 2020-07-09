@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_block_headers",
+  "info": {
+    "name": "header",
+    "icon": "heading"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "logo_url": {
+      "type": "string"
+    }
+  }
+}

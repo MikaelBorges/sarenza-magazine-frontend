@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_block_cards",
+  "info": {
+    "name": "Card",
+    "icon": "address-card"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "background_url": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "button": {
+      "type": "component",
+      "repeatable": false,
+      "component": "link.button"
+    }
+  }
+}

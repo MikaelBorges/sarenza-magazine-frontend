@@ -1,0 +1,51 @@
+{
+  "kind": "collectionType",
+  "collectionName": "trade_brand_premiums",
+  "info": {
+    "name": "trade_brand_premium"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "header": {
+      "type": "component",
+      "repeatable": false,
+      "component": "block.header"
+    },
+    "presentation": {
+      "type": "component",
+      "repeatable": false,
+      "component": "block.card"
+    },
+    "history": {
+      "type": "component",
+      "repeatable": false,
+      "component": "block.store"
+    },
+    "boutique": {
+      "type": "component",
+      "repeatable": false,
+      "component": "block.boutique"
+    },
+    "tiles": {
+      "type": "component",
+      "repeatable": true,
+      "component": "block.card"
+    },
+    "title_tiles": {
+      "type": "string"
+    },
+    "discovery": {
+      "type": "component",
+      "repeatable": false,
+      "component": "block.boutique"
+    },
+    "brand_name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    }
+  }
+}

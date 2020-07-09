@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_block_tiles",
+  "info": {
+    "name": "tiles",
+    "icon": "ad"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    }
+  }
+}

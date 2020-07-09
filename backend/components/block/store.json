@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_block_stores",
+  "info": {
+    "name": "history",
+    "icon": "adjust"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "history": {
+      "type": "text"
+    }
+  }
+}
