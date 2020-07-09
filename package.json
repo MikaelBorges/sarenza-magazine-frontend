@@ -2,7 +2,8 @@
   "name": "root",
   "private": true,
   "scripts": {
-    "start": "lerna run dev --stream"
+    "start": "lerna run dev --stream",
+    "install:all": "lerna exec yarn install --stream"
   },
   "devDependencies": {
     "lerna": "^3.13.1"
