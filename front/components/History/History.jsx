@@ -1,0 +1,27 @@
+import React from "react";
+import styled from "styled-components";
+
+const Title = styled.h2`
+  margin-bottom: 32px;
+  display: block;
+  margin: 0 32px;
+  font: 700 64px/1em futur, Arial Narrow, sans-serif;
+  text-transform: uppercase;
+`;
+
+const Description = styled.div`
+  padding: 50px 200px;
+  text-align: justify;
+`;
+const History = ({ title, history }) => {
+  return (
+    title && (
+      <div>
+        <Title>{title}</Title>
+        <Description>{history}</Description>
+      </div>
+    )
+  );
+};
+
+export default History;
