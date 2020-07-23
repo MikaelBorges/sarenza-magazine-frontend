@@ -1,64 +1,19 @@
 import React from "react";
 
 import styled from "styled-components";
-import { Image } from "../Image/Image";
-import { Button } from "../Button/Button";
+import { EditoTitle } from "../EditoTitle/EditoTitle";
+import { EditoCitation } from "../EditoCitation/EditoCitation";
+import { EditoDefault } from "../EditoDefault/EditoDefault";
 
-const Section = styled.section`
-  color: #fff;
-  position: relative;
-  width: 100%;
-  margin-top: 20px;
-  display: block;
-
-  &::before {
-    vertical-align: middle;
-    width: 1px;
-    display: inline-block;
-    content: "";
-    padding-top: 43.6%;
-  }
-  div {
-    vertical-align: middle;
-  }
-`;
-
-const editoContent = ({contentType, content, title, author}) => {
-
-  let editoTitle = function() {
-    return (
-      <div>
-        <h2>{title}</h2>
-        <p>{content}</p>
-        <Image />
-      </div>
-    );
-  };
-
-  let editoCitation = function() {
-    let auth = {author} != "" ? ` - ${author}` : ``;
-    return (
-      <div>
-        <p>&laquo; {content} &raquo;${auth}</p>
-        <Button />
-      </div>
-    );
-  };
-
-  let editoDefault = function(contentText) {
-    return (
-      <p>{contentText}</p>
-    );
-  };
-
+const EditoContent = ({contentType, ...rest}) => {
   switch (contentType) {
     case "editoTitle":
-      return editoTitle();
+      return <EditoTitle {...rest} />;
     case "editoCitation":
-      return editoCitation();
+      return <EditoCitation {...rest} />;
     default:
-      return editoDefault({content});
+      return <EditoDefault {...rest} />;
   }
 };
 
-export default editoContent;
+export default EditoContent;
