@@ -6,6 +6,7 @@ import History from "../components/History/History";
 import styled from "styled-components";
 import TileContainer from "../components/Tiles/TileContainer";
 import Discovery from "../components/Discovery/Discovery";
+import Edito from "../components/Edito/Edito";
 
 const Container = styled.div`
   margin: auto;
@@ -70,7 +71,7 @@ export async function getStaticPaths() {
 
 const Kickers = ({ data }) => {
   return (
-    <Container>
+    /* <Container>
       {data ? (
         <Page>
           <Header {...data.header} />
@@ -87,7 +88,8 @@ const Kickers = ({ data }) => {
       ) : (
         <div>Chargement ...</div>
       )}
-    </Container>
+    </Container> */
+    <Edito content="Pour cette collab’, il fallait un symbole fort, celui du cœur. Parce que vous allez marcher avec le cœur, les acheter avec le cœur, vous donnez avec le cœur…" />
   );
 };
 
