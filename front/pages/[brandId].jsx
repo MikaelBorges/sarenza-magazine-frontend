@@ -89,11 +89,17 @@ const Kickers = ({ data }) => {
         <div>Chargement ...</div>
       )}
     </Container> */
+    /* <Edito 
+      content="Pour cette collab’, il fallait un symbole fort, celui du cœur. Parce que vous allez marcher avec le cœur, les acheter avec le cœur, vous donnez avec le cœur…"
+      title="Ce titre !"
+      contentType="editoTitle"
+    /> */
     <Edito 
       content="Pour cette collab’, il fallait un symbole fort, celui du cœur. Parce que vous allez marcher avec le cœur, les acheter avec le cœur, vous donnez avec le cœur…"
-      author=""
-      title=""
-      contentType=""
+      author="coco"
+      title="Ce titre !"
+      contentType="editoCitation"
+      button={{action:"/kickers",value:"Valider"}}
     />
   );
 };
