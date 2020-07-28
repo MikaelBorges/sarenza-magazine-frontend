@@ -1,6 +1,5 @@
 import React from "react";
 
-import styled from "styled-components";
 import { EditoTitle } from "../EditoTitle/EditoTitle";
 import { EditoCitation } from "../EditoCitation/EditoCitation";
 import { EditoDefault } from "../EditoDefault/EditoDefault";

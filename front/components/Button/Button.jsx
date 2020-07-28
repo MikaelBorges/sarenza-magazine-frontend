@@ -2,8 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const Link = styled.a`
-  background: #f2f2f2;
-  color: #000;
+  color: #fff;
   z-index: 0;
   position: relative;
   vertical-align: middle;
@@ -19,9 +18,12 @@ const Link = styled.a`
   align-items: center;
   text-align: left;
   text-decoration: none;
+  margin: 0 auto 40px auto;
+  background: #1d1d1b;
 
-  &::visited {
+  &:visited, &:hover {
     text-decoration: none;
+    color: #fff;
   }
 `;
 export const Button = ({ btn }) => {
