@@ -48,7 +48,7 @@ const getPhoto = (index, data) => ({
 const EditoPage = ({ data }) => {
   const photo1 = getPhoto(0, data);
   const photo2 = getPhoto(1, data);
-
+  console.log(data);
   return !data ? (
     <div>Chargement ...</div>
   ) : (
