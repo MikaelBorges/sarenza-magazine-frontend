@@ -4,30 +4,23 @@ import styled from "styled-components";
 import { Image } from "../Image/Image";
 
 const Division = styled.div`
-    text-align: left;
-    margin: 20px 0;
-    font-family: proximnr,Arial,sans-serif;
-    line-height: 1.5em;
-    font-size: 16px;
-    color: #999;
+    margin: 0;
 `;
 
 const HeadLevel2 = styled.h2`
-    text-align: left;
-    margin: 20px 0;
-    font-family: proximnr,Arial,sans-serif;
-    line-height: 1.5em;
-    font-size: 16px;
-    color: #999;
+    margin: 0;
+    font: 700 40px/42px robotoc,Arial Narrow,sans-serif;
+    color: #1d1d1b;
+    text-align: center;
 `;
 
 const Paragraphe = styled.p`
-    text-align: left;
-    margin: 20px 0;
-    font-family: proximnr,Arial,sans-serif;
-    line-height: 1.5em;
-    font-size: 16px;
+    font-family: robotoc,Arial Narrow,sans-serif;
     color: #999;
+    font-size: 14px;
+    margin: 16px auto 32px;
+    line-height: 1.4em;
+    text-align: center;
 `;
 
 export const EditoTitle = ({content, title, ...rest}) => {
