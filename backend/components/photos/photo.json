@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_photos_photos",
+  "info": {
+    "name": "photo",
+    "icon": "photo-video"
+  },
+  "options": {},
+  "attributes": {
+    "photo_url": {
+      "type": "string"
+    },
+    "alt": {
+      "type": "string"
+    }
+  }
+}

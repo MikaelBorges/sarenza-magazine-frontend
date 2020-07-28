@@ -2,7 +2,13 @@
 import React from "react";
 import App, { Container } from "next/app";
 import Head from "next/head";
+import styled from "styled-components";
 
+const AppContainer = styled.div`
+  font-size: 14px;
+  width: 960px;
+  margin: 0 auto;
+`;
 export default class MyApp extends App {
   render() {
     const { Component, pageProps } = this.props;
@@ -17,11 +23,11 @@ export default class MyApp extends App {
           />
           <title>Page Marque - Sarenza</title>
         </Head>
-        <div style={{ fontSize: "14px" }}>
+        <AppContainer>
           <Container>
             <Component {...pageProps} />
           </Container>
-        </div>
+        </AppContainer>
       </>
     );
   }

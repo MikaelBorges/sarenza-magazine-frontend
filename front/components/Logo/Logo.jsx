@@ -11,12 +11,12 @@ const ContainerImg = styled.span`
 `;
 
 const Img = styled(Image)`
-  opacity: 0.1;
+  opacity: ${props => props.opacity};
 `;
-const Logo = ({ src, alt }) => {
+const Logo = ({ src, alt, className, opacity }) => {
   return (
     <ContainerImg>
-      <Img src={src} alt={alt} />
+      <Img src={src} alt={alt} className={className} opacity={opacity} />
     </ContainerImg>
   );
 };

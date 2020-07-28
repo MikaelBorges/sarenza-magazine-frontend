@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_block_presentations",
+  "info": {
+    "name": "presentation",
+    "icon": "allergies"
+  },
+  "options": {},
+  "attributes": {
+    "description": {
+      "type": "richtext"
+    },
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "photos.photo"
+    }
+  }
+}

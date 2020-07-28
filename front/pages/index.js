@@ -9,6 +9,9 @@ export default function Home() {
       <div>
         <Link href="/clarks">Voir la page clarks</Link>
       </div>
+      <div>
+        <Link href="/edito/sarenza-x-daphne">Voir la Edito</Link>
+      </div>
     </div>
   );
 }

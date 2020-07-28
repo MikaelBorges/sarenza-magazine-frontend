@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/trade-edito-premiums",
+      "handler": "trade-edito-premium.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/trade-edito-premiums/count",
+      "handler": "trade-edito-premium.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/trade-edito-premiums/:id",
+      "handler": "trade-edito-premium.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/trade-edito-premiums",
+      "handler": "trade-edito-premium.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/trade-edito-premiums/:id",
+      "handler": "trade-edito-premium.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/trade-edito-premiums/:id",
+      "handler": "trade-edito-premium.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
