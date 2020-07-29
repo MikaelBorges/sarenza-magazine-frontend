@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { Button } from "../Button/Button";
 
 const Division = styled.div`
-    text-align: left;
+    text-align: center;
     margin: 20px 0;
     font-family: proximnr,Arial,sans-serif;
     line-height: 1.5em;

@@ -10,8 +10,10 @@ const Title = styled.h2`
 `;
 
 const Description = styled.div`
-  padding: 50px 200px;
-  text-align: justify;
+  font-family: robotoc,Arial Narrow,sans-serif;
+  font-size: 14px;
+  padding: 50px 0;
+  text-align: center;
 `;
 const History = ({ title, history }) => {
   return (

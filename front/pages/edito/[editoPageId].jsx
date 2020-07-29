@@ -30,6 +30,11 @@ export async function getStaticPaths() {
 const Item = styled.div`
   padding: 10px;
   text-align: center;
+  > p {
+    width: 60%;
+    margin: auto;
+    color: #999;
+  }
 `;
 
 const LogoContainer = styled(Item)`
@@ -40,14 +45,14 @@ const Container = styled.div`
   padding: 50px;
 `;
 
-const getPhoto = (index, data) => ({
+/* const getPhoto = (index, data) => ({
   src: data.presentation.items[index].photo_url,
   ...data.presentation.items[index]
-});
+}); */
 
 const EditoPage = ({ data }) => {
-  const photo1 = getPhoto(0, data);
-  const photo2 = getPhoto(1, data);
+  /* const photo1 = getPhoto(0, data);
+  const photo2 = getPhoto(1, data); */
   console.log(data);
   return !data ? (
     <div>Chargement ...</div>
@@ -56,15 +61,15 @@ const EditoPage = ({ data }) => {
       <LogoContainer>
         <Header {...data.logo} />
       </LogoContainer>
-      <Item>
+      {/* <Item>
         <Image {...photo1} />
-      </Item>
+      </Item> */}
       <Item>
         <ReactMarkdown source={data.presentation.description} />
       </Item>
-      <Item>
+      {/* <Item>
         <Image {...photo2} />
-      </Item>
+      </Item> */}
       <Item>
         <Slider
           items={data.slider}

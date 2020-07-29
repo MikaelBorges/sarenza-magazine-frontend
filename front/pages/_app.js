@@ -4,6 +4,8 @@ import App, { Container } from "next/app";
 import Head from "next/head";
 import styled from "styled-components";
 
+import './Styles.css';
+
 const AppContainer = styled.div`
   font-size: 14px;
   width: 960px;

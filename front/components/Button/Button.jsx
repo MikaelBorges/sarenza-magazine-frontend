@@ -25,6 +25,21 @@ const Link = styled.a`
     text-decoration: none;
     color: #fff;
   }
+
+  &:after {
+    position: absolute;
+    right: 32px;
+    top: 14px;
+    margin-top: 0;
+    margin-left: 1.5em;
+    content: "\\e372";
+    font-family: pictenza;
+    font-size: 1em;
+    font-style: normal;
+    speak: none;
+    font-weight: 700;
+    -webkit-font-smoothing: antialiased;
+  }
 `;
 export const Button = ({ btn }) => {
   return btn ? <Link href={btn.action}>{btn.value}</Link> : "Erreur";
