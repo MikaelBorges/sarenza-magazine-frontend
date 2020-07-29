@@ -1,0 +1,32 @@
+@font-face {
+    font-family: "proximnr";
+    src: url(https://cdn.sarenza.net/website/prod_b/assets/font/proxima_nova.woff) format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "proximnb";
+    src: url(/Content/font/proxima_nova_bold.woff) format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "robotoc";
+    src: url(/Content/font/roboto-condensed.woff) format("woff");
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "futur";
+    src: url(https://cdn.sarenza.net/website/prod_b/assets/font/futur-condensed-bold.woff) format("woff");
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "pictenza";
+    src: url(https://cdn.sarenza.net/website/prod_b/assets/font/pictenza.woff) format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
