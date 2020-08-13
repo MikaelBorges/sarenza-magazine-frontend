@@ -57,7 +57,7 @@ const getIdFromBrandName = brandName => {
     case "clarks":
       return 2;
     default:
-      throw new Exception("Nom de marque inconnue");
+      throw new Error("Nom de marque inconnue" + brandName);
   }
 };
 
