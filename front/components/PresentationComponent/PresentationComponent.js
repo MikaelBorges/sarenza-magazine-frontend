@@ -5,10 +5,12 @@ import { Image } from "../Image/Image";
 import ReactMarkdown from "react-markdown";
 
 const PresentationComponent = data => {
-  const getPhoto = (index, data) => ({
-    src: data.items[index].photo_url,
-    ...data.items[index]
-  });
+  const getPhoto = (index, data) => {
+    if (data.items && data.items[index])
+      return { src: data.items[index].photo_url, ...data.items[index] };
+    else return null;
+  };
+
   const photo1 = getPhoto(0, data);
   const photo2 = getPhoto(1, data);
   return (
@@ -19,9 +21,11 @@ const PresentationComponent = data => {
       <Item>
         <ReactMarkdown source={data.description} />
       </Item>
-      <Item>
-        <Image {...photo2} />
-      </Item>
+      {photo2 && (
+        <Item>
+          <Image {...photo2} />
+        </Item>
+      )}
     </React.Fragment>
   );
 };

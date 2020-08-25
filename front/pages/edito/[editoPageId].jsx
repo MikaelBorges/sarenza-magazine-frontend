@@ -1,5 +1,4 @@
 import React from "react";
-import { withRouter } from "next/router";
 import styled from "styled-components";
 import ReactMarkdown from "react-markdown";
 import Slider from "../../components/Slider/Slider";
@@ -8,24 +7,6 @@ import History from "../../components/History/History";
 import { Image } from "../../components/Image/Image";
 import Slide from "../../components/Slider/Slide";
 import Edito from "../../components/Edito/Edito";
-
-export async function getStaticProps(context) {
-  const res = await fetch(`http://localhost:1337/trade-edito-premiums/1`);
-  const data = await res.json();
-
-  return {
-    props: {
-      data
-    }
-  };
-}
-
-export async function getStaticPaths() {
-  return {
-    paths: ["/edito/sarenza-x-daphne"],
-    fallback: true
-  };
-}
 
 const Item = styled.div`
   padding: 10px;
@@ -93,4 +74,15 @@ const EditoPage = ({ data }) => {
   );
 };
 
-export default withRouter(EditoPage);
+export async function getServerSideProps(context) {
+  const res = await fetch(`http://localhost:1337/trade-edito-premiums/1`);
+  const data = await res.json();
+
+  return {
+    props: {
+      data
+    }
+  };
+}
+
+export default EditoPage;

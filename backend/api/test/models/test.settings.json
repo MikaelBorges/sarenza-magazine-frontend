@@ -23,6 +23,9 @@
         "photos.photo",
         "photos.photo-list"
       ]
+    },
+    "cvv": {
+      "type": "string"
     }
   }
 }

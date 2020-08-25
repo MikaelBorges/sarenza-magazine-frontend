@@ -10,6 +10,9 @@ const Container = styled.div`
 `;
 
 const Page = ({ data }) => {
+  if (!data.template) {
+    return <div>Veuillez saisir la data sur strapi</div>;
+  }
   return (
     <Container>
       {data.template.map(item => {
@@ -20,7 +23,7 @@ const Page = ({ data }) => {
 };
 
 export async function getStaticProps(context) {
-  const res = await fetch(`http://localhost:1337/tests/1`);
+  const res = await fetch(`http://localhost:1337/tests/3`);
   const data = await res.json();
 
   return {

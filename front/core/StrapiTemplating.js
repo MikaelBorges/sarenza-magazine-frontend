@@ -18,6 +18,9 @@ export const getComponent = item => {
         import("../components/PresentationComponent/PresentationComponent")
       );
       break;
+    case COMPONENT_NAME.BLOCK_CARD:
+      Component = dynamic(() => import("../components/Section/Section"));
+      break;
     default:
       throw new Error("the component doesnt exist");
   }

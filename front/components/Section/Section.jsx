@@ -68,9 +68,11 @@ const SectionPage = ({ background_url, title, description, ...rest }) => {
   return (
     background_url && (
       <Section>
-        <Link href={rest.button.action}>
-          <Img src={background_url} alt={title} />
-        </Link>
+        {rest.button && (
+          <Link href={rest.button.action}>
+            <Img src={background_url} alt={title} />
+          </Link>
+        )}
         <Content>
           <div>
             <Title>{title}</Title>
