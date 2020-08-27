@@ -14,12 +14,12 @@ const Container = styled.div`
   position: relative;
 `;
 
-const Header = ({ title, logo_url, alt, logoOpacity }) => {
+const Header = ({ title, src, alt, logoOpacity }) => {
   return (
-    logo_url && (
+    src && (
       <Heading>
         <Container>
-          <Logo src={logo_url} alt={alt} opacity={logoOpacity} />
+          <Logo src={src} alt={alt} opacity={logoOpacity} />
           <Title value={title} />
         </Container>
       </Heading>

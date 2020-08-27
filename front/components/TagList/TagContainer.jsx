@@ -10,8 +10,8 @@ const TagList = styled.div`
 const TagContainer = ({ tags }) => {
   return (
     <TagList>
-      {tags.map(({ value, action, id }) => (
-        <Tag href={action} key={id} label={value} />
+      {tags.map(({ label, href, id }) => (
+        <Tag href={href} key={id} label={label} />
       ))}
     </TagList>
   );

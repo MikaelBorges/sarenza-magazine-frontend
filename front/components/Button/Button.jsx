@@ -21,7 +21,8 @@ const Link = styled.a`
   margin: 0 auto 40px auto;
   background: #1d1d1b;
 
-  &:visited, &:hover {
+  &:visited,
+  &:hover {
     text-decoration: none;
     color: #fff;
   }
@@ -41,6 +42,6 @@ const Link = styled.a`
     -webkit-font-smoothing: antialiased;
   }
 `;
-export const Button = ({ btn }) => {
-  return btn ? <Link href={btn.action}>{btn.value}</Link> : "Erreur";
+export const Button = ({ action, value }) => {
+  return value ? <Link href={action}>{value}</Link> : "Erreur";
 };

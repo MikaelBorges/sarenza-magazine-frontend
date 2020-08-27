@@ -15,15 +15,13 @@ const Title = styled.h2`
   text-transform: uppercase;
 `;
 
-const Slide = ({ title, items }) => {
+const BrandSeoBox = ({ title, items }) => {
   return (
-    items && (
-      <Section>
-        <Title>{title}</Title>
-        <TagContainer tags={items} />
-      </Section>
-    )
+    <Section>
+      <Title>{title}</Title>
+      <TagContainer tags={items} />
+    </Section>
   );
 };
 
-export default Slide;
+export default BrandSeoBox;

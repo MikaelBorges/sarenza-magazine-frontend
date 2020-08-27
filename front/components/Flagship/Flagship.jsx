@@ -1,19 +1,9 @@
-import React from "react";
 import styled from "styled-components";
 
 const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
   background: #f3f3f3;
-  background-image: initial;
-  background-position-x: initial;
-  background-position-y: initial;
-  background-size: initial;
-  background-repeat-x: initial;
-  background-repeat-y: initial;
-  background-attachment: initial;
-  background-origin: initial;
-  background-clip: initial;
   background-color: rgb(243, 243, 243);
   padding: 20px 0;
   position: relative;
@@ -38,20 +28,14 @@ const Title = styled.h2`
   text-transform: uppercase;
 `;
 
-const Discovery = ({ title, items }) => {
+const Flagship = ({ title, items }) => {
   return (
     title && (
       <div>
         <Title>{title}</Title>
         <Container>
           {items.map(item => (
-            <>
-              <Item>{item.value}</Item>
-              <Item>{item.value}</Item>
-              <Item>{item.value}</Item>
-              <Item>{item.value}</Item>
-              <Item>{item.value}</Item>
-            </>
+            <Item key={item.label}>{item.label}</Item>
           ))}
         </Container>
       </div>
@@ -59,4 +43,4 @@ const Discovery = ({ title, items }) => {
   );
 };
 
-export default Discovery;
+export default Flagship;

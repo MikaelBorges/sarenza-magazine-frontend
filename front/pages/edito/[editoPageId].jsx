@@ -35,7 +35,6 @@ const EditoPage = ({ data }) => {
   if (data.error) return "Une erreur est survenue";
   const photo1 = getPhoto(0, data);
   const photo2 = getPhoto(1, data);
-  console.log(data);
   return !data ? (
     <div>Chargement ...</div>
   ) : (

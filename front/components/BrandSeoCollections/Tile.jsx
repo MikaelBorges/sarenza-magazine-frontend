@@ -27,16 +27,16 @@ const Description = styled.div`
   font-size: 1em;
   color: #333;
 `;
-const Tile = ({ title, button, background_url, description }) => {
+const Tile = ({ backgroundUrl, button, title, description }) => {
   return (
     <React.Fragment>
       <Section>
         <div>
           <Title>{title}</Title>
           <Description>{description}</Description>
-          <Button btn={{ action: button.action, value: button.value }} />
+          <Button action={button.href} value={button.label} />
         </div>
-        <Image src={background_url} alt={title} />
+        <Image src={backgroundUrl} alt={title} />
       </Section>
     </React.Fragment>
   );

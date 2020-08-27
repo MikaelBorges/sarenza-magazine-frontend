@@ -25,14 +25,22 @@ const Description = styled.div`
   }
 `;
 
-const TileContainer = ({ title, data }) => {
+const BrandSeoCollections = ({ title, data }) => {
   return (
     data && (
       <React.Fragment>
         <Title>{title}</Title>
         <Description>
-          {data.map(item => {
-            return <Tile {...item} key={item.id} />;
+          {data.map((item, index) => {
+            return (
+              <Tile
+                backgroundUrl={item.backgroundUrl}
+                button={item.link}
+                title={item.title}
+                description={item.description}
+                key={index}
+              />
+            );
           })}
         </Description>
       </React.Fragment>
@@ -40,4 +48,4 @@ const TileContainer = ({ title, data }) => {
   );
 };
 
-export default TileContainer;
+export default BrandSeoCollections;

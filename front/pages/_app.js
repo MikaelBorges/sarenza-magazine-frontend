@@ -1,10 +1,10 @@
 /* _app.js */
 import React from "react";
-import App, { Container } from "next/app";
+import App from "next/app";
 import Head from "next/head";
 import styled from "styled-components";
 
-import './Styles.css';
+import "./Styles.css";
 
 const AppContainer = styled.div`
   font-size: 14px;
@@ -26,9 +26,7 @@ export default class MyApp extends App {
           <title>Page Marque - Sarenza</title>
         </Head>
         <AppContainer>
-          <Container>
-            <Component {...pageProps} />
-          </Container>
+          <Component {...pageProps} />
         </AppContainer>
       </>
     );

@@ -64,20 +64,20 @@ const SubTitle = styled.p`
   color: #fff;
 `;
 
-const SectionPage = ({ background_url, title, description, ...rest }) => {
+const SectionPage = ({ backgroundUrl, button, title, description }) => {
   return (
-    background_url && (
+    backgroundUrl && (
       <Section>
-        {rest.button && (
-          <Link href={rest.button.action}>
-            <Img src={background_url} alt={title} />
+        {button && (
+          <Link href={button.href}>
+            <Img src={backgroundUrl} alt={title} />
           </Link>
         )}
         <Content>
           <div>
             <Title>{title}</Title>
             <SubTitle>{description}</SubTitle>
-            <Button btn={rest.button} />
+            <Button action={button.href} value={button.label} />
           </div>
         </Content>
       </Section>
