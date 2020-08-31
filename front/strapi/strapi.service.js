@@ -1,4 +1,5 @@
 import { brand } from "./model/brand";
+import { edito } from "./model/edito";
 
 const getIdFromBrandName = brandName => {
   switch (brandName) {
@@ -19,6 +20,18 @@ export const getBrandData = async brandName => {
     );
     const data = await res.json();
     return brand(data);
+  } catch (error) {
+    throw Error(error.message);
+  }
+};
+
+export const getEditoBrand = async editoId => {
+  try {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_STRAPI_URL}trade-edito-premiums/${editoId}`
+    );
+    const data = await res.json();
+    return edito(data);
   } catch (error) {
     throw Error(error.message);
   }

@@ -7,6 +7,9 @@ import History from "../../components/History/History";
 import { Image } from "../../components/Image/Image";
 import Slide from "../../components/Slider/Slide";
 import Edito from "../../components/Edito/Edito";
+import Portrait from "../../components/Portrait/Portrait";
+import { getEditoBrand } from "../../strapi/strapi.service";
+import { Container, Page, Onglet, Segments } from "./editoStyles";
 
 const Item = styled.div`
   padding: 10px;
@@ -22,65 +25,35 @@ const LogoContainer = styled(Item)`
   height: 260px;
 `;
 
-const Container = styled.div`
-  padding: 50px;
-`;
-
-const getPhoto = (index, data) => ({
-  src: data.presentation.items[index].photo_url,
-  ...data.presentation.items[index]
-});
-
-const EditoPage = ({ data }) => {
-  if (data.error) return "Une erreur est survenue";
-  const photo1 = getPhoto(0, data);
-  const photo2 = getPhoto(1, data);
-  return !data ? (
-    <div>Chargement ...</div>
-  ) : (
+const EditoPage = ({ logo, portraits, slider }) => {
+  return (
     <Container>
-      <LogoContainer>
-        <Header {...data.logo} />
-      </LogoContainer>
-      <Item>
-        <Image {...photo1} />
-      </Item>
-      <Item>
-        <ReactMarkdown source={data.presentation.description} />
-      </Item>
-      <Item>
-        <Image {...photo2} />
-      </Item>
-      <Item>
-        <Slider
-          items={data.slider}
-          renderItem={(item, width) => <Slide item={item} width={width} />}
-        />
-      </Item>
-      <Item>
-        <History {...data.edito} />
-      </Item>
-      <Item>
-        <Edito
-          content="Pour cette collab’, il fallait un symbole fort, celui du cœur. Parce que vous allez marcher avec le cœur, les acheter avec le cœur, vous donnez avec le cœur…"
-          author="coco"
-          title="Ce titre !"
-          contentType="editoCitation"
-          button={{ action: "/kickers", value: "Valider" }}
-        />
-      </Item>
+      <Page>
+        <LogoContainer>
+          <Header src={logo.src} alt={logo.alt} />
+        </LogoContainer>
+        <Segments>
+          <Onglet>
+            <Portrait portraits={portraits} />
+          </Onglet>
+          <Onglet>
+            <Slider
+              items={slider}
+              renderItem={(item, width) => <Slide item={item} width={width} />}
+            />
+            <div>Voir plus de modele</div>
+          </Onglet>
+        </Segments>
+      </Page>
     </Container>
   );
 };
 
 export async function getServerSideProps(context) {
-  const res = await fetch(`http://localhost:1337/trade-edito-premiums/1`);
-  const data = await res.json();
+  const data = await getEditoBrand(1);
 
   return {
-    props: {
-      data
-    }
+    props: data
   };
 }
 

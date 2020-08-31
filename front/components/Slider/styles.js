@@ -53,6 +53,10 @@ export const Text = styled.div`
   font-size: 12px;
 `;
 
+export const Title = styled(Text)`
+  font-weight: bold;
+`;
+
 export const ImageContainer = styled.div`
   height: 320px;
 `;
