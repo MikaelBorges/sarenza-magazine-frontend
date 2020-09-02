@@ -6,6 +6,7 @@ import { brandSeoCollections } from "./brandSeoCollections";
 import { brandDescription } from "./brandDescription";
 import { video } from "./video";
 import { flagship } from "./flagship";
+import { alert } from "./alert";
 
 export function brand(model) {
   check(model);
@@ -21,7 +22,8 @@ export function brand(model) {
     ),
     brandDescription: brandDescription(model.brandDescription),
     video: video(model.video),
-    flagship: flagship(model.flagship)
+    flagship: flagship(model.flagship),
+    alert: alert(model.alert)
   };
 }
 function check(model) {

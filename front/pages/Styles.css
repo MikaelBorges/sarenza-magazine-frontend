@@ -7,14 +7,26 @@
 
 @font-face {
     font-family: "proximnb";
-    src: url(/Content/font/proxima_nova_bold.woff) format("woff");
+    src: url(../fonts/Proxima/proxima_nova_bold.woff) format("woff");
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
+    font-family: "robotocd";
+    src: url(../fonts/Roboto/Roboto-Condensed/roboto-condensed.woff) format("woff");
+    font-weight: normal;
+}
+
+@font-face {
     font-family: "robotoc";
-    src: url(/Content/font/roboto-condensed.woff) format("woff");
+    src: url(../fonts/Roboto/Roboto-Condensed/roboto-condensed-bold.woff) format("woff");
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: "roboto";
+    src: url(../fonts/Roboto/Roboto/roboto.woff) format("woff");
     font-weight: normal;
 }
 

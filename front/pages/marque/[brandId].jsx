@@ -8,6 +8,8 @@ import Flagship from "../../components/Flagship/Flagship";
 import { Onglet, Segments, Page, Container } from "./brandStyles";
 import { getBrandData } from "../../strapi/strapi.service";
 import IframeVideo from "../../components/IframeVideo";
+import Alert from "../../components/Alert/Alert";
+
 const Kickers = ({
   brandName,
   logo,
@@ -16,7 +18,8 @@ const Kickers = ({
   brandSeoCollections,
   brandDescription,
   video,
-  flagship
+  flagship,
+  alert
 }) => {
   return (
     <Container>
@@ -50,6 +53,7 @@ const Kickers = ({
               />
               <IframeVideo iframe={video.iframe} />
               <Flagship title={flagship.title} items={flagship.items} />
+              <Alert text={alert.text} description={alert.description} button={alert.button} />
             </Onglet>
           </Segments>
         </Page>
