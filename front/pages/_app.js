@@ -6,12 +6,14 @@ import styled from "styled-components";
 
 import "./Animation.scss";
 import "./Landing.scss";
+import "./HeaderAH17.css";
 
 const AppContainer = styled.div`
   font-size: 14px;
   width: 960px;
   margin: 0 auto;
 `;
+
 export default class MyApp extends App {
   render() {
     const { Component, pageProps } = this.props;
