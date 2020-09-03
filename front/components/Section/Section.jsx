@@ -5,21 +5,6 @@ import { Button } from "../Button/Button";
 
 const Section = styled.section`
   color: #fff;
-  position: relative;
-  width: 100%;
-  margin-top: 20px;
-  display: block;
-
-  &::before {
-    vertical-align: middle;
-    width: 1px;
-    display: inline-block;
-    content: "";
-    padding-top: 43.6%;
-  }
-  div {
-    vertical-align: middle;
-  }
 `;
 
 const Link = styled.a`
@@ -67,7 +52,7 @@ const SubTitle = styled.p`
 const SectionPage = ({ backgroundUrl, button, title, description }) => {
   return (
     backgroundUrl && (
-      <Section>
+      <Section className="mainNews">
         {button && (
           <Link href={button.href}>
             <Img src={backgroundUrl} alt={title} />

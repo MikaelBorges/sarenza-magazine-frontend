@@ -24,7 +24,7 @@ const Kickers = ({
   return (
     <Container>
       {brandName ? (
-        <Page>
+        <Page className="pageMarqueAH17">
           <Header
             title={brandName}
             alt={logo.alt}
