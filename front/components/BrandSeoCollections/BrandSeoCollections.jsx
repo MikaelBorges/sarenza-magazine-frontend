@@ -17,11 +17,7 @@ const Description = styled.div`
     height: 300px;
     width: 260px;
     padding: 30px;
-    top: 25%;
-  }
-
-  & section:nth-of-type(odd) div {
-    right: 0;
+    top: 12%;
   }
 `;
 

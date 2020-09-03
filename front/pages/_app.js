@@ -4,7 +4,8 @@ import App from "next/app";
 import Head from "next/head";
 import styled from "styled-components";
 
-import "./Styles.css";
+import "./Animation.scss";
+import "./Landing.scss";
 
 const AppContainer = styled.div`
   font-size: 14px;
