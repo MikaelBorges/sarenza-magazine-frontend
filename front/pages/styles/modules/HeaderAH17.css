@@ -1,7 +1,6 @@
 header.logoShop h1,
 header.logoShop span {
-    display: inline-block;
-    color: red;
+    display: inline-block
 }
 
 header.logoShop {

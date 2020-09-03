@@ -4,9 +4,11 @@ import App from "next/app";
 import Head from "next/head";
 import styled from "styled-components";
 
-import "./Animation.scss";
-import "./Landing.scss";
-import "./HeaderAH17.css";
+import "./styles/Animation.scss";
+import "./styles/Landing.scss";
+
+import "./styles/pages/PageMarqueAH17.css";
+import "./styles/modules/HeaderAH17.css";
 
 const AppContainer = styled.div`
   font-size: 14px;
