@@ -34,8 +34,8 @@ const Flagship = ({ title, items }) => {
       <div>
         <Title>{title}</Title>
         <Container>
-          {items.map(item => (
-            <Item key={item.label}>{item.label}</Item>
+          {items.map((item, index) => (
+            <Item key={item.label + index}>{item.label}</Item>
           ))}
         </Container>
       </div>

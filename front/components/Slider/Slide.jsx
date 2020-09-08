@@ -3,7 +3,7 @@ import { SliderItem, ImageContainer, Text, Image, Title } from "./styles";
 
 const Slide = ({ item, width }) => {
   return (
-    <SliderItem width={width}>
+    <SliderItem width={width} key={item.title}>
       <div>
         <ImageContainer>
           <Image src={item.image.src} alt={item.image.alt} />

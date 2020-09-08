@@ -11,8 +11,8 @@ const Caption = styled.caption`
 const Portrait = ({ portraits }) => {
   return (
     <div>
-      {portraits.map(({ portrait, title, caption, description }) => (
-        <div>
+      {portraits.map(({ portrait, title, caption, description }, index) => (
+        <div key={title + index}>
           <Title value={title} />
           <div>{description}</div>
           <div>

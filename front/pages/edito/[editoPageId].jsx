@@ -39,7 +39,9 @@ const EditoPage = ({ logo, portraits, slider }) => {
           <Onglet>
             <Slider
               items={slider}
-              renderItem={(item, width) => <Slide item={item} width={width} />}
+              renderItem={(item, width) => (
+                <Slide item={item} width={width} key={item.title} />
+              )}
             />
             <div>Voir plus de modele</div>
           </Onglet>

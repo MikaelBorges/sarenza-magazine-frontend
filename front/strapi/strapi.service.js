@@ -1,5 +1,6 @@
 import { brand } from "./model/brand";
 import { edito } from "./model/edito";
+import { menu } from "./model/menu";
 
 const getIdFromBrandName = brandName => {
   switch (brandName) {
@@ -32,6 +33,16 @@ export const getEditoBrand = async editoId => {
     );
     const data = await res.json();
     return edito(data);
+  } catch (error) {
+    throw Error(error.message);
+  }
+};
+
+export const getMenu = async () => {
+  try {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}menu-items`);
+    const data = await res.json();
+    return menu(data);
   } catch (error) {
     throw Error(error.message);
   }

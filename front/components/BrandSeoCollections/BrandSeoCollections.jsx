@@ -34,7 +34,7 @@ const BrandSeoCollections = ({ title, data }) => {
                 button={item.link}
                 title={item.title}
                 description={item.description}
-                key={index}
+                key={item.title + index}
               />
             );
           })}
