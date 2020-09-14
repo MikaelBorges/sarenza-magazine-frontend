@@ -10,7 +10,7 @@ import "./styles/Landing.scss";
 import "./styles/pages/PageMarqueAH17.css";
 import "./styles/modules/HeaderAH17.css";
 import "./styles/modules/BrandMainNewsAH17.css";
-import "./Styles.css";
+
 import Menu from "../components/Menu/Menu";
 
 const AppContainer = styled.div`
@@ -27,9 +27,7 @@ export default class MyApp extends App {
         <Head>
           <link
             rel="stylesheet"
-            href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-            integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-            crossOrigin="anonymous"
+            href="https://cdn.sarenza.net/website/prod_b/assets/stylesheet/home.default.min.css"
           />
           <title>Page Marque - Sarenza</title>
         </Head>

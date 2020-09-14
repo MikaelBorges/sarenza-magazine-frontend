@@ -39,11 +39,11 @@ export const getEditoBrand = async editoId => {
 };
 
 export const getMenu = async () => {
-  try {
+  /* try {
     const res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}menu-items`);
     const data = await res.json();
     return menu(data);
   } catch (error) {
     throw Error(error.message);
-  }
+  }*/
 };
