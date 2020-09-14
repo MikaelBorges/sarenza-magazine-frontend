@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import cn from "classnames";
-import styles from "./Menu.module.scss";
+
 const Item = styled.div`
   display: inline;
   margin: 10px;

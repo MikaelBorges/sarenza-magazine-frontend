@@ -13,6 +13,8 @@ import "./styles/modules/BrandMainNewsAH17.css";
 
 import Menu from "../components/Menu/Menu";
 
+import "./styles/modules/Menu.scss";
+
 const AppContainer = styled.div`
   font-size: 14px;
   width: 960px;
