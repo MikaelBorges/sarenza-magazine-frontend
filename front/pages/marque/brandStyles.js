@@ -12,7 +12,7 @@ export const Page = styled.div`
   padding-bottom: 40px;
   width: 100%;
   background: #fff;
-  margin: 200px 0;
+  margin: 0px 0;
   padding: 0;
 `;
 export const Segments = styled.div`
