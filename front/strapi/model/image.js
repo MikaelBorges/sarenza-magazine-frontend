@@ -1,6 +1,6 @@
 export function Image(model = {}) {
-  return {
-    src: model.url,
-    alt: model.alt
-  };
+    return {
+        src: model.url,
+        alt: model.alt
+    };
 }

@@ -1,14 +1,14 @@
 import React from "react";
-import Header from "../../components/Header/Header";
-import Section from "../../components/Section/Section";
-import BrandSeoBox from "../../components/BrandSeoBox/BrandSeoBox";
-import History from "../../components/History/History";
-import BrandSeoCollections from "../../components/BrandSeoCollections/BrandSeoCollections";
-import Flagship from "../../components/Flagship/Flagship";
+import Header from "@/components/Header/Header";
+import Section from "@/components/Section/Section";
+import BrandSeoBox from "@/components/BrandSeoBox/BrandSeoBox";
+import History from "@/components/History/History";
+import BrandSeoCollections from "@/components/BrandSeoCollections/BrandSeoCollections";
+import Flagship from "@/components/Flagship/Flagship";
 import { Onglet, Segments, Page, Container } from "./brandStyles";
 import { getBrandData } from "../../strapi/strapi.service";
-import IframeVideo from "../../components/IframeVideo";
-import Alert from "../../components/Alert/Alert";
+import IframeVideo from "@/components/IframeVideo";
+import Alert from "@/components/Alert/Alert";
 
 const Kickers = ({
   brandName,
@@ -53,7 +53,11 @@ const Kickers = ({
               />
               <IframeVideo iframe={video.iframe} />
               <Flagship title={flagship.title} items={flagship.items} />
-              <Alert text={alert.text} description={alert.description} button={alert.button} />
+              <Alert
+                text={alert.text}
+                description={alert.description}
+                button={alert.button}
+              />
             </Onglet>
           </Segments>
         </Page>

@@ -1,12 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import ReactMarkdown from "react-markdown";
 import Slider from "../../components/Slider/Slider";
 import Header from "../../components/Header/Header";
 import History from "../../components/History/History";
 import { Image } from "../../components/Image/Image";
 import Slide from "../../components/Slider/Slide";
-import Edito from "../../components/Edito/Edito";
 import Portrait from "../../components/Portrait/Portrait";
 import { getEditoBrand } from "../../strapi/strapi.service";
 import { Container, Page, Onglet, Segments } from "./editoStyles";
