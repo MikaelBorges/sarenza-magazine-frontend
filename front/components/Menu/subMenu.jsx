@@ -8,33 +8,49 @@ const Item = styled.div`
   color: red;
 `;
 const SubMenu = ({ data, className }) => {
-  return data.map(el => {
-    return (
-      <div>
-        <div className="col">
-          <span className="title">
-            <span>{el.category}</span>
-          </span>
-          <ul className="list">
-            {el.links.map(link => {
-              return (
-                <li className="link ">
-                  <a href={link.link} data-ea className>
-                    {link.label}
+  return (
+    <div className="sub">
+      <div className="sub-inner">
+        <a className="back" href="#0">
+          Retour
+        </a>
+        <a
+          className="root  "
+          data-promo
+          data-ea
+          href="/chaussure-nouvelle-collection-homme"
+        >
+          Afficher tout
+        </a>
+        {data.map(item => {
+          return (
+            <div className="col">
+              <span className="title">
+                <span>{item.category}</span>
+              </span>
+              <ul className="list">
+                {item.links.map(link => {
+                  return (
+                    <li className="link ">
+                      <a href={item.link} data-ea className>
+                        {link.label}
+                      </a>
+                    </li>
+                  );
+                })}
+
+                <li className="all">
+                  <a href="/chaussure-nouvelle-collection-homme" data-ea>
+                    Encore plus de nouveautés
                   </a>
                 </li>
-              );
-            })}
-            <li className="all">
-              <a href="/chaussure-nouvelle-collection" data-ea>
-                Encore plus de nouveautés
-              </a>
-            </li>
-          </ul>
-        </div>
+              </ul>
+            </div>
+          );
+        })}
       </div>
-    );
-  });
+    </div>
+  );
 };
 
 export default SubMenu;

@@ -26,5 +26,7 @@ export function menu(model = {}) {
       });
     }
   });
+
+  console.log("menu", menu);
   return menu;
 }
