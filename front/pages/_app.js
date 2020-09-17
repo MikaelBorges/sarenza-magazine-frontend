@@ -1,19 +1,17 @@
 /* _app.js */
-import React from 'react';
-import App from 'next/app';
-import Head from 'next/head';
-import styled from 'styled-components';
-
 import './styles/Animation.scss';
 import './styles/Landing.scss';
-
 import './styles/pages/PageMarqueAH17.css';
 import './styles/modules/HeaderAH17.css';
 import './styles/modules/BrandMainNewsAH17.css';
+import './styles/modules/Menu.scss';
+
+import App from 'next/app';
+import Head from 'next/head';
+import React from 'react';
+import styled from 'styled-components';
 
 import Menu from '../components/Menu/Menu';
-
-import './styles/modules/Menu.scss';
 
 const AppContainer = styled.div`
     font-size: 14px;

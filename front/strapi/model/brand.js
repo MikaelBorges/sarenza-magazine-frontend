@@ -1,12 +1,12 @@
-import { Breadcrumbs } from './breadcrumb';
-import { Image } from './image';
-import { showcase } from './showcase';
+import { alert } from './alert';
+import { brandDescription } from './brandDescription';
 import { brandSeoBox } from './brandSeoBox';
 import { brandSeoCollections } from './brandSeoCollections';
-import { brandDescription } from './brandDescription';
-import { video } from './video';
+import { Breadcrumbs } from './breadcrumb';
 import { flagship } from './flagship';
-import { alert } from './alert';
+import { Image } from './image';
+import { showcase } from './showcase';
+import { video } from './video';
 
 export function brand(model) {
     check(model);

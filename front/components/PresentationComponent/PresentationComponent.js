@@ -1,8 +1,9 @@
-import React from 'react';
 import PropTypes from 'prop-types';
-import { Item } from '../Item/Item';
-import { Image } from '../Image/Image';
+import React from 'react';
 import ReactMarkdown from 'react-markdown';
+
+import { Image } from '../Image/Image';
+import { Item } from '../Item/Item';
 
 const PresentationComponent = (data) => {
     const getPhoto = (index, data) => {

@@ -7,6 +7,7 @@ module.exports = {
             jsx: true // Enable JSX since we're using React
         }
     },
+    plugins: ['simple-import-sort'],
     settings: {
         react: {
             version: 'detect' // Automatically detect the react version
@@ -24,6 +25,18 @@ module.exports = {
         'plugin:prettier/recommended' // Make this the last element so prettier config overrides other formatting rules
     ],
     rules: {
-        'prettier/prettier': ['error', {}, { usePrettierrc: true }] // Use our .prettierrc file as source
+        'prettier/prettier': ['error', {}, { usePrettierrc: true }],
+        'react/react-in-jsx-scope': 'off',
+        'react/prop-types': 'off',
+        '@typescript-eslint/explicit-function-return-type': 'off',
+        'simple-import-sort/sort': 'error',
+        'jsx-a11y/anchor-is-valid': [
+            'error',
+            {
+                components: ['Link'],
+                specialLink: ['hrefLeft', 'hrefRight'],
+                aspects: ['invalidHref', 'preferButton']
+            }
+        ]
     }
 };
