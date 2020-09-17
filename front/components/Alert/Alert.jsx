@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 import styled from 'styled-components';
-import { Button } from "../Button/Button";
+import { Button } from '../Button/Button';
 
 const Section = styled.section`
     margin: 40px 0;
@@ -24,19 +24,19 @@ const Description = styled.p`
 `;
 
 const Alert = ({ button, text, description }) => {
-  return (
-    button && (
-    <Section>
-      <TextPart>
-        <Title>{text}</Title>
-        <Description>{description}</Description>
-      </TextPart>
-      <div>
-          <Button value={button.label} action={ button.href} />
-      </div>
-    </Section>
-    )
-  );
+    return (
+        button && (
+            <Section>
+                <TextPart>
+                    <Title>{text}</Title>
+                    <Description>{description}</Description>
+                </TextPart>
+                <div>
+                    <Button value={button.label} action={button.href} />
+                </div>
+            </Section>
+        )
+    );
 };
 
 export default Alert;

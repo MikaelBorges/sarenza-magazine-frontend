@@ -1,36 +1,36 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
-import { Item } from "../../components/Item/Item";
+import { Item } from '../../components/Item/Item';
 
-import { getComponent } from "../../core/StrapiTemplating";
+import { getComponent } from '../../core/StrapiTemplating';
 
 const Container = styled.div`
-  padding: 50px;
+    padding: 50px;
 `;
 
 const Page = ({ data }) => {
-  if (!data.template) {
-    return <div>Veuillez saisir la data sur strapi</div>;
-  }
-  return (
-    <Container>
-      {data.template.map(item => {
-        return <Item>{getComponent(item)}</Item>;
-      })}
-    </Container>
-  );
+    if (!data.template) {
+        return <div>Veuillez saisir la data sur strapi</div>;
+    }
+    return (
+        <Container>
+            {data.template.map((item) => {
+                return <Item>{getComponent(item)}</Item>;
+            })}
+        </Container>
+    );
 };
 
 export async function getStaticProps(context) {
-  const res = await fetch(`http://localhost:1337/tests/3`);
-  const data = await res.json();
+    const res = await fetch(`http://localhost:1337/tests/3`);
+    const data = await res.json();
 
-  return {
-    props: {
-      data
-    }
-  };
+    return {
+        props: {
+            data
+        }
+    };
 }
 
 export default Page;

@@ -1,18 +1,19 @@
-import React, { useState, useEffect, useRef } from "react";
-import styled from "styled-components";
-import { Button } from "../Button/Button";
-import { Image } from "../Image/Image";
+import React, { useState, useEffect, useRef } from 'react';
+import styled from 'styled-components';
+import { Button } from '../Button/Button';
+import { Image } from '../Image/Image';
 
 const Section = styled.section`
-  padding: 20px;
-  position: relative;
-  display: inline-block;
-  vertical-align: middle;
-  width: 98%;
-  height: 500px;
-  overflow: hidden;
+    padding: 20px;
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    width: 98%;
+    height: 500px;
+    overflow: hidden;
 
-  div, img {
+    div,
+    img {
         transition: opacity 0.7s ease, right 0.7s ease, left 0.7s ease;
         opacity: 0;
     }
@@ -45,7 +46,8 @@ const Section = styled.section`
     }
 
     &.show {
-        div, img {
+        div,
+        img {
             opacity: 1;
         }
 
@@ -57,7 +59,7 @@ const Section = styled.section`
                 right: 0;
             }
         }
-    
+
         &:nth-of-type(odd) {
             div {
                 right: 0;
@@ -70,24 +72,23 @@ const Section = styled.section`
 `;
 
 const Title = styled.div`
-  font-size: 19.6px;
-  text-transform: uppercase;
-  margin: 0;
-  font-family: futur, Arial Narrow, sans-serif;
-  font-weight: 700;
+    font-size: 19.6px;
+    text-transform: uppercase;
+    margin: 0;
+    font-family: futur, Arial Narrow, sans-serif;
+    font-weight: 700;
 `;
 
 const Description = styled.div`
-  text-align: left;
-  margin: 20px 0;
-  font-family: proximnr, Arial, sans-serif;
-  line-height: 1.5em;
-  font-size: 1em;
-  color: #999;
+    text-align: left;
+    margin: 20px 0;
+    font-family: proximnr, Arial, sans-serif;
+    line-height: 1.5em;
+    font-size: 1em;
+    color: #999;
 `;
 
 const Tile = ({ backgroundUrl, button, title, description }) => {
-
     const [display, setDisplay] = useState(false);
     const inputRef = useRef();
     const handleScroll = () => {
@@ -101,18 +102,18 @@ const Tile = ({ backgroundUrl, button, title, description }) => {
         window.addEventListener('scroll', handleScroll);
     });
 
-  return (
-    <React.Fragment>
-      <Section className={display ? 'show' : ''} ref={inputRef} >
-        <div>
-          <Title>{title}</Title>
-          <Description>{description}</Description>
-          <Button action={button.href} value={button.label} />
-        </div>
-        <Image src={backgroundUrl} alt={title} />
-      </Section>
-    </React.Fragment>
-  );
+    return (
+        <React.Fragment>
+            <Section className={display ? 'show' : ''} ref={inputRef}>
+                <div>
+                    <Title>{title}</Title>
+                    <Description>{description}</Description>
+                    <Button action={button.href} value={button.label} />
+                </div>
+                <Image src={backgroundUrl} alt={title} />
+            </Section>
+        </React.Fragment>
+    );
 };
 
 export default Tile;

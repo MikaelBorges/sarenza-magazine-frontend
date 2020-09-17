@@ -1,7 +1,7 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
-import { Button } from "../Button/Button";
+import { Button } from '../Button/Button';
 
 const Division = styled.div`
     text-align: center;
@@ -26,11 +26,15 @@ const Division = styled.div`
     }
 `;
 
-export const EditoCitation = ({content, author, button}) => {
-    let auth = {author} != "" ? ` - ${author}` : ``;
+export const EditoCitation = ({ content, author, button }) => {
+    let auth = { author } != '' ? ` - ${author}` : ``;
     return (
         <Division>
-            <cite><p>&laquo; {content} &raquo; {auth}</p></cite>
+            <cite>
+                <p>
+                    &laquo; {content} &raquo; {auth}
+                </p>
+            </cite>
             <Button btn={{ action: button.action, value: button.value }} />
         </Division>
     );

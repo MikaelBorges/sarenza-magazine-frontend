@@ -1,39 +1,39 @@
 .pageMarqueAH17 {
-	padding-bottom: 40px;
-	width: 100%;
-	background: #fff
+    padding-bottom: 40px;
+    width: 100%;
+    background: #fff;
 }
 
 .segments {
-	padding: 0;
-	background-color: transparent!important;
-	max-width: none;
-	width: auto;
-	overflow: hidden;
-	position: relative
+    padding: 0;
+    background-color: transparent !important;
+    max-width: none;
+    width: auto;
+    overflow: hidden;
+    position: relative;
 }
 
 .segments .segment {
-	position: relative;
-	display: none
+    position: relative;
+    display: none;
 }
 
 .segments .segment.current {
-	position: relative;
-	left: 0;
-	display: block
+    position: relative;
+    left: 0;
+    display: block;
 }
 
 .segments .segment .global-hr-xthin {
-	margin: 56px 0;
-	opacity: 0
+    margin: 56px 0;
+    opacity: 0;
 }
 
 @media screen and (min-width: 975px) {
-	.pageMarqueAH17 {
-		padding-bottom:40px;
-		width: 100%;
-		background: #fff;
-		margin: 0
-	}
+    .pageMarqueAH17 {
+        padding-bottom: 40px;
+        width: 100%;
+        background: #fff;
+        margin: 0;
+    }
 }

@@ -1,11 +1,11 @@
-import { mount } from "enzyme";
+import { mount } from 'enzyme';
 
-import Title from "./title";
+import Title from './title';
 
-describe("Title Component", () => {
-  it("should render without crashing", () => {
-    const wrapper = mount(<Title value="test" />);
+describe('Title Component', () => {
+    it('should render without crashing', () => {
+        const wrapper = mount(<Title value="test" />);
 
-    expect(wrapper.find("h1")).toHaveLength(1);
-  });
+        expect(wrapper.find('h1')).toHaveLength(1);
+    });
 });
