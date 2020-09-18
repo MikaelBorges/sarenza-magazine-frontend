@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 
-const Icon = styled.div`
+const Icon = styled.Icon`
     font-size: 40px;
     line-height: 25px;
     margin: 0 0 20px;

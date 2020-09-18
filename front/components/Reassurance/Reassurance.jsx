@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import ReassuranceItem from "./ReassuranceItem";
 
 
-const Reassurance = styled.div`
+const Reassurance = styled.ReassuranceItem`
     margin: 0;
     list-style: none;
     width: 25%;
@@ -12,7 +12,7 @@ const Reassurance = styled.div`
     justify-content: center;
     align-content: center;
     text-align: center;
-    font-family: robotoc,"Arial Narrow",sans-serif;
+    font-family: roboto,"Arial Narrow",sans-serif;
     font-size: 14px;
     color: #000;
     line-height: 18px;
