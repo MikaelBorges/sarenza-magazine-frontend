@@ -3,17 +3,15 @@ import React from 'react';
 
 
 
-const Links = (props) => {
+const Links = ({title, link}) => {
     return (
-
-            <div>
-                <p>{props.title}</p>
-                {console.log(props.title)}
-
-                    <Link link={props.link} label={props.label} key={props.id}   />
-
-            </div>
+        <div>
+            <p>{title}</p>
+            {/* {link.map((label,link)=>{
+                <Link link={link} label={label} />
+            })} */}
+        </div>
         );
-};
+    };
     
     export default Links;
