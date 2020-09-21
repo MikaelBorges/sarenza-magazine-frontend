@@ -1,13 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
-import Slider from '../../components/Slider/Slider';
-import Header from '../../components/Header/Header';
-import History from '../../components/History/History';
-import { Image } from '../../components/Image/Image';
-import Slide from '../../components/Slider/Slide';
-import Portrait from '../../components/Portrait/Portrait';
+
+import Header from '@/components/Header/Header';
+import Portrait from '@/components/Portrait/Portrait';
+import Slide from '@/components/Slider/Slide';
+import Slider from '@/components/Slider/Slider';
+
 import { getEditoBrand } from '../../strapi/strapi.service';
-import { Container, Page, Onglet, Segments } from './editoStyles';
+import { Container, Onglet, Page, Segments } from './editoStyles';
 
 const Item = styled.div`
     padding: 10px;
@@ -38,7 +38,7 @@ const EditoPage = ({ logo, portraits, slider }) => {
                         <Slider
                             items={slider}
                             renderItem={(item, width) => (
-                                <Slide item={item} width={width} key={item.title} />
+                                <Slide item={item} width={width} key={item.title + item.id} />
                             )}
                         />
                         <div>Voir plus de modele</div>
@@ -49,7 +49,7 @@ const EditoPage = ({ logo, portraits, slider }) => {
     );
 };
 
-export async function getServerSideProps(context) {
+export async function getServerSideProps() {
     const data = await getEditoBrand(1);
 
     return {

@@ -1,8 +1,8 @@
 import { Image } from './image';
 
-export function sliderItem(model = {}) {
+export function sliderItem(model = {}, id) {
     return {
-        id: 1,
+        id,
         title: model.title,
         subTitle: model.subTitle,
         image: Image(model.article)

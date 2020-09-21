@@ -1,16 +1,22 @@
-import React, { useState, useEffect } from 'react';
-import { getMenu } from '../../strapi/strapi.service';
 import cn from 'classnames';
+import React, { useEffect, useState } from 'react';
+
+import { getMenu } from '../../strapi/strapi.service';
 import SubMenu from './subMenu';
 
 const Menu = () => {
     const [menus, setMenus] = useState([]);
-    console.log('Menu -> menus', menus);
-    useEffect(async () => {
-        const menus = await getMenu();
-        setMenus(menus);
+    useEffect(() => {
+        async function fetch() {
+            const menus = await getMenu();
+            setMenus(menus);
+        }
+        fetch();
     }, []);
     const [openMenu, setOpenMenu] = useState(false);
+    if (!menus && menus.length) {
+        return 'Loading...';
+    }
     return (
         <div className="no-touch">
             <header id="MainHeader-RD">
@@ -18,6 +24,9 @@ const Menu = () => {
                     {/* Touch optimisation */}
                     <div
                         id="MainNavOpener"
+                        role="button"
+                        onKeyPress={() => {}}
+                        tabIndex={0}
                         onClick={() => {
                             setOpenMenu((show) => !show);
                         }}>
@@ -38,6 +47,9 @@ const Menu = () => {
                         </a>
                         <span
                             className="closer"
+                            role="button"
+                            tabIndex={-1}
+                            onKeyPress={() => {}}
                             onClick={() => {
                                 setOpenMenu((show) => !show);
                             }}>
@@ -74,7 +86,10 @@ const Menu = () => {
                                 />
                                 {menus.map((menu) => {
                                     return (
-                                        <li className="menu-group" data-menu-group={2}>
+                                        <li
+                                            className="menu-group"
+                                            data-menu-group={2}
+                                            key={menu.id}>
                                             <a
                                                 className="tab  "
                                                 data-promo
@@ -150,7 +165,9 @@ const Menu = () => {
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="/user/view?zone=addresses">Mon carnet d'adresses</a>
+                                    <a href="/user/view?zone=addresses">
+                                        Mon carnet d&lsquo;adresses
+                                    </a>
                                 </li>
                                 <li>
                                     <a href="/user/view?zone=user-infos">
@@ -169,7 +186,7 @@ const Menu = () => {
                                     <a className="cookie-set">Mes cookies</a>
                                 </li>
                                 <li>
-                                    <a href="/user/view?zone=vouchers">Mes bons d'achat</a>
+                                    <a href="/user/view?zone=vouchers">Mes bons d&lsquo;achat</a>
                                 </li>
                             </ul>
                         </li>

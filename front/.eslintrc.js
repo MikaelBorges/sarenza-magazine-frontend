@@ -8,6 +8,7 @@ module.exports = {
         }
     },
     plugins: ['simple-import-sort'],
+
     settings: {
         react: {
             version: 'detect' // Automatically detect the react version
@@ -27,6 +28,7 @@ module.exports = {
     rules: {
         'prettier/prettier': ['error', {}, { usePrettierrc: true }],
         'react/react-in-jsx-scope': 'off',
+        'no-console': 'error',
         'react/prop-types': 'off',
         '@typescript-eslint/explicit-function-return-type': 'off',
         'simple-import-sort/sort': 'error',

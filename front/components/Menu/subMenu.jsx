@@ -1,15 +1,8 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
-import cn from 'classnames';
+import React from 'react';
 
-const Item = styled.div`
-    display: inline;
-    margin: 10px;
-    color: red;
-`;
 const SubMenu = ({ data, className }) => {
     return (
-        <div className="sub">
+        <div className={'sub' + className}>
             <div className="sub-inner">
                 <a className="back" href="#0">
                     Retour
@@ -23,17 +16,15 @@ const SubMenu = ({ data, className }) => {
                 </a>
                 {data.map((item) => {
                     return (
-                        <div className="col">
+                        <div className="col" key={item.id}>
                             <span className="title">
                                 <span>{item.category}</span>
                             </span>
                             <ul className="list">
                                 {item.links.map((link) => {
                                     return (
-                                        <li className="link ">
-                                            <a href={item.link} data-ea className>
-                                                {link.label}
-                                            </a>
+                                        <li className="link" key={link.label}>
+                                            <a href={item.link}>{link.label}</a>
                                         </li>
                                     );
                                 })}

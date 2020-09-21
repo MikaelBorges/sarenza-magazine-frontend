@@ -5,6 +5,6 @@ export function edito(model = {}) {
     return {
         logo: Image(model.logo),
         portraits: model.portraits.map((item) => portrait(item)),
-        slider: model.Slider.map((item) => sliderItem(item))
+        slider: model.Slider.map((item, index) => sliderItem(item, index + 1))
     };
 }
