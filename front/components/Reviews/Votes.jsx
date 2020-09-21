@@ -2,7 +2,7 @@ import React from 'react';
 
 const Votes = ({label, link}) => {
     return (
-    <a href={link}>{label}</a>
+    <a href={link} className="votes">{label}</a>
     );
 };
 

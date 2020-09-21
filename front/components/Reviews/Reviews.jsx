@@ -8,8 +8,8 @@ const Reviews = ({title, maxRate, rate, label, link}) => {
     return (
         <div>
             <p>{title}</p>
-            <p>{maxRate}</p>
-            <span className={rate}></span>
+            <span>{maxRate}</span>
+            <p className={`rate ${rate}`}></p>
           <Votes label={label} link={link}/>
         </div>
     );
