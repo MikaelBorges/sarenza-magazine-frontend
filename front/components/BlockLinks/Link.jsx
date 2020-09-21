@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Link = ({label, link}) => {
+function Link(props) {
     return (
-        <a href={link}> {label}</a>
-    );
-};
-
-export default Link;
+        <p><a href={props.link}>{props.label}</a></p>
+        );
+    }
+    
+    export default Link;

@@ -1,17 +1,15 @@
 import React from 'react';
-// import Link from './Link';
+import Link from './Link';
 
-
-
-const Links = ({title, link}) => {
+function BlockLinks({titles, links}) {
     return (
         <div>
-            <p>{title}</p>
-            {/* {link.map((label,link)=>{
-                <Link link={link} label={label} />
-            })} */}
+            <p>{titles}</p>
+            {links.map( (link)=>{
+            return  <Link link={link.link} label={link.label}  />
+            })}
         </div>
-        );
-    };
-    
-    export default Links;
+    );
+}
+
+export default BlockLinks;
