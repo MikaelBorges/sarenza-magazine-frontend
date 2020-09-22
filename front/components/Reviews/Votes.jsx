@@ -9,4 +9,9 @@ const Votes = ({label, link}) => {
     );
 };
 
+Votes.propTypes = {
+    link: PropTypes.string.isRequired,
+    label: PropTypes.string.isRequired,
+};
+
 export default Votes;
