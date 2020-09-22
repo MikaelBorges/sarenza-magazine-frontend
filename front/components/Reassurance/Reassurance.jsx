@@ -4,12 +4,7 @@ import ReassuranceItem from "./ReassuranceItem";
 
 
 
-const Reassurance = ({data}) => {
-    return (
-        <div>
-           { data && data.map((item,i)=><ReassuranceItem text={item.text} classIcon={item.classIcon} key={i}/>)}
-        </div>
-    );
-};
+const Reassurance = ({data}) => { data && data.map((item,id)=><ReassuranceItem text={item.text} classIcon={item.classIcon} key={id}/>)};
+
 
 export default Reassurance;
