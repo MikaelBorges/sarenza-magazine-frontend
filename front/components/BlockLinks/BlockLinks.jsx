@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from './Link';
+import PropTypes from 'prop-types'
 
 function BlockLinks({titles, links}) {
     return (
@@ -11,5 +12,9 @@ function BlockLinks({titles, links}) {
         </div>
     );
 }
+
+BlockLinks.propTypes = {
+    titles: PropTypes.string.isRequired,
+};
 
 export default BlockLinks;
