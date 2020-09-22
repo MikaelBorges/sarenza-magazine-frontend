@@ -8,36 +8,6 @@ import Flagship from "../../components/Flagship/Flagship";
 import { Onglet, Segments, Page, Container } from "./brandStyles";
 import { getBrandData } from "../../strapi/strapi.service";
 import IframeVideo from "../../components/IframeVideo";
-import FooterLink from "../../components/FooterLink/FooterLink";
-
-
-const data = [
-  {
-      "id": 1,
-      "Text": "*Conditions des<br />offres en cours",
-      "Url": null,
-      "DataContent": "/content/popin-page/get?pageId=356"
-  },
-  {
-      "id": 2,
-      "Text": "Conditions Générales<br />de Vente",
-      "Url": "/cgv",
-      "DataContent": null
-  },
-  {
-      "id": 4,
-      "Text": "Protection<br />des données personnelles",
-      "Url": "/protection-donnees",
-      "DataContent": null
-  },
-  {
-      "id": 3,
-      "Text": "Mentions<br />légales",
-      "Url": "/cgv#mentions-legales",
-      "DataContent": null
-  }
-];
-
 const Kickers = ({
   brandName,
   logo,
@@ -81,10 +51,6 @@ const Kickers = ({
               <IframeVideo iframe={video.iframe} />
               <Flagship title={flagship.title} items={flagship.items} />
             </Onglet>
-            {data.map((item)=> {
-              console.log(item);
-               return <FooterLink ids={item.id} texts={item.Text} urls={item.Url} contents={item.DataContent} />
-            })}
           </Segments>
         </Page>
       ) : (
