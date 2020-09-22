@@ -2,8 +2,6 @@ import React from 'react';
 
 import Votes from './Votes';
 
-
-
 const Reviews = ({title, maxRate, rate, label, link}) => {
     return (
         <div>

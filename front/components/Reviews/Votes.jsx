@@ -1,8 +1,11 @@
 import React from 'react';
 
+import Button from '../Button/Button';
+
+
 const Votes = ({label, link}) => {
     return (
-    <a href={link} className="votes">{label}</a>
+    <Button href={link} className="votes">{label}</Button>
     );
 };
 
