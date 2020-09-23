@@ -12,6 +12,8 @@ import Head from 'next/head';
 import React from 'react';
 import styled from 'styled-components';
 
+import Footer from '@/components/Footer/Footer';
+
 import Menu from '../components/Menu/Menu';
 
 const AppContainer = styled.div`
@@ -36,6 +38,7 @@ export default class MyApp extends App {
                 <AppContainer>
                     <Menu />
                     <Component {...pageProps} />
+                    <Footer />
                 </AppContainer>
             </>
         );

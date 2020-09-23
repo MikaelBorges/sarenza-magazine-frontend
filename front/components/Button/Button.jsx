@@ -42,6 +42,12 @@ const Link = styled.a`
         -webkit-font-smoothing: antialiased;
     }
 `;
-export const Button = ({ action, value }) => {
-    return value ? <Link href={action}>{value}</Link> : 'Erreur';
+export const Button = ({ action, value, className }) => {
+    return value ? (
+        <Link href={action} className={className}>
+            {value}
+        </Link>
+    ) : (
+        'Erreur'
+    );
 };
