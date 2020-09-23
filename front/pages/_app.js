@@ -5,6 +5,7 @@ import './styles/pages/PageMarqueAH17.css';
 import './styles/modules/HeaderAH17.css';
 import './styles/modules/BrandMainNewsAH17.css';
 import './styles/modules/Menu.scss';
+import './styles/modules/MainFooter.css';
 
 import App from 'next/app';
 import Head from 'next/head';

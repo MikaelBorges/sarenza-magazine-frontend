@@ -1,15 +1,21 @@
 import React from 'react';
 
-import CountrySelectorItem from "./CountrySelectorItem";
-
-const CountrySelector = ({Text, domain, data}) => {
+const CountrySelector = () => {
     return (
         <div className="country-selector">
-            <div className={'selected flags flags-' + domain}>
-                {Text}
-            </div>
+            {/* Pays courant */}
+            {CountryList.filter(country => country.isCurrent === true).map(filteredCountries => (
+                <div className={'selected flags flags-' + filteredCountries.domain}>
+                    {filteredCountries.Text}
+                </div>
+            ))}
+            {/* liste des pays sans le pays courant */}
             <ul class="list">
-                { data && data.map((item, i) => <CountrySelectorItem text={item.text} classIcon={item.classIcon} key={i} />) }
+            {CountryList.filter(country => country.isCurrent === null).map(filteredCountries => (
+                <li>
+                    <a href={filteredCountries.Link} className={'flags gtm-click flags-' + filteredCountries.domain} target="_blank">{filteredCountries.Text}</a>
+                </li>
+            ))}
             </ul>
         </div>
     );
