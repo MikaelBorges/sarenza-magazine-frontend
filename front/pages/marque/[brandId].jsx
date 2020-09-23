@@ -8,14 +8,6 @@ import Flagship from "../../components/Flagship/Flagship";
 import { Onglet, Segments, Page, Container } from "./brandStyles";
 import { getBrandData } from "../../strapi/strapi.service";
 import IframeVideo from "../../components/IframeVideo";
-import VariousText from "../../components/VariousText/VariousText";
-
-const  Texts= {
-  "id": 1,
-  "Title": "<span style='color: red;'>#NeRienLaisserPasser</span><br />Victime ou témoin de violences conjugales ?",
-  "Text": "Appel au 17 ou SMS alerte au 114 <br /> Service d'écoute au 3919 du lundi au samedi de 9h à 19h <br /> Signalement sur <a href='https://arretonslesviolences.gouv.fr' target='_blank'>arretonslesviolences.gouv.fr</a>"
-}
-
 const Kickers = ({
   brandName,
   logo,
@@ -59,7 +51,6 @@ const Kickers = ({
               <IframeVideo iframe={video.iframe} />
               <Flagship title={flagship.title} items={flagship.items} />
             </Onglet>
-            <VariousText title={Texts.Title} text={Texts.Text} />
           </Segments>
         </Page>
       ) : (
