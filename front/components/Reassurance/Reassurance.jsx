@@ -1,10 +1,18 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-import ReassuranceItem from "./ReassuranceItem";
+const Reassurance = props => {
+    return (
+    <li key={props.ids} className={`pictenza ${props.icons}`} >{props.texts}</li>
+        
+    );
+};
 
+Reassurance.propTypes = {
+    ids: PropTypes.string.isRequired,
+    icons:PropTypes.string.isRequired,
+    texts: PropTypes.string.isRequired
 
-
-const Reassurance = ({data}) => { data && data.map((item,id)=><ReassuranceItem text={item.text} classIcon={item.classIcon} key={id}/>)};
-
+};
 
 export default Reassurance;
