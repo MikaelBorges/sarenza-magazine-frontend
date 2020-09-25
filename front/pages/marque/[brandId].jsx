@@ -1,15 +1,14 @@
 import React from 'react';
-import Header from '@/components/Header/Header';
-import Section from '@/components/Section/Section';
-import BrandSeoBox from '@/components/BrandSeoBox/BrandSeoBox';
-import History from '@/components/History/History';
-import BrandSeoCollections from '@/components/BrandSeoCollections/BrandSeoCollections';
-import Flagship from '@/components/Flagship/Flagship';
-import { Onglet, Segments, Page, Container } from './brandStyles';
-import { getBrandData } from '../../strapi/strapi.service';
-import IframeVideo from '@/components/IframeVideo';
-import Alert from '@/components/Alert/Alert';
 
+import BrandSeoBox from '../../components/BrandSeoBox/BrandSeoBox';
+import BrandSeoCollections from '../../components/BrandSeoCollections/BrandSeoCollections';
+import Flagship from '../../components/Flagship/Flagship';
+import Header from '../../components/Header/Header';
+import History from '../../components/History/History';
+import IframeVideo from '../../components/IframeVideo';
+import Section from '../../components/Section/Section';
+import { getBrandData } from '../../strapi/strapi.service';
+import { Container, Onglet, Page, Segments } from './brandStyles';
 const Kickers = ({
     brandName,
     logo,
@@ -18,13 +17,12 @@ const Kickers = ({
     brandSeoCollections,
     brandDescription,
     video,
-    flagship,
-    alert
+    flagship
 }) => {
     return (
         <Container>
             {brandName ? (
-                <Page className="pageMarqueAH17">
+                <Page>
                     <Header title={brandName} alt={logo.alt} src={logo.src} logoOpacity={0.2} />
                     <Segments>
                         <Onglet>
@@ -45,11 +43,6 @@ const Kickers = ({
                             />
                             <IframeVideo iframe={video.iframe} />
                             <Flagship title={flagship.title} items={flagship.items} />
-                            <Alert
-                                text={alert.text}
-                                description={alert.description}
-                                button={alert.button}
-                            />
                         </Onglet>
                     </Segments>
                 </Page>
