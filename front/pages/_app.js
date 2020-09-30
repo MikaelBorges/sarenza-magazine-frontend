@@ -1,6 +1,5 @@
 /* _app.js */
 import './styles/Animation.scss';
-import './styles/Landing.scss';
 import './styles/pages/PageMarqueAH17.css';
 import './styles/modules/HeaderAH17.css';
 import './styles/modules/BrandMainNewsAH17.css';
