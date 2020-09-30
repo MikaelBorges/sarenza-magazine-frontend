@@ -1,5 +1,6 @@
 import { brand } from './model/brand';
 import { edito } from './model/edito';
+import { footer } from './model/footer';
 import { menu } from './model/menu';
 
 const getIdFromBrandName = (brandName) => {
@@ -45,5 +46,15 @@ export const getMenu = async () => {
         return menu(data);
     } catch (error) {
         throw Error(error.message);
+    }
+};
+
+export const getFooter = async () => {
+    try {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}footers/1`);
+        const data = await res.json();
+        return footer(data);
+    } catch (error) {
+        // console.error('getFooter -> error', error);
     }
 };
