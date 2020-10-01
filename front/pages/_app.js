@@ -2,6 +2,7 @@
 import './styles/Animation.scss';
 import './styles/Landing.scss';
 import './styles/modules/Menu.scss';
+import './styles/modules/PartnerPicto.css';
 import './styles/modules/MainFooter.css';
 
 import App from 'next/app';

@@ -4,6 +4,30 @@ import React, { useEffect, useState } from 'react';
 import { getMenu } from '../../strapi/strapi.service';
 import SubMenu from './subMenu';
 
+{/**
+****
+** A VOIR
+*
+* border du bas manquante : ciblée avec la class active qui est ajoutée en JS sur menu-group au hover
+* overlay qui apprait par dessus le contenu du site au hover également ciblé aussi avec la class active
+* -> voir pour ajouter la class active au hover, pas possible en CSS car elle s'ajoute à l'élément parent (menu-group)
+*
+* Genres pas bon dans le megamenu :
+* Actuellement : Genre / Femme / Homme / Enfant / Encore plus de nouveautés
+* En vrai : Genre / Femme / Homme / Enfant
+* + style des liens femme / homme / enfant incorrect
+* -> ajouter la class "all" au "li" de ces liens en plus de la class "link"
+* -> retirer le lien "Encore plus de nouveautés"
+*
+* Mettre les liens avec le domaine car je ne suis pas sûr qu'on sera sur le même domaine (peut-être  un magazine.sarenza.com, à voir)
+*
+* Prévoir le lien rose (ex actuellement Fin de collection) :
+* N'a pas de megamenu c'est juste un lien
+* class "promo" ajoutée après la class "tab"
+*
+****
+*/}
+
 const Menu = () => {
     const [menus, setMenus] = useState([]);
     useEffect(() => {
@@ -130,7 +154,6 @@ const Menu = () => {
                     <ul className="user-nav">
                         <li data-partner>
                             {/* module partner-picto */}
-                            <style />
                             <a
                                 className="pictenza pictenza-chat ea-tracker"
                                 data-ea
