@@ -4,7 +4,7 @@ import { getFooter } from 'strapi/strapi.service';
 import NeedHelp from '../NeedHelp/NeedHelp';
 
 const Footer = () => {
-    const [footer, setFooter] = useState({});
+    const [footer, setFooter] = useState(null);
     useEffect(() => {
         async function fetch() {
             const data = await getFooter();
@@ -13,9 +13,13 @@ const Footer = () => {
         fetch();
     }, []);
     return (
-        <footer id="MainFooter">
-            <NeedHelp data={footer.needHelp} />
-        </footer>
+        footer && (
+            <footer id="MainFooter">
+                <div className="help">
+                    <NeedHelp data={footer.needHelp} />
+                </div>
+            </footer>
+        )
     );
 };
 
