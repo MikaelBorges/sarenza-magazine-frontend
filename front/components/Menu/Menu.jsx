@@ -6,7 +6,7 @@ import SubMenu from './subMenu';
 
 {/**
 ****
-** A VOIR
+** MODE DESKTOP
 *
 * border du bas manquante : ciblée avec la class active qui est ajoutée en JS sur menu-group au hover
 * overlay qui apprait par dessus le contenu du site au hover également ciblé aussi avec la class active
@@ -18,6 +18,25 @@ import SubMenu from './subMenu';
 * + style des liens femme / homme / enfant incorrect
 * -> ajouter la class "all" au "li" de ces liens en plus de la class "link"
 * -> retirer le lien "Encore plus de nouveautés"
+*
+* MODE TABLETTE
+*
+* Attention au contour noir qui se met lorsqu'on clique sur l'icône du menu et le bouton fermer
+* -> mettre un "outline: none" au focus de l'élément
+*
+* Manque la user nav avec les liens d'accès à mon compte... 
+*
+* Le menu Homme est actif alors qu'on sera non genré, il faut qu'il soit inactif
+*
+* Les menus Femme / homme / enfant sont sur fond gris, il devraient être sur fond blanc
+*
+* A l'inverse les liens Nouveautés... doivent être sur fond gris
+*
+* Lorsqu'on clique sur un de ces liens il y a une animation qui affiche le sous menu associé avec cette fois les liens sur fond blanc
+* Attention dans ce sous-menu, certains peuvent se déplier
+*
+*
+*
 *
 * Mettre les liens avec le domaine car je ne suis pas sûr qu'on sera sur le même domaine (peut-être  un magazine.sarenza.com, à voir)
 *
