@@ -1,8 +1,8 @@
 import React from 'react';
 
-const SubMenu = ({ data, className }) => {
+const SubMenu = ({ data }) => {
     return (
-        <div className={'sub' + className}>
+        <div className={'sub'}>
             <div className="sub-inner">
                 <a className="back" href="#0">
                     Retour
