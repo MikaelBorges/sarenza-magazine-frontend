@@ -35,6 +35,8 @@ import SubMenu from './subMenu';
 * - il y a plusieurs ajouts de classes via le JS, changements de valeurs de certains styles inline
 * - plus 1 reset de tout ça lorsque que le menu est fermé
 *
+* EN mobile on n'appelle pas les CSS mobile landing.mobile.css / animation.mobile.css
+*
 *
 *
 *

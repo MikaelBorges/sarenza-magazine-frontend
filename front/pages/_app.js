@@ -19,7 +19,10 @@ const AppContainer = styled.div`
 `;
 const ContentContainer = styled.div`
     margin: 0 auto;
-    width: 1008px;
+    width: 100%;
+    @media screen and (min-width: 945px) {
+        width: 1008px;
+    }
 `;
 
 export default class MyApp extends App {
