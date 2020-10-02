@@ -26,14 +26,14 @@ import SubMenu from './subMenu';
 *
 * Manque la user nav avec les liens d'accès à mon compte... 
 *
-* Le menu Homme est actif alors qu'on sera non genré, il faut qu'il soit inactif
-*
-* Les menus Femme / homme / enfant sont sur fond gris, il devraient être sur fond blanc
-*
-* A l'inverse les liens Nouveautés... doivent être sur fond gris
-*
 * Lorsqu'on clique sur un de ces liens il y a une animation qui affiche le sous menu associé avec cette fois les liens sur fond blanc
 * Attention dans ce sous-menu, certains peuvent se déplier
+*
+* L'overlay apparaît lorsqu'on survole les liens du menu
+*
+* Je ne sais pas comment faire pour remettre tout ça en place si on ne met pas de JS :
+* - il y a plusieurs ajouts de classes via le JS, changements de valeurs de certains styles inline
+* - plus 1 reset de tout ça lorsque que le menu est fermé
 *
 *
 *
@@ -99,11 +99,11 @@ const Menu = () => {
                             Fermer
                         </span>
                         <div className="inner-scroll">
-                            <ul className="menu-group-list  active">
+                            <ul className="menu-group-list ">
                                 <li data-menu-group={1} className="group-tab ">
                                     <a href="/chaussure-femme">Femme</a>
                                 </li>
-                                <li data-menu-group={2} className="group-tab active">
+                                <li data-menu-group={2} className="group-tab">
                                     <a href="/chaussure-homme">Homme</a>
                                 </li>
                                 <li data-menu-group={3} className="group-tab ">
@@ -112,7 +112,7 @@ const Menu = () => {
                                 <li data-menu-group={1} className="group-root ">
                                     <a href="/chaussure-femme">Inspiration</a>
                                 </li>
-                                <li data-menu-group={2} className="group-root active">
+                                <li data-menu-group={2} className="group-root">
                                     <a href="/chaussure-homme">Inspiration</a>
                                 </li>
                                 <li data-menu-group={3} className="group-root ">
