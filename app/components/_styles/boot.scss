@@ -1,0 +1,13 @@
+// Boot CSS
+// Set global default CSS properties over normalize.css
+// -------------------
+
+@import 'theme';
+@import 'mixins/loader';
+
+body {
+  @include font('robotoCondensed');
+  @include font('robotoCondensedBold');
+  @include font('roboto');
+  font-family: robotoCondensed;
+}

@@ -1,0 +1,121 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Text /> should match the expected snapshot with custom wrapper 1`] = `
+<div>
+  <h2
+    class="Text"
+  >
+    test
+  </h2>
+</div>
+`;
+
+exports[`<Text /> should match the expected snapshot with default props 1`] = `
+<div>
+  <div
+    class="Text"
+  >
+    test
+  </div>
+</div>
+`;
+
+exports[`<Text /> should match the expected snapshot with prop "big" 1`] = `
+<div>
+  <div
+    class="Text big"
+  >
+    test
+  </div>
+</div>
+`;
+
+exports[`<Text /> should match the expected snapshot with prop "bigger" 1`] = `
+<div>
+  <div
+    class="Text bigger"
+  >
+    test
+  </div>
+</div>
+`;
+
+exports[`<Text /> should match the expected snapshot with prop "bold" 1`] = `
+<div>
+  <div
+    class="Text bold"
+  >
+    test
+  </div>
+</div>
+`;
+
+exports[`<Text /> should match the expected snapshot with prop "ellipsis" 1`] = `
+<div>
+  <div
+    class="Text ellipsis"
+  >
+    test
+  </div>
+</div>
+`;
+
+exports[`<Text /> should match the expected snapshot with prop "error" 1`] = `
+<div>
+  <div
+    class="Text error"
+  >
+    test
+  </div>
+</div>
+`;
+
+exports[`<Text /> should match the expected snapshot with prop "huge" 1`] = `
+<div>
+  <div
+    class="Text huge"
+  >
+    test
+  </div>
+</div>
+`;
+
+exports[`<Text /> should match the expected snapshot with prop "light" 1`] = `
+<div>
+  <div
+    class="Text light"
+  >
+    test
+  </div>
+</div>
+`;
+
+exports[`<Text /> should match the expected snapshot with prop "medium" 1`] = `
+<div>
+  <div
+    class="Text medium"
+  >
+    test
+  </div>
+</div>
+`;
+
+exports[`<Text /> should match the expected snapshot with prop "red" 1`] = `
+<div>
+  <div
+    class="Text red"
+  >
+    test
+  </div>
+</div>
+`;
+
+exports[`<Text /> should match the expected snapshot with prop "small" 1`] = `
+<div>
+  <div
+    class="Text small"
+  >
+    test
+  </div>
+</div>
+`;

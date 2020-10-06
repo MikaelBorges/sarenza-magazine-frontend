@@ -1,0 +1,78 @@
+// Config
+$fontPath: '../../../assets/fonts/';
+
+// Colors
+$color-primary: #737373;
+$color-primary-dark: #8f162b;
+$color-secondary: #1d1d1b;
+$color-background: #f2f2f2;
+$color-border: #e1e1e1;
+$color-white: #fff;
+$color-text: #1d1d1b;
+$color-text-light: #bbb;
+$color-text-xlight: #f2f2f2;
+$body-color: $color-text;
+$body-bg: #f2f1f1;
+$color-error: $color-primary-dark;
+$color-error-bg: #ffe8ec;
+$color-error-bg-dark: $color-primary-dark;
+$color-success: #28a745;
+
+// Fonts
+$safe-fonts: Arial, Helvetica, sans-serif;
+$font-regular: 'robotoCondensed', $safe-fonts;
+$font-size-base: 16px;
+$small-font-size: 11px;
+$medium-font-size: 14px;
+
+// Layout
+$line-height-base: 1.5;
+$zindex-level1: 10;
+$zindex-level2: 11;
+$zindex-level3: 12;
+
+// Border
+$border-radius: 3px;
+
+// Panel
+// $panel-has-shadow: false;
+
+// Input interval
+$input-offset: 10px;
+
+// Button
+$button-color: $color-primary;
+$button-bg: #fff;
+$button-color-hover: #1d1d1b;
+$button-bg-hover: #f2f2f2;
+$button-font-hover: robotoCondensedBold;
+$button-width: 50px;
+$button-padding: 6px 8px;
+$button-border-color: $color-border;
+$button-border-width: 1px;
+
+// InputText
+$inputtext-bg: $color-white;
+$inputtext-border: $color-border;
+$inputtext-padding: 7px 15px;
+$inputtext-height: 40px;
+$inputtext-border-radius: $border-radius;
+$inputtext-error-border-color: $color-error;
+$inputtext-error-bg-color: $color-error-bg;
+
+// Grid
+$grid-font: $font-regular;
+$grid-hover-bg: $color-primary;
+
+// Box
+$box-error-bg-color: $color-error-bg;
+$box-error-border-color: $color-error;
+
+// Text
+$text-font-base: $font-size-base;
+$text-font-small: $small-font-size;
+$text-font-medium: $medium-font-size;
+$text-color-danger: $color-error;
+
+// Progress Bar
+$progressbar-active-color: $color-primary;

@@ -1,0 +1,94 @@
+@import '../../_styles/theme';
+
+$button-color: $color-primary !default;
+$button-bg: #fff !default;
+$button-width: 50px !default;
+$button-padding: 6px 8px !default;
+$button-border-color: $color-border !default;
+$button-border-width: 1px !default;
+$button-border-radius: 4px !default;
+$button-hover-bg: $color-primary !default;
+$button-hover-color: $color-white !default;
+
+.button {
+  box-sizing: border-box;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  white-space: nowrap;
+  display: inline-flex;
+  position: relative;
+  margin: 0;
+  line-height: 1.75;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  align-items: center;
+  user-select: none;
+  vertical-align: middle;
+  justify-content: center;
+  cursor: default;
+
+  &:not(:disabled) {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &.hasLoader:not(:disabled):hover {
+    cursor: default;
+  }
+
+  .iconAfter {
+    margin-left: 5px;
+  }
+  .iconBefore {
+    margin-right: 5px;
+  }
+
+  &,
+  svg {
+    transition: all 0.2s ease-in;
+  }
+}
+
+.default {
+  padding: $button-padding;
+  min-width: $button-width;
+  border-radius: $button-border-radius;
+  color: $button-color;
+  text-transform: uppercase;
+  border: $button-border-width solid $button-border-color;
+  background-color: $button-bg;
+
+  svg {
+    fill: $button-color;
+  }
+
+  &:not(:disabled) {
+    &:hover,
+    &:active {
+      background: $button-hover-bg;
+      color: $button-hover-color;
+      cursor: pointer;
+
+      svg {
+        fill: $button-hover-color;
+      }
+    }
+    &:active {
+      box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.3);
+    }
+  }
+}
+
+.cta {
+  @extend .default;
+  background-color: $color-primary;
+  color: #fff;
+}
+
+.disabled {
+  opacity: 0.4;
+  color: $color-text-light;
+  cursor: not-allowed;
+}

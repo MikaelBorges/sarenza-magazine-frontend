@@ -5,11 +5,77 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "test": "jest",
+    "lint:style": "stylelint **/*.css",
+    "lint": "eslint --fix .",
+    "format": "prettier --write './**/*.{js,jsx,scss,css,md,json}' --config ./.prettierrc"
   },
   "dependencies": {
+    "@apollo/react-hooks": "^4.0.0",
+    "apollo-cache-inmemory": "^1.6.6",
+    "apollo-client": "^2.6.10",
+    "apollo-link-http": "^1.5.17",
+    "babel-plugin-module-resolver": "^4.0.0",
+    "eslint-plugin-jest": "^24.1.0",
+    "graphql": "^15.3.0",
+    "graphql-tag": "^2.11.0",
+    "isomorphic-unfetch": "^3.1.0",
     "next": "9.5.3",
+    "next-redux-wrapper": "^6.0.2",
+    "next-with-apollo": "^5.1.0",
+    "prop-types": "^15.7.2",
     "react": "16.13.1",
-    "react-dom": "16.13.1"
+    "react-dom": "16.13.1",
+    "react-redux": "^7.2.1",
+    "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0",
+    "sass": "^1.26.11"
+  },
+  "devDependencies": {
+    "@storybook/react": "^6.0.26",
+    "@testing-library/dom": "^7.24.3",
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.0.4",
+    "airbnb": "^0.0.2",
+    "babel-jest": "^26.3.0",
+    "eslint": "^7.9.0",
+    "eslint-config-airbnb": "18.2.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.20.6",
+    "eslint-plugin-react-hooks": "^4.1.2",
+    "eslint-plugin-simple-import-sort": "^5.0.3",
+    "husky": "^4.3.0",
+    "jest": "^26.4.2",
+    "jest-dom": "^4.0.0",
+    "lint-staged": "^10.4.0",
+    "prettier": "^2.1.2",
+    "redux-devtools-extension": "^2.13.8",
+    "stylelint": "^13.7.2",
+    "stylelint-config-prettier": "^8.0.2",
+    "stylelint-config-primer": "^9.1.0",
+    "stylelint-config-standard": "^20.0.0",
+    "stylelint-prettier": "^1.1.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx}": [
+      "eslint --fix"
+    ],
+    "*.{css,scss}": [
+      "stylelint"
+    ],
+    "*.{css,html,js,json,jsx,md,scss}": [
+      "prettier --write"
+    ]
   }
 }

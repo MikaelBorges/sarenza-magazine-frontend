@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button should match the expected snapshot with complete props 1`] = `
+<div>
+  <button
+    class="button default status undefined"
+    data-testid=""
+    title="toto"
+    type="button"
+  >
+    <span
+      class="buttonLabel"
+    >
+      Plop
+    </span>
+  </button>
+</div>
+`;
+
+exports[`Button should match the expected snapshot with default props 1`] = `
+<div>
+  Lien en erreur
+</div>
+`;

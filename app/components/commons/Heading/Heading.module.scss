@@ -1,0 +1,46 @@
+@import '../../_styles/theme';
+
+$h1-font-size: 36px !default;
+$h2-font-size: 30px !default;
+$h3-font-size: 24px !default;
+$h4-font-size: 20px !default;
+$h5-font-size: 16px !default;
+$h6-font-size: 14px !default;
+
+.heading1 {
+  font-size: $h1-font-size;
+}
+
+.heading2 {
+  font-size: $h2-font-size;
+}
+
+.heading3 {
+  font-size: $h3-font-size;
+}
+
+.heading4 {
+  font-size: $h4-font-size;
+}
+
+.heading5 {
+  font-size: $h5-font-size;
+}
+
+.heading6 {
+  font-size: $h6-font-size;
+}
+
+.sectionTitle {
+  font-size: 22px;
+  text-transform: uppercase;
+  display: block;
+  border-bottom: 1px solid #aaa;
+  background: #fff;
+  padding: 12px 15px;
+  margin: 20px 0;
+
+  &.noMargin {
+    margin: 0;
+  }
+}

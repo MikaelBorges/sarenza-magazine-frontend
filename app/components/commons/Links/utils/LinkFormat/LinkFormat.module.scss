@@ -1,0 +1,67 @@
+// @import './../../../styles/_common.css';
+
+.buttonLinkFormat {
+  display: block;
+  width: 100%;
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+  color: var(--color_white);
+  background: var(--color_sarenza);
+  padding: 0 10px;
+  height: 54px;
+  line-height: 50px;
+  border: none;
+  border-radius: 3px;
+  outline: 0;
+}
+
+.textLinkFormat {
+  font-weight: 600;
+  color: var(--color_sarenza);
+  transition: color 300ms;
+  margin-right: auto;
+}
+
+.smaller {
+  font-size: 14px;
+}
+
+.disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.important {
+  background: var(--color_red);
+}
+
+.pointerCursor {
+  cursor: pointer;
+}
+
+.fullATag {
+  padding: 0;
+}
+
+.fullATag a {
+  display: block;
+  padding: 0 10px;
+}
+
+.displayInlineBlock {
+  display: inline-block;
+}
+
+.displayBlock {
+  display: block;
+}
+
+.importantText {
+  font-size: 14px;
+  color: var(--color_red);
+}
+
+.importantText:hover {
+  color: var(--color_red-hover);
+}

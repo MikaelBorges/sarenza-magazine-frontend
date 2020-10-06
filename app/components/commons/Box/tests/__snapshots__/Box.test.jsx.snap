@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Box /> should match the expected snapshot with complete css class 1`] = `
+<div>
+  <div
+    class="box smallMargin displayColumn error"
+  >
+    <div
+      class="placeholder"
+    />
+  </div>
+</div>
+`;
+
+exports[`<Box /> should match the expected snapshot with default props 1`] = `
+<div>
+  <div
+    class="box"
+  >
+    test
+  </div>
+</div>
+`;
+
+exports[`<Box /> should match the expected snapshot without children but with placeholder 1`] = `
+<div>
+  <div
+    class="box"
+  >
+    <div
+      class="placeholder"
+    >
+      toto
+    </div>
+  </div>
+</div>
+`;

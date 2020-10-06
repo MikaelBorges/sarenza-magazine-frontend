@@ -1,0 +1,99 @@
+@import '../../_styles/theme';
+
+$spinner-color: $color-primary !default;
+$loading-dots-color: #b4b4b4 !default;
+$loading-dots-active: $color-primary !default;
+$loading-dots-duration: 0.9s !default;
+
+.loader {
+  display: flex;
+  justify-content: center;
+  padding: 50px;
+  text-align: center;
+
+  &.noPadding {
+    padding: 0;
+  }
+}
+
+.spinner {
+  animation: spin 1s infinite linear;
+  color: $spinner-color;
+}
+
+.dots {
+  display: inline-block;
+  position: relative;
+  width: 50px;
+  height: 10px;
+  .dot {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: $loading-dots-color;
+    animation-timing-function: ease-out;
+    animation-duration: $loading-dots-duration;
+    animation-iteration-count: infinite;
+    &:nth-child(1) {
+      left: 0;
+      animation-name: dot-wave;
+    }
+    &:nth-child(2) {
+      left: 20px;
+      animation-name: dot-wave-2;
+    }
+    &:nth-child(3) {
+      left: 40px;
+      animation-name: dot-wave-3;
+    }
+  }
+}
+
+@keyframes dot-wave {
+  20% {
+    transform: translateY(-10px);
+    background-color: $loading-dots-active;
+  }
+  40% {
+    transform: translateY(0);
+    background-color: $loading-dots-color;
+  }
+}
+@keyframes dot-wave-2 {
+  10% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(-10px);
+    background-color: $loading-dots-active;
+  }
+  50% {
+    transform: translateY(0);
+    background-color: $loading-dots-color;
+  }
+}
+@keyframes dot-wave-3 {
+  20% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+    background-color: $loading-dots-active;
+  }
+  60% {
+    transform: translateY(0);
+    background-color: $loading-dots-color;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

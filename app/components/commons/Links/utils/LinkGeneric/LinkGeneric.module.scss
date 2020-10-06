@@ -1,0 +1,80 @@
+@import '../../../../_styles/theme';
+@import '../../../../_styles/mixins/loader';
+
+.default {
+  box-sizing: border-box;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  white-space: nowrap;
+  cursor: default;
+
+  &:not(:disabled) {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.link {
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.button {
+  display: inline-flex;
+  position: relative;
+  margin: 0;
+  padding: $button-padding;
+  min-width: $button-width;
+  line-height: 1.75;
+  border-radius: 4px;
+  color: $button-color;
+  text-transform: uppercase;
+  border: $button-border-width solid $button-border-color;
+  text-decoration: none;
+  outline: none;
+  align-items: center;
+  user-select: none;
+  vertical-align: middle;
+  justify-content: center;
+  background-color: $button-bg;
+  transition: all 0.2s ease-in;
+
+  &:not(:disabled) {
+    &:hover,
+    &:active {
+      background: $button-bg-hover;
+      color: $button-color-hover;
+      font-family: $button-font-hover;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    &:active {
+      box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.3);
+    }
+  }
+}
+
+.cta {
+  @extend .button;
+  background-color: $color-primary;
+  color: #fff;
+}
+
+.digit {
+  @extend .button;
+  @include buttonDigit;
+}
+
+.disabled {
+  opacity: 0.4;
+  color: $color-text-light;
+  cursor: not-allowed;
+}
+
+svg + .buttonLabel,
+.buttonLabel + svg {
+  margin-left: 5px;
+}

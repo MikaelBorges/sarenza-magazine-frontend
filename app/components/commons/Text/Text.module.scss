@@ -1,0 +1,57 @@
+@import '../../_styles/theme';
+
+$text-color-error: red !default;
+$color-primary: #737373;
+
+.text {
+  color: $color-primary;
+}
+.container {
+  font-weight: 400;
+  font-size: $text-font-base;
+  line-height: 1.5em;
+}
+
+.error {
+  color: $text-color-danger;
+}
+
+.red {
+  color: $text-color-error;
+}
+
+.ellipsis {
+  display: inherit;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.small {
+  font-size: $text-font-small;
+}
+
+.medium {
+  font-size: $text-font-medium;
+  line-height: 22px;
+}
+
+.big {
+  font-size: 18px;
+}
+
+.bigger {
+  font-size: 20px;
+}
+
+.huge {
+  font-size: 22px;
+}
+
+.light {
+  font-weight: 300;
+}
+
+.bold {
+  font-weight: 600;
+}

@@ -1,0 +1,11 @@
+@import 'styles/loader';
+
+@include make-grid-columns();
+
+.alignCenter {
+  text-align: center;
+}
+
+.alignRight {
+  text-align: right;
+}

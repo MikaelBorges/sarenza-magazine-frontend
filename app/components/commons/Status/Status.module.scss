@@ -1,0 +1,98 @@
+@import '../../_styles/theme';
+
+$status-darken-var: 15 !default;
+
+$status-color-info: #17a2b8 !default;
+$status-color-success: #28a745 !default;
+$status-color-warning: #ff4600 !default;
+$status-color-error: #dc3545 !default;
+
+$status-color-info-light: #ebfcff !default;
+$status-color-success-light: #f1fff4 !default;
+$status-color-warning-light: #ffebe3 !default;
+$status-color-error-light: #ffeef0 !default;
+
+$status-color-info-dark: darken($status-color-info, $status-darken-var) !default;
+$status-color-success-dark: darken($status-color-success, $status-darken-var) !default;
+$status-color-warning-dark: darken($status-color-warning, $status-darken-var) !default;
+$status-color-error-dark: darken($status-color-error, $status-darken-var) !default;
+
+$status-text-negative: #fff !default;
+
+$colors: () !default;
+$colors: map-merge(
+  (
+    'info': (
+      'normal': $status-color-info,
+      'light': $status-color-info-light,
+      'dark': $status-color-info-dark
+    ),
+    'success': (
+      'normal': $status-color-success,
+      'light': $status-color-success-light,
+      'dark': $status-color-success-dark
+    ),
+    'warning': (
+      'normal': $status-color-warning,
+      'light': $status-color-warning-light,
+      'dark': $status-color-warning-dark
+    ),
+    'error': (
+      'normal': $status-color-error,
+      'light': $status-color-error-light,
+      'dark': $status-color-error-dark
+    )
+  ),
+  $colors
+);
+
+@function getColor($map, $key) {
+  @return map-get($map, $key);
+}
+
+@mixin textColor($color) {
+  color: $color;
+  svg {
+    fill: $color;
+  }
+}
+
+@mixin bgColor($bgColor, $borderColor: null) {
+  background-color: $bgColor;
+  @if ($borderColor) {
+    border-color: $borderColor;
+  }
+}
+
+@mixin getColorsStyles() {
+  @each $color in map-keys($colors) {
+    $colorMap: map-get($colors, $color);
+    $colorNormal: getColor($colorMap, 'normal');
+    $colorLight: getColor($colorMap, 'light');
+    $colorDark: getColor($colorMap, 'dark');
+
+    &.#{$color} {
+      @include textColor($colorNormal);
+
+      &:not(.isText) {
+        @include bgColor($colorLight, $colorNormal);
+
+        &.isDark,
+        &.isButton:hover {
+          &.#{$color} {
+            @include bgColor($colorDark);
+          }
+        }
+      }
+    }
+  }
+}
+
+.status:not(:disabled) {
+  @include getColorsStyles;
+
+  &.isDark,
+  &.isButton:hover {
+    @include textColor($status-text-negative);
+  }
+}

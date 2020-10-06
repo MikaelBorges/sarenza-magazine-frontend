@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Icon name="xxx" /> name "CHEVRON_DOWN" should match the expected snapshot 1`] = `
+<div>
+  <div
+    class="icon"
+    style="width: 32px; height: 32px;"
+  />
+</div>
+`;
+
+exports[`<Icon name="xxx" /> name "CHEVRON_LEFT" should match the expected snapshot 1`] = `
+<div>
+  <div
+    class="icon"
+    style="width: 32px; height: 32px;"
+  />
+</div>
+`;
+
+exports[`<Icon name="xxx" /> name "CHEVRON_RIGHT" should match the expected snapshot 1`] = `
+<div>
+  <div
+    class="icon"
+    style="width: 32px; height: 32px;"
+  />
+</div>
+`;

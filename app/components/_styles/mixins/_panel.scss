@@ -1,0 +1,22 @@
+@import '../theme';
+
+$panel-bg: #fff !default;
+$panel-margin: 0 0 20px !default;
+$panel-padding: 20px !default;
+$panel-border-radius: 5px !default;
+$panel-has-shadow: true !default;
+$panel-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14),
+  0px 1px 3px 0px rgba(0, 0, 0, 0.12) !default;
+
+@mixin panelize() {
+  margin-bottom: $panel-margin;
+  background: $panel-bg;
+  border-radius: $panel-border-radius;
+
+  @if ($panel-has-shadow) {
+    box-shadow: $panel-shadow;
+  }
+}
+@mixin panelizePadding() {
+  padding: $panel-padding;
+}

@@ -1,0 +1,43 @@
+@import '../theme';
+
+@mixin buttonDigit() {
+  height: 40px;
+  max-width: 100px;
+  background: #fff;
+  color: $body-color;
+  border: none;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+
+  &:not(:disabled) {
+    &:hover,
+    &:active {
+      background: #fff;
+      color: $color-primary;
+
+      svg {
+        fill: $color-primary;
+      }
+    }
+    &:hover {
+      cursor: default;
+    }
+    &:focus,
+    &:active {
+      cursor: inherit;
+    }
+  }
+
+  &::placeholder {
+    text-transform: uppercase;
+    color: $color-text;
+    opacity: 1;
+  }
+  &:-ms-input-placeholder {
+    text-transform: uppercase;
+    color: $color-text;
+  }
+  &::-ms-input-placeholder {
+    text-transform: uppercase;
+    color: $color-text;
+  }
+}
