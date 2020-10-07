@@ -1,9 +1,8 @@
 /* _app.js */
 import './styles/Animation.scss';
-import './styles/pages/PageMarqueAH17.css';
-import './styles/modules/HeaderAH17.css';
-import './styles/modules/BrandMainNewsAH17.css';
+import './styles/Landing.scss';
 import './styles/modules/Menu.scss';
+import './styles/modules/PartnerPicto.css';
 import './styles/modules/MainFooter.css';
 
 import App from 'next/app';
@@ -11,14 +10,19 @@ import Head from 'next/head';
 import React from 'react';
 import styled from 'styled-components';
 
-import Footer from '@/components/Footer/Footer';
-
 import Menu from '../components/Menu/Menu';
+import Footer from '../components/Footer/Footer';
 
 const AppContainer = styled.div`
     font-size: 14px;
-    width: 960px;
+    width: 100%;
+`;
+const ContentContainer = styled.div`
     margin: 0 auto;
+    width: 100%;
+    @media screen and (min-width: 945px) {
+        width: 1008px;
+    }
 `;
 
 export default class MyApp extends App {
@@ -27,17 +31,15 @@ export default class MyApp extends App {
         return (
             <>
                 <Head>
-                    <link
-                        rel="stylesheet"
-                        href="https://cdn.sarenza.net/website/prod_b/assets/stylesheet/home.default.min.css"
-                    />
                     <title>Page Marque - Sarenza</title>
                 </Head>
 
                 <AppContainer>
                     <Menu />
-                    <Component {...pageProps} />
-                    <Footer />
+                    <ContentContainer>
+                        <Component {...pageProps} />
+                        <Footer />
+                    </ContentContainer>
                 </AppContainer>
             </>
         );

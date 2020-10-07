@@ -4,6 +4,51 @@ import React, { useEffect, useState } from 'react';
 import { getMenu } from '../../strapi/strapi.service';
 import SubMenu from './subMenu';
 
+{/**
+****
+** MODE DESKTOP
+*
+* border du bas manquante : ciblée avec la class active qui est ajoutée en JS sur menu-group au hover
+* overlay qui apprait par dessus le contenu du site au hover également ciblé aussi avec la class active
+* -> voir pour ajouter la class active au hover, pas possible en CSS car elle s'ajoute à l'élément parent (menu-group)
+*
+* Genres pas bon dans le megamenu :
+* Actuellement : Genre / Femme / Homme / Enfant / Encore plus de nouveautés
+* En vrai : Genre / Femme / Homme / Enfant
+* + style des liens femme / homme / enfant incorrect
+* -> ajouter la class "all" au "li" de ces liens en plus de la class "link"
+* -> retirer le lien "Encore plus de nouveautés"
+*
+* MODE TABLETTE
+*
+* Attention au contour noir qui se met lorsqu'on clique sur l'icône du menu et le bouton fermer
+* -> mettre un "outline: none" au focus de l'élément
+*
+* Manque la user nav avec les liens d'accès à mon compte... 
+*
+* Lorsqu'on clique sur un de ces liens il y a une animation qui affiche le sous menu associé avec cette fois les liens sur fond blanc
+* Attention dans ce sous-menu, certains peuvent se déplier
+*
+* L'overlay apparaît lorsqu'on survole les liens du menu
+*
+* Je ne sais pas comment faire pour remettre tout ça en place si on ne met pas de JS :
+* - il y a plusieurs ajouts de classes via le JS, changements de valeurs de certains styles inline
+* - plus 1 reset de tout ça lorsque que le menu est fermé
+*
+* EN mobile on n'appelle pas les CSS mobile landing.mobile.css / animation.mobile.css
+*
+*
+*
+*
+* Mettre les liens avec le domaine car je ne suis pas sûr qu'on sera sur le même domaine (peut-être  un magazine.sarenza.com, à voir)
+*
+* Prévoir le lien rose (ex actuellement Fin de collection) :
+* N'a pas de megamenu c'est juste un lien
+* class "promo" ajoutée après la class "tab"
+*
+****
+*/}
+
 const Menu = () => {
     const [menus, setMenus] = useState([]);
     useEffect(() => {
@@ -56,11 +101,11 @@ const Menu = () => {
                             Fermer
                         </span>
                         <div className="inner-scroll">
-                            <ul className="menu-group-list  active">
+                            <ul className="menu-group-list ">
                                 <li data-menu-group={1} className="group-tab ">
                                     <a href="/chaussure-femme">Femme</a>
                                 </li>
-                                <li data-menu-group={2} className="group-tab active">
+                                <li data-menu-group={2} className="group-tab">
                                     <a href="/chaussure-homme">Homme</a>
                                 </li>
                                 <li data-menu-group={3} className="group-tab ">
@@ -69,7 +114,7 @@ const Menu = () => {
                                 <li data-menu-group={1} className="group-root ">
                                     <a href="/chaussure-femme">Inspiration</a>
                                 </li>
-                                <li data-menu-group={2} className="group-root active">
+                                <li data-menu-group={2} className="group-root">
                                     <a href="/chaussure-homme">Inspiration</a>
                                 </li>
                                 <li data-menu-group={3} className="group-root ">
@@ -130,7 +175,6 @@ const Menu = () => {
                     <ul className="user-nav">
                         <li data-partner>
                             {/* module partner-picto */}
-                            <style />
                             <a
                                 className="pictenza pictenza-chat ea-tracker"
                                 data-ea
