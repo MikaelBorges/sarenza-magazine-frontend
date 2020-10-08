@@ -9,16 +9,13 @@ const HOME_QUERY = gql`
       categories {
         label
       }
-      article {
-        trade_brand_premiums {
-          id
-          title: brand_name
-        }
-        article {
-          id
-          title
-        }
-      }
+    }
+    articles(sort: "updated_at:desc") {
+      id
+      title
+      author
+      image
+      updated_at
     }
   }
 `;

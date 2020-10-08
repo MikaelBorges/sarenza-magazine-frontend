@@ -1,0 +1,18 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.content {
+  margin-top: 40px;
+  width: 100%;
+  max-width: 568px;
+  margin-left: 40px;
+}
+.contentThree {
+  margin-top: 40px;
+  width: 391px;
+  max-width: 363px;
+  margin-left: 40px;
+}

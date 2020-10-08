@@ -6,6 +6,10 @@ $color-primary: #737373;
 .text {
   color: $color-primary;
 }
+
+.secondary {
+  color: $color-secondary;
+}
 .container {
   font-weight: 400;
   font-size: $text-font-base;
@@ -45,7 +49,7 @@ $color-primary: #737373;
 }
 
 .huge {
-  font-size: 22px;
+  font-size: 32px;
 }
 
 .light {
