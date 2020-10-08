@@ -15,18 +15,18 @@ const Menu = () => {
     }, []);
     const [openMenu, setOpenMenu] = useState(false);
 
-    const [isActive, addActive] = useState();
-
     useEffect(() => {
         let overlay = document.getElementById('MainNavOverlay');
-        if (isActive) {
+        if (openMenu) {
             overlay.style.display = 'block';
             overlay.style.transition = 'opacity 1s ease 0s';
         } else {
             overlay.style.display = 'none';
             overlay.style.transition = 'opacity 1s ease 0s';
         }
-    }, [isActive]);
+    }, [openMenu]);
+
+    // const testRef = useRef();
 
     if (!menus && menus.length) {
         return 'Loading...';
@@ -101,13 +101,10 @@ const Menu = () => {
                                 {menus.map((menu) => {
                                     return (
                                         <li
-                                            className={cn('menu-group', {
-                                                'active animate': isActive === menu.id
-                                            })}
-                                            onMouseEnter={() => addActive(menu.id)}
-                                            onMouseLeave={() => addActive('')}
+                                            className="menu-group"
                                             data-menu-group={2}
-                                            key={menu.id}>
+                                            key={menu.id} /*onClick={() => testRef.current}*/
+                                        >
                                             <a
                                                 className="tab"
                                                 data-promo
@@ -115,7 +112,7 @@ const Menu = () => {
                                                 href="/chaussure-nouvelle-collection-homme">
                                                 {menu.header.name}
                                             </a>
-                                            <SubMenu data={menu.items} />
+                                            <SubMenu data={menu.items} /*ref={testRef}*/ />
                                         </li>
                                     );
                                 })}
@@ -146,79 +143,16 @@ const Menu = () => {
                         <button className="pictenza pictenza-search" type="submit" />
                     </form>
                     <ul className="user-nav">
-                        <li data-partner>
-                            {/* module partner-picto */}
-                            <style />
-                            <a
-                                className="pictenza pictenza-chat ea-tracker"
-                                data-ea
-                                href="/faq"
-                                target="_blank"
-                                rel="noopener nofollow">
-                                <span>FAQ</span>
-                            </a>
-                            {/* module partner-picto End */}
-                        </li>
-                        {/* Account */}
                         <li className="account">
                             <a href="/user/view" className="pictenza pictenza-account">
                                 <span data-rsx="Connecté">Compte</span>
                             </a>
-                            {/* User layer */}
-                            <ul className="account-layer">
-                                <li className="sign-in">
-                                    <a className="east" href="/auth/sign-in/view">
-                                        Se connecter
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="/user/view?zone=orders">Voir mes commandes</a>
-                                </li>
-                                <li>
-                                    <a href="/user/view?zone=orders">Faire un retour</a>
-                                </li>
-                                <li>
-                                    <a href="/user/view?zone=returns">
-                                        Suivre mes retours et remboursements
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="/user/view?zone=addresses">
-                                        Mon carnet d&lsquo;adresses
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="/user/view?zone=user-infos">
-                                        Mes informations de connexion
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="/customer/alert/new/view">Alertes</a>
-                                </li>
-                                <li>
-                                    <a href="/user/view?zone=newsletters">
-                                        Mes Newsletters et Alertes
-                                    </a>
-                                </li>
-                                <li>
-                                    <a className="cookie-set">Mes cookies</a>
-                                </li>
-                                <li>
-                                    <a href="/user/view?zone=vouchers">Mes bons d&lsquo;achat</a>
-                                </li>
-                            </ul>
                         </li>
                         {/* Alerts */}
-                        <li className="alerts tooltip-parent">
+                        <li className="alerts">
                             <a href="/customer/alert/new/view" className="pictenza pictenza-alerts">
                                 <span>Alertes</span>
                             </a>
-                            <div className="tooltip">
-                                <span className="pictenza pictenza-cancel" />
-                                <span className="mighty">DECOUVREZ LES ALERTES NOUVEAUTES</span>
-                                Créez vos alertes pour recevoir chaque semaine par mail les
-                                dernières nouveautés de vos marques préférées.
-                            </div>
                         </li>
                         {/* Favorites */}
                         <li className="favorites">

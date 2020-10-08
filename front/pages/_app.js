@@ -1,17 +1,18 @@
 /* _app.js */
-import './styles/Animation.scss';
-import './styles/Landing.scss';
+import './styles/Animation_mobile.scss';
+import './styles/Landing_mobile.scss';
 import './styles/modules/Menu.scss';
 import './styles/modules/PartnerPicto.css';
 import './styles/modules/MainFooter.css';
+import '../components/Menu/Menu.scss';
 
 import App from 'next/app';
 import Head from 'next/head';
 import React from 'react';
 import styled from 'styled-components';
 
-import Menu from '../components/Menu/Menu';
 import Footer from '../components/Footer/Footer';
+import Menu from '../components/Menu/Menu_mobile';
 
 const AppContainer = styled.div`
     font-size: 14px;

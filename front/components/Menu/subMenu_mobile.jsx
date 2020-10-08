@@ -1,8 +1,13 @@
 import React from 'react';
 
 const SubMenu = ({ data }) => {
+    // useEffect( ()=>{
+    //     let changeDisplay = document.getElementsByClassName(".sub-inner");
+    //     if
+    // });
+
     return (
-        <div className={'sub'}>
+        <div className="sub">
             <div className="sub-inner">
                 <a className="back" href="#0">
                     Retour
