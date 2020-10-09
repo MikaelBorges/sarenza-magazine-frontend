@@ -1,5 +1,5 @@
 import classnames from 'classnames';
-import { Link } from 'next/link';
+import Link from 'next/link';
 import PropTypes from 'prop-types';
 import * as React from 'react';
 
@@ -52,48 +52,46 @@ const LinkGeneric = ({
       disabled
     };
 
-    return (
-      <>
-        {absolute ? (
-          <a
-            href={link}
-            title={title}
-            onFocus={onFocus}
-            onMouseEnter={onEnter}
-            onMouseLeave={onLeave}
-            rel={`noopener noreferrer${noFollow ? ' nofollow' : ''}`}
-            {...linkProps}>
-            <ChildrenWithIcon icon={{ name: iconName, isAfter: iconAfter }} label={childrenLabel} />
-          </a>
-        ) : (
-          <Link to={link} rel={noFollow ? ' nofollow' : undefined} {...linkProps}>
-            <ChildrenWithIcon icon={{ name: iconName, isAfter: iconAfter }} label={childrenLabel} />
-          </Link>
-        )}
-      </>
-    );
-  }
-
-  if (type === LINK_TYPE.BUTTON && (onClick || onKeyDown)) {
-    return (
-      <button
-        type="button"
+    return absolute ? (
+      <a
+        href={link}
         title={title}
         onFocus={onFocus}
         onMouseEnter={onEnter}
         onMouseLeave={onLeave}
-        onBlur={onBlur}
-        onKeyDown={onKeyDown}
-        onClick={onClick}
-        disabled={disabled}
-        className={cssClasses}
-        data-testid={dataTestid}>
-        {iconName ? (
-          <ChildrenWithIcon icon={{ name: iconName, isAfter: iconAfter }} label={childrenLabel} />
-        ) : (
-          childrenLabel
-        )}
-      </button>
+        rel={`noopener noreferrer${noFollow ? ' nofollow' : ''}`}
+        {...linkProps}>
+        <ChildrenWithIcon icon={{ name: iconName, isAfter: iconAfter }} label={childrenLabel} />
+      </a>
+    ) : (
+      <Link href={link} rel={noFollow ? ' nofollow' : undefined} {...linkProps}>
+        <ChildrenWithIcon icon={{ name: iconName, isAfter: iconAfter }} label={childrenLabel} />
+      </Link>
+    );
+  }
+
+  if (type === LINK_TYPE.BUTTON && (onClick || onKeyDown || link)) {
+    return (
+      <Link href={link}>
+        <button
+          type="button"
+          title={title}
+          onFocus={onFocus}
+          onMouseEnter={onEnter}
+          onMouseLeave={onLeave}
+          onBlur={onBlur}
+          onKeyDown={onKeyDown}
+          onClick={onClick}
+          disabled={disabled}
+          className={cssClasses}
+          data-testid={dataTestid}>
+          {iconName ? (
+            <ChildrenWithIcon icon={{ name: iconName, isAfter: iconAfter }} label={childrenLabel} />
+          ) : (
+            childrenLabel
+          )}
+        </button>
+      </Link>
     );
   }
 

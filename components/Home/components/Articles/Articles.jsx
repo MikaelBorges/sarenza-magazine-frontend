@@ -11,11 +11,11 @@ const Articles = ({ articles }) => {
       {articles.map((article, index) => {
         return (
           <div
+            key={article.id}
             className={classnames({
               [styles.content]: index < 2,
               [styles.contentThree]: index >= 2
-            })}
-            key={article.id}>
+            })}>
             <ArticleItem article={article} />
           </div>
         );

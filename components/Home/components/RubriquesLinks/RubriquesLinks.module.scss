@@ -1,11 +1,11 @@
 @import '../../../../app/components/_styles/theme';
 
-.categoryLinks {
-  padding: 16px;
-  margin-right: 8px;
+.rubriquesLinks {
+  padding: 16px !important;
+  margin-right: 8px !important;
   font-size: $small-font-size;
   font-family: roboto;
   &span:hover {
-    background-color: #f2f2f2;
+    background-color: $color-background;
   }
 }

@@ -1,19 +1,19 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 
 import { Row } from '@/components/commons/Grid';
 import Col from '@/components/commons/Grid/Col';
 import Query from '@/components/Query';
 
-import HOME_QUERY from '../../apollo/queries/home/homeQuery';
 import Articles from './components/Articles/Articles';
 import MainComponent from './components/Articles/MainComponent/MainComponent';
 import Header from './components/Header/Header';
 import Headline from './components/Headline/Headline';
 import processToHome from './model/Home';
 
-const Home = () => {
+const Home = ({ query, rubriqueName }) => {
   return (
-    <Query query={HOME_QUERY} processTo={processToHome}>
+    <Query query={query} processTo={processToHome} params={{ rubriqueName }}>
       {(data) => {
         return (
           <Row>
@@ -36,4 +36,13 @@ const Home = () => {
   );
 };
 
+Home.propTypes = {
+  rubriqueName: PropTypes.string,
+  query: PropTypes.string
+};
+
+Home.defaultProps = {
+  rubriqueName: '',
+  query: ''
+};
 export default Home;

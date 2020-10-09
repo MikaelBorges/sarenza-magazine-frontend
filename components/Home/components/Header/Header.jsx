@@ -6,7 +6,7 @@ import Row from '@/components/commons/Grid/Row';
 import Heading from '@/components/commons/Heading';
 import Text from '@/components/commons/Text/Text';
 
-import CategoryLinks from '../CategoryLinks/CategoryLinks';
+import RubriquesLinks from '../RubriquesLinks/RubriquesLinks';
 import styles from './Header.module.scss';
 
 const Header = ({ header }) => {
@@ -19,7 +19,7 @@ const Header = ({ header }) => {
         <Text medium>{header.description}</Text>
       </Col>
       <Col span={12} extraClasses={styles.heading}>
-        <CategoryLinks categories={header.categories} />
+        <RubriquesLinks rubriques={header.rubriques} />
       </Col>
     </Row>
   );
