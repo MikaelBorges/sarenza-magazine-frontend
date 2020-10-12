@@ -1,0 +1,359 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Pagination /> change the page size 1`] = `
+<div>
+  <div>
+    <div />
+    <div>
+      <div>
+        <div
+          data-testid="test-0"
+        >
+          Je suis 0
+        </div>
+        <div
+          data-testid="test-1"
+        >
+          Je suis 1
+        </div>
+        <div
+          data-testid="test-2"
+        >
+          Je suis 2
+        </div>
+        <div
+          data-testid="test-3"
+        >
+          Je suis 3
+        </div>
+        <div
+          data-testid="test-4"
+        >
+          Je suis 4
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="paginationRight"
+      >
+        <div
+          class="label"
+        >
+          Lignes par page :
+           
+        </div>
+        <div
+          class="select"
+        >
+          <select
+            data-testid="rangeSelectItems"
+          >
+            <option
+              value="5"
+            >
+              5
+            </option>
+            <option
+              value="10"
+            >
+              10
+            </option>
+            <option
+              value="15"
+            >
+              15
+            </option>
+            <option
+              value="20"
+            >
+              20
+            </option>
+            <option
+              value="50"
+            >
+              50
+            </option>
+            <option
+              value="100"
+            >
+              100
+            </option>
+          </select>
+        </div>
+        <div
+          class="label"
+        >
+          Page : 1 sur 20
+        </div>
+        <button
+          data-testid="pagePrevButton"
+          disabled=""
+        >
+          Précédent
+        </button>
+        <button
+          data-testid="pageNextButton"
+        >
+          Suivant
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<Pagination /> get next page when click on the next button 1`] = `
+<div>
+  <div>
+    <div />
+    <div>
+      <div>
+        <div
+          data-testid="test-10"
+        >
+          Je suis 10
+        </div>
+        <div
+          data-testid="test-11"
+        >
+          Je suis 11
+        </div>
+        <div
+          data-testid="test-12"
+        >
+          Je suis 12
+        </div>
+        <div
+          data-testid="test-13"
+        >
+          Je suis 13
+        </div>
+        <div
+          data-testid="test-14"
+        >
+          Je suis 14
+        </div>
+        <div
+          data-testid="test-15"
+        >
+          Je suis 15
+        </div>
+        <div
+          data-testid="test-16"
+        >
+          Je suis 16
+        </div>
+        <div
+          data-testid="test-17"
+        >
+          Je suis 17
+        </div>
+        <div
+          data-testid="test-18"
+        >
+          Je suis 18
+        </div>
+        <div
+          data-testid="test-19"
+        >
+          Je suis 19
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="paginationRight"
+      >
+        <div
+          class="label"
+        >
+          Lignes par page :
+           
+        </div>
+        <div
+          class="select"
+        >
+          <select
+            data-testid="rangeSelectItems"
+          >
+            <option
+              value="5"
+            >
+              5
+            </option>
+            <option
+              value="10"
+            >
+              10
+            </option>
+            <option
+              value="15"
+            >
+              15
+            </option>
+            <option
+              value="20"
+            >
+              20
+            </option>
+            <option
+              value="50"
+            >
+              50
+            </option>
+            <option
+              value="100"
+            >
+              100
+            </option>
+          </select>
+        </div>
+        <div
+          class="label"
+        >
+          Page : 2 sur 10
+        </div>
+        <button
+          data-testid="pagePrevButton"
+        >
+          Précédent
+        </button>
+        <button
+          data-testid="pageNextButton"
+        >
+          Suivant
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<Pagination /> should match the expected snapshot with default props 1`] = `
+<div>
+  <div>
+    <div />
+    <div>
+      <div>
+        <div
+          data-testid="test-0"
+        >
+          Je suis 0
+        </div>
+        <div
+          data-testid="test-1"
+        >
+          Je suis 1
+        </div>
+        <div
+          data-testid="test-2"
+        >
+          Je suis 2
+        </div>
+        <div
+          data-testid="test-3"
+        >
+          Je suis 3
+        </div>
+        <div
+          data-testid="test-4"
+        >
+          Je suis 4
+        </div>
+        <div
+          data-testid="test-5"
+        >
+          Je suis 5
+        </div>
+        <div
+          data-testid="test-6"
+        >
+          Je suis 6
+        </div>
+        <div
+          data-testid="test-7"
+        >
+          Je suis 7
+        </div>
+        <div
+          data-testid="test-8"
+        >
+          Je suis 8
+        </div>
+        <div
+          data-testid="test-9"
+        >
+          Je suis 9
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="paginationRight"
+      >
+        <div
+          class="label"
+        >
+          Lignes par page :
+           
+        </div>
+        <div
+          class="select"
+        >
+          <select
+            data-testid="rangeSelectItems"
+          >
+            <option
+              value="5"
+            >
+              5
+            </option>
+            <option
+              value="10"
+            >
+              10
+            </option>
+            <option
+              value="15"
+            >
+              15
+            </option>
+            <option
+              value="20"
+            >
+              20
+            </option>
+            <option
+              value="50"
+            >
+              50
+            </option>
+            <option
+              value="100"
+            >
+              100
+            </option>
+          </select>
+        </div>
+        <div
+          class="label"
+        >
+          Page : 1 sur 10
+        </div>
+        <button
+          data-testid="pagePrevButton"
+          disabled=""
+        >
+          Précédent
+        </button>
+        <button
+          data-testid="pageNextButton"
+        >
+          Suivant
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;

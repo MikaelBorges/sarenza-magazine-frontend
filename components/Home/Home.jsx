@@ -1,8 +1,11 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
+import Box from '@/components/commons/Box/Box';
 import { Row } from '@/components/commons/Grid';
 import Col from '@/components/commons/Grid/Col';
+import PaginationComponent from '@/components/commons/Pagination/components/PaginationComponent';
+import Pagination from '@/components/commons/Pagination/Pagination';
 import Text from '@/components/commons/Text/Text';
 import Query from '@/components/Query';
 
@@ -17,32 +20,47 @@ const Home = ({ query, rubriqueName }) => {
     <Query query={query} processTo={processToHome} params={{ rubriqueName }}>
       {(data) => {
         return (
-          <Row>
-            <Col span={12} offset={12}>
-              <Header header={data.header} />
-            </Col>
-            <Col span={12}>
-              <Headline />
-            </Col>
-            <Col span={12} offset={12}>
-              <MainComponent article={data.firstArticle} />
-            </Col>
-            <Col span={12}>
-              <Text marquee>{data.animateTexts[0].text}</Text>
-            </Col>
-            <Col span={12} offset={12}>
-              <Articles articles={data.articles.slice(0, 5)} position={1} />
-            </Col>
-            <Col span={12} offset={12}>
-              TODO: DISPLAY COMPONENT
-            </Col>
-            <Col span={12} offset={12}>
-              <Articles articles={data.articles.slice(0, 5)} position={2} />
-            </Col>
-            <Col span={12}>
-              <Text marquee>{data.animateTexts[0].text}</Text>
-            </Col>
-          </Row>
+          <Pagination
+            data={data.articles}
+            renderContent={(articles) => (
+              <Row>
+                <Col span={12} offset={12}>
+                  <Header header={data.header} />
+                </Col>
+                <Col span={12}>
+                  <Headline />
+                </Col>
+                <Col span={12} offset={12}>
+                  <MainComponent article={data.firstArticle} />
+                </Col>
+                <Col span={12}>
+                  <Text marquee>{data.animateTexts[0].text}</Text>
+                </Col>
+                <Col span={12} offset={12}>
+                  <Articles articles={articles.slice(0, 5)} position={1} />
+                </Col>
+                <Col span={12} offset={12}>
+                  <Box> TODO: DISPLAY COMPONENT </Box>
+                </Col>
+                <Col span={12} offset={12}>
+                  <Articles articles={articles.slice(0, 5)} position={2} />
+                </Col>
+                <Col span={12}>
+                  <Text marquee>{data.animateTexts[0].text}</Text>
+                </Col>
+              </Row>
+            )}
+            renderFooter={(articles, param) => {
+              return (
+                articles && (
+                  <PaginationComponent
+                    data={articles.map((item) => ({ label: item.name, value: item.id }))}
+                    params={param}
+                  />
+                )
+              );
+            }}
+          />
         );
       }}
     </Query>
