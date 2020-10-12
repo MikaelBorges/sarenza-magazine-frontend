@@ -3,6 +3,7 @@ import React from 'react';
 
 import { Row } from '@/components/commons/Grid';
 import Col from '@/components/commons/Grid/Col';
+import Text from '@/components/commons/Text/Text';
 import Query from '@/components/Query';
 
 import Articles from './components/Articles/Articles';
@@ -26,8 +27,20 @@ const Home = ({ query, rubriqueName }) => {
             <Col span={12} offset={12}>
               <MainComponent article={data.firstArticle} />
             </Col>
+            <Col span={12}>
+              <Text marquee>{data.animateTexts[0].text}</Text>
+            </Col>
             <Col span={12} offset={12}>
-              <Articles articles={data.articles.slice(0, 5)} />
+              <Articles articles={data.articles.slice(0, 5)} position={1} />
+            </Col>
+            <Col span={12} offset={12}>
+              TODO: DISPLAY COMPONENT
+            </Col>
+            <Col span={12} offset={12}>
+              <Articles articles={data.articles.slice(0, 5)} position={2} />
+            </Col>
+            <Col span={12}>
+              <Text marquee>{data.animateTexts[0].text}</Text>
             </Col>
           </Row>
         );

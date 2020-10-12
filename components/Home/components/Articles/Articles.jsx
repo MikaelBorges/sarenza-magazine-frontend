@@ -5,7 +5,7 @@ import React from 'react';
 import ArticleItem from './ArticleItem/ArticleItem';
 import styles from './Articles.module.scss';
 
-const Articles = ({ articles }) => {
+const Articles = ({ articles, position }) => {
   return (
     <div className={styles.container}>
       {articles.map((article, index) => {
@@ -13,8 +13,9 @@ const Articles = ({ articles }) => {
           <div
             key={article.id}
             className={classnames({
-              [styles.content]: index < 2,
-              [styles.contentThree]: index >= 2
+              [styles.content]: (index < 2 && position === 1) || (index > 2 && position === 2),
+              [styles.contentThree]:
+                (index >= 2 && position === 1) || (index <= 2 && position === 2)
             })}>
             <ArticleItem article={article} />
           </div>

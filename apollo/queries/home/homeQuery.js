@@ -6,6 +6,12 @@ export const HOME_QUERY = gql`
       id
       title
       shortDescription
+      marqueComponent {
+        id
+        MarqueeContent {
+          text
+        }
+      }
     }
     articles(sort: "updated_at:desc", where: { rubriques: { url: $rubriqueName } }) {
       id
@@ -28,6 +34,12 @@ export const HOME_QUERY_ALL = gql`
       id
       title
       shortDescription
+      marqueComponent {
+        id
+        MarqueeContent {
+          text
+        }
+      }
     }
     articles(sort: "updated_at:desc") {
       id

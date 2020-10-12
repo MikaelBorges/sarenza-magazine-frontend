@@ -16,7 +16,7 @@ function App({ Component, pageProps, apollo }) {
       <Head>
         <title>Sarenza - Magazine</title>
       </Head>
-      <div style={{ width: '1200px', margin: '0 auto' }}>
+      <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
         <Component {...pageProps} />
       </div>
     </ApolloProvider>

@@ -20,6 +20,7 @@ import styles from './Text.module.scss';
  * @param {Boolean} huge
  * @param {Boolean} light
  * @param {Boolean} bold
+ * @param {Boolean} marquee
  */
 
 const Text = ({ children, wrapperTag, ...props }) => {

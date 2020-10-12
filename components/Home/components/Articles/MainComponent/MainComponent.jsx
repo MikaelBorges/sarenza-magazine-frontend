@@ -16,7 +16,7 @@ const MainComponent = ({ article }) => {
           publishDate={article.publishDate}
         />
       </Col>
-      <Col span={7} className={styles.author}>
+      <Col span={7}>
         <img src={article.image} className={styles.image} alt={article.title} />
       </Col>
     </Row>

@@ -16,6 +16,13 @@ const processToRubrique = (model = []) => {
   };
 };
 
+const processToMarquee = (model = {}) => {
+  return {
+    id: model.id,
+    text: model.MarqueeContent.text
+  };
+};
+
 const processToHome = (model = {}) => {
   return {
     header: {
@@ -24,7 +31,8 @@ const processToHome = (model = {}) => {
       rubriques: model.rubriques.map(processToRubrique) || []
     },
     firstArticle: processToHomeArticle(model.articles[0]),
-    articles: model.articles.slice(1).map(processToHomeArticle)
+    articles: model.articles.slice(1).map(processToHomeArticle),
+    animateTexts: model.home.marqueComponent.map(processToMarquee)
   };
 };
 

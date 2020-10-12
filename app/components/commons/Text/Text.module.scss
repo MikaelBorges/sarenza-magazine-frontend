@@ -2,6 +2,7 @@
 
 $text-color-error: red !default;
 $color-primary: #737373;
+$color-marquee: #ff2157;
 
 .text {
   color: $color-primary;
@@ -58,4 +59,24 @@ $color-primary: #737373;
 
 .bold {
   font-weight: 600;
+}
+
+.marquee {
+  font-size: 156px;
+  color: $color-marquee;
+  font-family: FuturaPTCond-Bold;
+  text-align: center;
+  line-height: 136px;
+  animation: marquee 10s linear infinite;
+  position: relative;
+}
+
+@keyframes marquee {
+  from {
+    right: -1200px;
+  }
+
+  to {
+    right: 1200px;
+  }
 }
