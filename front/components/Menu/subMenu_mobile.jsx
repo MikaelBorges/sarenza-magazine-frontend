@@ -1,19 +1,19 @@
 import React from 'react';
 
-const SubMenu = ({ data }) => {
-    // useEffect( ()=>{
-    //     let changeDisplay = document.getElementsByClassName(".sub-inner");
-    //     if
-    // });
+
+const SubMenu = ({ data, tabId, menuId }) => {
+
+  
 
     return (
         <div className="sub">
-            <div className="sub-inner">
+            <div
+                className="sub-inner" style={{display: tabId === menuId ? 'block' : "none"}}>
                 <a className="back" href="#0">
                     Retour
                 </a>
                 <a
-                    className="root  "
+                    className="root"
                     data-promo
                     data-ea
                     href="/chaussure-nouvelle-collection-homme">

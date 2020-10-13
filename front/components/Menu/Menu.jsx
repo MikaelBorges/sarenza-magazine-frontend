@@ -15,7 +15,6 @@ const Menu = () => {
     }, []);
     const [openMenu, setOpenMenu] = useState(false);
 
-    const [isActive, addActive] = useState();
 
     useEffect(() => {
         let overlay = document.getElementById('MainNavOverlay');

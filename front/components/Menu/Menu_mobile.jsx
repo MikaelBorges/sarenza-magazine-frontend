@@ -1,11 +1,17 @@
+/*eslint-env browser*/
+
 import cn from 'classnames';
 import React, { useEffect, useState } from 'react';
 
 import { getMenu } from '../../strapi/strapi.service';
-import SubMenu from './subMenu';
+import SubMenu from './subMenu_mobile';
 
 const Menu = () => {
+
+
     const [menus, setMenus] = useState([]);
+
+
     useEffect(() => {
         async function fetch() {
             const menus = await getMenu();
@@ -13,6 +19,8 @@ const Menu = () => {
         }
         fetch();
     }, []);
+
+
     const [openMenu, setOpenMenu] = useState(false);
 
     useEffect(() => {
@@ -26,7 +34,12 @@ const Menu = () => {
         }
     }, [openMenu]);
 
-    // const testRef = useRef();
+
+    const [openTab, setOpenTab] = useState(false);
+
+
+
+
 
     if (!menus && menus.length) {
         return 'Loading...';
@@ -54,7 +67,8 @@ const Menu = () => {
                     <nav
                         id="MainNav-RD"
                         className={cn({
-                            ['open']: openMenu
+                            ['open']: openMenu,
+                            ["level2"]: openMenu
                         })}>
                         <a className="back" href="#0">
                             Menu
@@ -102,17 +116,20 @@ const Menu = () => {
                                     return (
                                         <li
                                             className="menu-group"
+                                            onClick={()=> {
+                                                setOpenTab(menu.id)
+                                            }}
                                             data-menu-group={2}
-                                            key={menu.id} /*onClick={() => testRef.current}*/
+                                            key={menu.id} 
                                         >
                                             <a
                                                 className="tab"
                                                 data-promo
                                                 data-ea
-                                                href="/chaussure-nouvelle-collection-homme">
+                                                >
                                                 {menu.header.name}
                                             </a>
-                                            <SubMenu data={menu.items} /*ref={testRef}*/ />
+                                            <SubMenu data={menu.items} tabId={openTab} menuId={menu.id}/>
                                         </li>
                                     );
                                 })}
