@@ -40,11 +40,7 @@ const Menu = () => {
         }
     }, [openMenu]);
 
-    const [openTab, setOpenTab1] = useState();
-
-    const setOpenTab = (id) => {
-        setOpenTab1(id);
-    };
+    const [openTab, setOpenTab] = useState();
 
     const [isActive, addActive] = useState();
 
