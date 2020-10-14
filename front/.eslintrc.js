@@ -32,6 +32,7 @@ module.exports = {
         'react/prop-types': 'off',
         '@typescript-eslint/explicit-function-return-type': 'off',
         'simple-import-sort/sort': 'error',
+        'jsx-a11y/no-noninteractive-element-to-interactive-role': 'off',
         'jsx-a11y/anchor-is-valid': [
             'error',
             {

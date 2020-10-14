@@ -3,14 +3,12 @@
 import cn from 'classnames';
 import React, { useEffect, useState } from 'react';
 
+import { getGender } from '../../strapi/strapi.service';
 import { getMenu } from '../../strapi/strapi.service';
 import SubMenu from './subMenu_mobile';
 
 const Menu = () => {
-
-
     const [menus, setMenus] = useState([]);
-
 
     useEffect(() => {
         async function fetch() {
@@ -20,8 +18,16 @@ const Menu = () => {
         fetch();
     }, []);
 
+    const [genders, setGenders] = useState([]);
+    useEffect(() => {
+        async function fetch() {
+            const genders = await getGender();
+            setGenders(genders);
+        }
+        fetch();
+    }, []);
 
-    const [openMenu, setOpenMenu] = useState(false);
+    const [openMenu, setOpenMenu] = useState();
 
     useEffect(() => {
         let overlay = document.getElementById('MainNavOverlay');
@@ -34,12 +40,13 @@ const Menu = () => {
         }
     }, [openMenu]);
 
+    const [openTab, setOpenTab1] = useState();
 
-    const [openTab, setOpenTab] = useState(false);
+    const setOpenTab = (id) => {
+        setOpenTab1(id);
+    };
 
-
-
-
+    const [isActive, addActive] = useState();
 
     if (!menus && menus.length) {
         return 'Loading...';
@@ -68,7 +75,7 @@ const Menu = () => {
                         id="MainNav-RD"
                         className={cn({
                             ['open']: openMenu,
-                            ["level2"]: openMenu
+                            ['level2']: openTab
                         })}>
                         <a className="back" href="#0">
                             Menu
@@ -84,27 +91,47 @@ const Menu = () => {
                             Fermer
                         </span>
                         <div className="inner-scroll">
-                            <ul className="menu-group-list  active">
-                                <li data-menu-group={1} className="group-tab ">
-                                    <a href="/chaussure-femme">Femme</a>
-                                </li>
-                                <li data-menu-group={2} className="group-tab active">
-                                    <a href="/chaussure-homme">Homme</a>
-                                </li>
-                                <li data-menu-group={3} className="group-tab ">
-                                    <a href="/chaussure-enfant">Enfant</a>
-                                </li>
-                                <li data-menu-group={1} className="group-root ">
-                                    <a href="/chaussure-femme">Inspiration</a>
-                                </li>
-                                <li data-menu-group={2} className="group-root active">
-                                    <a href="/chaussure-homme">Inspiration</a>
-                                </li>
-                                <li data-menu-group={3} className="group-root ">
-                                    <a href="/chaussure-enfant">Inspiration</a>
-                                </li>
+                            <ul
+                                className={cn('menu-group-list', {
+                                    active: isActive === true
+                                })}
+                                style={{
+                                    left: openTab ? '-320px' : '0',
+                                    height: openTab ? '10px' : 'auto',
+                                    display: openTab ? 'none' : 'flex'
+                                }}>
+                                {genders.map((gender) => {
+                                    return (
+                                        <li
+                                            data-menu-group={gender.id}
+                                            className={cn('group-tab', {
+                                                active: isActive === gender.id
+                                            })}
+                                            role="button"
+                                            onKeyPress={() => {}}
+                                            tabIndex={-2}
+                                            onClick={() => addActive(gender.id)}
+                                            key={gender.id}>
+                                            <a
+                                                role="button"
+                                                onKeyPress={() => {}}
+                                                tabIndex={-3}
+                                                href="/chaussure-"
+                                                onClick={(e) => {
+                                                    e.preventDefault();
+                                                }}>
+                                                {gender.gender}
+                                            </a>
+                                        </li>
+                                    );
+                                })}
                             </ul>
-                            <ul className="main-list">
+                            <ul
+                                className="main-list"
+                                style={{
+                                    left: openTab ? '-320px' : '0',
+                                    height: openTab ? '0' : 'auto'
+                                }}>
                                 {/* [RD] - MegaMenu Item men: début */}
                                 <style
                                     dangerouslySetInnerHTML={{
@@ -116,20 +143,23 @@ const Menu = () => {
                                     return (
                                         <li
                                             className="menu-group"
-                                            onClick={()=> {
-                                                setOpenTab(menu.id)
+                                            role="button"
+                                            onKeyPress={() => {}}
+                                            tabIndex={-4}
+                                            onClick={() => {
+                                                setOpenTab(menu.id);
                                             }}
                                             data-menu-group={2}
-                                            key={menu.id} 
-                                        >
-                                            <a
-                                                className="tab"
-                                                data-promo
-                                                data-ea
-                                                >
+                                            key={menu.id}>
+                                            <a className="tab" data-promo data-ea>
                                                 {menu.header.name}
                                             </a>
-                                            <SubMenu data={menu.items} tabId={openTab} menuId={menu.id}/>
+                                            <SubMenu
+                                                data={menu.items}
+                                                tabId={openTab}
+                                                menuId={menu.id}
+                                                setId={() => setOpenTab()}
+                                            />
                                         </li>
                                     );
                                 })}

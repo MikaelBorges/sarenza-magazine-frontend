@@ -1,7 +1,7 @@
 /* _app.js */
 import './styles/Animation_mobile.scss';
 import './styles/Landing_mobile.scss';
-import './styles/modules/Menu.scss';
+// import './styles/modules/Menu.scss';
 import './styles/modules/PartnerPicto.css';
 import './styles/modules/MainFooter.css';
 import '../components/Menu/Menu.scss';

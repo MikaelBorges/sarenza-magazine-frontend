@@ -1,10 +1,20 @@
 import cn from 'classnames';
 import React, { useEffect, useState } from 'react';
 
+import { getGender } from '../../strapi/strapi.service';
 import { getMenu } from '../../strapi/strapi.service';
 import SubMenu from './subMenu';
 
 const Menu = () => {
+    const [genders, setGenders] = useState([]);
+    useEffect(() => {
+        async function fetch() {
+            const genders = await getGender();
+            setGenders(genders);
+        }
+        fetch();
+    }, []);
+
     const [menus, setMenus] = useState([]);
     useEffect(() => {
         async function fetch() {
@@ -13,19 +23,23 @@ const Menu = () => {
         }
         fetch();
     }, []);
+
     const [openMenu, setOpenMenu] = useState(false);
 
+    const [isActive, addActive] = useState();
+
+    const [isHover, addHover] = useState(false);
 
     useEffect(() => {
         let overlay = document.getElementById('MainNavOverlay');
-        if (isActive) {
+        if (isHover) {
             overlay.style.display = 'block';
             overlay.style.transition = 'opacity 1s ease 0s';
         } else {
             overlay.style.display = 'none';
             overlay.style.transition = 'opacity 1s ease 0s';
         }
-    }, [isActive]);
+    }, [isHover]);
 
     if (!menus && menus.length) {
         return 'Loading...';
@@ -69,25 +83,35 @@ const Menu = () => {
                             Fermer
                         </span>
                         <div className="inner-scroll">
-                            <ul className="menu-group-list  active">
-                                <li data-menu-group={1} className="group-tab ">
-                                    <a href="/chaussure-femme">Femme</a>
-                                </li>
-                                <li data-menu-group={2} className="group-tab active">
-                                    <a href="/chaussure-homme">Homme</a>
-                                </li>
-                                <li data-menu-group={3} className="group-tab ">
-                                    <a href="/chaussure-enfant">Enfant</a>
-                                </li>
-                                <li data-menu-group={1} className="group-root ">
-                                    <a href="/chaussure-femme">Inspiration</a>
-                                </li>
-                                <li data-menu-group={2} className="group-root active">
-                                    <a href="/chaussure-homme">Inspiration</a>
-                                </li>
-                                <li data-menu-group={3} className="group-root ">
-                                    <a href="/chaussure-enfant">Inspiration</a>
-                                </li>
+                            <ul
+                                className={cn('menu-group-list', {
+                                    active: isActive
+                                })}>
+                                {genders.map((gender) => {
+                                    return (
+                                        <li
+                                            data-menu-group={gender.id}
+                                            className={cn('group-tab', {
+                                                active: isActive === gender.id
+                                            })}
+                                            role="button"
+                                            onKeyPress={() => {}}
+                                            tabIndex={0}
+                                            onClick={() => addActive(gender.id)}
+                                            key={gender.id}>
+                                            <a
+                                                role="button"
+                                                onKeyPress={() => {}}
+                                                tabIndex={0}
+                                                href="/chaussure-"
+                                                onClick={(e) => {
+                                                    e.preventDefault();
+                                                }}>
+                                                {gender.gender}
+                                            </a>
+                                        </li>
+                                    );
+                                })}
                             </ul>
                             <ul className="main-list">
                                 {/* [RD] - MegaMenu Item men: début */}
@@ -101,12 +125,14 @@ const Menu = () => {
                                     return (
                                         <li
                                             className={cn('menu-group', {
-                                                'active animate': isActive === menu.id
+                                                'active animate': isHover === menu.id
                                             })}
-                                            onMouseEnter={() => addActive(menu.id)}
-                                            onMouseLeave={() => addActive('')}
-                                            data-menu-group={2}
-                                            key={menu.id}>
+                                            role="button"
+                                            onMouseEnter={() => addHover(menu.id)}
+                                            onMouseLeave={() => addHover('')}
+                                            data-menu-group={menu.id}
+                                            key={menu.id}
+                                            style={{ transition: 'opacity 1s ease 0s' }}>
                                             <a
                                                 className="tab"
                                                 data-promo
@@ -114,7 +140,7 @@ const Menu = () => {
                                                 href="/chaussure-nouvelle-collection-homme">
                                                 {menu.header.name}
                                             </a>
-                                            <SubMenu data={menu.items} />
+                                            <SubMenu data={menu.items} tabActivate={isActive} />
                                         </li>
                                     );
                                 })}

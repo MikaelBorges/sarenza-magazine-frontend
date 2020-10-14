@@ -1,22 +1,19 @@
 import React from 'react';
 
-
-const SubMenu = ({ data, tabId, menuId }) => {
-
-  
-
+const SubMenu = ({ data, tabId, menuId, setId }) => {
     return (
         <div className="sub">
-            <div
-                className="sub-inner" style={{display: tabId === menuId ? 'block' : "none"}}>
-                <a className="back" href="#0">
+            <div className="sub-inner" style={{ display: tabId === menuId ? 'block' : 'none' }}>
+                <a
+                    className="back"
+                    href="#0"
+                    onClick={() => setId()}
+                    role="button"
+                    onKeyPress={() => {}}
+                    tabIndex={0}>
                     Retour
                 </a>
-                <a
-                    className="root"
-                    data-promo
-                    data-ea
-                    href="/chaussure-nouvelle-collection-homme">
+                <a className="root" data-promo data-ea>
                     Afficher tout
                 </a>
                 {data.map((item) => {
