@@ -26,15 +26,7 @@ const SubMenu = ({ data, tabActivate }) => {
                                       <ul className="list">
                                           {itemFiltered.links.map((link) => {
                                               return (
-                                                  <li
-                                                      className={`link ${
-                                                          link.label === 'Femme' ||
-                                                          link.label === 'Homme' ||
-                                                          link.label === 'Enfant'
-                                                              ? 'all'
-                                                              : ''
-                                                      }`}
-                                                      key={link.label}>
+                                                  <li className={'link'} key={link.label}>
                                                       <a href={link.link}>{link.label}</a>
                                                   </li>
                                               );
