@@ -42,6 +42,16 @@ const Menu = () => {
 
     const [openTab, setOpenTab] = useState();
 
+    /*const [openTab, setOpenTab1] = useState(0);
+    const [openChild, setOpenChild] = useState(false);
+
+
+    const setOpenTab = ()=>{
+        
+        setOpenTab1(!openTab);
+        setOpenChild(!openChild)
+    } */
+
     const [isActive, addActive] = useState();
 
     if (!menus && menus.length) {
@@ -103,19 +113,19 @@ const Menu = () => {
                                             className={cn('group-tab', {
                                                 active: isActive === gender.id
                                             })}
+                                            onClick={() => addActive(gender.id)}
+                                            key={gender.id}
                                             role="button"
                                             onKeyPress={() => {}}
-                                            tabIndex={-2}
-                                            onClick={() => addActive(gender.id)}
-                                            key={gender.id}>
+                                            tabIndex={-2}>
                                             <a
-                                                role="button"
-                                                onKeyPress={() => {}}
-                                                tabIndex={-3}
                                                 href="/chaussure-"
                                                 onClick={(e) => {
                                                     e.preventDefault();
-                                                }}>
+                                                }}
+                                                role="button"
+                                                onKeyPress={() => {}}
+                                                tabIndex={-2}>
                                                 {gender.gender}
                                             </a>
                                         </li>
@@ -139,14 +149,14 @@ const Menu = () => {
                                     return (
                                         <li
                                             className="menu-group"
-                                            role="button"
-                                            onKeyPress={() => {}}
-                                            tabIndex={-4}
                                             onClick={() => {
                                                 setOpenTab(menu.id);
                                             }}
                                             data-menu-group={2}
-                                            key={menu.id}>
+                                            key={menu.id}
+                                            role="button"
+                                            onKeyPress={() => {}}
+                                            tabIndex={-3}>
                                             <a className="tab" data-promo data-ea>
                                                 {menu.header.name}
                                             </a>
@@ -154,7 +164,7 @@ const Menu = () => {
                                                 data={menu.items}
                                                 tabId={openTab}
                                                 menuId={menu.id}
-                                                setId={() => setOpenTab()}
+                                                setId={() => setOpenTab('toto')}
                                             />
                                         </li>
                                     );

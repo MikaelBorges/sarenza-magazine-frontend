@@ -3,6 +3,9 @@ import React, { useState } from 'react';
 const SubMenu = ({ data, tabId, menuId, setId }) => {
     const [listOpen, addList] = useState(false);
 
+    /*className={cn("sub-inner", {
+                ['visible']: tabId 
+            })} */
     return (
         <div className="sub">
             <div className="sub-inner" style={{ display: tabId === menuId ? 'block' : 'none' }}>
