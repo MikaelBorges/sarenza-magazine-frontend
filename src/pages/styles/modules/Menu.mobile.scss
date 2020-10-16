@@ -1,0 +1,14 @@
+.menu-group[data-menu-group='2']:hover {
+  .sub-inner {
+    display: block;
+  }
+}
+a,
+div,
+span {
+  outline: none;
+}
+
+.visible {
+  display: block !important;
+}

@@ -1,11 +1,13 @@
 /* eslint-disable */
 
-import './styles/Animation.scss';
+import './styles/Animation.mobile.scss';
+import './styles/Landing.scss';
+import './styles/modules/PartnerPicto.css';
 import './styles/pages/PageMarqueAH17.css';
 import './styles/modules/HeaderAH17.css';
 import './styles/modules/BrandMainNewsAH17.css';
-import './styles/modules/Menu.scss';
-import './styles/modules/MainFooter.css';
+import './styles/modules/Menu.mobile.scss';
+import './styles/modules/MainFooter.mobile.css';
 import '../app/components/_styles/boot.scss';
 
 import { ApolloProvider } from '@apollo/react-hooks';
@@ -16,7 +18,8 @@ import wrapper from '../app/store';
 
 import withData from '../utils/apollo';
 
-import Footer from '../components/Footer/Footer';
+import Footer from '../components/Footer/Footer.mobile';
+import Menu from '../components/Menu/Menu.mobile';
 
 function App({ Component, pageProps, apollo }) {
   return (
@@ -28,6 +31,7 @@ function App({ Component, pageProps, apollo }) {
         />
         <title>Sarenza - Magazine</title>
       </Head>
+      <Menu />
       <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
         <Component {...pageProps} />
       </div>
