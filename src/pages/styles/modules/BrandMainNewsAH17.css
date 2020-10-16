@@ -1,0 +1,79 @@
+.mainNews a.linkImage,
+.mainNews a.linkImage img {
+  height: auto;
+  z-index: 1;
+  width: 100%;
+}
+
+.mainNews a.linkImage:after,
+.mainNews:before {
+  content: '';
+  padding-top: 43.6%;
+}
+
+.mainNews,
+.mainNews div,
+.mainNews:before {
+  vertical-align: middle;
+}
+
+.mainNews {
+  position: relative;
+  width: 100%;
+  margin-top: 20px;
+  display: block;
+}
+
+.mainNews.white {
+  color: #fff;
+}
+
+.mainNews.black {
+  color: #333;
+}
+
+.mainNews:before {
+  width: 1px;
+  display: inline-block;
+}
+
+.mainNews a.linkImage {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+}
+
+.mainNews a.linkImage:after {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.15);
+  z-index: 2;
+}
+
+.mainNews div {
+  display: inline-block;
+  position: relative;
+  width: 99%;
+  z-index: 3;
+}
+
+.mainNews div span.title {
+  font-size: 4em;
+  text-transform: uppercase;
+  line-height: 1em;
+  margin: 0;
+  font-family: proximnb, Arial, sans-serif;
+}
+
+.mainNews div p {
+  width: 50%;
+  margin: 10px auto 20px;
+  font-size: 1.2em;
+  line-height: 1.5em;
+  font-family: proximnr, Arial, sans-serif;
+  color: #fff;
+}

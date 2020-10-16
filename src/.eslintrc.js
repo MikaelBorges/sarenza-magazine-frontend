@@ -44,6 +44,7 @@ module.exports = {
     'react/jsx-props-no-spreading': 'off',
     'import/no-unresolved': 'off',
     'simple-import-sort/sort': 'error',
+    'import/extensions': 0,
     'jsx-a11y/anchor-is-valid': [
       'error',
       {
