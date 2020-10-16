@@ -1,13 +1,13 @@
 /* eslint-disable */
 
-import './styles/Animation.mobile.scss';
+import './styles/Animation.scss';
 import './styles/Landing.scss';
 import './styles/modules/PartnerPicto.css';
 import './styles/pages/PageMarqueAH17.css';
 import './styles/modules/HeaderAH17.css';
 import './styles/modules/BrandMainNewsAH17.css';
-import './styles/modules/Menu.mobile.scss';
-import './styles/modules/MainFooter.mobile.css';
+import './styles/modules/Menu.scss';
+import './styles/modules/MainFooter.css';
 import '../app/components/_styles/boot.scss';
 
 import { ApolloProvider } from '@apollo/react-hooks';
@@ -18,8 +18,8 @@ import wrapper from '../app/store';
 
 import withData from '../utils/apollo';
 
-import Footer from '../components/Footer/Footer.mobile';
-import Menu from '../components/Menu/Menu.mobile';
+import Footer from '../components/Footer/Footer';
+import Menu from '../components/Menu/Menu';
 
 function App({ Component, pageProps, apollo }) {
   return (
