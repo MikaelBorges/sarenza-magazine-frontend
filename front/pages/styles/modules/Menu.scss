@@ -1,0 +1,20 @@
+.menu-group[data-menu-group="2"]:hover {
+    .sub-inner {
+        display: flex !important;
+    }
+}
+
+#MainNavOpener {
+    outline: none;
+}
+
+#MainNavOverlay{
+    .block{
+        display: block;
+        opacity: 1;
+    } 
+}
+
+.closer {
+    outline: none;
+}
