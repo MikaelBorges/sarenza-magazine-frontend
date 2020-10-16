@@ -2,8 +2,6 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import Box from '@/components/commons/Box/Box';
-import { Row } from '@/components/commons/Grid';
-import Col from '@/components/commons/Grid/Col';
 import PaginationComponent from '@/components/commons/Pagination/components/PaginationComponent';
 import Pagination from '@/components/commons/Pagination/Pagination';
 import Text from '@/components/commons/Text/Text';
@@ -23,32 +21,32 @@ const Home = ({ query, rubriqueName }) => {
           <Pagination
             data={data.articles}
             renderContent={(articles) => (
-              <Row>
-                <Col span={12} offset={12}>
+              <div>
+                <div>
                   <Header header={data.header} />
-                </Col>
-                <Col span={12}>
+                </div>
+                <div>
                   <Headline />
-                </Col>
-                <Col span={12} offset={12}>
+                </div>
+                <div>
                   <MainComponent article={data.firstArticle} />
-                </Col>
-                <Col span={12}>
+                </div>
+                <div>
                   <Text marquee>{data.animateTexts[0].text}</Text>
-                </Col>
-                <Col span={12} offset={12}>
+                </div>
+                <div>
                   <Articles articles={articles.slice(0, 5)} position={1} />
-                </Col>
-                <Col span={12} offset={12}>
+                </div>
+                <div>
                   <Box> TODO: DISPLAY COMPONENT </Box>
-                </Col>
-                <Col span={12} offset={12}>
+                </div>
+                <div>
                   <Articles articles={articles.slice(0, 5)} position={2} />
-                </Col>
-                <Col span={12}>
+                </div>
+                <div>
                   <Text marquee>{data.animateTexts[0].text}</Text>
-                </Col>
-              </Row>
+                </div>
+              </div>
             )}
             renderFooter={(articles, param) => {
               return (

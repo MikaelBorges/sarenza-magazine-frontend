@@ -1,8 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import Col from '@/components/commons/Grid/Col';
-import Row from '@/components/commons/Grid/Row';
 import Heading from '@/components/commons/Heading';
 import Text from '@/components/commons/Text/Text';
 
@@ -11,17 +9,17 @@ import styles from './Header.module.scss';
 
 const Header = ({ header }) => {
   return (
-    <Row extraClasses={styles.header}>
-      <Col span={12} extraClasses={styles.heading}>
+    <div extraClasses={styles.header}>
+      <div extraClasses={styles.heading}>
         <Heading>{header.title}</Heading>
-      </Col>
-      <Col span={12} extraClasses={styles.description}>
+      </div>
+      <div extraClasses={styles.description}>
         <Text medium>{header.description}</Text>
-      </Col>
-      <Col span={12} extraClasses={styles.heading}>
+      </div>
+      <div extraClasses={styles.heading}>
         <RubriquesLinks rubriques={header.rubriques} />
-      </Col>
-    </Row>
+      </div>
+    </div>
   );
 };
 

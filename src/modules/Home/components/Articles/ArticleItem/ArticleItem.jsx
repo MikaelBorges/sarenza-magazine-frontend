@@ -1,26 +1,23 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import Col from '@/components/commons/Grid/Col';
-import Row from '@/components/commons/Grid/Row';
-
 import ArticleTitle from '../ArticleTitle/ArticleTitle';
 import styles from './ArticleItem.module.scss';
 
 const ArticleItem = ({ article }) => {
   return (
-    <Row>
-      <Col span={12}>
+    <>
+      <div>
         <img src={article.image} className={styles.image} alt={article.title} />
-      </Col>
-      <Col span={12}>
+      </div>
+      <div>
         <ArticleTitle
           title={article.title}
           author={article.author}
           publishDate={article.publishDate}
         />
-      </Col>
-    </Row>
+      </div>
+    </>
   );
 };
 
