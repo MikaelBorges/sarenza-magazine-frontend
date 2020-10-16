@@ -36,7 +36,7 @@ function App({ Component, pageProps, apollo }) {
         </title>
       </Head>
       <Menu />
-      <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+      <div style={{ maxWidth: '1200px', margin: '0 auto', overflow: 'hidden' }}>
         <Component {...pageProps} />
       </div>
       <Footer />
