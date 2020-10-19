@@ -7,5 +7,6 @@
       "@/apollo": ["apollo/*"],
       "@/*": ["app/*"]
     }
-  }
+  },
+  "exclude": ["node_modules", "dist"]
 }

@@ -65,7 +65,9 @@ const LinkGeneric = ({
       </a>
     ) : (
       <Link href={link} rel={noFollow ? ' nofollow' : undefined} {...linkProps}>
-        <ChildrenWithIcon icon={{ name: iconName, isAfter: iconAfter }} label={childrenLabel} />
+        <a>
+          <ChildrenWithIcon icon={{ name: iconName, isAfter: iconAfter }} label={childrenLabel} />
+        </a>
       </Link>
     );
   }

@@ -2,7 +2,7 @@
 
 $text-color-error: red !default;
 $color-primary: #737373;
-$color-marquee: #ff2157;
+$color-sarenza: #ff2157;
 
 .text {
   color: $color-primary;
@@ -42,7 +42,8 @@ $color-marquee: #ff2157;
 }
 
 .big {
-  font-size: 18px;
+  font-size: 16px;
+  line-height: 25px;
 }
 
 .bigger {
@@ -61,9 +62,27 @@ $color-marquee: #ff2157;
   font-weight: 600;
 }
 
+.verbatim {
+  font-size: 40px;
+  line-height: 46px;
+  font-weight: 700;
+  color: $color-secondary;
+  text-transform: uppercase;
+  &:before {
+    content: '“';
+    color: $color-sarenza;
+    font-size: 100px;
+  }
+  &:after {
+    content: '„';
+    color: $color-sarenza;
+    font-size: 100px;
+  }
+}
+
 .marquee {
   font-size: 156px;
-  color: $color-marquee;
+  color: $color-sarenza;
   font-family: FuturaPTCond-Bold;
   text-align: center;
   line-height: 136px;

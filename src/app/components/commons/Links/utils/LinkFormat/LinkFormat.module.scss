@@ -1,4 +1,4 @@
-// @import './../../../styles/_common.css';
+@import './../../../../_styles/_theme';
 
 .buttonLinkFormat {
   display: block;
@@ -7,7 +7,7 @@
   font-weight: 600;
   text-align: center;
   color: var(--color_white);
-  background: var(--color_sarenza);
+  background: var(--color-primary);
   padding: 0 10px;
   height: 54px;
   line-height: 50px;
@@ -18,7 +18,7 @@
 
 .textLinkFormat {
   font-weight: 600;
-  color: var(--color_sarenza);
+  color: var(--color-primary);
   transition: color 300ms;
   margin-right: auto;
 }

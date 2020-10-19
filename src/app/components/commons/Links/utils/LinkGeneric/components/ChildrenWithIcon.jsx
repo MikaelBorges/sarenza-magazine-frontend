@@ -10,6 +10,7 @@ const ChildrenWithIcon = ({ icon, label }) => {
         {icon.name && icon.isAfter && label}
         <Icon name={icon.name} />
         {icon.name && !icon.isAfter && label}
+        {!icon.name && !icon.isAfter && label}
       </>
     )
   );

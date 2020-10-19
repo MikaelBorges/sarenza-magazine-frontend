@@ -18,8 +18,8 @@ import wrapper from '../app/store';
 
 import withData from '../utils/apollo';
 
-import Footer from '../components/Footer/Footer';
-import Menu from '../components/Menu/Menu';
+import Footer from '../modules/Footer/Footer';
+import Menu from '../modules/Menu/Menu';
 
 function App({ Component, pageProps, apollo }) {
   return (
@@ -29,7 +29,11 @@ function App({ Component, pageProps, apollo }) {
           rel="stylesheet"
           href="https://cdn.sarenza.net/website/prod_b/assets/stylesheet/home.default.min.css"
         />
-        <title>Sarenza - Magazine</title>
+        <title
+        //todo: trad
+        >
+          Sarenza - Magazine
+        </title>
       </Head>
       <Menu />
       <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
