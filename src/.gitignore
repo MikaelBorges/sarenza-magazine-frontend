@@ -4,6 +4,7 @@
 /node_modules
 /.pnp
 .pnp.js
+.next
 
 # testing
 /coverage
@@ -32,3 +33,5 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+.DS_Store

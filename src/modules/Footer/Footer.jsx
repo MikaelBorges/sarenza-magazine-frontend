@@ -1,13 +1,13 @@
-import BlockLinks from 'components/Footer/components/BlockLinks/BlockLinks';
-import CountrySelector from 'components/Footer/components/CountrySelector/CountrySelector';
-import FooterLink from 'components/Footer/components/FooterLink/FooterLink';
-import NeedHelp from 'components/Footer/components/NeedHelp/NeedHelp';
-import Newsletter from 'components/Footer/components/Newsletter/Newsletter';
-import PartnerIcon from 'components/Footer/components/PartnerIcon/PartnerIcon';
-import Reassurances from 'components/Footer/components/Reassurances/Reassurances';
-import Reviews from 'components/Footer/components/Reviews/Reviews';
-import SocialMedia from 'components/Footer/components/SocialMedia/SocialMedia';
-import VariousText from 'components/Footer/components/VariousText/VariousText';
+import BlockLinks from 'modules/Footer/components/BlockLinks/BlockLinks';
+import CountrySelector from 'modules/Footer/components/CountrySelector/CountrySelector';
+import FooterLink from 'modules/Footer/components/FooterLink/FooterLink';
+import NeedHelp from 'modules/Footer/components/NeedHelp/NeedHelp';
+import Newsletter from 'modules/Footer/components/Newsletter/Newsletter';
+import PartnerIcon from 'modules/Footer/components/PartnerIcon/PartnerIcon';
+import Reassurances from 'modules/Footer/components/Reassurances/Reassurances';
+import Reviews from 'modules/Footer/components/Reviews/Reviews';
+import SocialMedia from 'modules/Footer/components/SocialMedia/SocialMedia';
+import VariousText from 'modules/Footer/components/VariousText/VariousText';
 import React, { useEffect, useState } from 'react';
 
 import getFooter from './service/footer.service';
