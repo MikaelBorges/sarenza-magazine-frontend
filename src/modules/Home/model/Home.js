@@ -4,7 +4,15 @@ const processToHomeArticle = (model = {}) => {
     title: model.title || '',
     author: model.author || '',
     publishDate: new Date(model.updated_at).toLocaleDateString('fr-FR'),
-    image: model.image || 'Image inconnue'
+    image: model.image || 'Image inconnue',
+    smallImage: model.smallSizeImg || {
+      url: '',
+      alt: 'image inconnue'
+    },
+    mediumImage: model.mediumSizeImg || {
+      url: '',
+      alt: 'image inconnue'
+    }
   };
 };
 

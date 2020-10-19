@@ -17,7 +17,7 @@ const Articles = ({ articles, position }) => {
               [styles.contentThree]:
                 (index >= 2 && position === 1) || (index <= 2 && position === 2)
             })}>
-            <ArticleItem article={article} />
+            <ArticleItem article={article} size={index} position={position} />
           </div>
         );
       })}

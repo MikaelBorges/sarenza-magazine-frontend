@@ -1,18 +1,25 @@
+import parse from 'html-react-parser';
 import PropTypes from 'prop-types';
 import React from 'react';
 
 import Text from '@/components/commons/Text/Text';
 
+import style from './ArticleTitle.module.scss';
+
 const ArticleTitle = ({ title, author, publishDate }) => {
   return (
-    <div>
-      <Text huge secondary>
-        {title}
-      </Text>
-      <Text small>
-        {author} - {publishDate}
-      </Text>
-    </div>
+    <>
+      <div className={style.resume}>
+        <Text huge secondary>
+          {parse(title)}
+        </Text>
+      </div>
+      <div className={style.author}>
+        <Text small>
+          {author} - {publishDate}
+        </Text>
+      </div>
+    </>
   );
 };
 

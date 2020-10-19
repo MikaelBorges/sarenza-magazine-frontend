@@ -1,6 +1,6 @@
 @import '../../_styles/theme';
 
-$h1-font-size: 36px !default;
+$h1-font-size: 46px !default;
 $h2-font-size: 30px !default;
 $h3-font-size: 24px !default;
 $h4-font-size: 20px !default;
@@ -9,6 +9,7 @@ $h6-font-size: 14px !default;
 
 .heading1 {
   font-size: $h1-font-size;
+  margin: 16px auto 16.6px;
 }
 
 .heading2 {

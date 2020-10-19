@@ -1,15 +1,21 @@
 @import '../../_styles/theme';
 
 $text-color-error: red !default;
-$color-primary: #737373;
 $color-sarenza: #ff2157;
+$color-primary: #999999;
+$color-grey: #737373;
+$color-marquee: #ff2157;
 
 .text {
   color: $color-primary;
 }
-
+.grey {
+  color: $color-grey;
+}
 .secondary {
   color: $color-secondary;
+  font-family: 'RobotoCondensed-Bold';
+  line-height: 36px;
 }
 .container {
   font-weight: 400;

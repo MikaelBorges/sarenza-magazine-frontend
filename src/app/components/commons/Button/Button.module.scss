@@ -12,8 +12,6 @@ $button-hover-color: $color-white !default;
 
 .button {
   box-sizing: border-box;
-  -moz-appearance: none;
-  -webkit-appearance: none;
   white-space: nowrap;
   display: inline-flex;
   position: relative;
@@ -22,10 +20,6 @@ $button-hover-color: $color-white !default;
   text-decoration: none;
   border: none;
   outline: none;
-  align-items: center;
-  user-select: none;
-  vertical-align: middle;
-  justify-content: center;
   cursor: default;
 
   &:not(:disabled) {
@@ -47,7 +41,7 @@ $button-hover-color: $color-white !default;
 
   &,
   svg {
-    transition: all 0.2s ease-in;
+    //transition: all 0.2s ease-in;
   }
 }
 

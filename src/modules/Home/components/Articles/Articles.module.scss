@@ -2,22 +2,23 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  align-items: baseline;
   width: 100%;
+  justify-content: space-evenly;
+  margin-bottom: 48px;
 }
 .content {
-  margin-top: 40px;
   width: 100%;
-  max-width: 568px;
-  margin-left: 40px;
+  width: 568px;
+  height: 690px;
   &:hover {
-    zoom: 1.02;
+    zoom: 1.01;
   }
 }
 .contentThree {
-  margin-top: 40px;
+  margin: 32px 0;
   width: 391px;
-  max-width: 363px;
-  margin-left: 40px;
+  height: 560px;
   &:hover {
     zoom: 1.03;
   }

@@ -1,0 +1,46 @@
+.block {
+  height: 224px;
+  background: #d5e6fe;
+  color: #ffffff;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  padding: 56px 0 56px 48px;
+}
+.advice {
+  font-family: 'FuturaPTCond-Bold';
+  font-size: 56px;
+  color: #ffffff;
+  line-height: 56px;
+  text-align: left;
+  align-self: center;
+  flex: 0 1 auto;
+  text-transform: uppercase;
+  width: 72%;
+}
+.ctaDisplay {
+  box-sizing: border-box;
+  white-space: nowrap;
+  display: inline-flex;
+  position: relative;
+  margin: 0;
+  line-height: 1.75;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  align-items: center;
+  user-select: none;
+  vertical-align: middle;
+  justify-content: center;
+  width: 20%;
+  height: 48px;
+  background-color: #ffffff;
+  font-size: 12px;
+  font-family: 'RobotoCondensed-Bold';
+  color: #1d1d1b;
+  letter-spacing: -0.34px;
+  text-align: left;
+  line-height: 16px;
+  text-transform: uppercase;
+  align-self: center;
+}

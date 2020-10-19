@@ -19,9 +19,13 @@ export const HOME_QUERY = gql`
       author
       image
       updated_at
-      url
-      rubriques {
+      smallSizeImg {
         url
+        alt
+      }
+      mediumSizeImg {
+        url
+        alt
       }
     }
     rubriques {
@@ -51,9 +55,13 @@ export const HOME_QUERY_ALL = gql`
       author
       image
       updated_at
-      url
-      rubriques {
+      smallSizeImg {
         url
+        alt
+      }
+      mediumSizeImg {
+        url
+        alt
       }
     }
     rubriques {

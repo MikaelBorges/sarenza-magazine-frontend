@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import Box from '@/components/commons/Box/Box';
 import PaginationComponent from '@/components/commons/Pagination/components/PaginationComponent';
 import Pagination from '@/components/commons/Pagination/Pagination';
 import Text from '@/components/commons/Text/Text';
@@ -9,8 +8,8 @@ import Query from '@/components/Query';
 
 import Articles from './components/Articles/Articles';
 import MainComponent from './components/Articles/MainComponent/MainComponent';
+import Display from './components/Display/Display';
 import Header from './components/Header/Header';
-import Headline from './components/Headline/Headline';
 import processToHome from './model/Home';
 
 const Home = ({ query, rubriqueName }) => {
@@ -21,32 +20,15 @@ const Home = ({ query, rubriqueName }) => {
           <Pagination
             data={data.articles}
             renderContent={(articles) => (
-              <div>
-                <div>
-                  <Header header={data.header} />
-                </div>
-                <div>
-                  <Headline />
-                </div>
-                <div>
-                  <MainComponent article={data.firstArticle} />
-                </div>
-                <div>
-                  <Text marquee>{data.animateTexts[0].text}</Text>
-                </div>
-                <div>
-                  <Articles articles={articles.slice(0, 5)} position={1} />
-                </div>
-                <div>
-                  <Box> TODO: DISPLAY COMPONENT </Box>
-                </div>
-                <div>
-                  <Articles articles={articles.slice(0, 5)} position={2} />
-                </div>
-                <div>
-                  <Text marquee>{data.animateTexts[0].text}</Text>
-                </div>
-              </div>
+              <>
+                <Header header={data.header} />
+                <MainComponent article={data.firstArticle} />
+                <Text marquee>{data.animateTexts[0].text}</Text>
+                <Articles articles={articles.slice(0, 5)} position={1} />
+                <Display />
+                <Articles articles={articles.slice(0, 5)} position={2} />
+                <Text marquee>{data.animateTexts[0].text}</Text>
+              </>
             )}
             renderFooter={(articles, param) => {
               return (

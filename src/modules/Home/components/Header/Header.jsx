@@ -9,14 +9,16 @@ import styles from './Header.module.scss';
 
 const Header = ({ header }) => {
   return (
-    <div extraClasses={styles.header}>
-      <div extraClasses={styles.heading}>
-        <Heading>{header.title}</Heading>
+    <div className={styles.header}>
+      <div className={styles.blockText}>
+        <div className={styles.title}>
+          <Heading>{header.title}</Heading>
+        </div>
+        <div className={styles.description}>
+          <Text medium>{header.description}</Text>
+        </div>
       </div>
-      <div extraClasses={styles.description}>
-        <Text medium>{header.description}</Text>
-      </div>
-      <div extraClasses={styles.heading}>
+      <div className={styles.rubriques}>
         <RubriquesLinks rubriques={header.rubriques} />
       </div>
     </div>

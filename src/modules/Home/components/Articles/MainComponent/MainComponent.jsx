@@ -5,18 +5,16 @@ import styles from './MainComponent.module.scss';
 
 const MainComponent = ({ article }) => {
   return (
-    <>
-      <div extraClasses={styles.content}>
+    <div className={styles.container}>
+      <div className={styles.content}>
         <ArticleTitle
           title={article.title}
           author={article.author}
           publishDate={article.publishDate}
         />
       </div>
-      <div>
-        <img src={article.image} className={styles.image} alt={article.title} />
-      </div>
-    </>
+      <img src={article.image} className={styles.image} alt={article.title} />
+    </div>
   );
 };
 

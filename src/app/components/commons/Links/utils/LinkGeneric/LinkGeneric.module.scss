@@ -28,10 +28,10 @@
   margin: 0;
   padding: $button-padding;
   min-width: $button-width;
+  height: $button-height;
   line-height: 1.75;
   border-radius: 4px;
   color: $button-color;
-  text-transform: uppercase;
   border: $button-border-width solid $button-border-color;
   text-decoration: none;
   outline: none;
@@ -40,7 +40,7 @@
   vertical-align: middle;
   justify-content: center;
   background-color: $button-bg;
-  transition: all 0.2s ease-in;
+  //transition: all 0.2s ease-in;
 
   &:not(:disabled) {
     &:hover,
@@ -48,7 +48,7 @@
       background: $button-bg-hover;
       color: $button-color-hover;
       font-family: $button-font-hover;
-      font-weight: 700;
+      font-weight: bold;
       cursor: pointer;
     }
     &:active {

@@ -42,11 +42,11 @@ const Pagination = ({ data, actionFn, renderContent, renderHeader, renderFooter 
   }, [dataCast?.length]);
 
   return (
-    <div>
-      {renderHeader && <div>{renderHeader(dataCast, paramsCast)}</div>}
-      {renderContent && <div>{renderContent(dataCast, paramsCast)}</div>}
-      {renderFooter && <div>{renderFooter(dataCast, paramsCast)}</div>}
-    </div>
+    <>
+      {renderHeader && renderHeader(dataCast, paramsCast)}
+      {renderContent && renderContent(dataCast, paramsCast)}
+      {renderFooter && renderFooter(dataCast, paramsCast)}
+    </>
   );
 };
 
