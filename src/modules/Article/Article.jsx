@@ -2,12 +2,9 @@ import PropTypes from 'prop-types';
 import React, { useEffect, useState } from 'react';
 
 import Breadcrumb from '@/components/commons/Breadcrumb/Breadcrumb';
-import Image from '@/components/commons/Image/Image';
-import Text from '@/components/commons/Text';
 
 import styles from './Article.module.scss';
-import Description from './components/Description/Description';
-import Duo from './components/Duo/Duo';
+import Banner from './components/Banner/Banner';
 
 const Article = ({ rubrique, slug }) => {
   const breadcrumbs = [
@@ -40,51 +37,15 @@ const Article = ({ rubrique, slug }) => {
   return article ? (
     <div className={styles.article}>
       <Breadcrumb breadcrumbs={breadcrumbs} />
-      <Image
-        src="https://dummyimage.com/1200x452"
-        alt="image de l'article"
-        className={styles.bannerImage}
+
+      <Banner
+        srcImage="https://dummyimage.com/1200x452"
+        altImage="image de l'article"
+        subTitleBanner="#AirMaxDay !"
+        author={article.author}
+        publishDate="11/09/2020"
+        updateDate={new Date(article.updated_at).toLocaleDateString('fr-FR')}
       />
-
-      <div className={styles.wrapper}>
-        <div className={styles.description}>
-          <div className={styles.hashTitle}>
-            <Text secondary>#AirMaxDay !</Text>
-          </div>
-          <Description
-            author={article.author}
-            publishDate="11/09/2020"
-            updateDate={new Date(article.updated_at).toLocaleDateString('fr-FR')}
-          />
-        </div>
-
-        <Duo
-          title="title1"
-          text="text"
-          verbatim="verbatim"
-          urlImage="https://dummyimage.com/480x658"
-          textButton=""
-          urlButton=""
-        />
-
-        <Duo
-          title="title2"
-          text="text"
-          verbatim="verbatim"
-          urlImage="https://dummyimage.com/480x658"
-          textButton=""
-          urlButton=""
-        />
-
-        <Duo
-          title="title3"
-          text="text"
-          verbatim="verbatim"
-          urlImage="https://dummyimage.com/480x658"
-          textButton=""
-          urlButton=""
-        />
-      </div>
     </div>
   ) : (
     <div>Loading...</div>

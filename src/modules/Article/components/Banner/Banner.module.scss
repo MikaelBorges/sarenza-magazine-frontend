@@ -1,4 +1,4 @@
-@import '../../app/components/_styles/theme';
+@import '../../../../app/components/_styles/theme';
 
 .bannerImage {
   img {
@@ -19,4 +19,4 @@
   line-height: 40px;
 }
 
-// @import 'Article.module.wide';
+@import 'Banner.module.wide';

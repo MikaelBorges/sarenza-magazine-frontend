@@ -1,21 +1,6 @@
 @import '../../../../app/components/_styles/theme';
 
-.container:nth-child(even) {
-  .image {
-    float: right;
-    margin-left: 24px;
-  }
-}
-
-.container:nth-child(odd) {
-  .image {
-    float: left;
-    margin-right: 24px;
-  }
-}
-
-.container {
-  overflow: hidden;
+.blockText {
   padding-top: 24px;
 }
 
@@ -38,9 +23,4 @@
   font-family: robotoc, $safe-fonts;
 }
 
-.image {
-  width: 338px;
-  margin-bottom: 24px;
-}
-
-@import 'Duo.module.wide';
+@import 'BlockText.module.wide';
