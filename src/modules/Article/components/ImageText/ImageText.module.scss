@@ -1,0 +1,14 @@
+.container {
+  margin-top: 100px;
+  display: flex;
+}
+
+.item {
+  flex-direction: column;
+  padding: 24px;
+  text-align: justify;
+}
+
+.paragraph {
+  margin-top: 16px;
+}

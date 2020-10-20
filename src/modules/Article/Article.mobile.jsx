@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import React, { useEffect, useState } from 'react';
 
 import Breadcrumb from '@/components/commons/Breadcrumb/Breadcrumb';
-
+import ShoppingListMobile from './components/ShoppingList/ShoppingList.mobile';
 import styles from './Article.mobile.module.scss';
 import Banner from './components/Banner/Banner';
 import BlockText from './components/BlockText/BlockText';
@@ -49,6 +49,111 @@ const Article = ({ rubrique, slug }) => {
         author={article.author}
         publishDate="11/09/2020"
         updateDate={new Date(article.updated_at).toLocaleDateString('fr-FR')}
+      />
+
+      <ShoppingListMobile
+        title="Shopping liste :"
+        intro="Vous aussi, entrez dans la légende !"
+        textButton="Voir la sélection"
+        urlButton="#"
+        ShoppingCards={[
+          {
+            cardImage: 'https://dummyimage.com/296x406',
+            stateLabel: 'New!',
+            titleProduct: '1Made by SARENZA',
+            descriptionProduct: 'W Blazer Mid Vintage Suede',
+            urlProduct: '#',
+            pcid: '75015'
+          },
+          {
+            cardImage: 'https://dummyimage.com/296x406',
+            stateLabel: 'New!',
+            titleProduct: '2Made by SARENZA',
+            descriptionProduct: 'W Blazer Mid Vintage Suede',
+            urlProduct: '#',
+            pcid: '75015'
+          },
+          {
+            cardImage: 'https://dummyimage.com/296x406',
+            stateLabel: 'New!',
+            titleProduct: '3Made by SARENZA',
+            descriptionProduct: 'W Blazer Mid Vintage Suede',
+            urlProduct: '#',
+            pcid: '75015'
+          },
+          {
+            cardImage: 'https://dummyimage.com/296x406',
+            stateLabel: 'New!',
+            titleProduct: '4Made by SARENZA',
+            descriptionProduct: 'W Blazer Mid Vintage Suede',
+            urlProduct: '#',
+            pcid: '75015'
+          },
+          {
+            cardImage: 'https://dummyimage.com/296x406',
+            stateLabel: 'New!',
+            titleProduct: '5Made by SARENZA',
+            descriptionProduct: 'W Blazer Mid Vintage Suede',
+            urlProduct: '#',
+            pcid: '75015'
+          },
+          {
+            cardImage: 'https://dummyimage.com/296x406',
+            stateLabel: 'New!',
+            titleProduct: '6Made by SARENZA',
+            descriptionProduct: 'W Blazer Mid Vintage Suede',
+            urlProduct: '#',
+            pcid: '75015'
+          },
+          {
+            cardImage: 'https://dummyimage.com/296x406',
+            stateLabel: 'New!',
+            titleProduct: '7Made by SARENZA',
+            descriptionProduct: 'W Blazer Mid Vintage Suede',
+            urlProduct: '#',
+            pcid: '75015'
+          },
+          {
+            cardImage: 'https://dummyimage.com/296x406',
+            stateLabel: 'New!',
+            titleProduct: '8Made by SARENZA',
+            descriptionProduct: 'W Blazer Mid Vintage Suede',
+            urlProduct: '#',
+            pcid: '75015'
+          },
+          {
+            cardImage: 'https://dummyimage.com/296x406',
+            stateLabel: 'New!',
+            titleProduct: '9Made by SARENZA',
+            descriptionProduct: 'W Blazer Mid Vintage Suede',
+            urlProduct: '#',
+            pcid: '75015'
+          },
+          {
+            cardImage: 'https://dummyimage.com/296x406',
+            stateLabel: 'New!',
+            titleProduct: '10Made by SARENZA',
+            descriptionProduct: 'W Blazer Mid Vintage Suede',
+            urlProduct: '#',
+            pcid: '75015'
+          },
+          {
+            cardImage: 'https://dummyimage.com/296x406',
+            stateLabel: 'New!',
+            titleProduct: '11Made by SARENZA',
+            descriptionProduct: 'W Blazer Mid Vintage Suede',
+            urlProduct: '#',
+            pcid: '75015'
+          },
+          {
+            cardImage: 'https://dummyimage.com/296x406',
+            stateLabel: 'New!',
+            titleProduct: '12Made by SARENZA',
+            descriptionProduct: 'W Blazer Mid Vintage Suede',
+            urlProduct: '#',
+            pcid: '75015'
+          }
+        ]}
       />
 
       {/* <BannerMobile
