@@ -7,6 +7,7 @@ import Text from '@/components/commons/Text';
 
 import styles from './Article.module.scss';
 import Description from './components/Description/Description';
+import Duo from './components/Duo/Duo';
 
 const Article = ({ rubrique, slug }) => {
   const breadcrumbs = [
@@ -37,43 +38,52 @@ const Article = ({ rubrique, slug }) => {
   }, [slug]);
 
   return article ? (
-    <div>
+    <div className={styles.article}>
       <Breadcrumb breadcrumbs={breadcrumbs} />
-      <Image src="https://dummyimage.com/1200x452" alt="image de l'article" />
-      <div className={styles.description}>
-        <Text huge secondary>
-          #AirMaxDay !
-        </Text>
-        <Description
-          author={article.author}
-          publishDate="11/09/2020"
-          updateDate={new Date(article.updated_at).toLocaleDateString('fr-FR')}
+      <Image
+        src="https://dummyimage.com/1200x452"
+        alt="image de l'article"
+        className={styles.bannerImage}
+      />
+
+      <div className={styles.wrapper}>
+        <div className={styles.description}>
+          <div className={styles.hashTitle}>
+            <Text secondary>#AirMaxDay !</Text>
+          </div>
+          <Description
+            author={article.author}
+            publishDate="11/09/2020"
+            updateDate={new Date(article.updated_at).toLocaleDateString('fr-FR')}
+          />
+        </div>
+
+        <Duo
+          title="title1"
+          text="text"
+          verbatim="verbatim"
+          urlImage="https://dummyimage.com/480x658"
+          textButton=""
+          urlButton=""
         />
-      </div>
-      <div className={styles.container}>
-        <div className={styles.item}>
-          <Text huge secondary>
-            Nike Air Max !
-          </Text>
-          <div className={styles.paragraph}>
-            <Text big>
-              Il y a 33 ans, une certaine petite bulle d’air faisait son apparition, révolutionnant
-              la mode, la rue, le sport… Aujourd’hui, fort de nouvelles légendes, le mythe Nike Air
-              continue de briller aux pieds de toute la famille, ados, petits et grands : bienvenue
-              sur la planète Air ! Il y a 33 ans, une certaine petite bulle d’air faisait son
-              apparition, révolutionnant la mode, la rue, le sport… Aujourd’hui, fort de nouvelles
-              légendes,
-            </Text>
-          </div>
-          <div className={styles.paragraph}>
-            <Text verbatim>
-              fort de nouvelles légendes, le mythe Nike Air continue de briller aux pieds.
-            </Text>
-          </div>
-        </div>
-        <div className={styles.item}>
-          <Image src="https://dummyimage.com/480x658" alt="image de l'article" />
-        </div>
+
+        <Duo
+          title="title2"
+          text="text"
+          verbatim="verbatim"
+          urlImage="https://dummyimage.com/480x658"
+          textButton=""
+          urlButton=""
+        />
+
+        <Duo
+          title="title3"
+          text="text"
+          verbatim="verbatim"
+          urlImage="https://dummyimage.com/480x658"
+          textButton=""
+          urlButton=""
+        />
       </div>
     </div>
   ) : (

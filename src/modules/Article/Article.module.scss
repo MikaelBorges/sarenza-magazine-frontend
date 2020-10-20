@@ -1,19 +1,24 @@
+@import '../../app/components/_styles/theme';
+
+.bannerImage {
+  display: block;
+}
+
 .description {
-  width: 100%;
-  position: relative;
-}
-
-.container {
-  margin-top: 100px;
   display: flex;
+  justify-content: space-between;
+  padding: 24px;
 }
 
-.item {
-  flex-direction: column;
-  padding: 24px;
-  width: 481px;
-  text-align: justify;
+.hashTitle {
+  text-transform: uppercase;
+  font-family: futur, $safe-fonts;
+  font-size: 40px;
+  line-height: 40px;
 }
-.paragraph {
-  margin-top: 16px;
+
+.blockText {
+  padding-top: 24px;
 }
+
+@import 'Article.module.wide';
