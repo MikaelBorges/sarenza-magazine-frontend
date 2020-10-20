@@ -1,0 +1,29 @@
+@import '../../../../../app/components/_styles/theme';
+
+.container {
+  position: relative;
+  //height: 273px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.content {
+  position: relative;
+  order: 2;
+  flex: 0 1 auto;
+  width: 100%;
+  margin-top: 23px;
+}
+.image {
+  position: relative;
+  order: 1;
+  flex: 0 1 auto;
+  width: 100%;
+  height: 352px;
+
+  &:hover {
+    zoom: 1.002;
+  }
+}
