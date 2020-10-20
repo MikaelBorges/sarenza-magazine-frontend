@@ -4,8 +4,10 @@
 }
 .blockText {
   padding: 14px 0 24px;
-  width: 916px;
   margin: 0 auto;
+  @media screen and (min-width: 975px) {
+    width: 916px;
+  }
 }
 
 .heading {
@@ -15,10 +17,22 @@
 }
 
 .description {
-  //margin-bottom: 35px;
+  //tablette sinon rien
+  margin: 0 auto;
+  max-width: 704px;
+  @media screen and (min-width: 975px) {
+    margin: inherit;
+    max-width: none;
+  }
 }
 .rubriques {
   margin-top: 16px;
+  min-width: 975px;
+  display: flex;
+  @media screen and (min-width: 975px) {
+    min-width: inherit;
+    display: inherit;
+  }
 }
 .title {
   width: 296px;

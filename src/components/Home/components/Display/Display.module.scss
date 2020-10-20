@@ -1,22 +1,31 @@
 .block {
-  height: 224px;
+  height: 184px;
   background: #d5e6fe;
   color: #ffffff;
   display: flex;
   justify-content: space-around;
   flex-direction: row;
-  padding: 56px 0 56px 48px;
+  padding: 40px 0 40px 32px;
+
+  @media screen and (min-width: 975px) {
+    padding: 56px 0 56px 48px;
+    height: 224px;
+  }
 }
 .advice {
   font-family: 'FuturaPTCond-Bold';
-  font-size: 56px;
+  font-size: 40px;
   color: #ffffff;
-  line-height: 56px;
+  line-height: 40px;
   text-align: left;
   align-self: center;
   flex: 0 1 auto;
   text-transform: uppercase;
   width: 72%;
+  @media screen and (min-width: 975px) {
+    font-size: 56px;
+    line-height: 56px;
+  }
 }
 .ctaDisplay {
   box-sizing: border-box;

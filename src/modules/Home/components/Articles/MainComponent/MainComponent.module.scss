@@ -2,8 +2,11 @@
 
 .container {
   position: relative;
-  height: 452px;
+  height: 273px;
   width: 100%;
+  @media screen and (min-width: 975px) {
+    height: 452px;
+  }
 }
 
 .content {
@@ -16,19 +19,28 @@
   flex-direction: column;
   z-index: 2;
   background-color: $color-white;
-  width: 442px;
-  height: 310px;
+  width: 328px;
+  height: 230px;
   text-align: left;
   line-height: 36px;
   font-weight: bold;
   padding: 1% 2.8%;
+  @media screen and (min-width: 975px) {
+    width: 442px;
+    height: 310px;
+  }
 }
 .image {
   position: relative;
-  left: 120px;
-  width: 829px;
-  height: 452px;
+  left: 155px;
+  width: 459px;
+  height: 273px;
+  @media screen and (min-width: 975px) {
+    width: 829px;
+    height: 452px;
+    left: 120px;
+  }
   &:hover {
-    zoom: 1.05;
+    zoom: 1.002;
   }
 }

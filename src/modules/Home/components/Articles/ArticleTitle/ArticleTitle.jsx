@@ -6,13 +6,19 @@ import Text from '@/components/commons/Text/Text';
 
 import style from './ArticleTitle.module.scss';
 
-const ArticleTitle = ({ title, author, publishDate }) => {
+const ArticleTitle = ({ title, author, publishDate, size, position, firstArticle }) => {
   return (
     <>
       <div className={style.resume}>
-        <Text huge secondary>
-          {parse(title)}
-        </Text>
+        {(size < 2 && position === 1) || (size > 2 && position === 2) || firstArticle ? (
+          <Text huge secondary>
+            {parse(title)}
+          </Text>
+        ) : (
+          <Text medium secondary>
+            {parse(title)}
+          </Text>
+        )}
       </div>
       <div className={style.author}>
         <Text small>

@@ -24,6 +24,8 @@ const ArticleItem = ({ article, size, position }) => {
         title={article.title}
         author={article.author}
         publishDate={article.publishDate}
+        size={size}
+        position={position}
       />
     </>
   );

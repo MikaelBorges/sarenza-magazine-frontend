@@ -1,13 +1,13 @@
 /* eslint-disable */
 
-import './styles/Animation.scss';
+import './styles/Animation.mobile.scss';
 import './styles/Landing.scss';
 import './styles/modules/PartnerPicto.css';
 import './styles/pages/PageMarqueAH17.css';
 import './styles/modules/HeaderAH17.css';
 import './styles/modules/BrandMainNewsAH17.css';
-import './styles/modules/Menu.scss';
-import './styles/modules/MainFooter.css';
+import './styles/modules/Menu.mobile.scss';
+import './styles/modules/MainFooter.mobile.css';
 import '../app/components/_styles/boot.scss';
 
 import { ApolloProvider } from '@apollo/react-hooks';
@@ -20,6 +20,9 @@ import withData from '../utils/apollo';
 
 import Footer from '../modules/Footer/Footer';
 import Menu from '../modules/Menu/Menu';
+
+
+import styles from './app.module.mobile.scss';
 
 function App({ Component, pageProps, apollo }) {
   return (
@@ -36,7 +39,7 @@ function App({ Component, pageProps, apollo }) {
         </title>
       </Head>
       <Menu />
-      <div style={{ maxWidth: '1200px', margin: '0 auto', overflow: 'hidden' }}>
+      <div className={styles.app}>
         <Component {...pageProps} />
       </div>
       <Footer />

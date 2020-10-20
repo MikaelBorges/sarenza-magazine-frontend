@@ -11,6 +11,7 @@ const MainComponent = ({ article }) => {
           title={article.title}
           author={article.author}
           publishDate={article.publishDate}
+          firstArticle
         />
       </div>
       <img src={article.image} className={styles.image} alt={article.title} />

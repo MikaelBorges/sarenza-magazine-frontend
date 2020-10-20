@@ -1,0 +1,8 @@
+.app {
+  max-width: 768px;
+  margin: 0 auto;
+  overflow: hidden;
+  @media screen and (min-width: 975px) {
+    max-width: 1200px;
+  }
+}

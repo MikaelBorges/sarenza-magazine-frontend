@@ -1,10 +1,13 @@
+#MainFooter {
+  margin-top: 32px;
+}
 #MainFooter .advantages10reasons {
   margin: 0 auto 48px;
   padding: 0;
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
-  width: 1008px;
+  max-width: 1008px;
 }
 #MainFooter .advantages10reasons > li {
   margin: 0;
@@ -468,7 +471,7 @@
   display: flex;
   justify-content: center;
   padding: 25px 0;
-  width: 1008px;
+  max-width: 1008px;
   margin: 0 auto;
 }
 #MainFooter .partners > ul {
@@ -609,7 +612,7 @@
     display: flex;
     justify-content: space-between;
     flex-flow: nowrap;
-    width: 1008px;
+    max-width: 1008px;
     margin: 0 auto;
   }
   #MainFooter .help .Sc {
@@ -718,7 +721,7 @@
     border-top: 1px solid #f2f2f2;
     padding: 30px 0;
     flex-flow: row nowrap;
-    width: 1008px;
+    max-width: 1008px;
     margin: 0 auto;
   }
   #MainFooter .legal .legal-navigation {
