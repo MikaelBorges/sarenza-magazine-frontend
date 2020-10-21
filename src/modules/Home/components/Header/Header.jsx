@@ -18,8 +18,10 @@ const Header = ({ header }) => {
           <Text medium>{header.description}</Text>
         </div>
       </div>
-      <div className={styles.rubriques}>
-        <RubriquesLinks rubriques={header.rubriques} />
+      <div className={styles.wrapper}>
+        <div className={styles.rubriques}>
+          <RubriquesLinks rubriques={header.rubriques} />
+        </div>
       </div>
     </div>
   );

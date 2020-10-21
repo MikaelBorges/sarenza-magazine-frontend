@@ -7,19 +7,7 @@ import styles from './ArticleItem.mobile.module.scss';
 const ArticleItem = ({ article, size, position }) => {
   return (
     <>
-      <img
-        src={
-          (size < 2 && position === 1) || (size > 2 && position === 2)
-            ? article.mediumImage.url
-            : article.smallImage.url
-        }
-        className={styles.image}
-        alt={
-          (size < 2 && position === 1) || (size > 2 && position === 2)
-            ? article.mediumImage.alt
-            : article.smallImage.alt
-        }
-      />
+      <img src={article.mediumImage.url} className={styles.image} alt={article.mediumImage.alt} />
       <ArticleTitle
         title={article.title}
         author={article.author}

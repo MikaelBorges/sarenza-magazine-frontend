@@ -2,7 +2,7 @@ import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import styles from './Marquee.module.scss';
+import styles from './Marquee.mobile.module.scss';
 
 const Marquee = ({ marquee }) => {
   return (

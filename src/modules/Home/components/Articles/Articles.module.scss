@@ -11,7 +11,12 @@
   width: 360px;
   margin: 32px 0;
   @media screen and (min-width: 975px) {
-    width: 568px;
+    max-width: 568px;
+    flex: 1 0 50%;
+    padding: 10px;
+  }
+  @media screen and (min-width: 1185px) {
+    padding: 0;
   }
   &:hover {
     zoom: 1.002;
@@ -21,7 +26,9 @@
   margin: 32px 0;
   width: 235px;
   @media screen and (min-width: 975px) {
-    width: 391px;
+    max-width: 391px;
+    flex: 1 0 30%;
+    padding: 10px;
   }
   &:hover {
     zoom: 1.002;

@@ -4,6 +4,10 @@
   justify-content: space-between;
   background-color: #f2f2f2;
   height: 184px;
+  @media screen and (min-width: 975px) {
+    padding: 56px 82px 56px 48px;
+    height: 224px;
+  }
 }
 
 .blueOne {
@@ -22,4 +26,9 @@
   color: black;
   max-width: 420px;
   align-self: center;
+  @media screen and (min-width: 975px) {
+    font-size: 56px;
+    max-width: 720px;
+    line-height: 56px;
+  }
 }

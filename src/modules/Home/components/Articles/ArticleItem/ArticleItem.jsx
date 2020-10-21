@@ -7,7 +7,7 @@ import styles from './ArticleItem.module.scss';
 const ArticleItem = ({ article }) => {
   return (
     <>
-      <img src={article.smallImage.url} className={styles.image} alt={article.smallImage.alt} />
+      <img src={article.mediumImage.url} className={styles.image} alt={article.mediumImage.alt} />
       <ArticleTitle
         title={article.title}
         author={article.author}

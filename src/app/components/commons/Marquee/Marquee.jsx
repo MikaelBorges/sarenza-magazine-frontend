@@ -4,7 +4,7 @@ import React from 'react';
 
 import styles from './Marquee.module.scss';
 
-const Marquee = ({ marquee }) => {
+const Marquee = ({ marquee, margin }) => {
   return (
     marquee && (
       <div className={styles.toto}>
@@ -13,7 +13,8 @@ const Marquee = ({ marquee }) => {
             [styles.fast]: marquee.fastAnimation,
             [styles.slow]: marquee.slowAnimation,
             [styles['short-text']]: false
-          })}>
+          })}
+          style={margin ? { marginTop: '24px' } : { marginTop: '0' }}>
           <span data-marquee={marquee.text} className={styles.item}>
             {marquee.text}
           </span>

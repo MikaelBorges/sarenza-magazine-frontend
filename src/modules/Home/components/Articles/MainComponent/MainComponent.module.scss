@@ -39,7 +39,9 @@
   @media screen and (min-width: 975px) {
     width: 829px;
     height: 452px;
-    left: 120px;
+    position: absolute;
+    right: 0;
+    left: inherit;
   }
   &:hover {
     zoom: 1.002;

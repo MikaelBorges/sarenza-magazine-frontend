@@ -54,6 +54,7 @@ const Home = ({ query, rubriqueName }) => {
                     slowAnimation: false,
                     text: data.animateTexts[0].text
                   }}
+                  margin
                 />
               </>
             )}
