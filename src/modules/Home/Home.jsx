@@ -3,7 +3,7 @@ import React from 'react';
 
 import PaginationComponent from '@/components/commons/Pagination/components/PaginationComponent';
 import Pagination from '@/components/commons/Pagination/Pagination';
-import Text from '@/components/commons/Text/Text';
+// import Text from '@/components/commons/Text/Text';
 import Query from '@/components/Query';
 
 import Articles from './components/Articles/Articles';
@@ -23,12 +23,12 @@ const Home = ({ query, rubriqueName }) => {
               <>
                 <Header header={data.header} />
                 <MainComponent article={data.firstArticle} />
-                <Text marquee>{data.animateTexts[0].text}</Text>
+                {/* <Text marquee>{data.animateTexts[0].text}</Text> */}
                 <Articles articles={articles.slice(0, 5)} position={1} />
                 <Display />
                 <Articles articles={articles.slice(0, 5)} position={2} />
                 <Display />
-                <Text marquee>{data.animateTexts[0].text}</Text>
+                {/* <Text marquee>{data.animateTexts[0].text}</Text> */}
               </>
             )}
             renderFooter={(articles, param) => {

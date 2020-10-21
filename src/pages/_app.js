@@ -1,7 +1,7 @@
 /* eslint-disable */
 
 import './styles/Animation.mobile.scss';
-import './styles/Landing.scss';
+import './styles/Landing.mobile.module.scss';
 import './styles/modules/PartnerPicto.css';
 import './styles/pages/PageMarqueAH17.css';
 import './styles/modules/HeaderAH17.css';
@@ -30,7 +30,7 @@ function App({ Component, pageProps, apollo }) {
       <Head>
         <link
           rel="stylesheet"
-          href="https://cdn.sarenza.net/website/prod_b/assets/stylesheet/home.default.min.css"
+          href="https://cdn.sarenza.net/website/prod_b/assets/stylesheet/home.mobile.min.css?v=20201002123450"
         />
         <title
         //todo: trad
