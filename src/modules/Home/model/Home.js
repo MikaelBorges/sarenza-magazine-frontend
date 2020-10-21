@@ -40,7 +40,9 @@ const processToHome = (model = {}) => {
     },
     firstArticle: processToHomeArticle(model.articles[0]),
     articles: model.articles.slice(1).map(processToHomeArticle),
-    animateTexts: model.home.marqueComponent.map(processToMarquee)
+    animateTexts: model.home.marqueComponent.map(processToMarquee),
+    displayFirst: model.home.display_components[0],
+    displaySecond: model.home.display_components[1]
   };
 };
 

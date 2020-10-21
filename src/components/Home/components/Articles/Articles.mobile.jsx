@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import ArticleItem from './ArticleItem/ArticleItem.mobile';
-import styles from './Articles.module.mobile.scss';
+import styles from './Articles.mobile.module.scss';
 
 const Articles = ({ articles, position }) => {
   return (

@@ -12,6 +12,19 @@ export const HOME_QUERY = gql`
           text
         }
       }
+      display_components {
+        id
+        Display {
+          id
+          text
+          whiteTheme
+          button {
+            id
+            label
+            link
+          }
+        }
+      }
     }
     articles(sort: "updated_at:desc", where: { rubriques: { url: $rubriqueName } }) {
       id
@@ -46,6 +59,19 @@ export const HOME_QUERY_ALL = gql`
         id
         MarqueeContent {
           text
+        }
+      }
+      display_components {
+        id
+        Display {
+          id
+          text
+          whiteTheme
+          button {
+            id
+            label
+            link
+          }
         }
       }
     }

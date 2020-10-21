@@ -1,7 +1,7 @@
 import React from 'react';
 
-import ArticleTitle from '../ArticleTitle/ArticleTitle';
-import styles from './MainComponent.module.scss';
+import ArticleTitle from '../ArticleTitle/ArticleTitle.mobile';
+import styles from './MainComponent.mobile.module.scss';
 
 const MainComponent = ({ article }) => {
   return (

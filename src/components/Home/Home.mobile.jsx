@@ -1,15 +1,15 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import Display from '@/components/commons/Display/Display';
-import Marquee from '@/components/commons/Marquee/Marquee';
+import Display from '@/components/commons/Display/Display.mobile';
+import Marquee from '@/components/commons/Marquee/Marquee.mobile';
 import PaginationComponent from '@/components/commons/Pagination/components/PaginationComponent';
 import Pagination from '@/components/commons/Pagination/Pagination';
 import Query from '@/components/Query';
 
-import Articles from './components/Articles/Articles';
-import MainComponent from './components/Articles/MainComponent/MainComponent';
-import Header from './components/Header/Header';
+import Articles from './components/Articles/Articles.mobile';
+import MainComponent from './components/Articles/MainComponent/MainComponent.mobile';
+import Header from './components/Header/Header.mobile';
 import processToHome from './model/Home';
 
 const Home = ({ query, rubriqueName }) => {
