@@ -21,7 +21,6 @@ import withData from '../utils/apollo';
 import Footer from '../modules/Footer/Footer';
 import Menu from '../modules/Menu/Menu';
 
-
 import styles from './app.module.scss';
 
 function App({ Component, pageProps, apollo }) {
