@@ -1,12 +1,11 @@
 @import '../../../../app/components/_styles/theme';
 
 .blockText {
-  padding: 24px;
+  padding: 24px 24px 0;
 }
 
 .textPart {
   font-family: roboto, $safe-fonts;
-  width: 100%;
 }
 
 .titleTextPart {
@@ -26,25 +25,3 @@
 .button {
   margin: 24px 0;
 }
-
-.textContainer {
-  display: flex;
-}
-
-.textPartOrdered {
-  margin: 0 24px 0 0;
-}
-
-.verbatimContainer {
-  margin: 24px 0;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-
-.textPartIsAfter {
-  order: 2;
-  margin: 0 0 0 24px;
-}
-
-@import 'BlockText.module.wide';

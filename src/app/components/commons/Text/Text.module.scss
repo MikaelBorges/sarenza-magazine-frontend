@@ -62,40 +62,146 @@ $color-sarenza: #ff2157;
   font-weight: 600;
 }
 
-.verbatim {
-  font-size: 40px;
-  line-height: 46px;
-  font-weight: 700;
-  color: $color-secondary;
-  text-transform: uppercase;
+.verbatimBlockText {
   &:before {
     content: '“';
     color: $color-sarenza;
-    font-size: 100px;
+    font-size: 200px;
+    line-height: 200px;
+    display: table-cell;
+    position: relative;
+    top: 124px;
+    padding-right: 20px;
+    font-family: 'robotoc';
   }
+
+  font-size: 40px;
+  line-height: 46px;
+  font-weight: bolder;
+  color: $color-secondary;
+  text-transform: uppercase;
+  text-align: center;
+  display: table;
+  margin-top: -160px;
+  font-family: 'futur';
+
   &:after {
     content: '„';
     color: $color-sarenza;
-    font-size: 100px;
+    font-size: 200px;
+    line-height: 200px;
+    display: table-cell;
+    vertical-align: bottom;
+    padding-left: 20px;
+    position: relative;
+    top: -10px;
+    font-family: 'robotoc';
   }
 }
 
-.marquee {
-  font-size: 156px;
-  color: $color-sarenza;
-  font-family: FuturaPTCond-Bold;
+.verbatimBlockTextMobile {
+  &:before {
+    content: '“';
+    color: $color-sarenza;
+    font-size: 200px;
+    line-height: 200px;
+    display: table-cell;
+    position: relative;
+    top: 124px;
+    font-family: 'robotoc';
+  }
+
+  font-size: 32px;
+  line-height: 32px;
+  font-weight: bolder;
+  color: $color-secondary;
+  text-transform: uppercase;
   text-align: center;
-  line-height: 136px;
-  animation: marquee 10s linear infinite;
-  position: relative;
+  display: table;
+  margin-top: -120px;
+  font-family: 'futur';
+
+  &:after {
+    content: '„';
+    color: $color-sarenza;
+    font-size: 200px;
+    line-height: 200px;
+    display: table-cell;
+    vertical-align: bottom;
+    position: relative;
+    top: -10px;
+    font-family: 'robotoc';
+  }
 }
 
-@keyframes marquee {
-  from {
-    right: -1200px;
+.verbatim {
+  &:before {
+    content: '“';
+    color: $color-sarenza;
+    font-size: 200px;
+    line-height: 200px;
+    display: table-cell;
+    position: relative;
+    top: 124px;
+    padding-right: 20px;
+    font-family: 'robotoc';
   }
 
-  to {
-    right: 1200px;
+  font-size: 40px;
+  line-height: 46px;
+  font-weight: bolder;
+  color: $color-secondary;
+  text-transform: uppercase;
+  text-align: center;
+  display: table;
+  margin-top: -138px;
+  font-family: 'futur';
+
+  &:after {
+    content: '„';
+    color: $color-sarenza;
+    font-size: 200px;
+    line-height: 200px;
+    display: table-cell;
+    vertical-align: bottom;
+    padding-left: 20px;
+    position: relative;
+    top: -10px;
+    font-family: 'robotoc';
+  }
+}
+
+.verbatimMobile {
+  &:before {
+    content: '“';
+    color: $color-sarenza;
+    font-size: 200px;
+    line-height: 200px;
+    display: table-cell;
+    position: relative;
+    top: 124px;
+    font-family: 'robotoc';
+  }
+
+  font-size: 32px;
+  line-height: 32px;
+  font-weight: bolder;
+  color: $color-secondary;
+  text-transform: uppercase;
+  text-align: center;
+  display: table;
+  margin-top: -138px;
+  font-family: 'futur';
+
+  &:after {
+    content: '„';
+    color: $color-sarenza;
+    font-size: 200px;
+    line-height: 200px;
+    display: table-cell;
+    vertical-align: bottom;
+    position: relative;
+    top: -10px;
+    font-family: 'robotoc';
   }
 }

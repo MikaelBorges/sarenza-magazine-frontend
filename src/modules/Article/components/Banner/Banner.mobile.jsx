@@ -5,9 +5,9 @@ import Image from '@/components/commons/Image/Image';
 import Text from '@/components/commons/Text/Text';
 
 import Description from '../Description/Description';
-import styles from './Banner.module.scss';
+import styles from './Banner.mobile.module.scss';
 
-const Banner = ({
+const BannerMobile = ({
   subTitleOptional,
   srcImage,
   altImage,
@@ -21,22 +21,22 @@ const Banner = ({
       <div className={styles.bannerImage}>
         <Image src={srcImage} alt={altImage} />
       </div>
-      <div className={styles.textContainer}>
-        {subTitleOptional && (
-          <h4 className={`title-level4 ${styles.optional}`}>{subTitleOptional}</h4>
-        )}
-        <div className={styles.description}>
-          <div className={styles.hashTitle}>
-            <Text secondary>{subTitleBanner}</Text>
-          </div>
-          <Description author={author} publishDate={publishDate} updateDate={updateDate} />
+      {subTitleOptional && (
+        <h4 className={`title-level4 ${styles.optional}`}>{subTitleOptional}</h4>
+      )}
+      <div className={styles.description}>
+        <div className={styles.hashTitle}>
+          <Text huge secondary>
+            {subTitleBanner}
+          </Text>
         </div>
+        <Description author={author} publishDate={publishDate} updateDate={updateDate} />
       </div>
     </div>
   );
 };
 
-Banner.propTypes = {
+BannerMobile.propTypes = {
   author: PropTypes.string,
   publishDate: PropTypes.string,
   srcImage: PropTypes.string,
@@ -45,7 +45,7 @@ Banner.propTypes = {
   subTitleOptional: PropTypes.string
 };
 
-Banner.defaultProps = {
+BannerMobile.defaultProps = {
   author: '',
   publishDate: '',
   srcImage: '',
@@ -54,4 +54,4 @@ Banner.defaultProps = {
   subTitleOptional: ''
 };
 
-export default Banner;
+export default BannerMobile;

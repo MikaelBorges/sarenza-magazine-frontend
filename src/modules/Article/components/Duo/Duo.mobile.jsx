@@ -7,12 +7,14 @@ import React from 'react';
 
 import Text from '@/components/commons/Text/Text';
 
-import styles from './Duo.module.scss';
+import styles from './Duo.mobile.module.scss';
 
-const Duo = ({ title, texts, urlImage, textButton, urlButton }) => {
+const DuoMobile = ({ title, texts, urlImage, textButton, urlButton }) => {
   return (
     <div className={styles.container}>
-      <img src={urlImage} alt="alt" className={styles.image} />
+      <div className={styles.imageContainer}>
+        <img src={urlImage} alt="alt" className={styles.image} />
+      </div>
       <div className={styles.textPart}>
         <div className={styles.titleTextPart}>
           <Text huge secondary>
@@ -22,12 +24,16 @@ const Duo = ({ title, texts, urlImage, textButton, urlButton }) => {
         <div className={styles.paragraph}>
           {texts.map((item) => {
             if (item.type === 'text') {
-              return <Text big>{item.text}</Text>;
+              return (
+                <div className={styles.textContainer}>
+                  <Text big>{item.text}</Text>
+                </div>
+              );
             }
             if (item.type === 'verbatim')
               return (
                 <div className={styles.verbatimContainer}>
-                  <Text verbatim>{item.text}</Text>
+                  <Text verbatimMobile>{item.text}</Text>
                 </div>
               );
           })}
@@ -42,7 +48,7 @@ const Duo = ({ title, texts, urlImage, textButton, urlButton }) => {
   );
 };
 
-Duo.propTypes = {
+DuoMobile.propTypes = {
   title: PropTypes.string,
   texts: PropTypes.string,
   urlImage: PropTypes.string,
@@ -50,7 +56,7 @@ Duo.propTypes = {
   urlButton: PropTypes.string
 };
 
-Duo.defaultProps = {
+DuoMobile.defaultProps = {
   title: '',
   texts: '',
   urlImage: '',
@@ -58,4 +64,4 @@ Duo.defaultProps = {
   urlButton: ''
 };
 
-export default Duo;
+export default DuoMobile;

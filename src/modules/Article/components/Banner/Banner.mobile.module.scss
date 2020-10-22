@@ -1,25 +1,29 @@
 @import '../../../../app/components/_styles/theme';
 
 .bannerImage {
+  margin-bottom: 24px;
+  height: 350px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   img {
     display: block;
+    max-width: none;
   }
 }
 
-.textContainer {
-  padding: 24px;
-}
-
 .optional {
-  text-align: left;
   color: #ff2157;
-  margin-bottom: 8px;
+  padding: 0 24px 8px;
   font-size: 16px;
 }
 
 .description {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  padding: 0 24px 8px 24px;
 }
 
 .hashTitle {
@@ -27,4 +31,5 @@
   font-family: futur, $safe-fonts;
   font-size: 40px;
   line-height: 40px;
+  margin-bottom: 24px;
 }

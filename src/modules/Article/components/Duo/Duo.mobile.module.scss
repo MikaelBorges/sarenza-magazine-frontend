@@ -1,21 +1,6 @@
 @import '../../../../app/components/_styles/theme';
 
-.container:nth-child(even) {
-  .image {
-    float: left;
-    margin-right: 24px;
-  }
-}
-
-.container:nth-child(odd) {
-  .image {
-    float: right;
-    margin-left: 24px;
-  }
-}
-
 .container {
-  overflow: hidden;
   padding-top: 24px;
 }
 
@@ -23,8 +8,25 @@
   margin: 24px 0;
 }
 
+.textContainer {
+  padding: 0 24px 0;
+}
+
+.imageContainer {
+  height: 514px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 24px;
+}
+.image {
+  display: block;
+  max-width: none;
+}
+
 .textPart {
-  padding: 0 24px 24px;
+  padding: 0 0 24px;
   font-family: roboto, $safe-fonts;
 }
 
@@ -34,6 +36,7 @@
   text-align: left;
   line-height: 26px;
   line-height: 32px;
+  padding: 0 24px 0;
 }
 
 .paragraph {
@@ -42,13 +45,6 @@
   font-family: robotoc, $safe-fonts;
 }
 
-.image {
-  width: 338px;
-  margin-bottom: 24px;
-}
-
 .button {
-  margin: 6px 0 24px;
+  margin: 6px 0 24px 0;
 }
-
-@import 'Duo.module.wide';
