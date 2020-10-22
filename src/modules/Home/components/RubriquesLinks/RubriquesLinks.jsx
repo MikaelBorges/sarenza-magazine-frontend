@@ -12,7 +12,7 @@ const RubriquesLinks = ({ rubriques }) => {
       </LinkButton>
       {rubriques.map((rubrique) => (
         <LinkButton
-          link={`/rubriques/${rubrique.url}`}
+          link={`/${rubrique.url}`}
           extraClasses={[styles.rubriquesLinks]}
           key={rubrique.name}>
           {rubrique.name}

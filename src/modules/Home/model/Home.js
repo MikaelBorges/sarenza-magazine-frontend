@@ -9,6 +9,7 @@ const processToHomeArticle = (model = {}) => {
       url: '',
       alt: 'image inconnue'
     },
+    link: model.rubriques && `${model.rubriques[0].url}/${model.url}`,
     mediumImage: model.mediumSizeImg || {
       url: '',
       alt: 'image inconnue'
