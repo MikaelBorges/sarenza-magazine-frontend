@@ -1,0 +1,54 @@
+@import '../../../../app/components/_styles/theme';
+
+.container:nth-child(even) {
+  .image {
+    float: left;
+    margin-right: 24px;
+  }
+}
+
+.container:nth-child(odd) {
+  .image {
+    float: right;
+    margin-left: 24px;
+  }
+}
+
+.container {
+  overflow: hidden;
+  padding-top: 24px;
+}
+
+.verbatimContainer {
+  margin: 24px 0;
+}
+
+.textPart {
+  padding: 0 24px 24px;
+  font-family: roboto, $safe-fonts;
+}
+
+.titleTextPart {
+  font-family: robotoc, $safe-fonts;
+  font-weight: bold;
+  text-align: left;
+  line-height: 26px;
+  line-height: 32px;
+}
+
+.paragraph {
+  margin-top: 16px;
+  text-align: left;
+  font-family: robotoc, $safe-fonts;
+}
+
+.image {
+  width: 338px;
+  margin-bottom: 24px;
+}
+
+.button {
+  margin: 6px 0 24px;
+}
+
+@import 'Duo.module.wide';

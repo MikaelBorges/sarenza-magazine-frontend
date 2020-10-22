@@ -1,0 +1,50 @@
+@import '../../../../app/components/_styles/theme';
+
+.container {
+  padding-top: 24px;
+}
+
+.verbatimContainer {
+  margin: 24px 0;
+}
+
+.textContainer {
+  padding: 0 24px 0;
+}
+
+.imageContainer {
+  height: 514px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 24px;
+}
+.image {
+  display: block;
+  max-width: none;
+}
+
+.textPart {
+  padding: 0 0 24px;
+  font-family: roboto, $safe-fonts;
+}
+
+.titleTextPart {
+  font-family: robotoc, $safe-fonts;
+  font-weight: bold;
+  text-align: left;
+  line-height: 26px;
+  line-height: 32px;
+  padding: 0 24px 0;
+}
+
+.paragraph {
+  margin-top: 16px;
+  text-align: left;
+  font-family: robotoc, $safe-fonts;
+}
+
+.button {
+  margin: 6px 0 24px 0;
+}

@@ -1,12 +1,14 @@
+/* eslint-disable no-irregular-whitespace */
+
 import PropTypes from 'prop-types';
 import React, { useEffect, useState } from 'react';
 
 import Breadcrumb from '@/components/commons/Breadcrumb/Breadcrumb';
-import Image from '@/components/commons/Image/Image';
-import Text from '@/components/commons/Text';
 
 import styles from './Article.module.scss';
-import Description from './components/Description/Description';
+import Banner from './components/Banner/Banner';
+import BlockText from './components/BlockText/BlockText';
+import Duo from './components/Duo/Duo';
 
 const Article = ({ rubrique, slug }) => {
   const breadcrumbs = [
@@ -35,46 +37,103 @@ const Article = ({ rubrique, slug }) => {
     };
     getArticle();
   }, [slug]);
-
   return article ? (
-    <div>
+    <div className={styles.article}>
       <Breadcrumb breadcrumbs={breadcrumbs} />
-      <Image src="https://dummyimage.com/1200x452" alt="image de l'article" />
-      <div className={styles.description}>
-        <Text huge secondary>
-          #AirMaxDay !
-        </Text>
-        <Description
-          author={article.author}
-          publishDate="11/09/2020"
-          updateDate={new Date(article.updated_at).toLocaleDateString('fr-FR')}
-        />
-      </div>
-      <div className={styles.container}>
-        <div className={styles.item}>
-          <Text huge secondary>
-            Nike Air Max !
-          </Text>
-          <div className={styles.paragraph}>
-            <Text big>
-              Il y a 33 ans, une certaine petite bulle d’air faisait son apparition, révolutionnant
-              la mode, la rue, le sport… Aujourd’hui, fort de nouvelles légendes, le mythe Nike Air
-              continue de briller aux pieds de toute la famille, ados, petits et grands : bienvenue
-              sur la planète Air ! Il y a 33 ans, une certaine petite bulle d’air faisait son
-              apparition, révolutionnant la mode, la rue, le sport… Aujourd’hui, fort de nouvelles
-              légendes,
-            </Text>
-          </div>
-          <div className={styles.paragraph}>
-            <Text verbatim>
-              fort de nouvelles légendes, le mythe Nike Air continue de briller aux pieds.
-            </Text>
-          </div>
-        </div>
-        <div className={styles.item}>
-          <Image src="https://dummyimage.com/480x658" alt="image de l'article" />
-        </div>
-      </div>
+
+      <Banner
+        subTitleOptional="Besoin d'un conseil ?"
+        srcImage="https://dummyimage.com/1200x452"
+        altImage="image de l'article"
+        subTitleBanner="#AirMaxDay !"
+        author={article.author}
+        publishDate="11/09/2020"
+        updateDate={new Date(article.updated_at).toLocaleDateString('fr-FR')}
+      />
+
+      {/* <BannerMobile
+        subTitleOptional="Besoin d'un conseil ?"
+        srcImage="https://dummyimage.com/500x500"
+        altImage="image de l'article"
+        subTitleBanner="#AirMaxDay !"
+        author={article.author}
+        publishDate="11/09/2020"
+        updateDate={new Date(article.updated_at).toLocaleDateString('fr-FR')}
+      /> */}
+
+      {/* <DuoMobile
+        title="title1"
+        texts={[
+          {text: 'Mon joli texte et un verbatim', type: 'text'},
+          {text: 'Fort de nouvelles légendes, le mythe Nike Air continue de briller aux pieds.', type: 'verbatim'},
+          {text: 'et la suite de mon texte.', type: 'text'}
+        ]}
+        urlImage="https://dummyimage.com/500x514"
+        altImage="alt"
+        textButton="Voir la sélection"
+        urlButton="#"
+      />
+
+      <BlockTextMobile
+        title="titleBlock"
+        text="text"
+        textVerbatim="Fort de nouvelles légendes, le mythe Nike Air continue de briller aux pieds."
+        textButton="Voir la sélection"
+        urlButton="#"
+      />
+
+      <DuoMobile
+        title="title2"
+        texts={[
+          {text: 'Mon joli texte et un verbatim', type: 'text'},
+          {text: 'Fort de nouvelles légendes, le mythe Nike Air continue de briller aux pieds.', type: 'verbatim'},
+          {text: 'et la suite de mon texte.', type: 'text'}
+        ]}
+        urlImage="https://dummyimage.com/500x514"
+        altImage="alt"
+        textButton="Voir la sélection"
+        urlButton="#"
+      /> */}
+
+      <Duo
+        title="title1"
+        texts={[
+          { text: 'Mon joli texte et un verbatim', type: 'text' },
+          {
+            text: 'Fort de nouvelles légendes, le mythe Nike Air continue de briller aux pieds.',
+            type: 'verbatim'
+          },
+          { text: 'et la suite de mon texte.', type: 'text' }
+        ]}
+        urlImage="https://dummyimage.com/480x658"
+        altImage="alt"
+        textButton="Voir la sélection"
+        urlButton="#"
+      />
+
+      <BlockText
+        title="titleBlock"
+        text="text"
+        textPartIsAfter
+        textButton="Voir la sélection"
+        urlButton="#"
+      />
+
+      <Duo
+        title="title2"
+        texts={[
+          { text: 'Mon joli texte et un verbatim', type: 'text' },
+          {
+            text: 'Fort de nouvelles légendes, le mythe Nike Air continue de briller aux pieds.',
+            type: 'verbatim'
+          },
+          { text: 'et la suite de mon texte.', type: 'text' }
+        ]}
+        urlImage="https://dummyimage.com/480x658"
+        altImage="alt"
+        textButton="Voir la sélection"
+        urlButton="#"
+      />
     </div>
   ) : (
     <div>Loading...</div>

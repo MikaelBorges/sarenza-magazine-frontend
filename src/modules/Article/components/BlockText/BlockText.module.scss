@@ -1,0 +1,50 @@
+@import '../../../../app/components/_styles/theme';
+
+.blockText {
+  padding: 24px;
+}
+
+.textPart {
+  font-family: roboto, $safe-fonts;
+  width: 100%;
+}
+
+.titleTextPart {
+  font-family: robotoc, $safe-fonts;
+  font-weight: bold;
+  text-align: left;
+  line-height: 26px;
+  line-height: 32px;
+}
+
+.paragraph {
+  margin-top: 16px;
+  text-align: left;
+  font-family: robotoc, $safe-fonts;
+}
+
+.button {
+  margin: 24px 0;
+}
+
+.textContainer {
+  display: flex;
+}
+
+.textPartOrdered {
+  margin: 0 24px 0 0;
+}
+
+.verbatimContainer {
+  margin: 24px 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.textPartIsAfter {
+  order: 2;
+  margin: 0 0 0 24px;
+}
+
+@import 'BlockText.module.wide';
