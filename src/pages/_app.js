@@ -1,7 +1,7 @@
 /* eslint-disable */
 
-import './styles/Animation.scss';
-import './styles/Landing.scss';
+import './styles/Animation.module.scss';
+import './styles/Landing.module.scss';
 import './styles/modules/PartnerPicto.css';
 import './styles/pages/PageMarqueAH17.css';
 import './styles/modules/HeaderAH17.css';
@@ -21,13 +21,15 @@ import withData from '../utils/apollo';
 import Footer from '../modules/Footer/Footer';
 import Menu from '../modules/Menu/Menu';
 
+import styles from './app.module.scss';
+
 function App({ Component, pageProps, apollo }) {
   return (
     <ApolloProvider client={apollo}>
       <Head>
         <link
           rel="stylesheet"
-          href="https://cdn.sarenza.net/website/prod_b/assets/stylesheet/home.default.min.css"
+          href="https://cdn.sarenza.net/website/prod_b/assets/stylesheet/home.default.min.css?v=20201002123450"
         />
         <title
         //todo: trad
@@ -36,7 +38,7 @@ function App({ Component, pageProps, apollo }) {
         </title>
       </Head>
       <Menu />
-      <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+      <div className={styles.app}>
         <Component {...pageProps} />
       </div>
       <Footer />

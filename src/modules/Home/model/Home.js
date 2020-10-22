@@ -4,7 +4,16 @@ const processToHomeArticle = (model = {}) => {
     title: model.title || '',
     author: model.author || '',
     publishDate: new Date(model.updated_at).toLocaleDateString('fr-FR'),
-    image: model.image || 'Image inconnue'
+    image: model.image || 'Image inconnue',
+    smallImage: model.smallSizeImg || {
+      url: '',
+      alt: 'image inconnue'
+    },
+    link: model.rubriques && `${model.rubriques[0].url}/${model.url}`,
+    mediumImage: model.mediumSizeImg || {
+      url: '',
+      alt: 'image inconnue'
+    }
   };
 };
 
@@ -32,7 +41,9 @@ const processToHome = (model = {}) => {
     },
     firstArticle: processToHomeArticle(model.articles[0]),
     articles: model.articles.slice(1).map(processToHomeArticle),
-    animateTexts: model.home.marqueComponent.map(processToMarquee)
+    animateTexts: model.home.marqueComponent.map(processToMarquee),
+    displayFirst: model.home.display_components[0],
+    displaySecond: model.home.display_components[1]
   };
 };
 

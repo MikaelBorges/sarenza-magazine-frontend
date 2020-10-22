@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import Heading from '@/components/commons/Heading';
-import Text from '@/components/commons/Text/Text';
+import Heading from '@/components/commons/Heading/Heading.mobile';
+import Text from '@/components/commons/Text/Text.mobile';
 
 import RubriquesLinks from '../RubriquesLinks/RubriquesLinks';
-import styles from './Header.module.scss';
+import styles from './Header.mobile.module.scss';
 
 const Header = ({ header }) => {
   return (

@@ -1,15 +1,23 @@
 @import '../../_styles/theme';
 
 $text-color-error: red !default;
-$color-primary: #737373;
 $color-sarenza: #ff2157;
+$color-primary: #999999;
+$color-grey: #737373;
+$color-marquee: #ff2157;
 
 .text {
   color: $color-primary;
 }
-
+.grey {
+  color: $color-grey;
+}
 .secondary {
   color: $color-secondary;
+  line-height: 28px;
+  @media screen and (min-width: 975px) {
+    line-height: 36px;
+  }
 }
 .container {
   font-weight: 400;
@@ -38,7 +46,7 @@ $color-sarenza: #ff2157;
 
 .medium {
   font-size: $text-font-medium;
-  line-height: 22px;
+  line-height: 19px;
 }
 
 .big {
@@ -51,7 +59,10 @@ $color-sarenza: #ff2157;
 }
 
 .huge {
-  font-size: 32px;
+  font-size: 24px;
+  @media screen and (min-width: 975px) {
+    font-size: 32px;
+  }
 }
 
 .light {

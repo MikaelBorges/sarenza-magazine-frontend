@@ -2,7 +2,7 @@ import React from 'react';
 
 import { LinkButton } from '@/components/commons/Links';
 
-import styles from './RubriquesLinks.module.scss';
+import styles from './RubriquesLinks.module.mobile.scss';
 
 const RubriquesLinks = ({ rubriques }) => {
   return (
@@ -12,7 +12,7 @@ const RubriquesLinks = ({ rubriques }) => {
       </LinkButton>
       {rubriques.map((rubrique) => (
         <LinkButton
-          link={`/${rubrique.url}`}
+          link={`/rubriques/${rubrique.url}`}
           extraClasses={[styles.rubriquesLinks]}
           key={rubrique.name}>
           {rubrique.name}

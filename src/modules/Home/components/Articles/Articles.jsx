@@ -1,4 +1,5 @@
 import classnames from 'classnames';
+import Link from 'next/link';
 import PropTypes from 'prop-types';
 import React from 'react';
 
@@ -10,15 +11,17 @@ const Articles = ({ articles, position }) => {
     <div className={styles.container}>
       {articles.map((article, index) => {
         return (
-          <div
-            key={article.id}
-            className={classnames({
-              [styles.content]: (index < 2 && position === 1) || (index > 2 && position === 2),
-              [styles.contentThree]:
-                (index >= 2 && position === 1) || (index <= 2 && position === 2)
-            })}>
-            <ArticleItem article={article} />
-          </div>
+          <Link href={article.link} key={article.link}>
+            <div
+              key={article.id}
+              className={classnames({
+                [styles.content]: (index < 2 && position === 1) || (index > 2 && position === 2),
+                [styles.contentThree]:
+                  (index >= 2 && position === 1) || (index <= 2 && position === 2)
+              })}>
+              <ArticleItem article={article} size={index} position={position} />
+            </div>
+          </Link>
         );
       })}
     </div>

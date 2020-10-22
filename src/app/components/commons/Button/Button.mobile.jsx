@@ -7,7 +7,7 @@ import * as ICONS from '../Icon/constants';
 import Loading, { ANIM_TYPE } from '../Loader/Loading';
 import Status from '../Status';
 import STATUS_TYPE from '../Status/constants';
-import styles from './Button.module.scss';
+import styles from './Button.mobile.module.scss';
 
 const Button = ({
   disabled,

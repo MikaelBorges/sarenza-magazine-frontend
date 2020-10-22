@@ -1,0 +1,89 @@
+@import '../../_styles/theme';
+
+$text-color-error: red !default;
+$color-primary: #999999;
+$color-grey: #737373;
+$color-marquee: #ff2157;
+
+.text {
+  color: #737373;
+}
+.grey {
+  color: $color-grey;
+}
+.secondary {
+  color: $color-secondary;
+  line-height: 28px;
+}
+.container {
+  font-weight: 400;
+  font-size: $text-font-base;
+  line-height: 1.5em;
+}
+
+.error {
+  color: $text-color-danger;
+}
+
+.red {
+  color: $text-color-error;
+}
+
+.ellipsis {
+  display: inherit;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.small {
+  font-size: $text-font-small;
+}
+
+.medium {
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.big {
+  font-size: 18px;
+}
+
+.bigger {
+  font-size: 20px;
+}
+
+.huge {
+  font-size: 24px;
+}
+
+.light {
+  font-weight: 300;
+}
+
+.bold {
+  font-weight: 600;
+}
+
+.marquee {
+  font-size: 156px;
+  color: $color-marquee;
+  font-family: FuturaPTCond-Bold;
+  text-align: center;
+  line-height: 136px;
+  animation: marquee 10s linear infinite;
+  position: relative;
+  min-width: 1500px; //remettre 1200px
+  text-transform: uppercase;
+  margin-top: 32px;
+}
+
+@keyframes marquee {
+  from {
+    right: -1200px;
+  }
+
+  to {
+    right: 1200px;
+  }
+}

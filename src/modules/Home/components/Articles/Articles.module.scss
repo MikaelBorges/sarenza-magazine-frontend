@@ -2,23 +2,35 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  align-items: baseline;
   width: 100%;
+  justify-content: space-evenly;
 }
 .content {
-  margin-top: 40px;
   width: 100%;
-  max-width: 568px;
-  margin-left: 40px;
+  width: 360px;
+  margin: 32px 0;
+  @media screen and (min-width: 975px) {
+    max-width: 568px;
+    flex: 1 0 50%;
+    padding: 10px;
+  }
+  @media screen and (min-width: 1185px) {
+    padding: 0;
+  }
   &:hover {
-    zoom: 1.02;
+    zoom: 1.002;
   }
 }
 .contentThree {
-  margin-top: 40px;
-  width: 391px;
-  max-width: 363px;
-  margin-left: 40px;
+  margin: 32px 0;
+  width: 235px;
+  @media screen and (min-width: 975px) {
+    max-width: 391px;
+    flex: 1 0 30%;
+    padding: 10px;
+  }
   &:hover {
-    zoom: 1.03;
+    zoom: 1.002;
   }
 }

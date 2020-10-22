@@ -60,13 +60,12 @@ $button-hover-color: $color-white !default;
   color: #fff;
   font-weight: bold;
   font-family: RobotoC;
-  align-self: center;
-  flex: 0 1 auto;
 
   &.whiteTheme {
     background-color: white;
     color: #1d1d1b;
   }
+
   span {
     font-size: 12px;
   }

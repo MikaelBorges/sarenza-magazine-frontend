@@ -4,21 +4,15 @@ import React from 'react';
 
 import Text from '@/components/commons/Text/Text';
 
-import style from './ArticleTitle.module.scss';
+import style from './ArticleTitle.mobile.module.scss';
 
-const ArticleTitle = ({ title, author, publishDate, size, position, firstArticle }) => {
+const ArticleTitle = ({ title, author, publishDate }) => {
   return (
     <>
       <div className={style.resume}>
-        {(size < 2 && position === 1) || (size > 2 && position === 2) || firstArticle ? (
-          <Text huge secondary>
-            {parse(title)}
-          </Text>
-        ) : (
-          <Text medium secondary>
-            {parse(title)}
-          </Text>
-        )}
+        <Text huge secondary>
+          {parse(title)}
+        </Text>
       </div>
       <div className={style.author}>
         <Text small>

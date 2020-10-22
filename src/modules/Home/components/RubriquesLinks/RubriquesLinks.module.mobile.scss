@@ -1,0 +1,12 @@
+@import '../../../../app/components/_styles/theme';
+
+.rubriquesLinks {
+  padding: 16px !important;
+  margin-right: 8px !important;
+  font-size: $small-font-size;
+  font-family: RobotoC;
+  font-weight: normal;
+  &span:hover {
+    background-color: $color-background;
+  }
+}

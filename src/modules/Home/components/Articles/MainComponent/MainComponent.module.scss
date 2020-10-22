@@ -1,20 +1,49 @@
 @import '../../../../../app/components/_styles/theme';
 
+.container {
+  position: relative;
+  height: 273px;
+  width: 100%;
+  margin-bottom: 32px;
+  @media screen and (min-width: 975px) {
+    height: 452px;
+  }
+}
+
 .content {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
   z-index: 2;
   background-color: $color-white;
-  width: 442px;
-  height: 200px;
-  padding: 64px 40px;
-  text-align: center;
-  position: relative;
-  left: 120px;
+  width: 328px;
+  height: 230px;
+  text-align: left;
+  line-height: 36px;
+  font-weight: bold;
+  padding: 1% 2.8%;
+  @media screen and (min-width: 975px) {
+    width: 442px;
+    height: 310px;
+  }
 }
 .image {
-  max-width: 829px;
-  width: 100%;
-  max-height: 452px;
+  position: relative;
+  left: 155px;
+  width: 459px;
+  height: 273px;
+  @media screen and (min-width: 975px) {
+    width: 829px;
+    height: 452px;
+    position: absolute;
+    right: 0;
+    left: inherit;
+  }
   &:hover {
-    zoom: 1.05;
+    zoom: 1.002;
   }
 }
