@@ -23,12 +23,12 @@ const Home = ({ query, rubriqueName }) => {
               <>
                 <Header header={data.header} />
                 <MainComponent article={data.firstArticle} />
-                {data.animateTexts[0].content[0].visible ? (
+                {data.marqueeTop !== null ? (
                   <Marquee
                     marquee={{
                       fastAnimation: false,
                       slowAnimation: false,
-                      text: data.animateTexts[1].content[0].text
+                      text: data.marqueeTop.MarqueeComponent[0].text
                     }}
                   />
                 ) : null}
@@ -51,12 +51,12 @@ const Home = ({ query, rubriqueName }) => {
                   }}
                   whiteTheme={data.displaySecond.Display.whiteTheme}
                 />
-                {data.animateTexts[1].content[0].visible ? (
+                {data.marquee !== null ? (
                   <Marquee
                     marquee={{
                       fastAnimation: false,
                       slowAnimation: false,
-                      text: data.animateTexts[1].content[0].text
+                      text: data.marquee.MarqueeComponent[0].text
                     }}
                     margin
                   />
