@@ -77,16 +77,16 @@ $button-hover-color: $color-white !default;
   &:not(:disabled) {
     &:hover,
     &:active {
-      background: $button-hover-bg;
-      color: $button-hover-color;
-      cursor: pointer;
+      // background: $button-hover-bg;
+      // color: $button-hover-color;
+      // cursor: pointer;
 
       svg {
         fill: $button-hover-color;
       }
     }
     &:active {
-      box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.3);
+      // box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.3);
     }
   }
 }
