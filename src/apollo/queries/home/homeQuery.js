@@ -10,6 +10,8 @@ export const HOME_QUERY = gql`
         id
         MarqueeComponent {
           text
+          id
+          isShow
         }
       }
       display_components {
@@ -64,6 +66,8 @@ export const HOME_QUERY_ALL = gql`
         id
         MarqueeComponent {
           text
+          id
+          isShow
         }
       }
       display_components {

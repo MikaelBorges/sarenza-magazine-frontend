@@ -25,10 +25,18 @@ const processToRubrique = (model = []) => {
   };
 };
 
+const processToMarqueeComponent = (model = {}) => {
+  return {
+    id: model.id,
+    text: model.text,
+    visible: model.isShow
+  };
+};
+
 const processToMarquee = (model = {}) => {
   return {
     id: model.id,
-    text: model.MarqueeComponent.text
+    content: model.MarqueeComponent.map(processToMarqueeComponent) || {}
   };
 };
 
