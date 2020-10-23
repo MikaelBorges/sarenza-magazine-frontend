@@ -9,7 +9,9 @@
     "test": "jest",
     "lint:style": "stylelint **/*.css",
     "lint": "eslint --fix .",
-    "format": "prettier --write './**/*.{js,jsx,scss,css,md,json}' --config ./.prettierrc"
+    "format": "prettier --write './**/*.{js,jsx,scss,css,md,json}' --config ./.prettierrc",
+    "disable:telemetry": "next telemetry disable",
+    "enable:telemetry": "next telemetry enable"
   },
   "dependencies": {
     "@apollo/react-hooks": "^4.0.0",
