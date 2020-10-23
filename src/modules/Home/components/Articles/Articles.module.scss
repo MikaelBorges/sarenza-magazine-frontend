@@ -3,34 +3,29 @@
   flex-direction: row;
   flex-wrap: wrap;
   align-items: baseline;
-  width: 100%;
-  justify-content: space-evenly;
+  min-width: 100%;
+  justify-content: space-around;
 }
 .content {
-  width: 100%;
   width: 360px;
   margin: 32px 0;
   @media screen and (min-width: 975px) {
     max-width: 568px;
-    flex: 1 0 50%;
-    padding: 10px;
+    min-width: 49%;
+    //padding: 10px;
+    max-height: 690px;
   }
   @media screen and (min-width: 1185px) {
     padding: 0;
   }
-  // &:hover {
-  //   zoom: 1.002;
-  // }
 }
 .contentThree {
   margin: 32px 0;
   width: 235px;
   @media screen and (min-width: 975px) {
     max-width: 391px;
-    flex: 1 0 30%;
-    padding: 10px;
+    min-width: 32%;
+    //padding: 10px;
+    max-height: 497px;
   }
-  // &:hover {
-  //   zoom: 1.002;
-  // }
 }
