@@ -6,10 +6,12 @@ export const HOME_QUERY = gql`
       id
       title
       shortDescription
-      marqueComponent {
+      marquee {
         id
-        MarqueeContent {
+        MarqueeComponent {
           text
+          id
+          isShow
         }
       }
       display_components {
@@ -60,10 +62,12 @@ export const HOME_QUERY_ALL = gql`
       id
       title
       shortDescription
-      marqueComponent {
+      marquee {
         id
-        MarqueeContent {
+        MarqueeComponent {
           text
+          id
+          isShow
         }
       }
       display_components {
