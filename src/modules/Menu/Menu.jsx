@@ -113,12 +113,6 @@ const Menu = () => {
               </ul>
               <ul className="main-list">
                 {/* [RD] - MegaMenu Item men: début */}
-                <style
-                  dangerouslySetInnerHTML={{
-                    __html:
-                      "\n      .Picto1:after{ content:' New'; color:#ff2157; font-size:10px;margin:2px 0 0 6px;position:absolute;text-transform:uppercase;}\n\n"
-                  }}
-                />
                 {menus.map((menu) => {
                   return (
                     <li

@@ -3,6 +3,7 @@
 import cn from 'classnames';
 import React, { useEffect, useState } from 'react';
 
+import styles from './Menu.mobile.module.scss';
 import getGender from './service/gender.service';
 import getMenu from './service/menu.service';
 import SubMenu from './subMenu.mobile';
@@ -138,16 +139,11 @@ const Menu = () => {
                   height: openTab ? '0' : 'auto'
                 }}>
                 {/* [RD] - MegaMenu Item men: début */}
-                <style
-                  dangerouslySetInnerHTML={{
-                    __html:
-                      "\n      .Picto1:after{ content:' New'; color:#ff2157; font-size:10px;margin:2px 0 0 6px;position:absolute;text-transform:uppercase;}\n\n"
-                  }}
-                />
+
                 {menus.map((menu) => {
                   return (
                     <li
-                      className="menu-group"
+                      className={`menu-group${styles['menu-group']}`}
                       onClick={() => {
                         setOpenTab(menu.id);
                       }}

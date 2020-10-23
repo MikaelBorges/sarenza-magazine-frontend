@@ -5,7 +5,7 @@ import ArticleTitle from '../ArticleTitle/ArticleTitle';
 import styles from './MainComponent.module.scss';
 
 const MainComponent = ({ article }) => {
-  return (
+  return article.link ? (
     <Link href={article.link}>
       <div className={styles.container}>
         <div className={styles.content}>
@@ -19,6 +19,8 @@ const MainComponent = ({ article }) => {
         <img src={article.image} className={styles.image} alt={article.title} />
       </div>
     </Link>
+  ) : (
+    'Aucun Article'
   );
 };
 
