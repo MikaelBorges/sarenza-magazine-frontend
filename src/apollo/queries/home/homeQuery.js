@@ -6,9 +6,9 @@ export const HOME_QUERY = gql`
       id
       title
       shortDescription
-      marqueComponent {
+      marquee {
         id
-        MarqueeContent {
+        MarqueeComponent {
           text
         }
       }
