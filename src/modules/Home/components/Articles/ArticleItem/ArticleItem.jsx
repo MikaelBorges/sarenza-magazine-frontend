@@ -4,7 +4,7 @@ import React from 'react';
 import ArticleTitle from '../ArticleTitle/ArticleTitle';
 import styles from './ArticleItem.module.scss';
 
-const ArticleItem = ({ article }) => {
+const ArticleItem = ({ article, size, position }) => {
   return (
     <>
       <img src={article.mediumImage.url} className={styles.image} alt={article.mediumImage.alt} />
@@ -12,6 +12,8 @@ const ArticleItem = ({ article }) => {
         title={article.title}
         author={article.author}
         publishDate={article.publishDate}
+        size={size}
+        position={position}
       />
     </>
   );
