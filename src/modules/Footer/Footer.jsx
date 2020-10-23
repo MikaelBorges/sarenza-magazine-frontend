@@ -11,6 +11,7 @@ import VariousText from 'modules/Footer/components/VariousText/VariousText';
 import React, { useEffect, useState } from 'react';
 
 import getFooter from './service/footer.service';
+import { StyleFooter } from './StyleFooter/StyleFooter';
 
 const Footer = () => {
   const [footer, setFooter] = useState(null);
@@ -84,6 +85,7 @@ const Footer = () => {
             <CountrySelector data={footer.countrySelectors} />
           </div>
         </div>
+        <StyleFooter />
       </footer>
     )
   );
