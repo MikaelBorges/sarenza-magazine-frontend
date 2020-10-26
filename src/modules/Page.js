@@ -1,7 +1,5 @@
 import React from "react"
 import Head from "./_pageComponents/Head"
-import Menu from "./Menu/Menu"
-import Footer from "./Footer/Footer"
 
 function Page({ children, pageStyle }) {
     return (
