@@ -1,12 +1,11 @@
-import Link from 'next/link';
 import React from 'react';
 
 import ArticleTitle from '../ArticleTitle/ArticleTitle';
 import styles from './MainComponent.module.scss';
 
 const MainComponent = ({ article }) => {
-  return article.link ? (
-    <Link href={article.link}>
+  return (
+    <a href={article.link}>
       <div className={styles.container}>
         <div className={styles.content}>
           <ArticleTitle
@@ -20,9 +19,7 @@ const MainComponent = ({ article }) => {
           <img src={article.image} className={styles.image} alt={article.title} />
         </div>
       </div>
-    </Link>
-  ) : (
-    'Aucun Article'
+    </a>
   );
 };
 
