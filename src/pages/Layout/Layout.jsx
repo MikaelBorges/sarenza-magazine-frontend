@@ -1,5 +1,6 @@
 import React from 'react';
 import Menu from 'modules/Menu/Menu';
+import MenuMobile from 'modules/Menu/Menu.mobile';
 import stylesMobile from './app.mobile.module.scss';
 import styles from './app.module.scss';
 import Footer from 'modules/Footer/Footer';

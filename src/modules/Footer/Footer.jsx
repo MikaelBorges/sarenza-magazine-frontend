@@ -18,7 +18,6 @@ const Footer = ({ footer }) => {
   const handleToggle = () => {
     setActive(!isActive);
   };
-
   return (
     footer && (
       <footer id="MainFooter" data-track-zone="Transverse" className="gtm-zone">
@@ -75,7 +74,7 @@ const Footer = ({ footer }) => {
             <CountrySelector data={footer.countrySelectors} />
           </div>
         </div>
-        <StyleFooter />
+        {typeof window !== 'undefined' && <StyleFooter />}
       </footer>
     )
   );
