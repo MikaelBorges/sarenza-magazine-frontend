@@ -1,3 +1,4 @@
+import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 
@@ -7,7 +8,19 @@ import styles from './ArticleItem.module.scss';
 const ArticleItem = ({ article, size, position }) => {
   return (
     <>
-      <img src={article.mediumImage.url} className={styles.image} alt={article.mediumImage.alt} />
+      <div
+        className={classnames({
+          [styles.containerImgContent]:
+            (size < 2 && position === 1) || (size > 2 && position === 2),
+          [styles.containerImgContentThree]:
+            (size >= 2 && position === 1) || (size <= 2 && position === 2)
+        })}>
+        <img
+          src={article.mediumImage.url}
+          alt={article.mediumImage.alt}
+          className={styles.images}
+        />
+      </div>
       <ArticleTitle
         title={article.title}
         author={article.author}

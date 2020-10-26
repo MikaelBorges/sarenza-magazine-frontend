@@ -20,66 +20,69 @@ import GraphQLContainer, { initProps as initGQLContainer } from 'modules/templat
 const Home = (props, { rubriqueName }) => {
 
   return (
-    <GraphQLContainer pageProps={props}>
-      <Query query={HOME_QUERY_ALL} processTo={processToHome} params={{ rubriqueName }}>
-        {(data) => {
-          return (
-            <Pagination
-              data={data.articles}
-              renderContent={(articles) => (
-                <>
-                  <Header header={data.header} />
-                  <MainComponent article={data.firstArticle} />
+    <Query query={query} processTo={processToHome} params={{ rubriqueName }}>
+      {(data) => {
+        return (
+          <Pagination
+            data={data.articles}
+            renderContent={(articles) => (
+              <>
+                <Header header={data.header} />
+                <MainComponent article={data.firstArticle} />
+                {data.marqueeTop !== null ? (
                   <Marquee
                     marquee={{
                       fastAnimation: false,
                       slowAnimation: false,
-                      text: data.animateTexts[0].text
+                      text: data.marqueeTop.MarqueeComponent[0].text
                     }}
                   />
-                  <Articles articles={articles.slice(0, 5)} position={1} />
-                  <Display
-                    text={data.displayFirst.Display.text}
-                    button={{
-                      label: data.displayFirst.Display.button.label,
-                      url: data.displayFirst.Display.button.link
-                    }}
-                    whiteTheme={data.displayFirst.Display.whiteTheme}
-                  />
-                  <Articles articles={articles.slice(0, 5)} position={2} />
-                  <Display
-                    text={data.displaySecond.Display.text}
-                    button={{
-                      label: data.displaySecond.Display.button.label,
-                      url: data.displaySecond.Display.button.link
-                    }}
-                    whiteTheme={data.displaySecond.Display.whiteTheme}
-                  />
+                ) : null}
+
+                <Articles articles={articles.slice(0, 5)} position={1} />
+                <Display
+                  text={data.displayFirst.Display.text}
+                  button={{
+                    label: data.displayFirst.Display.button.label,
+                    url: data.displayFirst.Display.button.link
+                  }}
+                  whiteTheme={data.displayFirst.Display.whiteTheme}
+                />
+                <Articles articles={articles.slice(0, 5)} position={2} />
+                <Display
+                  text={data.displaySecond.Display.text}
+                  button={{
+                    label: data.displaySecond.Display.button.label,
+                    url: data.displaySecond.Display.button.link
+                  }}
+                  whiteTheme={data.displaySecond.Display.whiteTheme}
+                />
+                {data.marquee !== null ? (
                   <Marquee
                     marquee={{
                       fastAnimation: false,
                       slowAnimation: false,
-                      text: data.animateTexts[0].text
+                      text: data.marquee.MarqueeComponent[0].text
                     }}
                     margin
                   />
-                </>
-              )}
-              renderFooter={(articles, param) => {
-                return (
-                  articles && (
-                    <PaginationComponent
-                      data={articles.map((item) => ({ label: item.name, value: item.id }))}
-                      params={param}
-                    />
-                  )
-                );
-              }}
-            />
-          );
-        }}
-      </Query>
-    </GraphQLContainer>
+                ) : null}
+              </>
+            )}
+            renderFooter={(articles, param) => {
+              return (
+                articles && (
+                  <PaginationComponent
+                    data={articles.map((item) => ({ label: item.name, value: item.id }))}
+                    params={param}
+                  />
+                )
+              );
+            }}
+          />
+        );
+      }}
+    </Query>
   );
 };
 

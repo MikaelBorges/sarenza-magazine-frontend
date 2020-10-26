@@ -16,7 +16,9 @@ const MainComponent = ({ article }) => {
             firstArticle
           />
         </div>
-        <img src={article.image} className={styles.image} alt={article.title} />
+        <div className={styles.containerOne}>
+          <img src={article.image} className={styles.image} alt={article.title} />
+        </div>
       </div>
     </Link>
   );
