@@ -1,9 +1,10 @@
 .section {
   padding: 32px 40px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   background-color: #f2f2f2;
   height: 184px;
+  margin: 32px 0;
   @media screen and (min-width: 975px) {
     padding: 56px 82px 56px 48px;
     height: 224px;
@@ -26,6 +27,8 @@
   color: black;
   max-width: 420px;
   align-self: center;
+  margin-right: 80px;
+
   @media screen and (min-width: 975px) {
     font-size: 56px;
     max-width: 720px;
