@@ -15,7 +15,7 @@ import processToHome from './model/Home';
 
 import { initializeApollo } from '../../utils/apolloClient'
 import { HOME_QUERY_ALL } from "./query"
-import GraphQLContainer, { initProps as initGQLContainer } from 'modules/template/helper/GraphQLContainer';
+import GraphQLContainer, { initProps as initGQLContainer } from '@/helper/GraphQLContainer';
 
 const Home = (props, { rubriqueName }) => {
 
@@ -100,13 +100,14 @@ Home.defaultProps = {
 
 
 export async function initProps() {
+
   const apolloClient = initializeApollo()
   await apolloClient.query({
     query: HOME_QUERY_ALL
   })
 
   const currentProps = await initGQLContainer()
-
+  
   return {
     props: {
       ...currentProps.props,

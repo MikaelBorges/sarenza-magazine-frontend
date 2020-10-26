@@ -10,7 +10,7 @@ import Banner from './components/Banner/Banner';
 import BlockText from './components/BlockText/BlockText';
 import Duo from './components/Duo/Duo';
 
-const Article = ({ rubrique, slug }) => {
+const Article = ({ rubrique, slug, data }) => {
   const breadcrumbs = [
     {
       label: 'Home',
@@ -25,19 +25,9 @@ const Article = ({ rubrique, slug }) => {
       link: `/${slug}`
     }
   ];
-  const [article, setArticle] = useState();
-
-  useEffect(() => {
-    const getArticle = async () => {
-      await fetch(`${process.env.API_URL}/articles/?url=${slug}`)
-        .then((res) => res.json())
-        .then((result) => {
-          setArticle(result);
-        });
-    };
-    getArticle();
-  }, [slug]);
-  return article ? (
+  
+  const article = data
+  return(
     <div className={styles.article}>
       <Breadcrumb breadcrumbs={breadcrumbs} />
 
@@ -135,9 +125,7 @@ const Article = ({ rubrique, slug }) => {
         urlButton="#"
       />
     </div>
-  ) : (
-    <div>Loading...</div>
-  );
+  ) 
 };
 
 Article.propTypes = {

@@ -10,6 +10,16 @@ export const HOME_QUERY_ALL = gql`
         id
         MarqueeComponent {
           text
+          id
+          isShow
+        }
+      }
+      marqueeTop {
+        id
+        MarqueeComponent {
+          id
+          text
+          isShow
         }
       }
       display_components {

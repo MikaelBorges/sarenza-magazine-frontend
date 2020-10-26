@@ -5,7 +5,8 @@
       "@/components/*": ["app/components/*"],
       "@/styles/*": ["app/styles/*"],
       "@/apollo": ["apollo/*"],
-      "@/*": ["app/*"]
+      "@/*": ["app/*"],
+      "@/helper/*": ["modules/template/helper/*"]
     }
   },
   "exclude": ["node_modules", "dist"]

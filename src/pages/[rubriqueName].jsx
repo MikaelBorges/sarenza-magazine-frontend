@@ -13,4 +13,10 @@ const ArticleList = () => {
   );
 };
 
+export async function getServerSideProps() {
+  return {
+    props: {}
+  }
+}
+
 export default ArticleList;
