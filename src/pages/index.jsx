@@ -1,10 +1,11 @@
 import Home, { initProps } from "../modules/Home/Home"
 
-export async function getServerSideProps() { 
-  const currentProps =  initProps();
+export async function getServerSideProps() {
+
+  let currentProps = await initProps()
   return {
-    props: {
-      ...currentProps
+    props: { 
+      ...currentProps.props
     }
   }
 }
