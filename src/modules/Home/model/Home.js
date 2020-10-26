@@ -25,13 +25,6 @@ const processToRubrique = (model = []) => {
   };
 };
 
-const processToMarquee = (model = {}) => {
-  return {
-    id: model.id,
-    text: model.MarqueeContent.text
-  };
-};
-
 const processToHome = (model = {}) => {
   return {
     header: {
@@ -41,7 +34,8 @@ const processToHome = (model = {}) => {
     },
     firstArticle: processToHomeArticle(model.articles[0]),
     articles: model.articles.slice(1).map(processToHomeArticle),
-    animateTexts: model.home.marqueComponent.map(processToMarquee),
+    marquee: model.home.marquee || null,
+    marqueeTop: model.home.marqueeTop || null,
     displayFirst: model.home.display_components[0],
     displaySecond: model.home.display_components[1]
   };

@@ -1,4 +1,4 @@
-ARG NODE_VERSION=12
+ARG NODE_VERSION=lts-alpine3.12
 
 FROM node:${NODE_VERSION}
 
@@ -10,6 +10,10 @@ WORKDIR /srv/app
 
 COPY ./src .
 
-RUN yarn && yarn build
+RUN yarn && yarn build && yarn disable:telemetry
+
+COPY ./entrypoint.sh /usr/local/bin/
+
+ENTRYPOINT ["entrypoint.sh"]
 
 CMD ["yarn", "start"]
