@@ -17,6 +17,6 @@ const reducer = (state = { tick: 'init' }, action) => {
 const makeStore = () => createStore(reducer);
 
 // export an assembled wrapper
-const wrapper = createWrapper(makeStore, { debug: true });
+const wrapper = createWrapper(makeStore, { debug: false });
 
 export default wrapper;
