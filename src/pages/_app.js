@@ -26,7 +26,7 @@ import { useRouter } from 'next/router';
 function App({ Component, pageProps, apollo }) {
   const { query } = useRouter();
   const isMobile = query.isMobile === 'true';
-
+  console.log(isMobile);
   return (
     <ApolloProvider client={apollo}>
       <Head>
@@ -39,10 +39,6 @@ function App({ Component, pageProps, apollo }) {
             <link
               rel="stylesheet"
               href="https://cdn.sarenza.net/website/prod_b/assets/stylesheet/animation.default.min.css"
-            />
-            <link
-              rel="stylesheet"
-              href="https://cdn.sarenza.net/website/prod_b/assets/stylesheet/landing.default.min.css"
             />
             <link
               rel="stylesheet"

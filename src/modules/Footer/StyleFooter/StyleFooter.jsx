@@ -32,7 +32,7 @@ export const StyleFooter = () => {
           font-weight: 700;
         }
         #MainFooter .advantages10reasons > li.pictenza:before {
-          content: '\e634';
+          content: '\\e634';
           font-size: 40px;
           line-height: 25px;
           margin: 0 0 20px;
@@ -44,43 +44,43 @@ export const StyleFooter = () => {
           font-size: 14px;
         }
         #MainFooter .advantages10reasons > li.pictenza:nth-child(2n):before {
-          content: '\e634';
+          content: '\\e634';
         }
         #MainFooter .advantages10reasons > li.pictenza.delivery:before {
-          content: '\e602';
+          content: '\\e602';
         }
         #MainFooter .advantages10reasons > li.pictenza.delivery24:before {
-          content: '\e6bc';
+          content: '\\e6bc';
         }
         #MainFooter .advantages10reasons > li.pictenza.delivery48:before {
-          content: '\e6be';
+          content: '\\e6be';
         }
         #MainFooter .advantages10reasons > li.pictenza.customs:before {
-          content: '\e700';
+          content: '\\e700';
         }
         #MainFooter .advantages10reasons > li.pictenza.return:before {
-          content: '\e6ba';
+          content: '\\e6ba';
         }
         #MainFooter .advantages10reasons > li.pictenza.return100:before {
-          content: '\e701';
+          content: '\\e701';
         }
         #MainFooter .advantages10reasons > li.pictenza.return30:before {
-          content: '\e702';
+          content: '\\e702';
         }
         #MainFooter .advantages10reasons > li.pictenza.customer-service:before {
-          content: '\e6bb';
+          content: '\\e6bb';
         }
         #MainFooter .advantages10reasons > li.pictenza.payment:before {
-          content: '\e6b9';
+          content: '\\e6b9';
         }
         #MainFooter .advantages10reasons > li.pictenza.secured:before {
-          content: '\e646';
+          content: '\\e646';
         }
         #MainFooter .advantages10reasons > li.pictenza.billing:before {
-          content: '\e685';
+          content: '\\e685';
         }
         #MainFooter .advantages10reasons > li.pictenza.brand:before {
-          content: '\e696';
+          content: '\\e696';
         }
         #MainFooter .newsletter {
           padding: 46px 37px 36px;
@@ -102,7 +102,7 @@ export const StyleFooter = () => {
         }
         #MainFooter .subscribe-newsletter .title-level1:before {
           font-family: pictenza;
-          content: '\e600';
+          content: '\\e600';
           font-weight: 400;
           font-size: 40px;
           display: inline-block;
@@ -215,7 +215,7 @@ export const StyleFooter = () => {
           border-radius: 50%;
           background: #46cd63;
           color: #fff;
-          content: '\E67A';
+          content: '\\e67A';
           width: 16px;
           height: 16px;
           font-size: 14px;
@@ -229,14 +229,14 @@ export const StyleFooter = () => {
         }
         #MainFooter small.success:before {
           background: #46cd63;
-          content: '\E67A';
+          content: '\\e67A';
         }
         #MainFooter small.error {
           color: #ff4747;
         }
         #MainFooter small.error:before {
           background: #ff4747;
-          content: '\E67B';
+          content: '\\e67B';
           position: static;
           border: 0;
           font-size: 16px;
@@ -307,7 +307,7 @@ export const StyleFooter = () => {
           position: absolute;
           margin-top: 0;
           margin-left: 1.5em;
-          content: '\e372';
+          content: '\\e372';
           font-family: pictenza;
           font-size: 1em;
           font-style: normal;
@@ -331,7 +331,7 @@ export const StyleFooter = () => {
           width: 100%;
         }
         #MainFooter .help .contact-phone:before {
-          content: '\e620';
+          content: '\\e620';
           margin: 0 0 10px;
           display: block;
           font-size: 32px;
@@ -361,7 +361,7 @@ export const StyleFooter = () => {
           text-transform: uppercase;
         }
         #MainFooter .help .contact-mail > a:before {
-          content: '\e623';
+          content: '\\e623';
           margin: 0 0 10px;
           display: block;
           font-size: 32px;
