@@ -23,13 +23,15 @@ const Home = ({ query, rubriqueName }) => {
               <>
                 <Header header={data.header} />
                 <MainComponent article={data.firstArticle} />
-                <Marquee
-                  marquee={{
-                    fastAnimation: false,
-                    slowAnimation: false,
-                    text: data.animateTexts[0].text
-                  }}
-                />
+                {data.marqueeTop !== null ? (
+                  <Marquee
+                    marquee={{
+                      fastAnimation: false,
+                      slowAnimation: false,
+                      text: data.marqueeTop.MarqueeComponent[0].text
+                    }}
+                  />
+                ) : null}
                 <Articles articles={articles.slice(0, 5)} position={1} />
                 <Display
                   text={data.displayFirst.Display.text}
@@ -48,13 +50,15 @@ const Home = ({ query, rubriqueName }) => {
                   }}
                   whiteTheme={data.displaySecond.Display.whiteTheme}
                 />
-                <Marquee
-                  marquee={{
-                    fastAnimation: false,
-                    slowAnimation: false,
-                    text: data.animateTexts[0].text
-                  }}
-                />
+                {data.marquee !== null ? (
+                  <Marquee
+                    marquee={{
+                      fastAnimation: false,
+                      slowAnimation: false,
+                      text: data.marquee.MarqueeComponent[0].text
+                    }}
+                  />
+                ) : null}
               </>
             )}
             renderFooter={(articles, param) => {
