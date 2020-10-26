@@ -1,50 +1,26 @@
 import cn from 'classnames';
 import React, { useEffect, useState } from 'react';
-import getGender from './service/gender.service';
-import getMenu from './service/menu.service';
-
-
-
 import SubMenu from './subMenu';
 
-const Menu = () => {
-  const [menus, setMenus] = useState([]);
-
-  useEffect(() => {
-    async function fetch() {
-      const menu = await getMenu();
-      setMenus(menu);
-    }
-    fetch();
-  }, []);
-
-  const [genders, setGenders] = useState([]);
-  useEffect(() => {
-    async function fetch() {
-      const gender = await getGender();
-      setGenders(gender);
-    }
-    fetch();
-  }, []);
-  
+const Menu = ({ menus, genders }) => {
   const [openMenu, setOpenMenu] = useState(false);
 
   const [isActive, addActive] = useState();
 
   const [isHover, addHover] = useState(false);
-  
 
   useEffect(() => {
-    const overlay = document.getElementById('MainNavOverlay');
-    if (isHover) {
-      overlay.style.display = 'block';
-      overlay.style.transition = 'opacity 1s ease 0s';
-    } else {
-      overlay.style.display = 'none';
-      overlay.style.transition = 'opacity 1s ease 0s';
+    {
+      const overlay = document.getElementById('MainNavOverlay');
+      if (isHover) {
+        overlay.style.display = 'block';
+        overlay.style.transition = 'opacity 1s ease 0s';
+      } else if (overlay) {
+        overlay.style.display = 'none';
+        overlay.style.transition = 'opacity 1s ease 0s';
+      }
     }
   }, [isHover]);
-
   if (!menus && menus.length) {
     return 'Loading...';
   }
