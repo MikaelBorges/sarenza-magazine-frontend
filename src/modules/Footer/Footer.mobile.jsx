@@ -42,9 +42,9 @@ const FooterMobile = () => {
           {footer.blockLinks.map((blockLink) => {
             return <BlockLinksMobile data={blockLink} key={blockLink.id} />;
           })}
-          {footer.partnerIcons.map((partnerIcon) => {
-            return <PartnerIconMobile data={partnerIcon} key={partnerIcon.id} />;
-          })}
+        
+             <PartnerIconMobile data={footer.partnerIcons} />
+          
           <CountrySelectorMobile data={footer.countrySelectors} />
         </nav>
 

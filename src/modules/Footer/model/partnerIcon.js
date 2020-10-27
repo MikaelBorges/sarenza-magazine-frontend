@@ -7,6 +7,6 @@ export default function partnerIcon(model = {}) {
     text: model.text,
     href: model.link,
     liClass: model.liClass || '',
-    title: model.Title || ''
+    title: model.title || ''
   };
 }
