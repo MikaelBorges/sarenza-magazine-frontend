@@ -78,4 +78,4 @@ function App({ Component, pageProps, apollo }) {
   );
 }
 
-export default wrapper.withRedux(App)
+export default wrapper.withRedux(withData(App));

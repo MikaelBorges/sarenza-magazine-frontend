@@ -1,6 +1,6 @@
 import genders from '../model/genders';
 
-export const getGender = async () => {
+ const getGender = async () => {
   try {
     const res = await fetch(`${process.env.API_URL}/Genders`);
     const data = await res.json();
@@ -9,3 +9,4 @@ export const getGender = async () => {
     throw Error(error.message);
   }
 };
+export default getGender;

@@ -15,12 +15,10 @@ import processToHome from './model/Home';
 
 import { initializeApollo } from '../../utils/apolloClient'
 import { HOME_QUERY_ALL } from "./query"
-import GraphQLContainer, { initProps as initGQLContainer } from '@/helper/GraphQLContainer';
 
-const Home = (props, { rubriqueName }) => {
+const Home =  ({ rubriqueName }) => {
 
   return (
-    <GraphQLContainer pageProps={props}>
       <Query query={HOME_QUERY_ALL} processTo={processToHome} params={{ rubriqueName }}>
         {(data) => {
           return (
@@ -84,7 +82,6 @@ const Home = (props, { rubriqueName }) => {
           );
         }}
       </Query>
-    </GraphQLContainer>
   );
 };
 
@@ -99,22 +96,5 @@ Home.defaultProps = {
 };
 
 
-export async function initProps() {
-
-  const apolloClient = initializeApollo()
-  await apolloClient.query({
-    query: HOME_QUERY_ALL
-  })
-
-  const currentProps = await initGQLContainer()
-  
-  return {
-    props: {
-      ...currentProps.props,
-      initialApolloState: apolloClient.cache.extract()
-    },
-    revalidate: 1
-  }
-}
-
 export default Home;
+  

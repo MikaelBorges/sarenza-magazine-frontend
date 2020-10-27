@@ -1,6 +1,6 @@
 import menu from '../model/menu';
 
-export const getMenu = async () => {
+ const getMenu = async () => {
   try {
     const res = await fetch(`${process.env.API_URL}/menu-items`);
     const data = await res.json();
@@ -9,3 +9,4 @@ export const getMenu = async () => {
     throw Error(error.message);
   }
 };
+export default getMenu;

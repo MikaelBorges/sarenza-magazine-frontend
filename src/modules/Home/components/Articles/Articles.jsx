@@ -10,7 +10,7 @@ const Articles = ({ articles, position }) => {
   return (
     <div className={styles.container}>
       {articles.map((article, index) => {
-        return (
+          return (
           <Link href={article.link} key={article.link}>
             <div
               key={article.id}
