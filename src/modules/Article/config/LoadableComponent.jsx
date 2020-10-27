@@ -4,7 +4,8 @@ import React from 'react';
 export const COMPONENT_NAME = {
   MODULE_IMAGE: 'media.image',
   MODULE_PARAGRAPHE: 'module.paragraphe',
-  MODULE_DUO: 'module.duo'
+  MODULE_DUO: 'module.duo',
+  MODULE_SHOPPING_LIST: 'module.slider-article'
 };
 export const getComponent = (item) => {
   let Component;
@@ -14,10 +15,13 @@ export const getComponent = (item) => {
       Component = dynamic(() => import('../components/ImageText/ImageText'));
       break;
     case COMPONENT_NAME.MODULE_PARAGRAPHE:
-      Component = dynamic(() => import('../components/Paragraphe/Paragraphe'));
+      Component = dynamic(() => import('../components/BlockText/BlockText'));
       break;
     case COMPONENT_NAME.MODULE_DUO:
       Component = dynamic(() => import('../components/Duo/Duo'));
+      break;
+    case COMPONENT_NAME.MODULE_SHOPPING_LIST:
+      Component = dynamic(() => import('../components/ShoppingList/ShoppingList'));
       break;
     default:
       throw new Error('the component doesnt exist');

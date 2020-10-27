@@ -1,18 +1,18 @@
 /* eslint-disable react/button-has-type */
 /* eslint-disable array-callback-return */
-/* eslint-disable consistent-return */
+/* eslint-disable camelcase */
 
-import PropTypes from 'prop-types';
 import React from 'react';
 
 import Text from '@/components/commons/Text/Text';
 
+import { replaceByJsx } from 'modules/Article/utils';
 import styles from './Duo.module.scss';
 
-const Duo = ({ title, texts, urlImage, textButton, urlButton }) => {
+const Duo = ({ duo_image, title, duo_paragraphe, button }) => {
   return (
     <div className={styles.container}>
-      <img src={urlImage} alt="alt" className={styles.image} />
+      <img src={duo_image.url} alt="alt" className={styles.image} />
       <div className={styles.textPart}>
         <div className={styles.titleTextPart}>
           <Text huge secondary>
@@ -20,7 +20,7 @@ const Duo = ({ title, texts, urlImage, textButton, urlButton }) => {
           </Text>
         </div>
         <div className={styles.paragraph}>
-          {texts.map((item) => {
+          {replaceByJsx(duo_paragraphe).forEach((item) => {
             if (item.type === 'text') {
               return <Text big>{item.text}</Text>;
             }
@@ -31,36 +31,17 @@ const Duo = ({ title, texts, urlImage, textButton, urlButton }) => {
                 </div>
               );
             }
+            return null;
           })}
         </div>
       </div>
       <div className={styles.button}>
-        <button className="button" href={urlButton}>
-          {textButton}
+        <button className="button" href={button.link}>
+          {button.label}
         </button>
       </div>
     </div>
   );
-};
-
-Duo.propTypes = {
-  title: PropTypes.string,
-  texts: PropTypes.arrayOf(
-    PropTypes.shape({
-      text: PropTypes.string
-    })
-  ),
-  urlImage: PropTypes.string,
-  textButton: PropTypes.string,
-  urlButton: PropTypes.string
-};
-
-Duo.defaultProps = {
-  title: '',
-  texts: [],
-  urlImage: '',
-  textButton: '',
-  urlButton: ''
 };
 
 export default Duo;

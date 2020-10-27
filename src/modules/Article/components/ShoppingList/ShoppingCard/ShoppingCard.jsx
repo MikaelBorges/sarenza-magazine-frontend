@@ -3,14 +3,8 @@ import React, { useState } from 'react';
 
 import styles from './ShoppingCard.module.scss';
 
-const ShoppingCard = ({
-  cardImage,
-  stateLabel,
-  titleProduct,
-  descriptionProduct,
-  urlProduct,
-  pcid
-}) => {
+const ShoppingCard = ({ visuelUrl, url, statusLabel, model, pcid, brand, ...props }) => {
+  console.log('sdsd', visuelUrl);
   const [favoriteStatus, setFavoriteStatus] = useState(false);
   function handleClick(e) {
     e.preventDefault();
@@ -19,9 +13,9 @@ const ShoppingCard = ({
 
   return (
     <div className={styles.card}>
-      <a href={urlProduct} className={styles.cardLink} role="button" tabIndex={-1}>
+      <a href={url} className={styles.cardLink} role="button" tabIndex={-1}>
         <div className={styles.cardImageContainer}>
-          <img className={styles.cardImage} src={cardImage} alt={titleProduct} />
+          <img className={styles.cardImage} src={visuelUrl} alt={model} />
           {pcid && (
             <span
               className={`pictenza pictenza-favorites ${styles.favoriteCard} ${
@@ -36,9 +30,9 @@ const ShoppingCard = ({
           )}
         </div>
         <div className={styles.cardTextContainer}>
-          {stateLabel && <span className={styles.stateLabel}>{stateLabel}</span>}
-          <span className={styles.titleProduct}>{titleProduct}</span>
-          <span className={styles.descriptionProduct}>{descriptionProduct}</span>
+          {statusLabel && <span className={styles.stateLabel}>{statusLabel}</span>}
+          <span className={styles.titleProduct}>{brand}</span>
+          <span className={styles.descriptionProduct}>{model}</span>
         </div>
       </a>
     </div>

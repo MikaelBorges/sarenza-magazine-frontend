@@ -1,19 +1,20 @@
 /* eslint-disable react/button-has-type */
-
-import PropTypes from 'prop-types';
 import React from 'react';
 
 import Text from '@/components/commons/Text/Text';
 
 import styles from './BlockText.module.scss';
+import { replaceByJsx } from 'modules/Article/utils';
 
-const BlockText = ({ title, text, textVerbatim, textPartIsAfter, textButton, urlButton }) => {
+const BlockText = ({ paragraph, title, urlButton, textButton, positionVerbatim }) => {
+  const textVerbatim = replaceByJsx(paragraph).find((item) => item.type === 'verbatim').text;
+
   return (
     <div className={styles.blockText}>
       <div className={styles.textContainer}>
         <div
           className={`${styles.textPart} ${textVerbatim && styles.textPartOrdered} ${
-            textPartIsAfter && styles.textPartIsAfter
+            positionVerbatim && styles.textPartIsAfter
           }`}>
           <div className={styles.titleTextPart}>
             <Text huge secondary>
@@ -21,7 +22,7 @@ const BlockText = ({ title, text, textVerbatim, textPartIsAfter, textButton, url
             </Text>
           </div>
           <div className={styles.paragraph}>
-            <Text big>{text}</Text>
+            <Text big>{paragraph}</Text>
           </div>
         </div>
         {textVerbatim && (
@@ -37,24 +38,6 @@ const BlockText = ({ title, text, textVerbatim, textPartIsAfter, textButton, url
       </div>
     </div>
   );
-};
-
-BlockText.propTypes = {
-  title: PropTypes.string,
-  text: PropTypes.string,
-  textButton: PropTypes.string,
-  urlButton: PropTypes.string,
-  textVerbatim: PropTypes.string,
-  textPartIsAfter: PropTypes.bool
-};
-
-BlockText.defaultProps = {
-  title: '',
-  text: '',
-  textButton: '',
-  urlButton: '',
-  textVerbatim: '',
-  textPartIsAfter: false
 };
 
 export default BlockText;

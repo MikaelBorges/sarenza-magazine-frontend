@@ -1,5 +1,3 @@
-import React from 'react';
-
 export const replaceByJsx = (tpl) => {
   const t = tpl
     .split(/\{\{([^\}]+)?\}}/g)
@@ -15,17 +13,3 @@ export const replaceByJsx = (tpl) => {
 
   return t;
 };
-
-const Comp = ({ text, verbatim }) => {
-  return (
-    <div>
-      <div>{text}</div>
-      <div>{verbatim}</div>
-    </div>
-  );
-};
-const Paragraphe = ({ paragraph, title }) => {
-  return <div>{replaceByJsx(paragraph)}</div>;
-};
-
-export default Paragraphe;

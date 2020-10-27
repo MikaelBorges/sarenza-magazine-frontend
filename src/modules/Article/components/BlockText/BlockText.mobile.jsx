@@ -1,9 +1,8 @@
 /* eslint-disable react/button-has-type */
 
-import PropTypes from 'prop-types';
-import React from 'react';
-
-import Text from '@/components/commons/Text/Text';
+import Text from 'modules/Article/components/BlockText/node_modules/@/components/commons/Text/Text';
+import PropTypes from 'modules/Article/components/BlockText/node_modules/prop-types';
+import React from 'modules/Article/components/BlockText/node_modules/react';
 
 import styles from './BlockText.mobile.module.scss';
 

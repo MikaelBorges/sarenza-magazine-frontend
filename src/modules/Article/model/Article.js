@@ -1,5 +1,4 @@
 export function ArticleModel(model = {}) {
-  console.log('model', model);
   return {
     text: model.text || '',
     title: model.title,
