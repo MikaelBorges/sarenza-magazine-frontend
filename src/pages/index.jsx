@@ -4,13 +4,13 @@ import getPageProps from 'utils/getPageProps';
 
 import { HOME_QUERY_ALL } from '../apollo/queries/home/homeQuery';
 import Home from '../modules/Home/Home';
-import HomeMobile from '../modules/Home/Home';
+import HomeMobile from '../modules/Home/Home.mobile';
 
 import Layout from './Layout/Layout';
 
 export default function HomePage({ homeData, menus, genders, footer, isMobile }) {
   return (
-    <Layout menus={menus} genders={genders} footer={footer}>
+    <Layout menus={menus} genders={genders} footer={footer} isMobile={isMobile}>
       {isMobile ? <HomeMobile data={homeData} /> : <Home data={homeData} />}
     </Layout>
   );

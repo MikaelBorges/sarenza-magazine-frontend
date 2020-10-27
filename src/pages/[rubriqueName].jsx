@@ -5,11 +5,12 @@ import getPageProps from 'utils/getPageProps';
 
 import { HOME_QUERY } from '../apollo/queries/home/homeQuery';
 import Home from '../modules/Home/Home';
+import HomeMobile from '../modules/Home/Home.mobile';
 import Layout from './Layout/Layout';
 
 const ArticleList = ({ rubriques, menus, genders, footer, isMobile }) => {
   return (
-    <Layout menus={menus} genders={genders} footer={footer}>
+    <Layout menus={menus} genders={genders} footer={footer} isMobile={isMobile}>
       {isMobile ? <HomeMobile data={rubriques} /> : <Home data={rubriques} />}
     </Layout>
   );

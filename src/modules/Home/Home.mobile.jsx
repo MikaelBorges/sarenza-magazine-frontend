@@ -10,7 +10,7 @@ import Articles from './components/Articles/Articles.mobile';
 import MainComponent from './components/Articles/MainComponent/MainComponent.mobile';
 import Header from './components/Header/Header.mobile';
 
-const Home = ({ query, rubriqueName }) => {
+const Home = ({ data }) => {
   return (
     <Pagination
       data={data.articles}
