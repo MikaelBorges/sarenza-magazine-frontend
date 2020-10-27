@@ -1,0 +1,25 @@
+@import '../../../../app/components/_styles/theme';
+
+.shoppingList {
+  padding: 24px 0;
+}
+
+.title {
+  margin-top: 24px;
+}
+
+.intro {
+  font-size: 16px;
+  margin-bottom: 24px;
+}
+
+.cards {
+  overflow: auto;
+  padding-inline-start: 16px;
+  margin-inline-end: 16px;
+  display: flex;
+}
+
+.buttonShoppingList {
+  margin: 8px 16px 0;
+}

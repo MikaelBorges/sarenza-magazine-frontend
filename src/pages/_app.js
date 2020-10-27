@@ -5,6 +5,7 @@ import './styles/pages/PageMarqueAH17.css';
 import './styles/modules/HeaderAH17.css';
 import './styles/modules/BrandMainNewsAH17.css';
 import '../app/components/_styles/boot.scss';
+import './styles/modules/ReactSlick.scss';
 
 import { ApolloProvider } from '@apollo/react-hooks';
 import Head from 'next/head';

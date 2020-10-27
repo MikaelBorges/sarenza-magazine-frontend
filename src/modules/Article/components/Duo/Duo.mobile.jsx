@@ -30,12 +30,13 @@ const DuoMobile = ({ title, texts, urlImage, textButton, urlButton }) => {
                 </div>
               );
             }
-            if (item.type === 'verbatim')
+            if (item.type === 'verbatim') {
               return (
                 <div className={styles.verbatimContainer}>
                   <Text verbatimMobile>{item.text}</Text>
                 </div>
               );
+            }
           })}
         </div>
       </div>
@@ -50,7 +51,11 @@ const DuoMobile = ({ title, texts, urlImage, textButton, urlButton }) => {
 
 DuoMobile.propTypes = {
   title: PropTypes.string,
-  texts: PropTypes.string,
+  texts: PropTypes.arrayOf(
+    PropTypes.shape({
+      text: PropTypes.string
+    })
+  ),
   urlImage: PropTypes.string,
   textButton: PropTypes.string,
   urlButton: PropTypes.string
@@ -58,7 +63,7 @@ DuoMobile.propTypes = {
 
 DuoMobile.defaultProps = {
   title: '',
-  texts: '',
+  texts: [],
   urlImage: '',
   textButton: '',
   urlButton: ''

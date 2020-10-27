@@ -24,12 +24,13 @@ const Duo = ({ title, texts, urlImage, textButton, urlButton }) => {
             if (item.type === 'text') {
               return <Text big>{item.text}</Text>;
             }
-            if (item.type === 'verbatim')
+            if (item.type === 'verbatim') {
               return (
                 <div className={styles.verbatimContainer}>
                   <Text verbatim>{item.text}</Text>
                 </div>
               );
+            }
           })}
         </div>
       </div>
@@ -44,7 +45,11 @@ const Duo = ({ title, texts, urlImage, textButton, urlButton }) => {
 
 Duo.propTypes = {
   title: PropTypes.string,
-  texts: PropTypes.string,
+  texts: PropTypes.arrayOf(
+    PropTypes.shape({
+      text: PropTypes.string
+    })
+  ),
   urlImage: PropTypes.string,
   textButton: PropTypes.string,
   urlButton: PropTypes.string
@@ -52,7 +57,7 @@ Duo.propTypes = {
 
 Duo.defaultProps = {
   title: '',
-  texts: '',
+  texts: [],
   urlImage: '',
   textButton: '',
   urlButton: ''

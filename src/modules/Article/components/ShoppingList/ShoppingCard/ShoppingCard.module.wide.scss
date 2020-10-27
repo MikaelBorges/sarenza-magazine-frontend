@@ -1,0 +1,9 @@
+@import '../../../../../app/components/_styles/theme';
+
+@media screen and (min-width: 975px) {
+  .favoriteCard {
+    &:hover {
+      color: #ff2157;
+    }
+  }
+}

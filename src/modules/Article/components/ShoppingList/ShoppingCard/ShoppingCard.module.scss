@@ -1,0 +1,95 @@
+@import '../../../../../app/components/_styles/theme';
+
+.card {
+  list-style-type: none;
+  margin-right: 16px;
+  width: 240px;
+}
+
+.cardLink {
+  &:hover {
+    text-decoration: none;
+  }
+
+  display: block;
+}
+
+.cardImageContainer {
+  position: relative;
+  width: fit-content;
+}
+
+.cardImage {
+  display: block;
+  max-width: none;
+}
+
+.pictenzaFavoritesSelect {
+  &:before,
+  &:after {
+    content: '\e644';
+    color: #ff2157;
+  }
+
+  &:after {
+    animation: heartOn 0.35s ease forwards;
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    line-height: 33px;
+    min-width: 36px;
+  }
+}
+
+.favoriteCard {
+  &:before {
+    margin: 8px 13px 10px;
+    font-size: 18px;
+  }
+
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  border-radius: 30px;
+  background-color: white;
+  outline: none;
+}
+
+.cardTextContainer {
+  padding: 8px 8px 16px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  font-family: robotoc;
+}
+
+.stateLabel {
+  color: #ff2157;
+  font-weight: bold;
+  font-size: 12px;
+  margin-bottom: 4px;
+}
+
+.titleProduct {
+  color: #1d1b1b;
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.descriptionProduct {
+  color: #979797;
+}
+
+@keyframes heartOn {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(3);
+  }
+}
+
+@import 'ShoppingCard.module.wide';
