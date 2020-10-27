@@ -27,7 +27,7 @@ const Home = ({ query, rubriqueName }) => {
                   marquee={{
                     fastAnimation: false,
                     slowAnimation: false,
-                    text: data.animateTexts[0].text
+                    text: data.marqueeTop.MarqueeComponent[0].text
                   }}
                 />
                 <Articles articles={articles.slice(0, 5)} position={1} />
@@ -52,7 +52,7 @@ const Home = ({ query, rubriqueName }) => {
                   marquee={{
                     fastAnimation: false,
                     slowAnimation: false,
-                    text: data.animateTexts[0].text
+                    text: data.marquee.MarqueeComponent[0].text
                   }}
                 />
               </>

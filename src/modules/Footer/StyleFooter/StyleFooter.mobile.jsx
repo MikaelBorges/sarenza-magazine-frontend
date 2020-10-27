@@ -41,49 +41,49 @@ const StyleFooter = () => {
           color: #000;
         }
         #MainFooter .advantages10reasons > li.pictenza:before {
-          content: '\e634';
+          content: '\\e634';
           font-size: 41px;
           margin: 0 0 5px;
           width: 100%;
         }
         #MainFooter .advantages10reasons > li.pictenza:nth-child(2n):before {
-          content: '\e634';
+          content: '\\e634';
         }
         #MainFooter .advantages10reasons > li.pictenza.delivery:before {
-          content: '\e602';
+          content: '\\e602';
         }
         #MainFooter .advantages10reasons > li.pictenza.delivery24:before {
-          content: '\e6bc';
+          content: '\\e6bc';
         }
         #MainFooter .advantages10reasons > li.pictenza.delivery48:before {
-          content: '\e6be';
+          content: '\\e6be';
         }
         #MainFooter .advantages10reasons > li.pictenza.customs:before {
-          content: '\e700';
+          content: '\\e700';
         }
         #MainFooter .advantages10reasons > li.pictenza.return:before {
-          content: '\e6ba';
+          content: '\\e6ba';
         }
         #MainFooter .advantages10reasons > li.pictenza.return100:before {
-          content: '\e701';
+          content: '\\e701';
         }
         #MainFooter .advantages10reasons > li.pictenza.return30:before {
-          content: '\e702';
+          content: '\\e702';
         }
         #MainFooter .advantages10reasons > li.pictenza.customer-service:before {
-          content: '\e6bb';
+          content: '\\e6bb';
         }
         #MainFooter .advantages10reasons > li.pictenza.payment:before {
-          content: '\e6b9';
+          content: '\\e6b9';
         }
         #MainFooter .advantages10reasons > li.pictenza.secured:before {
-          content: '\e646';
+          content: '\\e646';
         }
         #MainFooter .advantages10reasons > li.pictenza.billing:before {
-          content: '\e685';
+          content: '\\e685';
         }
         #MainFooter .advantages10reasons > li.pictenza.brand:before {
-          content: '\e696';
+          content: '\\e696';
         }
         #MainFooter .help {
           width: 100%;
@@ -144,7 +144,7 @@ const StyleFooter = () => {
           width: 50%;
         }
         #MainFooter .contact-Sc .contact-phone:before {
-          content: '\e620';
+          content: '\\e620';
           display: block;
           color: #1d1d1b;
           width: 100%;
@@ -172,7 +172,7 @@ const StyleFooter = () => {
           width: 50%;
         }
         #MainFooter .contact-Sc .contact-mail:before {
-          content: '\e623';
+          content: '\\e623';
           display: block;
           color: #1d1d1b;
           margin: 0 0 20px;
@@ -198,7 +198,7 @@ const StyleFooter = () => {
         }
         #MainFooter .subscribe-newsletter .title-level1:before {
           font-family: pictenza;
-          content: '\e600';
+          content: '\\e600';
           font-weight: 400;
           font-size: 33px;
           display: inline-block;
@@ -291,7 +291,7 @@ const StyleFooter = () => {
           border-radius: 50%;
           background: #5abe44;
           color: #fff;
-          content: '\E67A';
+          content: '\\e67A';
           width: 16px;
           height: 16px;
           font-size: 14px;
@@ -304,14 +304,14 @@ const StyleFooter = () => {
         }
         #MainFooter .subscribe-newsletter .success:before {
           background: #5abe44;
-          content: '\E67A';
+          content: '\\e67A';
         }
         #MainFooter .subscribe-newsletter .error {
           color: #ff4747;
         }
         #MainFooter .subscribe-newsletter .error:before {
           background: #ff4747;
-          content: '\E67B';
+          content: '\\e67B';
           position: static;
           border: 0;
           font-size: 16px;
