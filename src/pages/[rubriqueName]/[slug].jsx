@@ -1,27 +1,20 @@
 import Articles from 'modules/Article/Article';
+import ArticlesMobile from 'modules/Article/Articles.mobile';
 import { useRouter } from 'next/router';
 import React from 'react';
 
-import ReduxContainer, { initProps } from "@/helper/ReduxContainer"
-
-const getArticle = async (slug) => {
-  return fetch(`${process.env.API_URL}/articles/?url=${slug}`)
-    .then((res) => res.json())
-    .then((result) => {
-      return result
-    });
-};
-
-const Article = (props) => {
+const Article = ({ isMobile }) => {
   const { query } = useRouter();
   const articleStore = {}
 
   return (
-    <>
-      <ReduxContainer store={articleStore} pageProps={props}>
-        <Articles rubrique={query.rubriqueName} slug={query.slug} data />
-      </ReduxContainer>
-    </>
+    <div>
+      {isMobile ? (
+        <ArticlesMobile rubrique={query.rubriqueName} slug={query.slug} />
+      ) : (
+        <Articles rubrique={query.rubriqueName} slug={query.slug} />
+      )}
+    </div>
   );
 };
 

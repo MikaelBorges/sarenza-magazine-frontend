@@ -11,6 +11,7 @@ import VariousTextMobile from 'modules/Footer/components/VariousText/VariousText
 import React, { useEffect, useState } from 'react';
 
 import getFooter from './service/footer.service';
+import StyleFooter from './StyleFooter/StyleFooter.mobile';
 
 const FooterMobile = () => {
   const [footer, setFooter] = useState(null);
@@ -53,6 +54,8 @@ const FooterMobile = () => {
           })}
         </ul>
         <SocialMediaMobile data={footer.socialMedia} />
+
+        <StyleFooter />
       </footer>
     )
   );

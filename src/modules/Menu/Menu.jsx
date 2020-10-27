@@ -1,16 +1,38 @@
 import cn from 'classnames';
 import React, { useEffect, useState } from 'react';
+import getGender from './service/gender.service';
+import getMenu from './service/menu.service';
+
 
 
 import SubMenu from './subMenu';
 
-const Menu = ({menus, genders}) => {
+const Menu = () => {
+  const [menus, setMenus] = useState([]);
+
+  useEffect(() => {
+    async function fetch() {
+      const menu = await getMenu();
+      setMenus(menu);
+    }
+    fetch();
+  }, []);
+
+  const [genders, setGenders] = useState([]);
+  useEffect(() => {
+    async function fetch() {
+      const gender = await getGender();
+      setGenders(gender);
+    }
+    fetch();
+  }, []);
   
   const [openMenu, setOpenMenu] = useState(false);
 
   const [isActive, addActive] = useState();
 
   const [isHover, addHover] = useState(false);
+  
 
   useEffect(() => {
     const overlay = document.getElementById('MainNavOverlay');
@@ -94,12 +116,6 @@ const Menu = ({menus, genders}) => {
               </ul>
               <ul className="main-list">
                 {/* [RD] - MegaMenu Item men: début */}
-                <style
-                  dangerouslySetInnerHTML={{
-                    __html:
-                      "\n      .Picto1:after{ content:' New'; color:#ff2157; font-size:10px;margin:2px 0 0 6px;position:absolute;text-transform:uppercase;}\n\n"
-                  }}
-                />
                 {menus.map((menu) => {
                   return (
                     <li

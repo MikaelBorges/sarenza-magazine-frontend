@@ -1,8 +1,8 @@
 import React from "react"
 import Menu from "../../Menu/Menu"
 import Footer from "../../Footer/Footer"
-import { getMenu } from "../../Menu/service/menu.service"
-import { getGender } from "../../Menu/service/gender.service"
+import getMenu from "../../Menu/service/menu.service"
+import getGender from "../../Menu/service/gender.service"
 
 const Container = ({ children, menus, genders }) => {
     return (
