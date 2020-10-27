@@ -14,15 +14,6 @@ import wrapper from '../app/store';
 
 import withData from '../utils/apollo';
 
-import Footer from '../modules/Footer/Footer';
-import FooterMobile from '../modules/Footer/Footer.mobile';
-
-import Menu from '../modules/Menu/Menu';
-import MenuMobile from '../modules/Menu/Menu.mobile';
-
-import stylesMobile from './app.mobile.module.scss';
-import styles from './app.module.scss';
-
 import { useRouter } from 'next/router';
 
 function App({ Component, pageProps, apollo }) {
@@ -69,11 +60,7 @@ function App({ Component, pageProps, apollo }) {
           Sarenza - Magazine
         </title>
       </Head>
-      {isMobile ? <MenuMobile /> : <Menu />}
-      <div className={isMobile ? stylesMobile.app : styles.app}>
-        <Component {...pageProps} isMobile={isMobile} />
-      </div>
-      {isMobile ? <FooterMobile /> : <Footer />}
+      <Component {...pageProps} isMobile={isMobile} />
     </ApolloProvider>
   );
 }

@@ -1,3 +1,4 @@
+import { HttpLink } from '@apollo/client';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import { ApolloClient } from 'apollo-client';
 import { createHttpLink } from 'apollo-link-http';
@@ -25,3 +26,13 @@ export default withApollo(
         .restore(initialState || {})
     })
 );
+
+export const getApolloClient = () => {
+  return new ApolloClient({
+    cache: new InMemoryCache(),
+    link: new HttpLink({
+      uri: `${GRAPHQL_URL}/graphql`,
+      fetch
+    })
+  });
+};

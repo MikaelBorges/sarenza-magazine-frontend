@@ -32,7 +32,8 @@ const processToHome = (model = {}) => {
       description: model.home.shortDescription || '',
       rubriques: model.rubriques.map(processToRubrique) || []
     },
-    firstArticle: processToHomeArticle(model.articles[0]),
+    firstArticle:
+      (model.articles && model.articles.length && processToHomeArticle(model.articles[0])) || {},
     articles: model.articles.slice(1).map(processToHomeArticle),
     marquee: model.home.marquee || null,
     marqueeTop: model.home.marqueeTop || null,

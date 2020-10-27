@@ -1,30 +1,31 @@
-import Articles from 'modules/Article/Article';
-import ArticlesMobile from 'modules/Article/Articles.mobile';
-import { useRouter } from 'next/router';
 import React from 'react';
+import Articles from 'modules/Article/Article';
+import { ArticleModel } from 'modules/Article/model/Article';
+import ArticlesMobile from 'modules/Article/Article.mobile';
+import { getPageProps } from 'utils/getPageProps';
+import Layout from 'pages/Layout/Layout';
 
-const Article = ({ isMobile }) => {
-  const { query } = useRouter();
-  const articleStore = {}
-
+const Article = ({ article, menus, genders, footer, isMobile }) => {
   return (
-    <div>
-      {isMobile ? (
-        <ArticlesMobile rubrique={query.rubriqueName} slug={query.slug} />
-      ) : (
-        <Articles rubrique={query.rubriqueName} slug={query.slug} />
-      )}
-    </div>
+    <Layout menus={menus} genders={genders} footer={footer} isMobile={isMobile}>
+      {isMobile ? <ArticlesMobile article={article} /> : <Articles article={article} />}
+    </Layout>
   );
 };
 
+export const getServerSideProps = async (context) => {
+  const { slug } = context.query;
+  const { menus, genders, footer } = await getPageProps();
 
-
-export async function getServerSideProps(ctx) {
-  const { query } = ctx
-  const containerProps = await initProps()
-
-  return { props: { ...containerProps.props, data: await getArticle(query.slug) } }
-}
+  const data = await (await fetch(`${process.env.API_URL}/articles/?url=${slug}`)).json();
+  return {
+    props: {
+      article: ArticleModel(data[0]),
+      menus,
+      genders,
+      footer
+    }
+  };
+};
 
 export default Article;

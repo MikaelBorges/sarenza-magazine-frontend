@@ -8,27 +8,16 @@ import Reassurances from 'modules/Footer/components/Reassurances/Reassurances';
 import Reviews from 'modules/Footer/components/Reviews/Reviews';
 import SocialMedia from 'modules/Footer/components/SocialMedia/SocialMedia';
 import VariousText from 'modules/Footer/components/VariousText/VariousText';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
-import getFooter from './service/footer.service';
 import { StyleFooter } from './StyleFooter/StyleFooter';
 
-const Footer = () => {
-  const [footer, setFooter] = useState(null);
-  useEffect(() => {
-    async function fetch() {
-      const data = await getFooter();
-      setFooter(data);
-    }
-    fetch();
-  }, []);
-
+const Footer = ({ footer }) => {
   const [isActive, setActive] = useState('false');
 
   const handleToggle = () => {
     setActive(!isActive);
   };
-
   return (
     footer && (
       <footer id="MainFooter" data-track-zone="Transverse" className="gtm-zone">
@@ -85,7 +74,7 @@ const Footer = () => {
             <CountrySelector data={footer.countrySelectors} />
           </div>
         </div>
-        <StyleFooter />
+        {typeof window !== 'undefined' && <StyleFooter />}
       </footer>
     )
   );
