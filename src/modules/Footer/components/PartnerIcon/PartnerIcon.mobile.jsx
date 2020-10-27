@@ -1,25 +1,62 @@
-import React from 'react';
+import React, { useState } from 'react';
 // import PropTypes from 'prop-types';
 
 const PartnerIconMobile = ({ data }) => {
-  return (
-    <ul className="fold sprite">
-      {/* Changer la structure de la data côté strapi pour pouvoir maper aussi sur les li
+  let iconGroup = [];
+
+  data.forEach((partnerIconItem) => {
+    if (!iconGroup.some((item) => item.title === partnerIconItem.title)) {
+      iconGroup.push({
+        title: partnerIconItem.title,
+        id: partnerIconItem.id,
+        items: data.filter((item) => item.title === partnerIconItem.title)
+      });
+    }
+  });
+
+  const [isActive, setActive] = useState(false);
+
+  const handleToggle = (id) => {
+    setActive({id, open:!isActive.open});
+  };
+
+  console.log('isActive', isActive)
+  return iconGroup.map((item) => {
+
+    return (
+      <>
+        <div
+          className={isActive.id === item.id && isActive.open ? 'folder open' : 'folder'}
+          onClick={() => handleToggle(item.id)}
+          onKeyDown={() => handleToggle(item.id)}
+          role="button"
+          tabIndex="-1">
+          {item.title}
+        </div>
+        <ul className="fold sprite">
+          {/* Changer la structure de la data côté strapi pour pouvoir maper aussi sur les li
             il manque aussi les titres correspondants
             */}
-      <li>
-        <a
-          href={data.href}
-          key={data.id}
-          className={`ea-tracker gtm-click partners-com-${data.payment} sprited`}
-          shipping={data.shipping}
-          quality={data.quality}
-          data-ea>
-          {data.text}
-        </a>
-      </li>
-    </ul>
-  );
+
+          {item.items.map((partner) => {
+            return (
+              <li>
+                <a
+                  href={partner.href}
+                  key={partner.id}
+                  className={`ea-tracker gtm-click partners-com-${partner.payment} sprited`}
+                  shipping={partner.shipping}
+                  quality={partner.quality}
+                  data-ea>
+                  {partner.text}
+                </a>
+              </li>
+            );
+          })}
+        </ul>
+      </>
+    );
+  });
 };
 
 // PartnerIcon_mobile.propTypes = {};
