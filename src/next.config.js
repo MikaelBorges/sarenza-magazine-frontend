@@ -1,5 +1,5 @@
 module.exports = {
   env: {
-    API_URL: 'http://yolo03.sarenza.archi:1337'
+    API_URL: 'http://yolo01.sarenza.archi:1337'
   }
 };

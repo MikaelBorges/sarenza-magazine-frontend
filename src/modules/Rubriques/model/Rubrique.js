@@ -1,5 +1,4 @@
 const processToHomeArticle = (model = {}) => {
-  console.log('model', model);
   return {
     id: model.id,
     title: model.title || '',

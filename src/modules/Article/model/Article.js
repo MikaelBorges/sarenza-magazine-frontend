@@ -1,11 +1,10 @@
 export function ArticleModel(model = {}) {
-  console.log('model', model);
   return {
     text: model.text || '',
     title: model.title,
     image: {
       small: model.ImageArticleMobile,
-      medium: model.mediumSizeImg.url,
+      medium: model && model.mediumSizeImg && model.mediumSizeImg.url,
       large: model.image
     },
     modules: model.module,
