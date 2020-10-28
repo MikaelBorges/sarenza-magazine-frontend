@@ -1,13 +1,13 @@
 /* eslint-disable react/button-has-type */
 
-import PropTypes from 'prop-types';
 import React from 'react';
-
-import Text from '@/components/commons/Text/Text';
-
 import styles from './BlockText.mobile.module.scss';
+import Text from '@/components/commons/Text/Text';
+import { replaceByJsx } from 'modules/Article/utils';
 
-const BlockTextMobile = ({ title, text, textVerbatim, textButton, urlButton }) => {
+const BlockTextMobile = ({ Texte, title, urlButton, textButton, positionVerbatim, verbatim }) => {
+  const textVerbatim = verbatim;
+
   return (
     <div className={styles.blockText}>
       <div className={styles.textPart}>
@@ -17,33 +17,19 @@ const BlockTextMobile = ({ title, text, textVerbatim, textButton, urlButton }) =
           </Text>
         </div>
         <div className={styles.paragraph}>
-          <Text big>{text}</Text>
+          <Text big>{Texte}</Text>
         </div>
       </div>
       {textVerbatim && <Text verbatimBlockTextMobile>{textVerbatim}</Text>}
-      <div className={styles.button}>
-        <button className="button" href={urlButton}>
-          {textButton}
-        </button>
-      </div>
+      {urlButton && (
+        <div className={styles.button}>
+          <button className="button" href={urlButton}>
+            {textButton}
+          </button>
+        </div>
+      )}
     </div>
   );
-};
-
-BlockTextMobile.propTypes = {
-  title: PropTypes.string,
-  text: PropTypes.string,
-  textButton: PropTypes.string,
-  urlButton: PropTypes.string,
-  textVerbatim: PropTypes.string
-};
-
-BlockTextMobile.defaultProps = {
-  title: '',
-  text: '',
-  textButton: '',
-  urlButton: '',
-  textVerbatim: ''
 };
 
 export default BlockTextMobile;

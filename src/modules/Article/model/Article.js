@@ -4,7 +4,7 @@ export function ArticleModel(model = {}) {
     title: model.title,
     image: {
       small: model.ImageArticleMobile,
-      medium: model.mediumSizeImg.url,
+      medium: model && model.mediumSizeImg && model.mediumSizeImg.url,
       large: model.image
     },
     modules: model.module,

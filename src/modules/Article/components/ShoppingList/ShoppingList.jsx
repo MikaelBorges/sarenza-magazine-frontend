@@ -5,7 +5,7 @@ import Slider from 'react-slick';
 import ShoppingCard from './ShoppingCard/ShoppingCard';
 import styles from './ShoppingList.module.scss';
 
-const ShoppingList = ({ ShoppingCards, title, intro, textButton, urlButton }) => {
+const ShoppingList = ({ vignette, title, description, button }) => {
   const settings = {
     dots: false,
     infinite: false,
@@ -23,26 +23,16 @@ const ShoppingList = ({ ShoppingCards, title, intro, textButton, urlButton }) =>
   return (
     <div className={styles.shoppingList}>
       <h2 className="title-edito2">{title}</h2>
-      <p className={styles.intro}>{intro}</p>
+      <p className={styles.intro}>{description}</p>
       <div className={styles.SliderContainer}>
         <Slider {...settings} className={styles.cards}>
-          {ShoppingCards.map((card) => {
-            return (
-              <ShoppingCard
-                cardImage={card.cardImage}
-                stateLabel={card.stateLabel}
-                titleProduct={card.titleProduct}
-                descriptionProduct={card.descriptionProduct}
-                urlProduct={card.urlProduct}
-                pcid={card.pcid}
-                key={card.pcid}
-              />
-            );
+          {vignette.map((card) => {
+            return <ShoppingCard {...card} key={card.pcid} />;
           })}
         </Slider>
       </div>
-      <button type="button" className={`button ${styles.buttonShoppingList}`} href={urlButton}>
-        {textButton}
+      <button type="button" className={`button ${styles.buttonShoppingList}`} href={button.link}>
+        {button.label}
       </button>
     </div>
   );
