@@ -20,6 +20,7 @@ import { useRouter } from 'next/router';
 function App({ Component, pageProps, apollo }) {
   const { query } = useRouter();
   const isMobile = query.isMobile === 'true';
+  
   return (
     <ApolloProvider client={apollo}>
       <Head>

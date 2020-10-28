@@ -10,6 +10,7 @@ import MainComponent from './components/Articles/MainComponent/MainComponent';
 import Header from './components/Header/Header';
 
 const Home = ({ data }) => {
+  
   return (
     <Pagination
       data={data.articles}

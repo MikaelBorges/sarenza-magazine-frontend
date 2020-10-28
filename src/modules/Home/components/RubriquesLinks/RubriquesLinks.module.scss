@@ -9,3 +9,11 @@
     background-color: $color-background;
   }
 }
+.active {
+  border: transparent;
+  background: #f2f2f2;
+  font-family: RobotoC;
+  font-weight: bold;
+  color: #1d1d1b;
+  cursor: pointer;
+}
