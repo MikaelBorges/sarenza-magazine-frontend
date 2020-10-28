@@ -6,8 +6,8 @@ import Text from '@/components/commons/Text/Text';
 import styles from './BlockText.module.scss';
 import { replaceByJsx } from 'modules/Article/utils';
 
-const BlockText = ({ paragraph, title, urlButton, textButton, positionVerbatim }) => {
-  const textVerbatim = replaceByJsx(paragraph).find((item) => item.type === 'verbatim').text;
+const BlockText = ({ Texte, title, urlButton, textButton, positionVerbatim }) => {
+  const textVerbatim = replaceByJsx(Texte).find((item) => item.type === 'verbatim');
 
   return (
     <div className={styles.blockText}>
@@ -22,7 +22,7 @@ const BlockText = ({ paragraph, title, urlButton, textButton, positionVerbatim }
             </Text>
           </div>
           <div className={styles.paragraph}>
-            <Text big>{paragraph}</Text>
+            <Text big>{Texte}</Text>
           </div>
         </div>
         {textVerbatim && (

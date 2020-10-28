@@ -17,12 +17,10 @@ const PartnerIconMobile = ({ data }) => {
   const [isActive, setActive] = useState(false);
 
   const handleToggle = (id) => {
-    setActive({id, open:!isActive.open});
+    setActive({ id, open: !isActive.open });
   };
 
-  console.log('isActive', isActive)
   return iconGroup.map((item) => {
-
     return (
       <>
         <div

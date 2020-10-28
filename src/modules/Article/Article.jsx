@@ -7,23 +7,23 @@ import styles from './Article.module.scss';
 import { getComponent } from './config/LoadableComponent';
 
 const Article = ({ article }) => {
-  return (
-    article && (
-      <div className={styles.article}>
-        <Banner
-          subTitleOptional={article.subtitle}
-          srcImage={article.image.large}
-          altImage="image de l'article"
-          subTitleBanner={article.title}
-          author={article.author}
-          publishDate={article.publishDate}
-          updateDate={article.updatedDate}
-        />
-        {article.modules.map((item) => {
-          return getComponent(item);
-        })}
-      </div>
-    )
+  return article ? (
+    <div className={styles.article}>
+      <Banner
+        subTitleOptional={article.subtitle}
+        srcImage={article.image.large}
+        altImage="image de l'article"
+        subTitleBanner={article.title}
+        author={article.author}
+        publishDate={article.publishDate}
+        updateDate={article.updatedDate}
+      />
+      {article.modules.map((item) => {
+        return getComponent(item);
+      })}
+    </div>
+  ) : (
+    <div>Loading</div>
   );
 };
 

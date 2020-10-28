@@ -4,7 +4,6 @@ import React, { useState } from 'react';
 import styles from './ShoppingCard.module.scss';
 
 const ShoppingCard = ({ visuelUrl, url, statusLabel, model, pcid, brand, ...props }) => {
-  console.log('sdsd', visuelUrl);
   const [favoriteStatus, setFavoriteStatus] = useState(false);
   function handleClick(e) {
     e.preventDefault();
