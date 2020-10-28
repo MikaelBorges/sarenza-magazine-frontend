@@ -36,7 +36,7 @@ const Home = ({ data }) => {
             }}
             whiteTheme={data.displayFirst.Display.whiteTheme}
           />
-          <Articles articles={articles.slice(0, 5)} position={2} />
+          <Articles articles={articles.slice(5, 10)} position={2} />
           <Display
             text={data.displaySecond.Display.text}
             button={{

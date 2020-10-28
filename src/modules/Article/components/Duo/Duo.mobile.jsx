@@ -8,12 +8,14 @@ import React from 'react';
 import Text from '@/components/commons/Text/Text';
 
 import styles from './Duo.mobile.module.scss';
+import { replaceByJsx } from 'modules/Article/utils';
 
-const DuoMobile = ({ title, texts, urlImage, textButton, urlButton }) => {
+const DuoMobile = ({ duo_image, title, duo_paragraphe, button, ...props }) => {
+  console.log('props', props);
   return (
     <div className={styles.container}>
       <div className={styles.imageContainer}>
-        <img src={urlImage} alt="alt" className={styles.image} />
+        <img src={duo_image.url} alt="alt" className={styles.image} />
       </div>
       <div className={styles.textPart}>
         <div className={styles.titleTextPart}>
@@ -22,7 +24,7 @@ const DuoMobile = ({ title, texts, urlImage, textButton, urlButton }) => {
           </Text>
         </div>
         <div className={styles.paragraph}>
-          {texts.map((item) => {
+          {replaceByJsx(duo_paragraphe).forEach((item) => {
             if (item.type === 'text') {
               return (
                 <div className={styles.textContainer}>
@@ -41,8 +43,8 @@ const DuoMobile = ({ title, texts, urlImage, textButton, urlButton }) => {
         </div>
       </div>
       <div className={styles.button}>
-        <button className="button" href={urlButton}>
-          {textButton}
+        <button className="button" href={button.link}>
+          {button.label}
         </button>
       </div>
     </div>

@@ -4,10 +4,10 @@ import React from 'react';
 import Text from '@/components/commons/Text/Text';
 
 import styles from './BlockText.module.scss';
-import { replaceByJsx } from 'modules/Article/utils';
 
-const BlockText = ({ Texte, title, urlButton, textButton, positionVerbatim }) => {
-  const textVerbatim = replaceByJsx(Texte).find((item) => item.type === 'verbatim');
+
+const BlockText = ({ Texte, title, urlButton, textButton, positionVerbatim, verbatim }) => {
+  const textVerbatim = verbatim;
 
   return (
     <div className={styles.blockText}>

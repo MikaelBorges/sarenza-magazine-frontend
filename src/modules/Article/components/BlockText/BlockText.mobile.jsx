@@ -5,8 +5,8 @@ import styles from './BlockText.mobile.module.scss';
 import Text from '@/components/commons/Text/Text';
 import { replaceByJsx } from 'modules/Article/utils';
 
-const BlockTextMobile = ({ Texte, title, urlButton, textButton, positionVerbatim, ...props }) => {
-  const textVerbatim = (replaceByJsx(Texte).find((item) => item.type === 'verbatim') || {}).text;
+const BlockTextMobile = ({ Texte, title, urlButton, textButton, positionVerbatim, verbatim }) => {
+  const textVerbatim = verbatim;
 
   return (
     <div className={styles.blockText}>
