@@ -17,7 +17,7 @@ const Breadcrumb = ({ breadcrumbs }) => {
   }
     return (
       <>
-        <div className={styles.breadcrumb} onClick={breadcrumb.label === "Retour" ? handleClick : null}>
+        <div className={styles.breadcrumb} onClick={breadcrumb.label === "Retour" ? handleClick : null} >
           <LinkText link={breadcrumb.link} key={breadcrumb.label}>
             {breadcrumb.label}
           </LinkText>
