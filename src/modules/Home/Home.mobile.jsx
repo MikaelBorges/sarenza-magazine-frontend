@@ -78,16 +78,6 @@ const Home = ({ data }) => {
           ) : null}
         </>
       )}
-      renderFooter={(articles, param) => {
-        return (
-          articles && (
-            <PaginationComponent
-              data={articles.map((item) => ({ label: item.name, value: item.id }))}
-              params={param}
-            />
-          )
-        );
-      }}
     />
   );
 };

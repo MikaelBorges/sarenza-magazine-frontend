@@ -6,7 +6,6 @@ import ArticleItem from './ArticleItem/ArticleItem';
 import styles from './ReadMore.module.scss';
 
 const Articles = ({ articles, position }) => {
-  console.log('articles', articles);
   return (
     <div className={styles.container}>
       {articles.map((article, index) => {

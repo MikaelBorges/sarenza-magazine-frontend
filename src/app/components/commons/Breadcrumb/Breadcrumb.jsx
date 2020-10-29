@@ -15,10 +15,9 @@ const Breadcrumb = ({ breadcrumbs }) => {
     e.preventDefault();
     router.back();
   }
-  console.log(breadcrumb.label);
     return (
       <>
-        <div className={styles.breadcrumb} onClick={breadcrumb.label === "Retour" ? handleClick : null}>
+        <div className={styles.breadcrumb} onClick={breadcrumb.label === "Retour" ? handleClick : null} >
           <LinkText link={breadcrumb.link} key={breadcrumb.label}>
             {breadcrumb.label}
           </LinkText>

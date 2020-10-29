@@ -18,7 +18,6 @@ const processToHomeArticle = (model = {}) => {
     };
   } catch (e) {
     console.error('e', e);
-    console.log('model', model);
   }
 };
 
@@ -41,8 +40,8 @@ const processToHome = (model = {}) => {
     articles: model.articles.slice(1).map(processToHomeArticle),
     marquee: model.home.marquee || null,
     marqueeTop: model.home.marqueeTop || null,
-    displayFirst: model.home.display_components[0],
-    displaySecond: model.home.display_components[1]
+    displayFirst: model.home.display_components[0] || null,
+     displaySecond: model.home.display_components[1] || null
   };
 };
 

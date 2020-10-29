@@ -6,7 +6,6 @@ import ArticleTitle from '../ArticleTitle/ArticleTitle';
 import styles from './ArticleItem.module.scss';
 
 const ArticleItem = ({ article, size, position }) => {
-  console.log('article.image.medium.url', article);
   return (
     <>
       <div

@@ -49,15 +49,25 @@ const Home = ({ data }) => {
           ) : null}
 
           <Articles articles={articles.slice(0, 5)} position={1} />
-          <Display
-            text={data.displayFirst.Display.text}
-            button={{
-              label: data.displayFirst.Display.button.label,
-              url: data.displayFirst.Display.button.link
-            }}
-            whiteTheme={data.displayFirst.Display.whiteTheme}
-          />
+          {
+            (data.displayFirst !== undefined &&  data.displayFirst !== null) ? (
+
+              <Display
+              text={data.displayFirst.Display.text}
+              button={{
+                label: data.displayFirst.Display.button.label,
+                url: data.displayFirst.Display.button.link
+              }}
+              whiteTheme={data.displayFirst.Display.whiteTheme}
+            />
+            )
+            :
+            null
+          }
+         
           <Articles articles={articles.slice(5, 10)} position={2} />
+          {
+             (data.displaySecond !== undefined &&  data.displaySecond !== null) ? (
           <Display
             text={data.displaySecond.Display.text}
             button={{
@@ -65,7 +75,9 @@ const Home = ({ data }) => {
               url: data.displaySecond.Display.button.link
             }}
             whiteTheme={data.displaySecond.Display.whiteTheme}
-          />
+          />):
+          null
+          }
           {data.marquee !== null ? (
             <Marquee
               marquee={{
