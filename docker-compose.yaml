@@ -1,0 +1,17 @@
+version: "3.8"
+services:
+  magazine:
+    container_name: sarenzamag
+    image: srzlab.azurecr.io/magazine:1.0.0
+    stdin_open: true
+    tty: true
+    restart: unless-stopped
+    environment:
+      - STRAPI_SERVICE_URL=strapi
+      - STRAPI_SERVICE_PORT=3337
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 80:3000
+      - 443:5000

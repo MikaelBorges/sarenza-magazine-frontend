@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "{{ include "sarenza-digitalexperience-magazine.fullname" . }}-test-connection"
+  labels:
+{{ include "sarenza-digitalexperience-magazine.labels" . | indent 4 }}
+  annotations:
+    "helm.sh/hook": test-success
+spec:
+  containers:
+    - name: wget
+      image: busybox
+      command: ['wget']
+      args:  ['{{ include "sarenza-digitalexperience-magazine.fullname" . }}:{{ .Values.service.port }}']
+  restartPolicy: Never
