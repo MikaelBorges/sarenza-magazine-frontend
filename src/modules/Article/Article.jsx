@@ -6,8 +6,9 @@ import Banner from './components/Banner/Banner';
 import styles from './Article.module.scss';
 import { getComponent } from './config/LoadableComponent';
 import Breadcrumb from '@/components/commons/Breadcrumb/Breadcrumb';
+import ReadMore from './components/ReadMore/ReadMore';
 
-const Article = ({ article }) => {
+const Article = ({ article, recentArticle }) => {
   return article ? (
     <div className={styles.article}>
       <div className={styles.boxBreadcrumb}>
@@ -44,6 +45,8 @@ const Article = ({ article }) => {
       {article.modules.map((item) => {
         return getComponent(item);
       })}
+
+      <ReadMore articles={recentArticle} />
     </div>
   ) : (
     <div>Loading</div>

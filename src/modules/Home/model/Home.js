@@ -1,20 +1,25 @@
 const processToHomeArticle = (model = {}) => {
-  return {
-    id: model.id,
-    title: model.title || '',
-    author: model.author || '',
-    publishDate: new Date(model.updated_at).toLocaleDateString('fr-FR'),
-    image: model.image || 'Image inconnue',
-    smallImage: model.smallSizeImg || {
-      url: '',
-      alt: 'image inconnue'
-    },
-    link: model.rubriques && `${model.rubriques[0].url}/${model.url}`,
-    mediumImage: model.mediumSizeImg || {
-      url: '',
-      alt: 'image inconnue'
-    }
-  };
+  try {
+    return {
+      id: model.id,
+      title: model.title || '',
+      author: model.author || '',
+      publishDate: new Date(model.updated_at).toLocaleDateString('fr-FR'),
+      image: model.image || 'Image inconnue',
+      smallImage: model.smallSizeImg || {
+        url: '',
+        alt: 'image inconnue'
+      },
+      link: `${model.rubriques[0].url}/${model.url}`,
+      mediumImage: model.mediumSizeImg || {
+        url: '',
+        alt: 'image inconnue'
+      }
+    };
+  } catch (e) {
+    console.error('e', e);
+    console.log('model', model);
+  }
 };
 
 const processToRubrique = (model = []) => {
@@ -32,8 +37,7 @@ const processToHome = (model = {}) => {
       description: model.home.shortDescription || '',
       rubriques: model.rubriques.map(processToRubrique) || []
     },
-    firstArticle:
-      (model.articles && model.articles.length && processToHomeArticle(model.articles[0])) || {},
+    firstArticle: processToHomeArticle(model.articles[0]) || {},
     articles: model.articles.slice(1).map(processToHomeArticle),
     marquee: model.home.marquee || null,
     marqueeTop: model.home.marqueeTop || null,

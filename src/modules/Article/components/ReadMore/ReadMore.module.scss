@@ -1,0 +1,31 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: baseline;
+  min-width: 100%;
+  justify-content: space-around;
+}
+.content {
+  width: 360px;
+  margin: 16px 0;
+  @media screen and (min-width: 975px) {
+    max-width: 568px;
+    min-width: 25%;
+    //padding: 10px;
+    max-height: 690px;
+  }
+  @media screen and (min-width: 1185px) {
+    padding: 0;
+  }
+}
+.contentThree {
+  margin: 16px 0;
+  width: 235px;
+  @media screen and (min-width: 975px) {
+    max-width: 391px;
+    min-width: 32%;
+    //padding: 10px;
+    max-height: 497px;
+  }
+}

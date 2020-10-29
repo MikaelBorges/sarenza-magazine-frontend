@@ -7,8 +7,8 @@ import React from 'react';
 import styles from './Article.mobile.module.scss';
 import Banner from './components/Banner/Banner.mobile';
 import { getComponent } from './config/LoadableComponent.mobile';
-
-const Article = ({ article }) => {
+import ReadMore from './components/ReadMore/ReadMore.mobile';
+const Article = ({ article, recentArticle }) => {
   return article ? (
     <div className={styles.article}>
         <div className={styles.boxBreadcrumb}>
@@ -45,6 +45,7 @@ const Article = ({ article }) => {
       {article.modules.map((item) => {
         return getComponent(item);
       })}
+      <ReadMore articles={recentArticle} />
     </div>
   ) : (
     <div>Loading...</div>
