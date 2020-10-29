@@ -1,3 +1,4 @@
+import Breadcrumb from '@/components/commons/Breadcrumb/Breadcrumb';
 /* eslint-disable no-irregular-whitespace */
 
 import PropTypes from 'prop-types';
@@ -10,6 +11,28 @@ import { getComponent } from './config/LoadableComponent.mobile';
 const Article = ({ article }) => {
   return article ? (
     <div className={styles.article}>
+        <div className={styles.boxBreadcrumb}>
+        <Breadcrumb
+          breadcrumbs={[
+            {
+              link: 'http://localhost:3000/',
+              label: 'Retour'
+            },
+            {
+              link: 'https://www.sarenza.com',
+              label: 'Accueil'
+            },
+            {
+              link: 'http://localhost:3000/',
+              label: 'Magazine'
+            },
+            {
+              link: 'http://localhost:3000/',
+              label: `${article.title}`
+            }
+          ]}
+        />
+      </div>
       <Banner
         subTitleOptional={article.subtitle}
         srcImage={article.image.large}

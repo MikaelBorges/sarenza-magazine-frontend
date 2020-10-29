@@ -5,10 +5,33 @@ import React from 'react';
 import Banner from './components/Banner/Banner';
 import styles from './Article.module.scss';
 import { getComponent } from './config/LoadableComponent';
+import Breadcrumb from '@/components/commons/Breadcrumb/Breadcrumb';
 
 const Article = ({ article }) => {
   return article ? (
     <div className={styles.article}>
+      <div className={styles.boxBreadcrumb}>
+        <Breadcrumb
+          breadcrumbs={[
+            {
+              link: 'http://localhost:3000/',
+              label: 'Retour'
+            },
+            {
+              link: 'https://www.sarenza.com',
+              label: 'Accueil'
+            },
+            {
+              link: 'http://localhost:3000/',
+              label: 'Magazine'
+            },
+            {
+              link: 'http://localhost:3000/',
+              label: `${article.title}`
+            }
+          ]}
+        />
+      </div>
       <Banner
         subTitleOptional={article.subtitle}
         srcImage={article.image.large}

@@ -8,14 +8,34 @@ import Pagination from '@/components/commons/Pagination/Pagination';
 import Articles from './components/Articles/Articles';
 import MainComponent from './components/Articles/MainComponent/MainComponent';
 import Header from './components/Header/Header';
+import Breadcrumb from '@/components/commons/Breadcrumb/Breadcrumb';
+
+import styles from './home.module.scss';
 
 const Home = ({ data }) => {
-  
   return (
     <Pagination
       data={data.articles}
       renderContent={(articles) => (
         <>
+          <div className={styles.boxBreadcrumb}>
+            <Breadcrumb
+              breadcrumbs={[
+                {
+                  link: "http://localhost:3000/",
+                  label: 'Retour',
+                },
+                {
+                  link: 'https://www.sarenza.com',
+                  label: 'Accueil',
+                },
+                {
+                  link: 'http://localhost:3000/',
+                  label: 'Magazine',
+                }
+              ]}
+            />
+          </div>
           <Header header={data.header} />
           <MainComponent article={data.firstArticle} />
           {data.marqueeTop !== null ? (
