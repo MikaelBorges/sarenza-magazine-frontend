@@ -1,17 +1,17 @@
 export function ArticleModel(model = {}) {
   return {
     text: model.text || '',
-    title: model.title,
+    title: model.title || '',
     image: {
-      small: model.ImageArticleMobile,
-      medium: model && model.mediumSizeImg && model.mediumSizeImg.url,
-      large: model.image
+      small: model.ImageArticleMobile || '',
+      medium: (model && model.mediumSizeImg && model.mediumSizeImg.url) || '',
+      large: model.image || ''
     },
-    modules: model.module,
+    modules: model.module || [],
     updatedDate: new Date(model.updated_at).toLocaleDateString('fr-FR'),
     publishDate: new Date(model.updated_at).toLocaleDateString('fr-FR'),
-    author: model.author,
-    subtitle: model.subtitle
+    author: model.author || '',
+    subtitle: model.subtitle || ''
   };
 }
 
