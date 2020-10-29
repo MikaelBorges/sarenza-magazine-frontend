@@ -19,27 +19,31 @@ const Duo = ({ duo_image, title, duo_paragraphe, button }) => {
             {title}
           </Text>
         </div>
-        <div className={styles.paragraph}>
-          {replaceByJsx(duo_paragraphe).forEach((item) => {
-            if (item.type === 'text') {
-              return <Text big>{item.text}</Text>;
-            }
-            if (item.type === 'verbatim') {
-              return (
-                <div className={styles.verbatimContainer}>
-                  <Text verbatim>{item.text}</Text>
-                </div>
-              );
-            }
-            return null;
-          })}
+        {duo_paragraphe !== null ? (
+          <div className={styles.paragraph__li}>
+            {replaceByJsx(duo_paragraphe).map((item) => {
+              if (item.type === 'text') {
+                return <Text big>{item.text}</Text>;
+              }
+              if (item.type === 'verbatim') {
+                return (
+                  <div className={styles.verbatimContainer}>
+                    <Text verbatim>{item.text}</Text>
+                  </div>
+                );
+              }
+              return null;
+            })}
+          </div>
+        ) : null}
+      </div>
+      {button !== null ? (
+        <div className={styles.button}>
+          <button className="button" href={button.link}>
+            {button.label}
+          </button>
         </div>
-      </div>
-      <div className={styles.button}>
-        <button className="button" href={button.link}>
-          {button.label}
-        </button>
-      </div>
+      ) : null}
     </div>
   );
 };

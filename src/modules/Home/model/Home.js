@@ -18,7 +18,6 @@ const processToHomeArticle = (model = {}) => {
     };
   } catch (e) {
     console.error('e', e);
-    console.log('model', model);
   }
 };
 

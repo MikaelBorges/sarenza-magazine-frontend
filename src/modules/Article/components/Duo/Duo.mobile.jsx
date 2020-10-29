@@ -10,8 +10,7 @@ import Text from '@/components/commons/Text/Text';
 import styles from './Duo.mobile.module.scss';
 import { replaceByJsx } from 'modules/Article/utils';
 
-const DuoMobile = ({ duo_image, title, duo_paragraphe, button, ...props }) => {
-  console.log('props', props);
+const DuoMobile = ({ duo_image, title, duo_paragraphe, button }) => {
   return (
     <div className={styles.container}>
       <div className={styles.imageContainer}>
@@ -24,6 +23,7 @@ const DuoMobile = ({ duo_image, title, duo_paragraphe, button, ...props }) => {
           </Text>
         </div>
         <div className={styles.paragraph}>
+          
           {replaceByJsx(duo_paragraphe).forEach((item) => {
             if (item.type === 'text') {
               return (
