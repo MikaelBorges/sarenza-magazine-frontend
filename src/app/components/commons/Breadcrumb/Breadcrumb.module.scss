@@ -1,0 +1,13 @@
+.breadcrumb {
+    display: inline-block;
+   
+   & > a{
+        font-size: 12px;
+        color: #999999;
+        font-family: robotoc;
+   }
+}
+.separation {
+    color: #999999;
+    margin: 0 8px;
+  }

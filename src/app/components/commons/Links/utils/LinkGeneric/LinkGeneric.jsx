@@ -7,6 +7,9 @@ import { LINK_TYPE } from '../../constants';
 import ChildrenWithIcon from './components/ChildrenWithIcon';
 import styles from './LinkGeneric.module.scss';
 
+import { useRouter } from 'next/router';
+
+
 const LinkGeneric = ({
   type,
   disabled,
