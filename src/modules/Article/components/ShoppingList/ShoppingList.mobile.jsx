@@ -24,9 +24,11 @@ const ShoppingListMobile = ({ ShoppingCards, title, intro, textButton, urlButton
           );
         })}
       </ul>
-      <button type="button" className={`button ${styles.buttonShoppingList}`} href={urlButton}>
-        {textButton}
-      </button>
+      {button !== null ? (
+        <button type="button" className={`button ${styles.buttonShoppingList}`} href={urlButton}>
+          {textButton}
+        </button>
+      ) : null}
     </div>
   );
 };
