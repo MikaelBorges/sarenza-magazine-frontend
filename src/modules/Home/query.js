@@ -41,16 +41,9 @@ export const HOME_QUERY_ALL = gql`
       title
       author
       image
+      ImageArticleMobile
       updated_at
       url
-      smallSizeImg {
-        url
-        alt
-      }
-      mediumSizeImg {
-        url
-        alt
-      }
       rubriques {
         id
         url

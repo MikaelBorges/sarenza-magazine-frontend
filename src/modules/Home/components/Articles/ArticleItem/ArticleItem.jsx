@@ -16,8 +16,8 @@ const ArticleItem = ({ article, size, position }) => {
             (size >= 2 && position === 1) || (size <= 2 && position === 2)
         })}>
         <img
-          src={article.mediumImage.url}
-          alt={article.mediumImage.alt}
+          src={article.ImageArticleMobile}
+          alt={"image"}
           className={styles.images}
         />
       </div>
