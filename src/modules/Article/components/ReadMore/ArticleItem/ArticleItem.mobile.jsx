@@ -6,8 +6,8 @@ import styles from './ArticleItem.mobile.module.scss';
 
 const ArticleItem = ({ article, size, position }) => {
   return (
-    <>
-      <img src={article.image.medium} alt={'image erreur'} className={styles.image} />
+    <a href={article.link}>
+      <img src={article.image.medium} alt={article.title} className={styles.image} />
       <ArticleTitle
         title={article.title}
         author={article.author}
@@ -15,7 +15,7 @@ const ArticleItem = ({ article, size, position }) => {
         size={size}
         position={position}
       />
-    </>
+    </a>
   );
 };
 

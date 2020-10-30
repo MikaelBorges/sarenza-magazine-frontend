@@ -7,7 +7,7 @@ import styles from './ArticleItem.module.scss';
 
 const ArticleItem = ({ article, size, position }) => {
   return (
-    <>
+    <a href={article.link}>
       <div
         className={classnames({
           [styles.containerImgContent]:
@@ -15,7 +15,7 @@ const ArticleItem = ({ article, size, position }) => {
           [styles.containerImgContentThree]:
             (size >= 2 && position === 1) || (size <= 2 && position === 2)
         })}>
-        <img src={article.image.medium} alt={'image erreur'} className={styles.images} />
+        <img src={article.image.medium} alt={article.title} className={styles.images} />
       </div>
       <ArticleTitle
         title={article.title}
@@ -24,7 +24,7 @@ const ArticleItem = ({ article, size, position }) => {
         size={size}
         position={position}
       />
-    </>
+    </a>
   );
 };
 

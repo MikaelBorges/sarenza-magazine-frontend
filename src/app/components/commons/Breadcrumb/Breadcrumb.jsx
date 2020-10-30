@@ -1,23 +1,24 @@
+import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
 import React from 'react';
 
 import { LinkText } from '../Links';
 import styles from './Breadcrumb.module.scss';
-import { useRouter } from 'next/router';
 
 const Breadcrumb = ({ breadcrumbs }) => {
-  
-
   return breadcrumbs.map((breadcrumb) => {
     const router = useRouter();
 
-  const handleClick = (e) =>{
-    e.preventDefault();
-    router.back();
-  }
+    const handleClick = (e) => {
+      e.preventDefault();
+      router.back();
+    };
     return (
       <>
-        <div className={styles.breadcrumb} onClick={breadcrumb.label === "Retour" ? handleClick : null} key={breadcrumb.id}>
+        <div
+          className={styles.breadcrumb}
+          onClick={breadcrumb.label === 'Retour' ? handleClick : null}
+          onKeyPress={breadcrumb.label === 'Retour' ? handleClick : null}>
           <LinkText link={breadcrumb.link} key={breadcrumb.label}>
             {breadcrumb.label}
           </LinkText>

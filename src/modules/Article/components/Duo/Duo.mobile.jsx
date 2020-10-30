@@ -1,15 +1,12 @@
 /* eslint-disable react/button-has-type */
-/* eslint-disable array-callback-return */
-/* eslint-disable consistent-return */
-
-import PropTypes from 'prop-types';
+/* eslint-disable camelcase */
+import { replaceByJsx } from 'modules/Article/utils';
 import React from 'react';
 import Markdown from 'markdown-to-jsx';
 
 import Text from '@/components/commons/Text/Text';
 
 import styles from './Duo.mobile.module.scss';
-import { replaceByJsx } from 'modules/Article/utils';
 
 const DuoMobile = ({ duo_image, title, duo_paragraphe, button }) => {
   return (
@@ -29,14 +26,18 @@ const DuoMobile = ({ duo_image, title, duo_paragraphe, button }) => {
               if (item.type === 'text') {
                 return (
                   <div className={styles.textContainer} key={item.id}>
-                    <Text big><Markdown  options={{ forceInline: true }}>{item.text}</Markdown></Text>
+                    <Text big>
+                      <Markdown options={{ forceInline: true }}>{item.text}</Markdown>
+                    </Text>
                   </div>
                 );
               }
               if (item.type === 'verbatim') {
                 return (
                   <div className={styles.verbatimContainer} key={item.id}>
-                    <Text verbatimMobile><Markdown  options={{ forceInline: true }}>{item.text}</Markdown></Text>
+                    <Text verbatimMobile>
+                      <Markdown options={{ forceInline: true }}>{item.text}</Markdown>
+                    </Text>
                   </div>
                 );
               }
@@ -53,26 +54,6 @@ const DuoMobile = ({ duo_image, title, duo_paragraphe, button }) => {
       ) : null}
     </div>
   );
-};
-
-DuoMobile.propTypes = {
-  title: PropTypes.string,
-  texts: PropTypes.arrayOf(
-    PropTypes.shape({
-      text: PropTypes.string
-    })
-  ),
-  urlImage: PropTypes.string,
-  textButton: PropTypes.string,
-  urlButton: PropTypes.string
-};
-
-DuoMobile.defaultProps = {
-  title: '',
-  texts: [],
-  urlImage: '',
-  textButton: '',
-  urlButton: ''
 };
 
 export default DuoMobile;

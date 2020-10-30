@@ -1,9 +1,9 @@
-import React from 'react';
 import Articles from 'modules/Article/Article';
-import { ArticleModel, ArticlesModel } from 'modules/Article/model/Article';
 import ArticlesMobile from 'modules/Article/Article.mobile';
-import { getPageProps } from 'utils/getPageProps';
+import { ArticleModel, ArticlesModel } from 'modules/Article/model/Article';
 import Layout from 'pages/Layout/Layout';
+import React from 'react';
+import { getPageProps } from 'utils/getPageProps';
 
 const Article = ({ article, menus, genders, footer, recentArticle, isMobile }) => {
   return (
@@ -18,12 +18,13 @@ const Article = ({ article, menus, genders, footer, recentArticle, isMobile }) =
 };
 
 export const getServerSideProps = async (context) => {
-  const { slug } = context.query;
+  const { slug, rubriqueName } = context.query;
   const { menus, genders, footer } = await getPageProps();
-
   const data = await (await fetch(`${process.env.API_URL}/articles/?url=${slug}`)).json();
   const recentArticle = await (
-    await fetch(`${process.env.API_URL}/articles?_limit=4&_sort=updated_by`)
+    await fetch(
+      `${process.env.API_URL}/articles?_limit=4&_sort=updated_by&rubriques.url=${rubriqueName}`
+    )
   ).json();
 
   return {
@@ -36,6 +37,5 @@ export const getServerSideProps = async (context) => {
     }
   };
 };
-
 
 export default Article;
