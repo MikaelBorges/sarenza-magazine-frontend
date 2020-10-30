@@ -4,7 +4,6 @@
 
 import React from 'react';
 import Markdown from 'markdown-to-jsx';
-import parse from 'html-react-parser';
 
 import Text from '@/components/commons/Text/Text';
 
@@ -18,7 +17,7 @@ const Duo = ({ duo_image, title, duo_paragraphe, button }) => {
       <div className={styles.textPart}>
         <div className={styles.titleTextPart}>
           <Text huge secondary>
-            {parse(title)}
+            {title}
           </Text>
         </div>
         {duo_paragraphe !== null ? (
