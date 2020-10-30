@@ -20,7 +20,7 @@ const Duo = ({ duo_image, title, duo_paragraphe, button }) => {
           </Text>
         </div>
         {duo_paragraphe !== null ? (
-          <div className={styles.paragraph__li}>
+          <div className={styles.paragraph}>
             {replaceByJsx(duo_paragraphe).map((item) => {
               if (item.type === 'text') {
                 return <Text big>{item.text}</Text>;
