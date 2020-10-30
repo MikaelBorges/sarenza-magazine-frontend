@@ -39,7 +39,7 @@
   overflow: hidden;
   max-width: 459px;
   @media screen and (min-width: 975px) {
-    max-width: inherit;
+    max-width: 829px;
     max-height: 452px;
   }
   //left: inherit;
@@ -47,17 +47,18 @@
 .image {
   position: relative;
   //left: 155px;
-  min-width: 459px;
+  //min-width: 459px;
   height: 273px;
+  max-width: none;
   @media screen and (min-width: 975px) {
     left: inherit;
-    min-width: 829px;
+    //min-width: 829px;
     height: 452px;
-    transition: all ease 3s;
+    transition: transform ease 3s;
 
     &:hover {
       transform: scale(1.1);
-      transition: all ease 3s;
+      transition: transform ease 3s;
     }
   }
 }

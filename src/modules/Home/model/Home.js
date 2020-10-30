@@ -6,15 +6,8 @@ const processToHomeArticle = (model = {}) => {
       author: model.author || '',
       publishDate: new Date(model.updated_at).toLocaleDateString('fr-FR'),
       image: model.image || 'Image inconnue',
-      smallImage: model.smallSizeImg || {
-        url: '',
-        alt: 'image inconnue'
-      },
-      link: `${model.rubriques[0].url}/${model.url}`,
-      mediumImage: model.mediumSizeImg || {
-        url: '',
-        alt: 'image inconnue'
-      }
+      ImageArticleMobile: model.ImageArticleMobile || 'Image inconnue',
+      link: `${model.rubriques[0].url}/${model.url}`
     };
   } catch (e) {
     console.error('e', e);
