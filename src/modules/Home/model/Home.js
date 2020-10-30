@@ -1,14 +1,20 @@
 const processToHomeArticle = (model = {}) => {
   try {
-    return {
-      id: model.id,
-      title: model.title || '',
-      author: model.author || '',
-      publishDate: new Date(model.updated_at).toLocaleDateString('fr-FR'),
-      image: model.image || 'Image inconnue',
-      ImageArticleMobile: model.ImageArticleMobile || 'Image inconnue',
-      link: `${model.rubriques[0].url}/${model.url}` || null
-    };
+    return (
+      model.id && {
+        id: model.id,
+        title: model.title || '',
+        author: model.author || '',
+        publishDate: new Date(model.updated_at).toLocaleDateString('fr-FR'),
+        image: model.image || 'Image inconnue',
+        ImageArticleMobile: model.ImageArticleMobile || 'Image inconnue',
+        link:
+          (model.rubriques &&
+            model.rubriques.length > 0 &&
+            `${model.rubriques[0].url}/${model.url}`) ||
+          ''
+      }
+    );
   } catch (e) {
     throw Error(e.message);
   }

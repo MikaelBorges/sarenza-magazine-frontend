@@ -6,7 +6,7 @@ import getPageProps from 'utils/getPageProps';
 import { HOME_QUERY } from '../apollo/queries/home/homeQuery';
 import Home from '../modules/Home/Home';
 import HomeMobile from '../modules/Home/Home.mobile';
-import Layout from './Layout/Layout';
+import Layout from 'modules/Layout/Layout';
 
 const ArticleList = ({ rubriques, menus, genders, footer, isMobile }) => {
   return (

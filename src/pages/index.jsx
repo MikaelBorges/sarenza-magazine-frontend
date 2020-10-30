@@ -1,20 +1,23 @@
 import processToHome from 'modules/Home/model/Home';
 import { getApolloClient } from 'utils/apollo';
 import getPageProps from 'utils/getPageProps';
-
+import { ApolloProvider } from '@apollo/react-hooks';
+import withData from '../utils/apollo';
 import { HOME_QUERY_ALL } from '../apollo/queries/home/homeQuery';
 import Home from '../modules/Home/Home';
 import HomeMobile from '../modules/Home/Home.mobile';
 
-import Layout from './Layout/Layout';
+import Layout from 'modules/Layout/Layout';
 
-export default function HomePage({ homeData, menus, genders, footer, isMobile }) {
+const HomePage = ({ homeData, menus, genders, footer, isMobile, apollo }) => {
   return (
-    <Layout menus={menus} genders={genders} footer={footer} isMobile={isMobile}>
-      {isMobile ? <HomeMobile data={homeData} /> : <Home data={homeData} />}
-    </Layout>
+    <ApolloProvider client={apollo}>
+      <Layout menus={menus} genders={genders} footer={footer} isMobile={isMobile}>
+        {isMobile ? <HomeMobile data={homeData} /> : <Home data={homeData} />}
+      </Layout>
+    </ApolloProvider>
   );
-}
+};
 
 export const getServerSideProps = async () => {
   const apolloClient = getApolloClient();
@@ -28,3 +31,5 @@ export const getServerSideProps = async () => {
 
   return { props: { homeData, menus, genders, footer } };
 };
+
+export default withData(HomePage);

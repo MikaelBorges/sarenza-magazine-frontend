@@ -1,9 +1,9 @@
 import Articles from 'modules/Article/Article';
 import ArticlesMobile from 'modules/Article/Article.mobile';
 import { ArticleModel, ArticlesModel } from 'modules/Article/model/Article';
-import Layout from 'pages/Layout/Layout';
 import React from 'react';
 import { getPageProps } from 'utils/getPageProps';
+import Layout from 'modules/Layout/Layout';
 
 const Article = ({ article, menus, genders, footer, recentArticle, isMobile }) => {
   return (
