@@ -2,6 +2,7 @@
 
 import PropTypes from 'prop-types';
 import React from 'react';
+import parse from 'html-react-parser';
 import Banner from './components/Banner/Banner';
 import styles from './Article.module.scss';
 import { getComponent } from './config/LoadableComponent';
@@ -34,10 +35,10 @@ const Article = ({ article, recentArticle }) => {
         />
       </div>
       <Banner
-        subTitleOptional={article.subtitle}
+        subTitleOptional={parse(article.subtitle)}
         srcImage={article.image.large}
         altImage="image de l'article"
-        subTitleBanner={article.title}
+        subTitleBanner={parse(article.title)}
         author={article.author}
         publishDate={article.publishDate}
         updateDate={article.updatedDate}

@@ -3,7 +3,7 @@ import Breadcrumb from '@/components/commons/Breadcrumb/Breadcrumb';
 
 import PropTypes from 'prop-types';
 import React from 'react';
-
+import parse from 'html-react-parser';
 import styles from './Article.mobile.module.scss';
 import Banner from './components/Banner/Banner.mobile';
 import { getComponent } from './config/LoadableComponent.mobile';
@@ -34,10 +34,10 @@ const Article = ({ article, recentArticle }) => {
         />
       </div>
       <Banner
-        subTitleOptional={article.subtitle}
+        subTitleOptional={parse(article.subtitle)}
         srcImage={article.image.large}
         altImage="image de l'article"
-        subTitleBanner={article.title}
+        subTitleBanner={parse(article.title)}
         author={article.author}
         publishDate={article.publishDate}
         updateDate={article.updatedDate}
