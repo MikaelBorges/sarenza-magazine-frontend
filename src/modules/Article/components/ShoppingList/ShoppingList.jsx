@@ -31,9 +31,11 @@ const ShoppingList = ({ vignette, title, description, button }) => {
           })}
         </Slider>
       </div>
-      <button type="button" className={`button ${styles.buttonShoppingList}`} href={button.link}>
-        {button.label}
-      </button>
+      {button !== null ? (
+        <button type="button" className={`button ${styles.buttonShoppingList}`} href={button.link}>
+          {button.label}
+        </button>
+      ) : null}
     </div>
   );
 };

@@ -7,7 +7,7 @@ const processToHomeArticle = (model = {}) => {
       publishDate: new Date(model.updated_at).toLocaleDateString('fr-FR'),
       image: model.image || 'Image inconnue',
       ImageArticleMobile: model.ImageArticleMobile || 'Image inconnue',
-      link: `${model.rubriques[0].url}/${model.url}`
+      link: `${model.rubriques[0].url}/${model.url}` || null
     };
   } catch (e) {
     console.error('e', e);
