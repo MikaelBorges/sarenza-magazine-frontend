@@ -4,6 +4,8 @@
 
 import PropTypes from 'prop-types';
 import React from 'react';
+import Markdown from 'markdown-to-jsx';
+import parse from 'html-react-parser';
 
 import Text from '@/components/commons/Text/Text';
 
@@ -19,7 +21,7 @@ const DuoMobile = ({ duo_image, title, duo_paragraphe, button }) => {
       <div className={styles.textPart}>
         <div className={styles.titleTextPart}>
           <Text huge secondary>
-            {title}
+            {parse(title)}
           </Text>
         </div>
         {duo_paragraphe !== null ? (
@@ -27,15 +29,15 @@ const DuoMobile = ({ duo_image, title, duo_paragraphe, button }) => {
             {replaceByJsx(duo_paragraphe).map((item) => {
               if (item.type === 'text') {
                 return (
-                  <div className={styles.textContainer}>
-                    <Text big>{item.text}</Text>
+                  <div className={styles.textContainer} key={item.id}>
+                    <Text big><Markdown  options={{ forceInline: true }}>{item.text}</Markdown></Text>
                   </div>
                 );
               }
               if (item.type === 'verbatim') {
                 return (
-                  <div className={styles.verbatimContainer}>
-                    <Text verbatimMobile>{item.text}</Text>
+                  <div className={styles.verbatimContainer} key={item.id}>
+                    <Text verbatimMobile><Markdown  options={{ forceInline: true }}>{item.text}</Markdown></Text>
                   </div>
                 );
               }

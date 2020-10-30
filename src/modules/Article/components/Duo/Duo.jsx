@@ -3,6 +3,8 @@
 /* eslint-disable camelcase */
 
 import React from 'react';
+import Markdown from 'markdown-to-jsx';
+import parse from 'html-react-parser';
 
 import Text from '@/components/commons/Text/Text';
 
@@ -16,19 +18,19 @@ const Duo = ({ duo_image, title, duo_paragraphe, button }) => {
       <div className={styles.textPart}>
         <div className={styles.titleTextPart}>
           <Text huge secondary>
-            {title}
+            {parse(title)}
           </Text>
         </div>
         {duo_paragraphe !== null ? (
           <div className={styles.paragraph}>
             {replaceByJsx(duo_paragraphe).map((item) => {
               if (item.type === 'text') {
-                return <Text big>{item.text}</Text>;
+                return <Text big><Markdown  options={{ forceInline: true }}>{item.text}</Markdown></Text>;
               }
               if (item.type === 'verbatim') {
                 return (
                   <div className={styles.verbatimContainer}>
-                    <Text verbatim>{item.text}</Text>
+                    <Text verbatim><Markdown  options={{ forceInline: true }}>{item.text}</Markdown></Text>
                   </div>
                 );
               }
