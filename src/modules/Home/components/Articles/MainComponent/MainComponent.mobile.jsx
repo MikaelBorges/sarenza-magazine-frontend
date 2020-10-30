@@ -18,7 +18,7 @@ const MainComponent = ({ article }) => {
             firstArticle
           />
         </div>
-        <img src={article.image} className={styles.image} alt={article.title} />
+        <img src={article.ImageArticleMobile} className={styles.image} alt={article.title} />
       </div>
     </Link>
   ) : (

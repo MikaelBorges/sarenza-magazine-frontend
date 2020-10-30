@@ -22,16 +22,16 @@ const Home = ({ data }) => {
             <Breadcrumb
               breadcrumbs={[
                 {
-                  link: "http://localhost:3000/",
-                  label: 'Retour',
+                  link: 'http://localhost:3000/',
+                  label: 'Retour'
                 },
                 {
                   link: 'https://www.sarenza.com',
-                  label: 'Accueil',
+                  label: 'Accueil'
                 },
                 {
                   link: 'http://localhost:3000/',
-                  label: 'Magazine',
+                  label: 'Magazine'
                 }
               ]}
             />
@@ -49,10 +49,8 @@ const Home = ({ data }) => {
           ) : null}
 
           <Articles articles={articles.slice(0, 5)} position={1} />
-          {
-            (data.displayFirst !== undefined &&  data.displayFirst !== null) ? (
-
-              <Display
+          {data.displayFirst !== undefined && data.displayFirst !== null ? (
+            <Display
               text={data.displayFirst.Display.text}
               button={{
                 label: data.displayFirst.Display.button.label,
@@ -60,24 +58,19 @@ const Home = ({ data }) => {
               }}
               whiteTheme={data.displayFirst.Display.whiteTheme}
             />
-            )
-            :
-            null
-          }
-         
+          ) : null}
+
           <Articles articles={articles.slice(5, 10)} position={2} />
-          {
-             (data.displaySecond !== undefined &&  data.displaySecond !== null) ? (
-          <Display
-            text={data.displaySecond.Display.text}
-            button={{
-              label: data.displaySecond.Display.button.label,
-              url: data.displaySecond.Display.button.link
-            }}
-            whiteTheme={data.displaySecond.Display.whiteTheme}
-          />):
-          null
-          }
+          {data.displaySecond !== undefined && data.displaySecond !== null ? (
+            <Display
+              text={data.displaySecond.Display.text}
+              button={{
+                label: data.displaySecond.Display.button.label,
+                url: data.displaySecond.Display.button.link
+              }}
+              whiteTheme={data.displaySecond.Display.whiteTheme}
+            />
+          ) : null}
           {data.marquee !== null ? (
             <Marquee
               marquee={{
