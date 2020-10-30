@@ -7,22 +7,19 @@ import './styles/modules/BrandMainNewsAH17.css';
 import '../app/components/_styles/boot.scss';
 import './styles/modules/ReactSlick.scss';
 
-import { ApolloProvider } from '@apollo/react-hooks';
 import Head from 'next/head';
 import React from 'react';
 
 import wrapper from '../app/store';
 
-import withData from '../utils/apollo';
-
 import { useRouter } from 'next/router';
 
-function App({ Component, pageProps, apollo }) {
+function App({ Component, pageProps }) {
   const { query } = useRouter();
   const isMobile = query.isMobile === 'true';
-  
+
   return (
-    <ApolloProvider client={apollo}>
+    <>
       <Head>
         {!isMobile ? (
           <>
@@ -63,8 +60,8 @@ function App({ Component, pageProps, apollo }) {
         </title>
       </Head>
       <Component {...pageProps} isMobile={isMobile} />
-    </ApolloProvider>
+    </>
   );
 }
 
-export default wrapper.withRedux(withData(App));
+export default wrapper.withRedux(App);
