@@ -10,7 +10,7 @@ const processToHomeArticle = (model = {}) => {
       link: `${model.rubriques[0].url}/${model.url}` || null
     };
   } catch (e) {
-    console.error('e', e);
+    throw Error(e.message);
   }
 };
 
@@ -34,7 +34,7 @@ const processToHome = (model = {}) => {
     marquee: model.home.marquee || null,
     marqueeTop: model.home.marqueeTop || null,
     displayFirst: model.home.display_components[0] || null,
-     displaySecond: model.home.display_components[1] || null
+    displaySecond: model.home.display_components[1] || null
   };
 };
 

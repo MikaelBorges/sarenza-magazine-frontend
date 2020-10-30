@@ -2,12 +2,12 @@
 /* eslint-disable array-callback-return */
 /* eslint-disable camelcase */
 
+import { replaceByJsx } from 'modules/Article/utils';
 import React from 'react';
 import Markdown from 'markdown-to-jsx';
 
 import Text from '@/components/commons/Text/Text';
 
-import { replaceByJsx } from 'modules/Article/utils';
 import styles from './Duo.module.scss';
 
 const Duo = ({ duo_image, title, duo_paragraphe, button }) => {

@@ -46,8 +46,7 @@ const Article = ({ article, recentArticle }) => {
       {article.modules.map((item) => {
         return getComponent(item);
       })}
-
-      <ReadMore articles={recentArticle} />
+      {recentArticle && <ReadMore articles={recentArticle} />}{' '}
     </div>
   ) : (
     <div>Loading</div>

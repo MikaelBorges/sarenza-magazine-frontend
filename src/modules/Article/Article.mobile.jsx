@@ -1,17 +1,19 @@
-import Breadcrumb from '@/components/commons/Breadcrumb/Breadcrumb';
 /* eslint-disable no-irregular-whitespace */
 
-import PropTypes from 'prop-types';
 import React from 'react';
 import parse from 'html-react-parser';
+
+import Breadcrumb from '@/components/commons/Breadcrumb/Breadcrumb';
+
 import styles from './Article.mobile.module.scss';
 import Banner from './components/Banner/Banner.mobile';
-import { getComponent } from './config/LoadableComponent.mobile';
 import ReadMore from './components/ReadMore/ReadMore.mobile';
+import { getComponent } from './config/LoadableComponent.mobile';
+
 const Article = ({ article, recentArticle }) => {
   return article ? (
     <div className={styles.article}>
-        <div className={styles.boxBreadcrumb}>
+      <div className={styles.boxBreadcrumb}>
         <Breadcrumb
           breadcrumbs={[
             {
@@ -45,21 +47,11 @@ const Article = ({ article, recentArticle }) => {
       {article.modules.map((item) => {
         return getComponent(item);
       })}
-      <ReadMore articles={recentArticle} />
+      {recentArticle && <ReadMore articles={recentArticle} />}
     </div>
   ) : (
     <div>Loading...</div>
   );
-};
-
-Article.propTypes = {
-  rubrique: PropTypes.string,
-  slug: PropTypes.string
-};
-
-Article.defaultProps = {
-  rubrique: '',
-  slug: ''
 };
 
 export default Article;
