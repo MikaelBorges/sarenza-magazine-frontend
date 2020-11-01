@@ -13,8 +13,8 @@ const ShoppingCard = ({ visuelUrl, url, statusLabel, model, pcid, brand, ...prop
   return (
     <div className={styles.card}>
       <a href={url} className={styles.cardLink} role="button" tabIndex={-1}>
-        <div className={styles.cardImageContainer}>
-          <img className={styles.cardImage} src={visuelUrl} alt={model} />
+        <div className={styles.cardSubcontainer}>
+          <img className={styles.image} src={visuelUrl} alt={model} />
           {pcid && (
             <span
               className={`pictenza pictenza-favorites ${styles.favoriteCard} ${
@@ -27,12 +27,12 @@ const ShoppingCard = ({ visuelUrl, url, statusLabel, model, pcid, brand, ...prop
               tabIndex={-2}
             />
           )}
-        </div>
         <div className={styles.cardTextContainer}>
           {statusLabel && <span className={styles.stateLabel}>{statusLabel}</span>}
           <span className={styles.titleProduct}>{brand}</span>
           <span className={styles.descriptionProduct}>{model}</span>
         </div>
+      </div>
       </a>
     </div>
   );

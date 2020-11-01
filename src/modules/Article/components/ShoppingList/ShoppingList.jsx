@@ -11,7 +11,6 @@ const ShoppingList = ({ vignette, title, description, button }) => {
     infinite: false,
     slidesToShow: 4,
     slidesToScroll: 4,
-    variableWidth: true,
 
     responsive: [
       {
