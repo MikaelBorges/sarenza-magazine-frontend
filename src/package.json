@@ -34,8 +34,7 @@
     "react-slick": "^0.27.12",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
-    "sass": "^1.26.11",
-    "slick-carousel": "^1.8.1"
+    "sass": "^1.26.11"
   },
   "devDependencies": {
     "@storybook/react": "^6.0.26",
