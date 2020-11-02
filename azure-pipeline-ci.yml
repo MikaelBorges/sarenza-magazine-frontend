@@ -1,0 +1,31 @@
+resources:
+- repo: self
+pool:  
+  name: $(PoolName)
+variables:
+  - group: Internal
+  - group: srzlab-acr
+  - name: RegistryName
+    value: "srzlab.azurecr.io"
+  - name: Namespace
+    value: sarenza.digitalexperience.magazine
+  - name: ProjectName
+    value: magazine 
+  - name: ImageName
+    value: $(RegistryName)/$(ProjectName)
+  - name: ImageNameWithBuildId
+    value: "$(ImageName):$(build.buildId)"
+steps:
+- powershell: 'Write-Output ("##vso[task.setvariable variable=MyVersionNumber;]$([DateTime]::Today.Year).$(get-date -UFormat %V).$((get-date).DayOfWeek.value__).$(Build.BuildId)")'
+  displayName: 'Compute version number'
+- task: Docker@0
+  displayName: 'Build an image'
+  inputs:
+    azureSubscription: '$(azureSubscription)'
+    azureContainerRegistry: '$(azureContainerRegistry)'
+    imageName: '$(ImageNameWithBuildId)'
+    includeLatestTag: true
+- script: |
+    docker run --name magazine -e STRAPI_SERVICE_URL=$(STRAPI_SERVICE_URL) -d $(ImageNameWithBuildId)
+    docker stop magazine
+  displayName: "Extract tests results"
