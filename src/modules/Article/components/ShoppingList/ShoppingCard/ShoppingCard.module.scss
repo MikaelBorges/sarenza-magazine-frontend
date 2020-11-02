@@ -1,9 +1,12 @@
 @import '../../../../../app/components/_styles/theme';
 
 .card {
-  list-style-type: none;
+  display: flex;
   margin-right: 16px;
-  width: 240px;
+
+  &:focus {
+    outline: none;
+  }
 }
 
 .cardLink {
@@ -11,48 +14,22 @@
     text-decoration: none;
   }
 
+  &:focus {
+    outline: none;
+  }
+
+  width: 100%;
   display: block;
 }
 
-.cardImageContainer {
-  position: relative;
-  width: fit-content;
+.cardSubcontainer {
+  width: 300px;
 }
 
-.cardImage {
+.image {
+  margin: 0 auto;
+  width: 100%;
   display: block;
-  max-width: none;
-}
-
-.pictenzaFavoritesSelect {
-  &:before,
-  &:after {
-    content: '\e644';
-    color: #ff2157;
-  }
-
-  &:after {
-    animation: heartOn 0.35s ease forwards;
-    position: absolute;
-    top: 2px;
-    right: 2px;
-    line-height: 33px;
-    min-width: 36px;
-  }
-}
-
-.favoriteCard {
-  &:before {
-    margin: 8px 13px 10px;
-    font-size: 18px;
-  }
-
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  border-radius: 30px;
-  background-color: white;
-  outline: none;
 }
 
 .cardTextContainer {
@@ -80,6 +57,42 @@
 .descriptionProduct {
   color: #979797;
 }
+
+.cardSubcontainer {
+  position: relative;
+}
+
+.pictenzaFavoritesSelect {
+  &:before,
+  &:after {
+    content: '\e644';
+    color: #ff2157;
+  }
+
+  &:after {
+    animation: heartOn 0.35s ease forwards;
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    line-height: 33px;
+    min-width: 36px;
+  }
+}
+
+.favoriteCard {
+  &:before {
+    margin: 8px 13px 10px;
+    font-size: 18px;
+  }
+
+  position: absolute;
+  top: 16px;
+  right: 24px;
+  border-radius: 30px;
+  background-color: white;
+  outline: none;
+}
+
 
 @keyframes heartOn {
   0% {
