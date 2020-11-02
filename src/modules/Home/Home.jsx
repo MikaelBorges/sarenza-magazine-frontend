@@ -1,15 +1,13 @@
 import React from 'react';
 
+import Breadcrumb from '@/components/commons/Breadcrumb/Breadcrumb';
 import Display from '@/components/commons/Display/Display';
 import Marquee from '@/components/commons/Marquee/Marquee';
-import PaginationComponent from '@/components/commons/Pagination/components/PaginationComponent';
 import Pagination from '@/components/commons/Pagination/Pagination';
 
 import Articles from './components/Articles/Articles';
 import MainComponent from './components/Articles/MainComponent/MainComponent';
 import Header from './components/Header/Header';
-import Breadcrumb from '@/components/commons/Breadcrumb/Breadcrumb';
-
 import styles from './home.module.scss';
 
 const Home = ({ data }) => {
