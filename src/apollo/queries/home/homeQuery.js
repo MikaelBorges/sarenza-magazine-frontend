@@ -6,6 +6,9 @@ export const HOME_QUERY = gql`
       id
       title
       shortDescription
+      ArticleUne {
+        id
+      }
       marquee {
         id
         MarqueeComponent {
@@ -63,6 +66,9 @@ export const HOME_QUERY_ALL = gql`
       id
       title
       shortDescription
+      ArticleUne {
+        id
+      }
       marquee {
         id
         MarqueeComponent {
