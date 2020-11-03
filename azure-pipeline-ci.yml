@@ -3,6 +3,7 @@ resources:
 pool:  
   name: $(PoolName)
 variables:
+  - group: Internal
   - name: RegistryName
     value: "srzlab.azurecr.io"
   - name: Namespace
