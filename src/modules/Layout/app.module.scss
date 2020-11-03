@@ -7,3 +7,15 @@
     max-width: 1200px;
   }
 }
+.boxBreadcrumb {
+  width: 100vw;
+  text-align: left;
+  margin: 0 16px 0 24px;
+  & > :first-child > a {
+    color: #1d1d1b;
+    font-weight: bold;
+  }
+  @media screen and (min-width: 975px) {
+    margin: 0 16px 0 32px;
+  }
+}

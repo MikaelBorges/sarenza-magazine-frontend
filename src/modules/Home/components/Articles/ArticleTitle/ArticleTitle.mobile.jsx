@@ -1,4 +1,3 @@
-import parse from 'html-react-parser';
 import PropTypes from 'prop-types';
 import React from 'react';
 
@@ -11,7 +10,7 @@ const ArticleTitle = ({ title, author, publishDate }) => {
     <>
       <div className={style.resume}>
         <Text huge secondary>
-          {parse(title)}
+          {title}
         </Text>
       </div>
       <div className={style.author}>

@@ -2,43 +2,20 @@
 
 import PropTypes from 'prop-types';
 import React from 'react';
-import parse from 'html-react-parser';
-import Banner from './components/Banner/Banner';
+
 import styles from './Article.module.scss';
-import { getComponent } from './config/LoadableComponent';
-import Breadcrumb from '@/components/commons/Breadcrumb/Breadcrumb';
+import Banner from './components/Banner/Banner';
 import ReadMore from './components/ReadMore/ReadMore';
+import { getComponent } from './config/LoadableComponent';
 
 const Article = ({ article, recentArticle }) => {
   return article ? (
     <div className={styles.article}>
-      <div className={styles.boxBreadcrumb}>
-        <Breadcrumb
-          breadcrumbs={[
-            {
-              link: 'http://localhost:3000/',
-              label: 'Retour'
-            },
-            {
-              link: 'https://www.sarenza.com',
-              label: 'Accueil'
-            },
-            {
-              link: 'http://localhost:3000/',
-              label: 'Magazine'
-            },
-            {
-              link: 'http://localhost:3000/',
-              label: `${article.title}`
-            }
-          ]}
-        />
-      </div>
       <Banner
-        subTitleOptional={parse(article.subtitle)}
+        subTitleOptional={article.subtitle}
         srcImage={article.image.large}
         altImage="image de l'article"
-        subTitleBanner={parse(article.title)}
+        subTitleBanner={article.title}
         author={article.author}
         publishDate={article.publishDate}
         updateDate={article.updatedDate}
