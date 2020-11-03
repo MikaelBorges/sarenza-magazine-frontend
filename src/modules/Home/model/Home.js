@@ -20,19 +20,20 @@ const processToHomeArticle = (model = {}) => {
   }
 };
 
-const getMarquee = (model, rubrique) => {
-  return !rubrique
-    ? model.home.marquee || null
-    : model.rubriques.find((heading) => heading.url === rubrique).marquee_top.MarqueeComponent;
-};
+// const processToMarquee = ( model = [] ) =>{
+//   return {
+//     id : model.id || null,
+//     text: model.text || null
+//   }
+// }
 
-const processToRubrique = (model = []) => {
+const processToRubrique = (model = {}) => {
   return {
     url: model.url,
     name: model.rubrique,
-    id: model.id,
-    marqueeTop: (model.marquee_top && model.marquee_top.MarqueeComponent) || {}
-    // marqueeBottom: model.marquee.MarqueeComponent,
+    id: model.id
+    // marquee: model.rubriques.marquee || null,
+    // marqueeTop: model.rubriques.marqueeTop || null,
   };
 };
 
@@ -53,7 +54,7 @@ const processToHome = (model = {}, rubrique) => {
     },
     firstArticle: processToHomeArticle(aLaUne) || {},
     articles: model.articles.filter((it) => it.id !== aLaUne.id).map(processToHomeArticle),
-    marquee: getMarquee(model, rubrique),
+    marquee: model.home.marquee || null,
     marqueeTop: model.home.marqueeTop || null,
     displayFirst: model.home.display_components[0] || null,
     displaySecond: model.home.display_components[1] || null

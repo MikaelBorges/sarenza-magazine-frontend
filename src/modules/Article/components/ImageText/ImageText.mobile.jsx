@@ -7,7 +7,7 @@ import Text from '@/components/commons/Text';
 import styles from './ImageText.module.scss';
 
 const ImageText = ({ title, paragraphes, image }) => {
-  return (
+  return title && paragraphes && image ? (
     <div className={styles.container}>
       <div className={styles.item}>
         <Text huge secondary>
@@ -29,7 +29,7 @@ const ImageText = ({ title, paragraphes, image }) => {
         </div>
       )}
     </div>
-  );
+  ) : null;
 };
 ImageText.propTypes = {
   title: PropTypes.string,

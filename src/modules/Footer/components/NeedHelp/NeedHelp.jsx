@@ -4,10 +4,10 @@ import React from 'react';
 const NeedHelp = ({ data }) => {
   return (
     <div className="Sc">
-      <div className="title-level3">{data.title}</div>
+      <div className="title-level3">{parse(data.title)}</div>
       <div className="content-Sc">
         <div className="infos-SC">
-          <p>{data.text}</p>
+          <p>{parse(data.text)}</p>
           <ul className="cta-faq">
             {data.links.map((link) => (
               <li key={link.label}>

@@ -14,10 +14,8 @@ $color-marquee: #ff2157;
 }
 .secondary {
   color: $color-secondary;
-  line-height: 28px;
-  @media screen and (min-width: 975px) {
-    line-height: 36px;
-  }
+  font-size: 40px;
+  line-height: 40px;
 }
 .container {
   font-weight: 400;
@@ -45,8 +43,12 @@ $color-marquee: #ff2157;
 }
 
 .medium {
-  font-size: 14px;
+  font-size: 16px;
   line-height: 19px;
+  @media screen and (min-width: 975px) {
+    font-size: 18px;
+    line-height: 24px;
+  }
 }
 
 .big {
@@ -59,7 +61,7 @@ $color-marquee: #ff2157;
 }
 
 .huge {
-  font-size: 24px;
+  font-size: 32px;
   @media screen and (min-width: 975px) {
     font-size: 32px;
   }
