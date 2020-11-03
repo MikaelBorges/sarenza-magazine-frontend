@@ -17,13 +17,10 @@ steps:
 - powershell: 'Write-Output ("##vso[task.setvariable variable=MyVersionNumber;]$([DateTime]::Today.Year).$(get-date -UFormat %V).$((get-date).DayOfWeek.value__).$(Build.BuildId)")'
   displayName: 'Compute version number'
 - task: Docker@0
-  displayName: 'Build an image'
   inputs:
-    azureSubscription: '$(azureSubscription)'
-    azureContainerRegistry: '$(azureContainerRegistry)'
+    containerregistrytype: 'Container Registry'
+    dockerRegistryConnection: 'srzlab.azurecr.io'
+    action: 'Build an image'
+    dockerFile: '**/Dockerfile'
     imageName: '$(ImageNameWithBuildId)'
     includeLatestTag: true
-- script: |
-    docker run --name magazine -e STRAPI_SERVICE_URL=$(STRAPI_SERVICE_URL) -d $(ImageNameWithBuildId)
-    docker stop magazine
-  displayName: "Extract tests results"
