@@ -32,7 +32,7 @@ const Breadcrumb = () => {
       <span className={styles.separation}>/</span>
 
       {Object.keys(router.query).map((urlKey) => {
-        return (
+        return urlKey !== 'isMobile' ? (
           <>
             <div className={styles.breadcrumb}>
               <a href={`/${router.query[urlKey]}`} key={router.query[urlKey]}>
@@ -41,7 +41,7 @@ const Breadcrumb = () => {
             </div>
             <span className={styles.separation}>/</span>
           </>
-        );
+        ) : null;
       })}
     </>
   );
