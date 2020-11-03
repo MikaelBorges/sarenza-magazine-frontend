@@ -6,7 +6,7 @@ const VariousText = ({ data }) => {
   return (
     <div className="mobile-app no-background">
       <div className="title-level3">
-        <span>{parse(data.title)}</span>
+        <span>{data.title}</span>
       </div>
       <p>{parse(data.text)}</p>
     </div>

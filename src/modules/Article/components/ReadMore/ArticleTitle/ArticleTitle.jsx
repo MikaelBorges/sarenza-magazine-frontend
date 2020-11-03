@@ -1,4 +1,3 @@
-import parse from 'html-react-parser';
 import PropTypes from 'prop-types';
 import React from 'react';
 
@@ -12,11 +11,11 @@ const ArticleTitle = ({ title, author, publishDate, size, position, firstArticle
       <div className={style.resume}>
         {(size < 2 && position === 1) || (size > 2 && position === 2) || firstArticle ? (
           <Text huge secondary>
-            {parse(title)}
+            {title}
           </Text>
         ) : (
           <Text medium secondary>
-            {parse(title)}
+            {title}
           </Text>
         )}
       </div>
