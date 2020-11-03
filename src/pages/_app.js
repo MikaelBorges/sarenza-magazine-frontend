@@ -21,38 +21,6 @@ function App({ Component, pageProps }) {
   return (
     <>
       <Head>
-        {!isMobile ? (
-          <>
-            <link
-              rel="stylesheet"
-              href="https://cdn.sarenza.net/website/prod_b/assets/stylesheet/home.default.min.css"
-            />
-            <link
-              rel="stylesheet"
-              href="https://cdn.sarenza.net/website/prod_b/assets/stylesheet/animation.default.min.css"
-            />
-            <link
-              rel="stylesheet"
-              href="https://cdn.sarenza.net/website/prod_b/assets/stylesheet/landing.default.min.css"
-            />
-          </>
-        ) : (
-          <>
-            <link
-              rel="stylesheet"
-              href="https://cdn.sarenza.net/website/prod_b/assets/stylesheet/home.mobile.min.css"
-            />
-            <link
-              href="https://cdn.sarenza.net/website/prod_b/assets/stylesheet/animation.mobile.min.css"
-              rel="stylesheet"
-            />
-            <link
-              rel="stylesheet"
-              href="https://cdn.sarenza.net/website/prod_b/assets/stylesheet/landing.mobile.min.css"
-            />
-          </>
-        )}
-
         <title
         //todo: trad
         >
