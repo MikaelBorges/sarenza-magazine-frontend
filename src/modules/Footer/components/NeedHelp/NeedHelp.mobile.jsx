@@ -4,8 +4,8 @@ import React from 'react';
 const NeedHelpMobile = ({ data }) => {
   return (
     <>
-      <div className="title-level2">{data.title}</div>
-      <p>{data.text}</p>
+      <div className="title-level2">{parse(data.title)}</div>
+      <p>{parse(data.text)}</p>
       <section className="cta-faq">
         {data.links.map((link) => (
           <a

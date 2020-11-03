@@ -12,7 +12,7 @@ const Article = ({ article, recentArticle }) => {
     <div className={styles.article}>
       <Banner
         subTitleOptional={article.subtitle}
-        srcImage={article.image.large}
+        srcImage={article.image.medium}
         altImage="image de l'article"
         subTitleBanner={article.title}
         author={article.author}

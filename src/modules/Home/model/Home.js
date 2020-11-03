@@ -36,7 +36,7 @@ const getMarquee = (model, rubrique, type = 'top') => {
   return marquees.marquee_bottom && marquees.marquee_bottom.MarqueeComponent;
 };
 
-const processToRubrique = (model = []) => {
+const processToRubrique = (model = {}) => {
   return {
     url: model.url,
     name: model.rubrique,
