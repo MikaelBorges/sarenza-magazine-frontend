@@ -4,7 +4,9 @@
   overflow: hidden;
   max-height: 528px;
   cursor: pointer;
-
+  // @media screen and (min-width:975px){
+  //   height: 75%;
+  // }
   > .images {
     width: 100%;
 
@@ -27,6 +29,10 @@
   max-height: 363px;
   max-width: 391px;
   cursor: pointer;
+
+  // @media screen and (min-width:975px){
+  //   height: 75%;
+  // }
 
   > .images {
     width: 100%;

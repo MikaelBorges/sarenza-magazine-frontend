@@ -14,8 +14,12 @@ $color-marquee: #ff2157;
 }
 .secondary {
   color: $color-secondary;
-  font-size: 40px;
-  line-height: 40px;
+  font-size: 24px;
+  line-height: 28px;
+  @media screen and (min-width: 975px) {
+    font-size: 40px;
+    line-height: 40px;
+  }
 }
 .container {
   font-weight: 400;
