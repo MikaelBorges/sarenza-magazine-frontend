@@ -1,17 +1,14 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 
+import Breadcrumb from '@/components/commons/Breadcrumb/Breadcrumb';
 import Display from '@/components/commons/Display/Display.mobile';
 import Marquee from '@/components/commons/Marquee/Marquee.mobile';
-import PaginationComponent from '@/components/commons/Pagination/components/PaginationComponent';
 import Pagination from '@/components/commons/Pagination/Pagination';
 
 import Articles from './components/Articles/Articles.mobile';
 import MainComponent from './components/Articles/MainComponent/MainComponent.mobile';
 import Header from './components/Header/Header.mobile';
-import Breadcrumb from '@/components/commons/Breadcrumb/Breadcrumb';
-
-import styles from './home.mobile.module.scss';
+import styles from './Home.mobile.module.scss';
 
 const Home = ({ data }) => {
   return (
@@ -85,13 +82,4 @@ const Home = ({ data }) => {
   );
 };
 
-Home.propTypes = {
-  rubriqueName: PropTypes.string,
-  query: PropTypes.string
-};
-
-Home.defaultProps = {
-  rubriqueName: '',
-  query: ''
-};
 export default Home;
