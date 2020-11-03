@@ -20,11 +20,19 @@ const processToHomeArticle = (model = {}) => {
   }
 };
 
+const getMarquee = (model, rubrique) => {
+  return !rubrique
+    ? model.home.marquee || null
+    : model.rubriques.find((heading) => heading.url === rubrique).marquee_top.MarqueeComponent;
+};
+
 const processToRubrique = (model = []) => {
   return {
     url: model.url,
     name: model.rubrique,
-    id: model.id
+    id: model.id,
+    marqueeTop: (model.marquee_top && model.marquee_top.MarqueeComponent) || {}
+    // marqueeBottom: model.marquee.MarqueeComponent,
   };
 };
 
@@ -45,7 +53,7 @@ const processToHome = (model = {}, rubrique) => {
     },
     firstArticle: processToHomeArticle(aLaUne) || {},
     articles: model.articles.filter((it) => it.id !== aLaUne.id).map(processToHomeArticle),
-    marquee: model.home.marquee || null,
+    marquee: getMarquee(model, rubrique),
     marqueeTop: model.home.marqueeTop || null,
     displayFirst: model.home.display_components[0] || null,
     displaySecond: model.home.display_components[1] || null
