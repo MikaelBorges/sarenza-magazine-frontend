@@ -4,13 +4,18 @@ import { ApolloClient } from 'apollo-client';
 import { createHttpLink } from 'apollo-link-http';
 import fetch from 'isomorphic-unfetch';
 import withApollo from 'next-with-apollo';
+import getConfig from "next/config"
+
+const { serverRuntimeConfig } = getConfig()
 
 // Update the GraphQL endpoint to any instance of GraphQL that you like
-const GRAPHQL_URL = process.env.API_URL || 'http://localhost:1337';
+const API_URL = serverRuntimeConfig.API_URL
+
+console.log("API_URL", API_URL);
 
 const link = createHttpLink({
   fetch, // Switches between unfetch & node-fetch for client & server.
-  uri: `${GRAPHQL_URL}/graphql`
+  uri: `${API_URL}/graphql`
 });
 
 // Export a HOC from next-with-apollo
@@ -31,7 +36,7 @@ export const getApolloClient = () => {
   return new ApolloClient({
     cache: new InMemoryCache(),
     link: new HttpLink({
-      uri: `${GRAPHQL_URL}/graphql`,
+      uri: `${API_URL}/graphql`,
       fetch
     })
   });

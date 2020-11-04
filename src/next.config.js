@@ -1,5 +1,8 @@
 module.exports = {
-  env: {
-    API_URL: 'http://yolo01.sarenza.archi:1337'
+  serverRuntimeConfig: {
+    API_URL: `${process.env.STRAPI_SERVICE_SCHEME}://${process.env.STRAPI_SERVICE_HOST}:${process.env.STRAPI_SERVICE_PORT ? process.env.STRAPI_SERVICE_PORT : 80}`,
+  },
+  publicRuntimeConfig: {
+    hello: 'world'
   }
 };

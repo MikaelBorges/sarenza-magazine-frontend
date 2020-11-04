@@ -1,6 +1,5 @@
 {
   "name": "frontend",
-  "license": "Sarenza.com",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -12,7 +11,8 @@
     "lint": "eslint --fix .",
     "format": "prettier --write './**/*.{js,jsx,scss,css,md,json}' --config ./.prettierrc",
     "disable:telemetry": "next telemetry disable",
-    "enable:telemetry": "next telemetry enable"
+    "enable:telemetry": "next telemetry enable",
+    "debug": "set \"NODE_OPTIONS=--inspect\" && next dev"
   },
   "dependencies": {
     "@apollo/react-hooks": "^4.0.0",
@@ -31,6 +31,7 @@
     "prop-types": "^15.7.2",
     "react": "16.13.1",
     "react-dom": "16.13.1",
+    "react-json-pretty": "^2.2.0",
     "react-redux": "^7.2.1",
     "react-slick": "^0.27.12",
     "redux": "^4.0.5",

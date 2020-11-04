@@ -7,8 +7,9 @@ services:
     tty: true
     restart: unless-stopped
     environment:
-      - STRAPI_SERVICE_URL=strapi
-      - STRAPI_SERVICE_PORT=3337
+      - STRAPI_SERVICE_HOST=yolo01.sarenza.archi
+      - STRAPI_SERVICE_PORT=1337
+      - STRAPI_SERVICE_SCHEME=http
     build:
       context: .
       dockerfile: Dockerfile

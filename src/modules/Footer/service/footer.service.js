@@ -1,8 +1,11 @@
 import footer from '../model/footer';
+import getConfig from "next/config"
+
+const { serverRuntimeConfig  } = getConfig() 
 
 const getFooter = async () => {
   try {
-    const res = await fetch(`${process.env.API_URL}/footers/1`);
+    const res = await fetch(`${serverRuntimeConfig.API_URL}/footers/1`);
     const data = await res.json();
     return footer(data);
   } catch (error) {

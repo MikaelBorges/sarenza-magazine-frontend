@@ -4,6 +4,9 @@ import { ArticleModel, ArticlesModel } from 'modules/Article/model/Article';
 import React from 'react';
 import { getPageProps } from 'utils/getPageProps';
 import Layout from 'modules/Layout/Layout';
+import getConfig from "next/config"
+
+const { serverRuntimeConfig } = getConfig()
 
 const Article = ({ article, menus, genders, footer, recentArticle, isMobile }) => {
   return (
@@ -11,8 +14,8 @@ const Article = ({ article, menus, genders, footer, recentArticle, isMobile }) =
       {isMobile ? (
         <ArticlesMobile article={article} recentArticle={recentArticle} />
       ) : (
-        <Articles article={article} recentArticle={recentArticle} />
-      )}
+          <Articles article={article} recentArticle={recentArticle} />
+        )}
     </Layout>
   );
 };
@@ -20,10 +23,10 @@ const Article = ({ article, menus, genders, footer, recentArticle, isMobile }) =
 export const getServerSideProps = async (context) => {
   const { slug, rubriqueName } = context.query;
   const { menus, genders, footer } = await getPageProps();
-  const data = await (await fetch(`${process.env.API_URL}/articles/?url=${slug}`)).json();
+  const data = await (await fetch(`${serverRuntimeConfig.API_URL}/articles/?url=${slug}`)).json();
   const recentArticle = await (
     await fetch(
-      `${process.env.API_URL}/articles?_limit=4&_sort=updated_by&rubriques.url=${rubriqueName}`
+      `${serverRuntimeConfig.API_URL}/articles?_limit=4&_sort=updated_by&rubriques.url=${rubriqueName}`
     )
   ).json();
 

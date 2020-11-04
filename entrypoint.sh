@@ -3,7 +3,7 @@ set -ea
 
 echo "Build magazine..."
 
-yarn build
+# yarn build
 
 echo "Starting your app..."
 
