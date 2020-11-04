@@ -7,7 +7,7 @@ import { nextActivate, prevActivate } from './utils';
 const Pagination = ({ data, actionFn, renderContent, renderHeader, renderFooter }) => {
   const [options, setParams] = useState({
     pageIndex: 1,
-    pageSize: 15,
+    pageSize: 10,
     totalRows: 0
   });
 
@@ -29,6 +29,12 @@ const Pagination = ({ data, actionFn, renderContent, renderHeader, renderFooter 
         ...options,
         pageSize
       });
+    },
+    goToPage: (pageIndex) => {
+      setParams({
+        ...options,
+        pageIndex
+      });
     }
   });
 
@@ -39,7 +45,7 @@ const Pagination = ({ data, actionFn, renderContent, renderHeader, renderFooter 
       ...paramsCast,
       totalRows: paramsCast.totalRows
     });
-  }, [dataCast?.length]);
+  }, [dataCast.length]);
 
   return (
     <>

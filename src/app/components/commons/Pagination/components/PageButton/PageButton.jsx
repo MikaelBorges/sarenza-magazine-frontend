@@ -2,25 +2,16 @@ import PropTypes from 'prop-types';
 import React, { useCallback } from 'react';
 
 import LinkButton from '../../../Links/LinkButton/LinkButton';
-import { getTotalPages } from '../../utils';
 
 const PageButton = ({ page, isActive, params }) => {
   const goPage = useCallback(() => {
     params.goToPage(page);
   }, [page]);
 
-  if (page < 4) {
-    return (
-      <LinkButton onClick={goPage} key={page} disabled={isActive}>
-        {page}
-      </LinkButton>
-    );
-  }
-  if (page === 4) {
-    return '...';
-  }
   return (
-    <LinkButton onClick={goPage}>{getTotalPages(params.pageSize, params.totalRows)}</LinkButton>
+    <LinkButton onClick={goPage} key={page} disabled={isActive}>
+      {page}
+    </LinkButton>
   );
 };
 

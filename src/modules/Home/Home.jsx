@@ -2,6 +2,7 @@ import React from 'react';
 
 import Display from '@/components/commons/Display/Display';
 import Marquee from '@/components/commons/Marquee/Marquee';
+import PaginationComponent from '@/components/commons/Pagination/components/PaginationComponent';
 import Pagination from '@/components/commons/Pagination/Pagination';
 
 import Articles from './components/Articles/Articles';
@@ -62,6 +63,7 @@ const Home = ({ data }) => {
           <Articles articles={articles.slice(10, 12)} position={1} />
         </>
       )}
+      renderFooter={(dataCast, params) => <PaginationComponent params={params} />}
     />
   );
 };

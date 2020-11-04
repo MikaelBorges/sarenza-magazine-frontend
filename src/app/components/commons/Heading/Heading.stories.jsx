@@ -11,22 +11,22 @@ export const Basic = () => {
   return (
     <>
       <div className="storyBlock">
-        <Heading level={1}>Heading 1</Heading>
+        <Heading headingLevel="h1">Heading 1</Heading>
       </div>
       <div className="storyBlock">
-        <Heading level={2}>Heading 2</Heading>
+        <Heading headingLevel="h2">Heading 2</Heading>
       </div>
       <div className="storyBlock">
-        <Heading level={3}>Heading 3</Heading>
+        <Heading headingLevel="h3">Heading 3</Heading>
       </div>
       <div className="storyBlock">
-        <Heading level={4}>Heading 4</Heading>
+        <Heading headingLevel="h4">Heading 4</Heading>
       </div>
       <div className="storyBlock">
-        <Heading level={5}>Heading 5</Heading>
+        <Heading headingLevel="h5">Heading 5</Heading>
       </div>
       <div className="storyBlock">
-        <Heading level={6}>Heading 6</Heading>
+        <Heading headingLevel="h6">Heading 6</Heading>
       </div>
     </>
   );

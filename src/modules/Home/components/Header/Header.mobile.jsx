@@ -14,9 +14,7 @@ const Header = ({ header }) => {
         <div className={styles.title}>
           <Heading>{header.title}</Heading>
           <img
-            src="https://cdn.sarenza.net/v3/Prod/visuels-site/Mag/Logo/logoMagazine.jpg
-
-"
+            src="https://cdn.sarenza.net/v3/Prod/visuels-site/Mag/Logo/logoMagazine.jpg"
             alt="logo"
             className={styles.logo}
           />
