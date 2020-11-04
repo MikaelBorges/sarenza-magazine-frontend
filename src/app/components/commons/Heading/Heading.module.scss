@@ -10,8 +10,13 @@ $h6-font-size: 14px !default;
 .heading1 {
   font-size: $h1-font-size;
   margin: 16px auto 16.6px;
-  font-family: RobotoC;
+  font-family: robotoc;
   font-weight: bold;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
 }
 
 .heading2 {

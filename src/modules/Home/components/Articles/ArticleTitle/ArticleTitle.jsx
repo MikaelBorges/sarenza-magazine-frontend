@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 import PropTypes from 'prop-types';
 import React from 'react';
 
@@ -10,9 +11,13 @@ const ArticleTitle = ({ title, author, publishDate, size, position, firstArticle
     <>
       <div className={style.resume}>
         {(size < 2 && position === 1) || (size > 2 && position === 2) || firstArticle ? (
-          <Text huge secondary>
-            {title}
-          </Text>
+          firstArticle ? (
+            <Text first>{title}</Text>
+          ) : (
+            <Text huge secondary>
+              {title}
+            </Text>
+          )
         ) : (
           <Text medium secondary>
             {title}

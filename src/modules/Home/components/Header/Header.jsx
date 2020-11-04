@@ -2,7 +2,6 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import Heading from '@/components/commons/Heading';
-import Text from '@/components/commons/Text/Text';
 
 import RubriquesLinks from '../RubriquesLinks/RubriquesLinks';
 import styles from './Header.module.scss';
@@ -13,9 +12,18 @@ const Header = ({ header }) => {
       <div className={styles.blockText}>
         <div className={styles.title}>
           <Heading>{header.title}</Heading>
+          <img
+            src="https://cdn.sarenza.net/v3/Prod/visuels-site/Mag/Logo/logoMagazine.jpg
+
+"
+            alt="logo"
+            className={styles.logo}
+          />
         </div>
         <div className={styles.description}>
-          <Text medium>{header.description}</Text>
+          <p medium className={styles.medium}>
+            {header.description}
+          </p>
         </div>
       </div>
       <div className={styles.wrapper}>

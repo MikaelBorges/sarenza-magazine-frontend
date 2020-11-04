@@ -17,9 +17,9 @@
 
 .link {
   text-decoration: none;
-  &:hover {
-    text-decoration: underline;
-  }
+  // &:hover {
+  //   text-decoration: underline;
+  // }
 }
 
 .button {
@@ -42,17 +42,17 @@
   &:not(:disabled) {
     &:hover,
     &:active {
-      border: transparent;
+      border: 1px solid transparent;
       background: #f2f2f2;
-      font-family: RobotoC;
+      font-family: robotoc;
       font-weight: bold;
       color: #1d1d1b;
       cursor: pointer;
     }
     &:active {
-      border: transparent;
+      border: 1px solid transparent;
       background: #f2f2f2;
-      font-family: RobotoC;
+      font-family: robotoc;
       font-weight: bold;
       color: #1d1d1b;
     }

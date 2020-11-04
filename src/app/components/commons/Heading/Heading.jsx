@@ -6,13 +6,13 @@ import styles from './Heading.module.scss';
 
 const Heading = ({ children, level, sectionTitle, noMargin }) => {
   return (
-    <div
+    <h1
       className={classnames(styles[`heading${level}`], {
         [styles.sectionTitle]: sectionTitle,
         [styles.noMargin]: noMargin
       })}>
       {children}
-    </div>
+    </h1>
   );
 };
 

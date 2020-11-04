@@ -2,22 +2,19 @@
   width: 100%;
   position: relative;
   overflow: hidden;
-  max-height: 528px;
+  max-height: 398px;
   cursor: pointer;
-  // @media screen and (min-width:975px){
-  //   height: 75%;
-  // }
+  // height: 72%;
+
   > .images {
     width: 100%;
 
     @media screen and (min-width: 975px) {
-      // height: 528px;
-      // min-width: 568px;
-      transition: transform ease 3s;
+      // transition: transform ease 1s;
 
       &:hover {
-        transform: scale(1.1);
-        transition: transform ease 3s;
+        // transform: scale(1.1);
+        // transition: transform ease 1s;
       }
     }
   }
@@ -30,21 +27,15 @@
   max-width: 391px;
   cursor: pointer;
 
-  // @media screen and (min-width:975px){
-  //   height: 75%;
-  // }
-
   > .images {
     width: 100%;
 
     @media screen and (min-width: 975px) {
-      // height: 363px;
-      // min-width: 391px;
-      transition: transform ease 3s;
+      // transition: transform ease 1s;
 
       &:hover {
-        transform: scale(1.1);
-        transition: transform ease 3s;
+        // transform: scale(1.1);
+        // transition: transform ease 1s;
       }
     }
   }
