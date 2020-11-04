@@ -8,7 +8,7 @@ import styles from './Description.module.scss';
 const Description = ({ author, publishDate, updateDate }) => {
   return (
     <div className={styles.rightBlock}>
-      <Text medium secondary>
+      <Text medium secondary author>
         {author} - Publié le {publishDate}
       </Text>
       <Text>mis à jour le {updateDate}</Text>

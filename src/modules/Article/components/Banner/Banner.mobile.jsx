@@ -4,7 +4,7 @@ import React from 'react';
 import Image from '@/components/commons/Image/Image';
 import Text from '@/components/commons/Text/Text';
 
-import Description from '../Description/Description';
+import Description from '../Description/Description.mobile';
 import styles from './Banner.mobile.module.scss';
 
 const BannerMobile = ({

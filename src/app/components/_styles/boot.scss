@@ -11,3 +11,7 @@ body {
   @include font('roboto');
   font-family: robotoCondensed;
 }
+
+h2 {
+  margin: 48px 0 8px;
+}

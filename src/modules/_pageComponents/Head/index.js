@@ -1,14 +1,12 @@
-import React from 'react';
 import Head from 'next/head';
+import React from 'react';
 
 function PageHead(props) {
-    return (
-        <>
-            <Head>
-               
-            </Head>
-        </>
-    );
+  return (
+    <>
+      <Head />
+    </>
+  );
 }
 
 export default PageHead;
