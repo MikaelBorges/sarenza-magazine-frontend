@@ -52,7 +52,8 @@ const processToRubrique = (model = []) => {
   return {
     url: model.url,
     name: model.rubrique,
-    id: model.id
+    id: model.id,
+    order: model.order
   };
 };
 
@@ -69,7 +70,7 @@ const processToHome = (model = {}, rubrique) => {
     header: {
       title: model.home.title || '',
       description: model.home.shortDescription || '',
-      rubriques: model.rubriques.map(processToRubrique) || []
+      rubriques: model.rubriques.map(processToRubrique).sort((a, b) => a.order - b.order) || []
     },
     firstArticle: processToHomeArticle(aLaUne) || {},
     articles: model.articles.filter((it) => it.id !== aLaUne.id).map(processToHomeArticle),
