@@ -21,32 +21,27 @@ const Breadcrumb = () => {
         tabIndex="-1">
         <LinkText link="/">Retour</LinkText>
       </div>
-      <span className={styles.separation}>/</span>
       <div className={styles.breadcrumb}>
         <LinkText link="https://www.sarenza.com">Accueil</LinkText>
       </div>
-      <span className={styles.separation}>/</span>
       <div className={styles.breadcrumb}>
         <LinkText link="/">Magazine</LinkText>
       </div>
-      <span className={styles.separation}>/</span>
+      
 
-      {Object.keys(router.query).map((urlKey) => {
+      {Object.keys(router.query).map((urlKey, i) => {
         return urlKey !== 'isMobile' ? (
-          <>
-            <div className={styles.breadcrumb}>
-              <a href={`/${router.query[urlKey]}`} key={router.query[urlKey]}>
-                {router.query[urlKey].replace(/-/g, ' ')}
-              </a>
-            </div>
-            <span className={styles.separation}>/</span>
-          </>
+          <div key={`${urlKey}${i}`} className={styles.breadcrumb}>
+            <a href={`/${router.query[urlKey]}`} >
+              {router.query[urlKey].replace(/-/g, ' ')}
+            </a>
+          </div>
         ) : null;
       })}
     </>
   );
 };
-
+// key={`${urlKey}${i}`}
 // Breadcrumb.propTypes = {
 //   breadcrumbs: PropTypes.arrayOf(
 //     PropTypes.shape({

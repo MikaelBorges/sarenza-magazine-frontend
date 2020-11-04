@@ -21,7 +21,7 @@ const Menu = ({ menus, genders }) => {
       }
     }
   }, [isHover]);
-  if (!menus && menus.length) {
+  if (!menus || menus.length <=0) {
     return 'Loading...';
   }
   return (
@@ -67,7 +67,7 @@ const Menu = ({ menus, genders }) => {
                 className={cn('menu-group-list', {
                   active: isActive
                 })}>
-                {genders.map((gender) => {
+                {genders && genders.map((gender) => {
                   return (
                     <li
                       data-menu-group={gender.id}

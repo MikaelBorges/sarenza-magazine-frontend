@@ -1,18 +1,20 @@
 import getConfig from 'next/config';
-
+import {timeout} from '../../../utils/httpUtils'
 import genders from '../model/genders';
+import constant from "infrastructure/constant"
 
-const { serverRuntimeConfig, publicRuntimeConfig } = getConfig();
+const { serverRuntimeConfig } = getConfig();
 
 const getGender = async () => {
   try {
-    const res = await fetch(
-      `${serverRuntimeConfig.API_URL || publicRuntimeConfig.API_URL}/Genders`
-    );
+    const res = await timeout(constant.menu.timeout, fetch(
+      `${serverRuntimeConfig.API_URL}/Genders`
+    ));
     const data = await res.json();
     return genders(data);
   } catch (error) {
-    throw Error(error.message);
+    console.log('Error in getGender', error)
+    return []
   }
 };
 export default getGender;

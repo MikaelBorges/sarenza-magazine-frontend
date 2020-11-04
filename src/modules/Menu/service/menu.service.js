@@ -1,18 +1,20 @@
 import getConfig from 'next/config';
-
+import {timeout} from '../../../utils/httpUtils'
 import menu from '../model/menu';
+import constant from "infrastructure/constant"
 
-const { serverRuntimeConfig, publicRuntimeConfig } = getConfig();
+const { serverRuntimeConfig } = getConfig();
 
 const getMenu = async () => {
   try {
-    const res = await fetch(
-      `${serverRuntimeConfig.API_URL || publicRuntimeConfig.API_URL}/menu-items`
-    );
+    const res = await timeout(constant.menu.timeout, fetch(
+      `${serverRuntimeConfig.API_URL}/menu-items`
+    ));
     const data = await res.json();
     return menu(data);
   } catch (error) {
-    throw Error(error.message);
+    console.log('Error in getMenu', error)
+    return []
   }
 };
 export default getMenu;

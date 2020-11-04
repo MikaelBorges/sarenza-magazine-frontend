@@ -4,9 +4,9 @@ import React from 'react';
 const SocialMedia = ({ data }) => {
   return (
     <>
-      <div className="title-nav">{data.title}</div>
+      <div className="title-nav">{data && data.title}</div>
       <ul className="list social-media">
-        {data.socialMediaItem.map((item) => {
+        {(data && data.socialMediaItem) && data.socialMediaItem.map((item) => {
           return (
             <li key={item.id}>
               <a

@@ -14,18 +14,18 @@ const RubriquesLinks = ({ rubriques }) => {
       <LinkButton link="/" extraClasses={[classnames(
         styles.rubriquesLinks,
         {
-          [styles.active] : !query.rubriqueName
+          [styles.active]: !query.rubriqueName
         }
       )]}>
         Tous les articles
       </LinkButton>
-      {rubriques.map((rubrique) => (
+      {rubriques && rubriques.map((rubrique) => (
         <LinkButton
           link={`/${rubrique.url}`}
           extraClasses={[classnames(
             styles.rubriquesLinks,
             {
-              [styles.active] : query.rubriqueName === rubrique.url
+              [styles.active]: query.rubriqueName === rubrique.url
             }
           )]}
           key={rubrique.name}>

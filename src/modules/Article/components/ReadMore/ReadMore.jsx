@@ -13,13 +13,9 @@ const Articles = ({ articles, position }) => {
         À LIRE AUSSI
       </Heading>
       <div className={styles.container}>
-        {articles.map((article, index) => {
-          return (
-            <div key={article.id} className={styles.content}>
-              <ArticleItem article={article} size={index} position={position} />
-            </div>
-          );
-        })}
+        {articles.map((article, index) => (<div key={`article-${index}`} className={styles.content}>
+          <ArticleItem article={article} size={index} position={position} />
+        </div>))}
       </div>
     </>
   );

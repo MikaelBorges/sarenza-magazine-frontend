@@ -9,23 +9,25 @@ const style = {
 
 const Reviews = ({ data }) => {
   return (
-    <div className="reviews">
-      <span itemProp="itemreviewed" style={style}>
-        Sarenza
+    <>
+      {data && <div className="reviews">
+        <span itemProp="itemreviewed" style={style}>
+          Sarenza
       </span>
-      <div className="title-level3">{data.title}</div>
-      <span>{data.maxRate}</span>
-      <p className="rating" itemProp="rating" itemType="//data-vocabulary.org/rating">
-        <span className="average" itemProp="average">
-          4.7
+        <div className="title-level3">{data.title}</div>
+        <span>{data.maxRate}</span>
+        <p className="rating" itemProp="rating" itemType="//data-vocabulary.org/rating">
+          <span className="average" itemProp="average">
+            4.7
         </span>
-        <span className="best" itemProp="best">
-          / 5
+          <span className="best" itemProp="best">
+            / 5
         </span>
-        <span className={`rate ${data.rate}`} />
-        <Votes data={data.votes} />
-      </p>
-    </div>
+          <span className={`rate ${data.rate}`} />
+          <Votes data={data.votes} />
+        </p>
+      </div>}
+    </>
   );
 };
 

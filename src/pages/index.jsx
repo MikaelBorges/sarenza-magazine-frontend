@@ -1,30 +1,34 @@
 import processToHome from 'modules/Home/model/Home';
 import { getApolloClient } from 'utils/apollo';
 import getPageProps from 'utils/getPageProps';
-import { ApolloProvider } from '@apollo/react-hooks';
-import withData from '../utils/apollo';
 import { HOME_QUERY_ALL } from '../apollo/queries/home/homeQuery';
 import Home from '../modules/Home/Home';
 import HomeMobile from '../modules/Home/Home.mobile';
-
+import constant from "../infrastructure/constant"
 import Layout from 'modules/Layout/Layout';
 
-const HomePage = ({ homeData, menus, genders, footer, isMobile, apollo }) => {
+const HomePage = ({ homeData, menus, genders, footer, isMobile }) => {
   return (
-    <ApolloProvider client={apollo}>
+    <>
       <Layout menus={menus} genders={genders} footer={footer} isMobile={isMobile}>
         {isMobile ? <HomeMobile data={homeData} /> : <Home data={homeData} />}
       </Layout>
-    </ApolloProvider>
+    </>
   );
 };
 
-export const getServerSideProps = async ({query }) => {
+export const getServerSideProps = async ({query, res, params}) => {
   const apolloClient = getApolloClient();
+
   const isMobile = query.isMobile === 'true';
-  const { data } = await apolloClient.query({
-    query: HOME_QUERY_ALL
-  });
+
+  const { data, error, loading } = await apolloClient.execQuery({ query: HOME_QUERY_ALL }, { timeout: constant.home.timeout });
+
+  if (error && error.hasError) {
+    res.statusCode = 301
+    res.setHeader('Location', constant.redirectLocation) // Replace <link> with your url link
+    return { props: {} }
+  }
 
   const { menus, genders, footer } = await getPageProps();
 
@@ -33,4 +37,4 @@ export const getServerSideProps = async ({query }) => {
   return { props: { homeData, menus, genders, footer, isMobile } };
 };
 
-export default withData(HomePage);
+export default HomePage;

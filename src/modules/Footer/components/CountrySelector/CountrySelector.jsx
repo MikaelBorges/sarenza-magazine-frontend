@@ -4,7 +4,7 @@ const CountrySelector = ({ data }) => {
   return (
     <>
       {/* Pays courant */}
-      {data
+      {data && data
         .filter((country) => country.isCurrent === true)
         .map((filteredCountry) => (
           <div
@@ -15,7 +15,7 @@ const CountrySelector = ({ data }) => {
         ))}
       {/* liste des pays sans le pays courant */}
       <ul className="list">
-        {data
+        {data && data
           .filter((country) => country.isCurrent === null)
           .map((filteredCountry) => (
             <li key={filteredCountry.id}>

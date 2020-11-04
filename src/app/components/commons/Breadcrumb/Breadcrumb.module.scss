@@ -1,13 +1,23 @@
 .breadcrumb {
-    display: inline-block;
-   
-   & > a{
-        font-size: 12px;
-        color: #999999;
-        font-family: robotoc;
-   }
+  display: inline-block;
+
+  & > a {
+    font-size: 12px;
+    color: #999999;
+    font-family: robotoc;
+  }
+  &:after {
+    content: "/";
+    margin: 0 5px;
+  }
+
+  &:nth-last-child(1) {
+    &:after {
+      content: " ";
+    }
+  }
 }
 .separation {
-    color: #999999;
-    margin: 0 8px;
-  }
+  color: #999999;
+  margin: 0 8px;
+}

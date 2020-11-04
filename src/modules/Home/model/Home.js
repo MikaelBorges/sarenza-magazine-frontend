@@ -57,6 +57,8 @@ const processToRubrique = (model = []) => {
 };
 
 const processToHome = (model = {}, rubrique) => {
+  if (!model || !model.articles) return {}
+  
   const aLaUne =
     model.articles.find((it) => {
       return (

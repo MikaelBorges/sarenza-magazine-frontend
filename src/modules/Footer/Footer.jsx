@@ -19,10 +19,10 @@ const Footer = ({ footer }) => {
     setActive(!isActive);
   };
   return (
-    footer && (
+    footer ? (
       <footer id="MainFooter" data-track-zone="Transverse" className="gtm-zone">
         <ul className="advantages10reasons">
-          {footer.reassurances.map((reassurance) => {
+          {footer.reassurances && footer.reassurances.map((reassurance) => {
             return <Reassurances data={reassurance} key={reassurance.id} />;
           })}
         </ul>
@@ -37,9 +37,9 @@ const Footer = ({ footer }) => {
           </div>
           <BlockLinks data={footer.blockLinks} />
           <div className="col">
-            <div className="title-nav">{footer.blockLinks.slice(3, 4)[0].title}</div>
+            <div className="title-nav">{footer.blockLinks && footer.blockLinks.slice(3, 4)[0].title}</div>
             <ul className="list">
-              {footer.blockLinks.slice(3, 4)[0].links.map((item) => {
+              {footer.blockLinks && footer.blockLinks.slice(3, 4)[0].links.map((item) => {
                 return (
                   <li key={item.id}>
                     <a href={item.href} className="ea-tracker gtm-click" data-ea>
@@ -54,14 +54,14 @@ const Footer = ({ footer }) => {
         </nav>
         <div className="partners">
           <ul className="fold sprite">
-            {footer.partnerIcons.map((partnerIcon) => {
+            {footer.partnerIcons && footer.partnerIcons.map((partnerIcon) => {
               return <PartnerIcon data={partnerIcon} key={partnerIcon.id} />;
             })}
           </ul>
         </div>
         <div className="legal">
           <ul className="legal-navigation">
-            {footer.footerLinks.map((footerLink) => {
+            {footer.footerLinks && footer.footerLinks.map((footerLink) => {
               return <FooterLink data={footerLink} key={footerLink.id} />;
             })}
           </ul>
@@ -76,7 +76,7 @@ const Footer = ({ footer }) => {
         </div>
         {typeof window !== 'undefined' && <StyleFooter />}
       </footer>
-    )
+    ) : null
   );
 };
 

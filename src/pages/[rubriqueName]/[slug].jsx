@@ -5,6 +5,8 @@ import React from 'react';
 import { getPageProps } from 'utils/getPageProps';
 import Layout from 'modules/Layout/Layout';
 import getConfig from "next/config"
+import constant from "../../infrastructure/constant"
+import { timeout } from "../../utils/httpUtils"
 
 const { serverRuntimeConfig } = getConfig()
 
@@ -20,14 +22,28 @@ const Article = ({ article, menus, genders, footer, recentArticle, isMobile }) =
   );
 };
 
-export const getServerSideProps = async (context) => {
-  const { slug, rubriqueName } = context.query;
+export const getServerSideProps = async ({ res, query }) => {
+  const { slug, rubriqueName } = query;
+
+  const response = await timeout(constant.article.timeout, fetch(`${serverRuntimeConfig.API_URL}/articles/?url=${slug}`)).catch((e) => {
+    console.log(`Error getting article "${slug}"`, e)
+    return { hasError: true }
+  })
+
+  if (response.hasError) {
+    res.statusCode = 301
+    res.setHeader('Location', constant.redirectLocation) // Replace <link> with your url link
+    return { props: {} }
+  }
+
+  const data = await response.json();
+
   const { menus, genders, footer } = await getPageProps();
-  const data = await (await fetch(`${serverRuntimeConfig.API_URL}/articles/?url=${slug}`)).json();
+
   const recentArticle = await (
-    await fetch(
+    await timeout(constant.article.timeout, fetch(
       `${serverRuntimeConfig.API_URL}/articles?_limit=4&_sort=updated_by&rubriques.url=${rubriqueName}`
-    )
+    ))
   ).json();
 
   return {

@@ -1,13 +1,12 @@
 import React from 'react';
-
 import ArticleTitle from '../ArticleTitle/ArticleTitle';
 import styles from './MainComponent.module.scss';
+import MissingContent from "../MissingComponent"
 
 const MainComponent = ({ article }) => {
   return (
-    
-    Object.entries(article).length !== 0 ? (
-        <a href={article.link}>
+    (article && Object.entries(article).length !== 0 ) ? (
+      <a href={article.link}>
         <div className={styles.container}>
           <div className={styles.content}>
             <ArticleTitle
@@ -22,10 +21,7 @@ const MainComponent = ({ article }) => {
           </div>
         </div>
       </a>
-      ):
-      null
-  
-   
+    ):<MissingContent />
   );
 };
 

@@ -2,8 +2,8 @@ import parse from 'html-react-parser';
 import React from 'react';
 
 const NeedHelp = ({ data }) => {
-  return (
-    <div className="Sc">
+  return (<>
+    {data && <div className="Sc">
       <div className="title-level3">{parse(data.title)}</div>
       <div className="content-Sc">
         <div className="infos-SC">
@@ -23,7 +23,8 @@ const NeedHelp = ({ data }) => {
           </ul>
         </div>
       </div>
-    </div>
+    </div>}
+    </>
   );
 };
 

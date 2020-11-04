@@ -19,7 +19,7 @@ const Header = ({ header }) => {
           />
         </div>
         <div className={styles.description}>
-          <p medium className={styles.medium}>
+          <p medium={"true"} className={styles.medium}>
             {header.description}
           </p>
         </div>

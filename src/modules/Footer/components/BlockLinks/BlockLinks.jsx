@@ -5,7 +5,7 @@ function BlockLinks({ data }) {
   return (
     <>
       <div className="col">
-        {data.slice(0, 2).map((blockSliced) => {
+        {data && data.slice(0, 2).map((blockSliced) => {
           return (
             <React.Fragment key={blockSliced.id}>
               <div className="title-nav">{blockSliced.title}</div>
@@ -24,7 +24,7 @@ function BlockLinks({ data }) {
           );
         })}
       </div>
-      {data.slice(2, 3).map((blockSliced) => {
+      {data && data.slice(2, 3).map((blockSliced) => {
         return (
           <div className="col" key={blockSliced.id}>
             <div className="title-nav">{blockSliced.title}</div>
