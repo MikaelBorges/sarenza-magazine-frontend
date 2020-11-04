@@ -23,10 +23,12 @@ $color-marquee: #ff2157;
 }
 
 .first {
+  font-size: 24px;
+  line-height: 26px;
+  color: $color-secondary;
   @media screen and (min-width: 975px) {
     font-size: 32px;
     line-height: 36px;
-    color: $color-secondary;
   }
 }
 .container {
@@ -79,12 +81,12 @@ $color-marquee: #ff2157;
     font-size: 24px;
   }
 }
-.author{
-    font-size: 14px;
-    line-height: 18px;
+.author {
+  font-size: 14px;
+  line-height: 18px;
 }
-.h2{
-  @media screen and (min-width:975px){
+.h2 {
+  @media screen and (min-width: 975px) {
     font-size: 32px;
     line-height: 36px;
   }
@@ -132,7 +134,7 @@ $color-marquee: #ff2157;
     font-family: 'robotoc';
   }
 
-  & > span{
+  & > span {
     font-size: 40px;
     line-height: 40px;
   }

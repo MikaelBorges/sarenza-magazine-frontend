@@ -10,7 +10,9 @@
 
 .textContainer {
   @media screen and (min-width: 975px) {
-    padding: 24px 68px;
+    padding: 24px 0;
+    max-width: 1008px;
+    margin: 0 auto;
   }
 }
 

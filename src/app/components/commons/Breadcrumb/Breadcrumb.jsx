@@ -21,7 +21,7 @@ const Breadcrumb = () => {
         tabIndex="-1">
         <LinkText link="/">Retour</LinkText>
       </div>
-      <span className={styles.separation}>/</span>
+      <span className={styles.separation} />
       <div className={styles.breadcrumb}>
         <LinkText link="https://www.sarenza.com">Accueil</LinkText>
       </div>

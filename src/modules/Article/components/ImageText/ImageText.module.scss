@@ -1,14 +1,12 @@
 .container {
   display: flex;
-  margin: 32px 0;
-  padding: 0 68px;
-
+  margin: 32px auto;
+  max-width: 1008px;
 }
 
 .item {
   flex-direction: column;
   text-align: justify;
- 
 }
 
 .paragraph {
