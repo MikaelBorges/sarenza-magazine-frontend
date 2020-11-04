@@ -56,6 +56,30 @@ export const HOME_QUERY = gql`
       id
       rubrique
       url
+      display_bottom {
+        Display {
+          id
+          text
+          whiteTheme
+          button {
+            id
+            label
+            link
+          }
+        }
+      }
+      display_top {
+        Display {
+          id
+          text
+          whiteTheme
+          button {
+            id
+            label
+            link
+          }
+        }
+      }
       marquee_top {
         MarqueeComponent {
           text
