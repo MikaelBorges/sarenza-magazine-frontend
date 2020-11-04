@@ -21,30 +21,30 @@ const Home = ({ data }) => {
               marquee={{
                 fastAnimation: false,
                 slowAnimation: false,
-                text: data.marqueeTop.MarqueeComponent[0].text
+                text: data.marqueeTop[0].text
               }}
             />
           ) : null}
           <Articles articles={articles.slice(0, 5)} position={1} />
           {data.displayFirst !== undefined && data.displayFirst !== null ? (
             <Display
-              text={data.displayFirst.Display.text}
+              text={data.displayFirst.text}
               button={{
-                label: data.displayFirst.Display.button.label,
-                url: data.displayFirst.Display.button.link
+                label: data.displayFirst.button.label,
+                url: data.displayFirst.button.link
               }}
-              whiteTheme={data.displayFirst.Display.whiteTheme}
+              whiteTheme={data.displayFirst.whiteTheme}
             />
           ) : null}
           <Articles articles={articles.slice(5, 10)} position={2} />
           {data.displaySecond !== undefined && data.displaySecond !== null ? (
             <Display
-              text={data.displaySecond.Display.text}
+              text={data.displaySecond.text}
               button={{
-                label: data.displaySecond.Display.button.label,
-                url: data.displaySecond.Display.button.link
+                label: data.displaySecond.button.label,
+                url: data.displaySecond.button.link
               }}
-              whiteTheme={data.displaySecond.Display.whiteTheme}
+              whiteTheme={data.displaySecond.whiteTheme}
             />
           ) : null}
           {data.marquee !== null ? (
@@ -52,7 +52,7 @@ const Home = ({ data }) => {
               marquee={{
                 fastAnimation: false,
                 slowAnimation: false,
-                text: data.marquee.MarqueeComponent[0].text
+                text: data.marquee[0].text
               }}
             />
           ) : null}
