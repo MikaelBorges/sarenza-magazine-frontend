@@ -8,21 +8,11 @@ import ReassurancesMobile from 'modules/Footer/components/Reassurances/Reassuran
 import ReviewsMobile from 'modules/Footer/components/Reviews/Reviews.mobile';
 import SocialMediaMobile from 'modules/Footer/components/SocialMedia/SocialMedia.mobile';
 import VariousTextMobile from 'modules/Footer/components/VariousText/VariousText.mobile';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
-import getFooter from './service/footer.service';
 import StyleFooter from './StyleFooter/StyleFooter.mobile';
 
-const FooterMobile = () => {
-  const [footer, setFooter] = useState(null);
-  useEffect(() => {
-    async function fetch() {
-      const data = await getFooter();
-      setFooter(data);
-    }
-    fetch();
-  }, []);
-
+const FooterMobile = ({ footer }) => {
   return (
     footer && (
       <footer id="MainFooter">
