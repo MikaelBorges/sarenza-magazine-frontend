@@ -1,10 +1,10 @@
 #!/bin/sh
 set -ea    
 
-echo "Build magazine..."
+echo "Build magazine ..."
 
 # yarn build
 
-echo "Starting your app..."
+echo "Starting your app ..."
 
 exec "$@"
