@@ -10,9 +10,9 @@ const Articles = ({ articles, position }) => {
   return (
     <div className={styles.container}>
       {articles.map((article, index) => {
-          return (
-          <Link href={article.link} key={article.link}>
-            <div
+        return (
+          <Link href={article.link} key={article.link} passHref>
+            <a
               key={article.id}
               className={classnames({
                 [styles.content]: (index < 2 && position === 1) || (index > 2 && position === 2),
@@ -20,7 +20,7 @@ const Articles = ({ articles, position }) => {
                   (index >= 2 && position === 1) || (index <= 2 && position === 2)
               })}>
               <ArticleItem article={article} size={index} position={position} />
-            </div>
+            </a>
           </Link>
         );
       })}

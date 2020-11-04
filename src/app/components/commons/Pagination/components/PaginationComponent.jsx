@@ -4,17 +4,18 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import { LinkButton } from '../../Links';
-import { getTotalPages, nextActivate, prevActivate } from '../utils';
+import { displayPage, getTotalPages, nextActivate, prevActivate } from '../utils';
 import { TEXTS } from './constants';
 import PageButton from './PageButton/PageButton';
 import styles from './Pagination.module.scss';
 
 const PaginationComponent = ({ params }) => {
-  const pages = Array.from(Array(getTotalPages(params.pageSize, params.totalRows)).keys());
+  const total = getTotalPages(params.pageSize, params.totalRows);
+  const paginationPages = displayPage(5, params.pageIndex, total);
 
   return (
     <>
-      {pages.length > 1 && (
+      {total > 1 && (
         <div className={styles.paginationRight}>
           <div className={styles.label}>
             <LinkButton
@@ -23,7 +24,7 @@ const PaginationComponent = ({ params }) => {
               data-testid="pagePrevButton">
               {TEXTS.prevButton}
             </LinkButton>
-            {pages.slice(params.pageIndex === 1 ? 1 : params.pageIndex - 1, 6).map((page) => (
+            {paginationPages.map((page) => (
               <PageButton
                 page={page}
                 params={params}

@@ -9,7 +9,8 @@ const usePagination = (options, data, actionFn, prevNextFn) => {
         next: prevNextFn && prevNextFn.next,
         prev: prevNextFn && prevNextFn.prev,
         totalRows: data.length,
-        setPageSize: prevNextFn && prevNextFn.setPageSize
+        setPageSize: prevNextFn && prevNextFn.setPageSize,
+        goToPage: prevNextFn && prevNextFn.goToPage
       }
     ];
   }

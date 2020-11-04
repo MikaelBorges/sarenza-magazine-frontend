@@ -4,28 +4,33 @@ import React from 'react';
 
 import styles from './Heading.module.scss';
 
-const Heading = ({ children, level, sectionTitle, noMargin }) => {
+const Heading = ({ children, headingLevel, sectionTitle, noMargin }) => {
+  const validHeadingLevels = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
+
+  const safeHeading = headingLevel ? headingLevel.toLowerCase() : '';
+  const Head = validHeadingLevels.includes(safeHeading) ? safeHeading : 'p';
+
   return (
-    <div
-      className={classnames(styles[`heading${level}`], {
+    <Head
+      className={classnames(styles[`heading${headingLevel[1]}`], {
         [styles.sectionTitle]: sectionTitle,
         [styles.noMargin]: noMargin
       })}>
       {children}
-    </div>
+    </Head>
   );
 };
 
 Heading.propTypes = {
   children: PropTypes.node,
-  level: PropTypes.number,
+  headingLevel: PropTypes.string,
   sectionTitle: PropTypes.bool,
   noMargin: PropTypes.bool
 };
 
 Heading.defaultProps = {
   children: '',
-  level: 1,
+  headingLevel: 'h1',
   sectionTitle: false,
   noMargin: false
 };

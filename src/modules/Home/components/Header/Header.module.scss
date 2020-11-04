@@ -16,12 +16,21 @@
   font-weight: bold;
 }
 
+.logo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+}
+
 .description {
   //tablette sinon rien
   margin: 0 auto;
   max-width: 704px;
-  font-family: RobotoC;
+  font-family: robotoc;
   font-weight: normal;
+  margin: 48px auto 0;
   @media screen and (min-width: 975px) {
     margin: inherit;
     max-width: none;
@@ -54,5 +63,10 @@
 .title {
   width: 296px;
   height: 58.4px;
-  margin: 0 auto;
+  margin: 0 auto 48px;
+  position: relative;
+}
+.medium {
+  font-size: 14px;
+  line-height: 21px;
 }
