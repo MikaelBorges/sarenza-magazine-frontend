@@ -19,8 +19,9 @@ const HomePage = ({ homeData, menus, genders, footer, isMobile, apollo }) => {
   );
 };
 
-export const getServerSideProps = async () => {
+export const getServerSideProps = async ({query }) => {
   const apolloClient = getApolloClient();
+  const isMobile = query.isMobile === 'true';
   const { data } = await apolloClient.query({
     query: HOME_QUERY_ALL
   });
@@ -29,7 +30,7 @@ export const getServerSideProps = async () => {
 
   const homeData = processToHome(data);
 
-  return { props: { homeData, menus, genders, footer } };
+  return { props: { homeData, menus, genders, footer, isMobile } };
 };
 
 export default withData(HomePage);

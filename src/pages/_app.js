@@ -11,13 +11,7 @@ import Head from 'next/head';
 import React from 'react';
 
 import wrapper from '../app/store';
-
-import { useRouter } from 'next/router';
-
 function App({ Component, pageProps }) {
-  const { query } = useRouter();
-  const isMobile = query.isMobile === 'true';
-
   return (
     <>
       <Head>
@@ -27,7 +21,7 @@ function App({ Component, pageProps }) {
           Sarenza - Magazine
         </title>
       </Head>
-      <Component {...pageProps} isMobile={isMobile} />
+      <Component {...pageProps} />
     </>
   );
 }
