@@ -1,3 +1,5 @@
+/* eslint-disable camelcase */
+
 import PropTypes from 'prop-types';
 import React from 'react';
 
@@ -6,26 +8,29 @@ import Text from '@/components/commons/Text';
 
 import styles from './ImageText.module.scss';
 
-const ImageText = ({ title, paragraphes, image }) => {
-  return title && paragraphes && image ? (
+const ImageText = ({ title, paragraphes, url_mobile, alt }) => {
+  return title || paragraphes || url_mobile ? (
     <div className={styles.container}>
       <div className={styles.item}>
-        <Text huge secondary>
-          {title}
-        </Text>
-        {paragraphes.map((paragraph) => {
-          return (
-            <div className={styles.paragraph} key={paragraph.id}>
-              <Text big={!paragraph.verbatim} verbatim={paragraph.verbatim}>
-                {paragraph.text}
-              </Text>
-            </div>
-          );
-        })}
+        {title && (
+          <Text huge secondary>
+            {title}
+          </Text>
+        )}
+        {paragraphes &&
+          paragraphes.map((paragraph) => {
+            return (
+              <div className={styles.paragraph} key={paragraph.id}>
+                <Text big={!paragraph.verbatim} verbatim={paragraph.verbatim}>
+                  {paragraph.text}
+                </Text>
+              </div>
+            );
+          })}
       </div>
-      {image && (
+      {url_mobile && (
         <div className={styles.item}>
-          <Image src={image.src} alt={image.alt} />
+          <Image src={url_mobile} alt={alt} />
         </div>
       )}
     </div>

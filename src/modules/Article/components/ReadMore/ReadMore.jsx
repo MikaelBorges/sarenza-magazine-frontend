@@ -9,7 +9,7 @@ import styles from './ReadMore.module.scss';
 const Articles = ({ articles, position }) => {
   return (
     <>
-      <Heading huge bold>
+      <Heading headingLevel="h2" huge bold>
         À LIRE AUSSI
       </Heading>
       <div className={styles.container}>

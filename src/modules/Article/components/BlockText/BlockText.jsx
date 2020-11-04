@@ -35,11 +35,13 @@ const BlockText = ({ Texte, title, urlButton, textButton, positionVerbatim, verb
           </div>
         )}
       </div>
-      <div className={styles.button}>
-        <button className="button" href={urlButton}>
-          {textButton}
-        </button>
-      </div>
+      {textButton && (
+        <div className={styles.button}>
+          <button className="button" href={urlButton}>
+            {textButton}
+          </button>
+        </div>
+      )}
     </div>
   );
 };

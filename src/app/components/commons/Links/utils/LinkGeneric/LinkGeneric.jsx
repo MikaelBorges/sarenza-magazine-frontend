@@ -7,9 +7,6 @@ import { LINK_TYPE } from '../../constants';
 import ChildrenWithIcon from './components/ChildrenWithIcon';
 import styles from './LinkGeneric.module.scss';
 
-import { useRouter } from 'next/router';
-
-
 const LinkGeneric = ({
   type,
   disabled,
@@ -67,7 +64,7 @@ const LinkGeneric = ({
         <ChildrenWithIcon icon={{ name: iconName, isAfter: iconAfter }} label={childrenLabel} />
       </a>
     ) : (
-      <Link href={link} rel={noFollow ? ' nofollow' : undefined} {...linkProps}>
+      <Link href={link} rel={noFollow ? ' nofollow' : undefined} {...linkProps} passHref>
         <a>
           <ChildrenWithIcon icon={{ name: iconName, isAfter: iconAfter }} label={childrenLabel} />
         </a>
@@ -76,27 +73,52 @@ const LinkGeneric = ({
   }
 
   if (type === LINK_TYPE.BUTTON && (onClick || onKeyDown || link)) {
+    if (link) {
+      return (
+        <Link href={link} passHref>
+          <button
+            type="button"
+            title={title}
+            onFocus={onFocus}
+            onMouseEnter={onEnter}
+            onMouseLeave={onLeave}
+            onBlur={onBlur}
+            onKeyDown={onKeyDown}
+            onClick={onClick}
+            disabled={disabled}
+            className={cssClasses}
+            data-testid={dataTestid}>
+            {iconName ? (
+              <ChildrenWithIcon
+                icon={{ name: iconName, isAfter: iconAfter }}
+                label={childrenLabel}
+              />
+            ) : (
+              childrenLabel
+            )}
+          </button>
+        </Link>
+      );
+    }
     return (
-      <Link href={link}>
-        <button
-          type="button"
-          title={title}
-          onFocus={onFocus}
-          onMouseEnter={onEnter}
-          onMouseLeave={onLeave}
-          onBlur={onBlur}
-          onKeyDown={onKeyDown}
-          onClick={onClick}
-          disabled={disabled}
-          className={cssClasses}
-          data-testid={dataTestid}>
-          {iconName ? (
-            <ChildrenWithIcon icon={{ name: iconName, isAfter: iconAfter }} label={childrenLabel} />
-          ) : (
-            childrenLabel
-          )}
-        </button>
-      </Link>
+      <button
+        type="button"
+        title={title}
+        onFocus={onFocus}
+        onMouseEnter={onEnter}
+        onMouseLeave={onLeave}
+        onBlur={onBlur}
+        onKeyDown={onKeyDown}
+        onClick={onClick}
+        disabled={disabled}
+        className={cssClasses}
+        data-testid={dataTestid}>
+        {iconName ? (
+          <ChildrenWithIcon icon={{ name: iconName, isAfter: iconAfter }} label={childrenLabel} />
+        ) : (
+          childrenLabel
+        )}
+      </button>
     );
   }
 
