@@ -14,7 +14,7 @@ import StyleFooter from './StyleFooter/StyleFooter.mobile';
 
 const FooterMobile = ({ footer }) => {
   return (
-    footer && (
+    footer ? (
       <footer id="MainFooter">
         <ul className="advantages10reasons gtm-zone" data-track-zone="advantages10reasons">
           {footer.reassurances.map((reassurance) => {
@@ -47,7 +47,7 @@ const FooterMobile = ({ footer }) => {
 
         {typeof window !== 'undefined' && <StyleFooter />}
       </footer>
-    )
+    ): <></>
   );
 };
 

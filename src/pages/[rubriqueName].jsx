@@ -16,7 +16,8 @@ const ArticleList = ({ rubriques, menus, genders, footer, isMobile }) => {
   );
 };
 
-export const getServerSideProps = async ({ query, res, params }) => {
+export const getServerSideProps = async ({ query, res }) => {
+  const isMobile = query && query.isMobile === 'true'
   const apolloClient = getApolloClient();
   const { data, error, loading } = await apolloClient.execQuery({
     query: HOME_QUERY,
@@ -33,7 +34,7 @@ export const getServerSideProps = async ({ query, res, params }) => {
 
   const rubriques = processToHome(data, query.rubriqueName);
 
-  return { props: { rubriques, menus, genders, footer } };
+  return { props: { rubriques, menus, genders, footer, isMobile } };
 };
 
 export default ArticleList;

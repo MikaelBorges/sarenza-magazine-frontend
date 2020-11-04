@@ -5,8 +5,6 @@ import Layout from 'modules/Layout/Layout';
 import getConfig from 'next/config';
 import React from 'react';
 import { getPageProps } from 'utils/getPageProps';
-import Layout from 'modules/Layout/Layout';
-import getConfig from "next/config"
 import constant from "../../infrastructure/constant"
 import { timeout } from "../../utils/httpUtils"
 
@@ -18,16 +16,16 @@ const Article = ({ article, menus, genders, footer, recentArticle, isMobile }) =
       {isMobile ? (
         <ArticlesMobile article={article} recentArticle={recentArticle} />
       ) : (
-        <Articles article={article} recentArticle={recentArticle} />
-      )}
+          <Articles article={article} recentArticle={recentArticle} />
+        )}
     </Layout>
   );
 };
 
 export const getServerSideProps = async ({ res, query }) => {
-  const { slug, rubriqueName, isMobile } = query;
+  const isMobile = query.isMobile === 'true'
 
-  const mobileMode = isMobile === 'true'
+  const { slug, rubriqueName } = query;
 
   const response = await timeout(constant.article.timeout, fetch(`${serverRuntimeConfig.API_URL}/articles/?url=${slug}`)).catch((e) => {
     console.log(`Error getting article "${slug}"`, e)
@@ -57,7 +55,7 @@ export const getServerSideProps = async ({ res, query }) => {
       menus,
       genders,
       footer,
-      isMobile: mobileMode
+      isMobile
     }
   };
 };

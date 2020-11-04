@@ -20,10 +20,11 @@ const PartnerIconMobile = ({ data }) => {
     setActive({ id, open: !isActive.open });
   };
 
-  return iconGroup.map((item) => {
+  return iconGroup.map((item, i) => {
     return (
       <>
         <div
+          key={`partnericon-${i}`}
           className={isActive.id === item.id && isActive.open ? 'folder open' : 'folder'}
           onClick={() => handleToggle(item.id)}
           onKeyDown={() => handleToggle(item.id)}
@@ -38,10 +39,10 @@ const PartnerIconMobile = ({ data }) => {
 
           {item.items.map((partner) => {
             return (
-              <li>
+              <li key={partner.id}>
                 <a
                   href={partner.href}
-                  key={partner.id}
+
                   className={`ea-tracker gtm-click partners-com-${partner.payment} sprited`}
                   shipping={partner.shipping}
                   quality={partner.quality}

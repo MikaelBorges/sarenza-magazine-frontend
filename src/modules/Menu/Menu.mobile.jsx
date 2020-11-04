@@ -11,30 +11,22 @@ const Menu = ({ menus, genders }) => {
 
   useEffect(() => {
     const overlay = document.getElementById('MainNavOverlay');
-    if (openMenu) {
-      overlay.style.display = 'block';
-      overlay.style.transition = 'opacity 1s ease 0s';
-    } else {
-      overlay.style.display = 'none';
-      overlay.style.transition = 'opacity 1s ease 0s';
+    if (overlay) {
+      if (openMenu) {
+        overlay.style.display = 'block';
+        overlay.style.transition = 'opacity 1s ease 0s';
+      } else {
+        overlay.style.display = 'none';
+        overlay.style.transition = 'opacity 1s ease 0s';
+      }
     }
   }, [openMenu]);
 
   const [openTab, setOpenTab] = useState();
 
-  /* const [openTab, setOpenTab1] = useState(0);
-    const [openChild, setOpenChild] = useState(false);
-
-
-    const setOpenTab = ()=>{
-        
-        setOpenTab1(!openTab);
-        setOpenChild(!openChild)
-    } */
-
   const [isActive, addActive] = useState();
 
-  if (!menus && menus.length) {
+  if (!menus || menus.length <= 0) {
     return 'Loading...';
   }
   return (
@@ -45,7 +37,7 @@ const Menu = ({ menus, genders }) => {
           <div
             id="MainNavOpener"
             role="button"
-            onKeyPress={() => {}}
+            onKeyPress={() => { }}
             tabIndex={0}
             onClick={() => {
               setOpenMenu((show) => !show);
@@ -70,7 +62,7 @@ const Menu = ({ menus, genders }) => {
               className="closer"
               role="button"
               tabIndex={-1}
-              onKeyPress={() => {}}
+              onKeyPress={() => { }}
               onClick={() => {
                 setOpenMenu((show) => !show);
               }}>
@@ -96,14 +88,14 @@ const Menu = ({ menus, genders }) => {
                       onClick={() => addActive(gender.id)}
                       key={gender.id}
                       role="menuitem"
-                      onKeyPress={() => {}}
+                      onKeyPress={() => { }}
                       tabIndex={-2}>
                       <a
                         href="/chaussure-"
                         onClick={(e) => {
                           e.preventDefault();
                         }}
-                        onKeyPress={() => {}}
+                        onKeyPress={() => { }}
                         tabIndex={-3}>
                         {gender.gender}
                       </a>
@@ -129,7 +121,7 @@ const Menu = ({ menus, genders }) => {
                       data-menu-group={2}
                       key={menu.id}
                       role="menuitem"
-                      onKeyPress={() => {}}
+                      onKeyPress={() => { }}
                       tabIndex={-4}>
                       <a className="tab" data-promo data-ea>
                         {menu.header.name}

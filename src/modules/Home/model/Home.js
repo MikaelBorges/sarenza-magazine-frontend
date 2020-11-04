@@ -30,6 +30,9 @@ const getMarquee = (model, rubrique, type = 'top') => {
 
   const marquees = model.rubriques.find((heading) => heading.url === rubrique);
 
+  if(!marquees){
+    return false;
+  }
   if (type === 'top') {
     return marquees.marquee_top && marquees.marquee_top.MarqueeComponent;
   }
@@ -43,6 +46,9 @@ function getDisplay(model, rubrique, type = 'top') {
     return model.home.display_components[1].Display || null;
   }
   const rubriqueItem = model.rubriques.find((heading) => heading.url === rubrique);
+  if(!rubriqueItem) {
+    return false
+  }
   if (type === 'top') {
     return rubriqueItem.display_top && rubriqueItem.display_top.Display;
   }
