@@ -1,11 +1,10 @@
 /* eslint-disable react/button-has-type */
-import React from 'react';
 import Markdown from 'markdown-to-jsx';
+import React from 'react';
 
 import Text from '@/components/commons/Text/Text';
 
 import styles from './BlockText.module.scss';
-
 
 const BlockText = ({ Texte, title, urlButton, textButton, positionVerbatim, verbatim }) => {
   const textVerbatim = verbatim;
@@ -23,12 +22,16 @@ const BlockText = ({ Texte, title, urlButton, textButton, positionVerbatim, verb
             </Text>
           </div>
           <div className={styles.paragraph}>
-            <Text big><Markdown  options={{ forceInline: true }}>{Texte}</Markdown></Text>
+            <Text big>
+              <Markdown options={{ forceInline: false }}>{Texte}</Markdown>
+            </Text>
           </div>
         </div>
         {textVerbatim && (
           <div className={styles.verbatimContainer}>
-            <Text verbatimBlockText><Markdown  options={{ forceInline: true }}>{textVerbatim}</Markdown></Text>
+            <Text verbatimBlockText>
+              <Markdown options={{ forceInline: false }}>{textVerbatim}</Markdown>
+            </Text>
           </div>
         )}
       </div>

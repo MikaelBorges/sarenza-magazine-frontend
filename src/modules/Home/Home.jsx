@@ -21,7 +21,7 @@ const Home = ({ data }) => {
               marquee={{
                 fastAnimation: false,
                 slowAnimation: false,
-                text: data.marqueeTop.MarqueeComponent[0].text
+                text: data.marqueeTop[0].text
               }}
             />
           ) : null}
@@ -54,7 +54,7 @@ const Home = ({ data }) => {
               marquee={{
                 fastAnimation: false,
                 slowAnimation: false,
-                text: data.marquee.MarqueeComponent[0].text
+                text: data.marquee[0].text
               }}
               margin
             />

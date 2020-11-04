@@ -2,9 +2,9 @@
 /* eslint-disable array-callback-return */
 /* eslint-disable camelcase */
 
+import Markdown from 'markdown-to-jsx';
 import { replaceByJsx } from 'modules/Article/utils';
 import React from 'react';
-import Markdown from 'markdown-to-jsx';
 
 import Text from '@/components/commons/Text/Text';
 
@@ -24,12 +24,18 @@ const Duo = ({ duo_image, title, duo_paragraphe, button }) => {
           <div className={styles.paragraph}>
             {replaceByJsx(duo_paragraphe).map((item) => {
               if (item.type === 'text') {
-                return <Text big><Markdown  options={{ forceInline: true }}>{item.text}</Markdown></Text>;
+                return (
+                  <Text big>
+                    <Markdown options={{ forceInline: false }}>{item.text}</Markdown>
+                  </Text>
+                );
               }
               if (item.type === 'verbatim') {
                 return (
                   <div className={styles.verbatimContainer}>
-                    <Text verbatim><Markdown  options={{ forceInline: true }}>{item.text}</Markdown></Text>
+                    <Text verbatim>
+                      <Markdown options={{ forceInline: false }}>{item.text}</Markdown>
+                    </Text>
                   </div>
                 );
               }

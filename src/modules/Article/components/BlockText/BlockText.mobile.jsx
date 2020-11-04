@@ -1,12 +1,13 @@
 /* eslint-disable react/button-has-type */
 
+import Markdown from 'markdown-to-jsx';
 import React from 'react';
-import Markdown from 'markdown-to-jsx'
-import styles from './BlockText.mobile.module.scss';
-import Text from '@/components/commons/Text/Text';
-import { replaceByJsx } from 'modules/Article/utils';
 
-const BlockTextMobile = ({ Texte, title, urlButton, textButton, positionVerbatim, verbatim }) => {
+import Text from '@/components/commons/Text/Text';
+
+import styles from './BlockText.mobile.module.scss';
+
+const BlockTextMobile = ({ Texte, title, urlButton, textButton, verbatim }) => {
   const textVerbatim = verbatim;
 
   return (
@@ -18,10 +19,16 @@ const BlockTextMobile = ({ Texte, title, urlButton, textButton, positionVerbatim
           </Text>
         </div>
         <div className={styles.paragraph}>
-          <Text big><Markdown  options={{ forceInline: true }}>{Texte}</Markdown></Text>
+          <Text big>
+            <Markdown options={{ forceInline: false }}>{Texte}</Markdown>
+          </Text>
         </div>
       </div>
-      {textVerbatim && <Text verbatimBlockTextMobile><Markdown  options={{ forceInline: true }}>{textVerbatim}</Markdown></Text>}
+      {textVerbatim && (
+        <Text verbatimBlockTextMobile>
+          <Markdown options={{ forceInline: false }}>{textVerbatim}</Markdown>
+        </Text>
+      )}
       {urlButton && (
         <div className={styles.button}>
           <button className="button" href={urlButton}>
