@@ -7,7 +7,7 @@ import { nextActivate, prevActivate } from './utils';
 const Pagination = ({ data, actionFn, renderContent, renderHeader, renderFooter }) => {
   const [options, setParams] = useState({
     pageIndex: 1,
-    pageSize: 10,
+    pageSize: 15,
     totalRows: 0
   });
 

@@ -1,8 +1,8 @@
 /* eslint-disable react/button-has-type */
 /* eslint-disable camelcase */
+import Markdown from 'markdown-to-jsx';
 import { replaceByJsx } from 'modules/Article/utils';
 import React from 'react';
-import Markdown from 'markdown-to-jsx';
 
 import Text from '@/components/commons/Text/Text';
 
@@ -27,7 +27,7 @@ const DuoMobile = ({ duo_image, title, duo_paragraphe, button }) => {
                 return (
                   <div className={styles.textContainer} key={item.id}>
                     <Text big>
-                      <Markdown options={{ forceInline: true }}>{item.text}</Markdown>
+                      <Markdown options={{ forceInline: false }}>{item.text}</Markdown>
                     </Text>
                   </div>
                 );
@@ -36,11 +36,12 @@ const DuoMobile = ({ duo_image, title, duo_paragraphe, button }) => {
                 return (
                   <div className={styles.verbatimContainer} key={item.id}>
                     <Text verbatimMobile>
-                      <Markdown options={{ forceInline: true }}>{item.text}</Markdown>
+                      <Markdown options={{ forceInline: false }}>{item.text}</Markdown>
                     </Text>
                   </div>
                 );
               }
+              return null;
             })}
           </div>
         ) : null}

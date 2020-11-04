@@ -56,6 +56,18 @@ export const HOME_QUERY = gql`
       id
       rubrique
       url
+      marquee_top {
+        MarqueeComponent {
+          text
+          id
+        }
+      }
+      marquee_bottom {
+        MarqueeComponent {
+          text
+          id
+        }
+      }
     }
   }
 `;
