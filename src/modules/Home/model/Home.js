@@ -35,8 +35,20 @@ const getMarquee = (model, rubrique, type = 'top') => {
   }
   return marquees.marquee_bottom && marquees.marquee_bottom.MarqueeComponent;
 };
-
-const processToRubrique = (model = {}) => {
+function getDisplay(model, rubrique, type = 'top') {
+  if (!rubrique) {
+    if (type === 'top') {
+      return model.home.display_components[0].Display || null;
+    }
+    return model.home.display_components[1].Display || null;
+  }
+  const rubriqueItem = model.rubriques.find((heading) => heading.url === rubrique);
+  if (type === 'top') {
+    return rubriqueItem.display_top && rubriqueItem.display_top.Display;
+  }
+  return rubriqueItem.display_bottom && rubriqueItem.display_bottom.Display;
+}
+const processToRubrique = (model = []) => {
   return {
     url: model.url,
     name: model.rubrique,
@@ -63,8 +75,8 @@ const processToHome = (model = {}, rubrique) => {
     articles: model.articles.filter((it) => it.id !== aLaUne.id).map(processToHomeArticle),
     marquee: getMarquee(model, rubrique, 'bottom'),
     marqueeTop: getMarquee(model, rubrique, 'top'),
-    displayFirst: model.home.display_components[0] || null,
-    displaySecond: model.home.display_components[1] || null
+    displayFirst: getDisplay(model, rubrique, 'top'),
+    displaySecond: getDisplay(model, rubrique, 'bottom')
   };
 };
 
