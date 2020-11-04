@@ -8,7 +8,7 @@ import styles from './Description.mobile.module.scss';
 const DescriptionMobile = ({ author, publishDate, updateDate }) => {
   return (
     <div className={styles.rightBlock}>
-      <Text medium secondary>
+      <Text medium secondary author>
         {author} - Publié le {publishDate}
       </Text>
       <Text>mis à jour le {updateDate}</Text>

@@ -1,4 +1,4 @@
-import Healthcheck, { getServerSideProps as healthcheckSSRprops } from "../modules/Healthcheck"
+import Healthcheck, { getServerSideProps as healthcheckSSRprops } from '../modules/Healthcheck';
 
 export const getServerSideProps = async (ctx) => {
     return {
@@ -6,6 +6,7 @@ export const getServerSideProps = async (ctx) => {
             ...(await healthcheckSSRprops(ctx)).props
         }
     }
-}
+  };
+};
 
 export default Healthcheck;

@@ -23,10 +23,12 @@ $color-marquee: #ff2157;
 }
 
 .first {
+  font-size: 24px;
+  line-height: 26px;
+  color: $color-secondary;
   @media screen and (min-width: 975px) {
     font-size: 32px;
     line-height: 36px;
-    color: $color-secondary;
   }
 }
 .container {
@@ -79,6 +81,16 @@ $color-marquee: #ff2157;
     font-size: 24px;
   }
 }
+.author {
+  font-size: 14px;
+  line-height: 18px;
+}
+.h2 {
+  @media screen and (min-width: 975px) {
+    font-size: 32px;
+    line-height: 36px;
+  }
+}
 
 .light {
   font-weight: 300;
@@ -97,7 +109,6 @@ $color-marquee: #ff2157;
     display: table-cell;
     position: relative;
     top: 124px;
-    padding-right: 20px;
     font-family: 'robotoc';
   }
 
@@ -118,10 +129,14 @@ $color-marquee: #ff2157;
     line-height: 200px;
     display: table-cell;
     vertical-align: bottom;
-    padding-left: 20px;
     position: relative;
     top: -10px;
     font-family: 'robotoc';
+  }
+
+  & > span {
+    font-size: 40px;
+    line-height: 40px;
   }
 }
 
@@ -169,7 +184,6 @@ $color-marquee: #ff2157;
     display: table-cell;
     position: relative;
     top: 124px;
-    padding-right: 20px;
     font-family: 'robotoc';
   }
 
@@ -190,7 +204,6 @@ $color-marquee: #ff2157;
     line-height: 200px;
     display: table-cell;
     vertical-align: bottom;
-    padding-left: 20px;
     position: relative;
     top: -10px;
     font-family: 'robotoc';

@@ -1,4 +1,4 @@
-import gql from "graphql-tag"
+import gql from 'graphql-tag';
 
 export const HOME_QUERY_ALL = gql`
   query PageListAll {
@@ -55,4 +55,4 @@ export const HOME_QUERY_ALL = gql`
       url
     }
   }
-`
+`;

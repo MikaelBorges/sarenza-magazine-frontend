@@ -55,6 +55,7 @@ export const HOME_QUERY = gql`
     rubriques {
       id
       rubrique
+      order
       url
       display_bottom {
         Display {
@@ -150,6 +151,7 @@ export const HOME_QUERY_ALL = gql`
     }
     rubriques {
       id
+      order
       rubrique
       url
     }

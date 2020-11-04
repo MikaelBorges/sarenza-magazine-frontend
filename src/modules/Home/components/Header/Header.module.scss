@@ -38,7 +38,7 @@
 }
 .wrapper {
   overflow: hidden;
-  width: 100%;
+  width: 100vw;
   max-height: 48px;
   @media screen and (min-width: 975px) {
     overflow: inherit;

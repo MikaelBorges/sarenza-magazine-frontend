@@ -1,11 +1,11 @@
 .container {
-  margin-top: 100px;
   display: flex;
+  margin: 32px auto;
+  max-width: 1008px;
 }
 
 .item {
   flex-direction: column;
-  padding: 24px;
   text-align: justify;
 }
 

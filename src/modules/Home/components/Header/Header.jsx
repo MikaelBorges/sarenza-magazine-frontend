@@ -19,9 +19,7 @@ const Header = ({ header }) => {
           />
         </div>
         <div className={styles.description}>
-          <p medium={"true"} className={styles.medium}>
-            {header.description}
-          </p>
+          <p className={styles.medium}>{header.description}</p>
         </div>
       </div>
       <div className={styles.wrapper}>

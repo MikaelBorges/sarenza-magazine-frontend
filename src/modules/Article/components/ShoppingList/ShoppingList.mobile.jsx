@@ -1,39 +1,45 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import Slider from 'react-slick';
 
-import ShoppingCardMobile from './ShoppingCard/ShoppingCard.mobile';
+import ShoppingCard from './ShoppingCard/ShoppingCard';
 import styles from './ShoppingList.mobile.module.scss';
 
-const ShoppingListMobile = ({ ShoppingCards, title, intro, textButton, urlButton, button }) => {
+const ShoppingList = ({ vignette, title, description, button }) => {
+  const settings = {
+    dots: false,
+    infinite: false,
+    slidesToShow: 4,
+    slidesToScroll: 4,
+
+    responsive: [
+      {
+        breakpoint: 975,
+        settings: 'unslick'
+      }
+    ]
+  };
   return (
-    <div className={styles.shoppingList}>
-      <h2 className={`title-level2 ${styles.title}`}>{title}</h2>
-      <p className={styles.intro}>{intro}</p>
-      <ul className={styles.cards}>
-        {ShoppingCards.map((card) => {
-          return (
-            <ShoppingCardMobile
-              cardImage={card.cardImage}
-              stateLabel={card.stateLabel}
-              titleProduct={card.titleProduct}
-              descriptionProduct={card.descriptionProduct}
-              urlProduct={card.urlProduct}
-              pcid={card.pcid}
-              key={card.pcid}
-            />
-          );
-        })}
-      </ul>
+    <div className={styles.shoppingList_mobile}>
+      <h2 className="title-edito2">{title}</h2>
+      <p className={styles.intro}>{description}</p>
+      <div className={styles.SliderContainer}>
+        <Slider {...settings} className={styles.cards}>
+          {vignette.map((card) => {
+            return <ShoppingCard {...card} key={card.pcid} />;
+          })}
+        </Slider>
+      </div>
       {button !== null ? (
-        <button type="button" className={`button ${styles.buttonShoppingList}`} href={urlButton}>
-          {textButton}
+        <button type="button" className={`button ${styles.buttonShoppingList_mobile}`} href={button.link}>
+          {button.label}
         </button>
       ) : null}
     </div>
   );
 };
 
-ShoppingListMobile.propTypes = {
+ShoppingList.propTypes = {
   ShoppingCards: PropTypes.arrayOf(
     PropTypes.shape({
       cardImage: PropTypes.string
@@ -45,7 +51,7 @@ ShoppingListMobile.propTypes = {
   urlButton: PropTypes.string
 };
 
-ShoppingListMobile.defaultProps = {
+ShoppingList.defaultProps = {
   ShoppingCards: [],
   title: '',
   intro: '',
@@ -53,4 +59,4 @@ ShoppingListMobile.defaultProps = {
   urlButton: ''
 };
 
-export default ShoppingListMobile;
+export default ShoppingList;

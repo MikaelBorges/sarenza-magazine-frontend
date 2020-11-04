@@ -11,6 +11,7 @@ import styles from './ImageText.module.scss';
 const ImageText = ({ title, paragraphes, url, alt }) => {
   return title || paragraphes || url ? (
     <div className={styles.container}>
+     { title || paragraphes.length > 0 &&
       <div className={styles.item}>
         {title && (
           <Text huge secondary>
@@ -27,7 +28,7 @@ const ImageText = ({ title, paragraphes, url, alt }) => {
               </div>
             );
           })}
-      </div>
+      </div>}
       {url && (
         <div className={styles.item}>
           <Image src={url} alt={alt} />

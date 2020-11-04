@@ -1,7 +1,8 @@
 @import '../../../../app/components/_styles/theme';
 
 .blockText {
-  padding: 24px;
+  //padding: 24px;
+  
 }
 
 .textPart {
@@ -40,6 +41,8 @@
   width: 100%;
   display: flex;
   justify-content: center;
+  align-self: center;
+
 }
 
 .textPartIsAfter {
