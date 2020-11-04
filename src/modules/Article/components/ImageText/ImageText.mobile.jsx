@@ -6,7 +6,7 @@ import React from 'react';
 import Image from '@/components/commons/Image/Image';
 import Text from '@/components/commons/Text';
 
-import styles from './ImageText.module.scss';
+import styles from './ImageText.mobile.module.scss';
 
 const ImageText = ({ title, paragraphes, url_mobile, alt }) => {
   return title || paragraphes || url_mobile ? (

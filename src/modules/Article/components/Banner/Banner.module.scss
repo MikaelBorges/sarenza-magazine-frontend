@@ -9,7 +9,9 @@
 }
 
 .textContainer {
-  padding: 24px;
+  @media screen and (min-width: 975px) {
+    padding: 24px 68px;
+  }
 }
 
 .optional {
