@@ -54,11 +54,11 @@
     left: inherit;
     //min-width: 829px;
     height: 452px;
-    transition: transform ease 3s;
+    // transition: transform ease 1s;
 
     &:hover {
-      transform: scale(1.1);
-      transition: transform ease 3s;
+      // transform: scale(1.1);
+      // transition: transform ease 1s;
     }
   }
 }

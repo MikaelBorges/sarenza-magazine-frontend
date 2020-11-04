@@ -1,8 +1,12 @@
 module.exports = {
   serverRuntimeConfig: {
-    API_URL: `${process.env.STRAPI_SERVICE_SCHEME}://${process.env.STRAPI_SERVICE_HOST}:${process.env.STRAPI_SERVICE_PORT ? process.env.STRAPI_SERVICE_PORT : 80}`,
+    API_URL: `${process.env.STRAPI_SERVICE_SCHEME}://${process.env.STRAPI_SERVICE_HOST}:${
+      process.env.STRAPI_SERVICE_PORT ? process.env.STRAPI_SERVICE_PORT : 80
+    }`
   },
   publicRuntimeConfig: {
-    hello: 'world'
+    API_URL: `${process.env.STRAPI_SERVICE_SCHEME}://${process.env.STRAPI_SERVICE_HOST}:${
+      process.env.STRAPI_SERVICE_PORT ? process.env.STRAPI_SERVICE_PORT : 80
+    }`
   }
 };

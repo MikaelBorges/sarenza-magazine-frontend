@@ -12,6 +12,14 @@
   font-weight: bold;
 }
 
+.logo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+}
+
 .description {
   font-family: RobotoC;
   font-weight: normal;
@@ -31,5 +39,6 @@
 .title {
   width: 296px;
   height: 58.4px;
-  margin: 0 auto;
+  margin: 0 auto 48px;
+  position: relative;
 }

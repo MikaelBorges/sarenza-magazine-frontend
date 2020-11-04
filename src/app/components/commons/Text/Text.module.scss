@@ -21,6 +21,14 @@ $color-marquee: #ff2157;
     line-height: 40px;
   }
 }
+
+.first {
+  @media screen and (min-width: 975px) {
+    font-size: 32px;
+    line-height: 36px;
+    color: $color-secondary;
+  }
+}
 .container {
   font-weight: 400;
   font-size: $text-font-base;
@@ -65,9 +73,10 @@ $color-marquee: #ff2157;
 }
 
 .huge {
-  font-size: 32px;
+  font-size: 24px;
+  line-height: 28px;
   @media screen and (min-width: 975px) {
-    font-size: 32px;
+    font-size: 24px;
   }
 }
 
