@@ -4,7 +4,7 @@ import React from 'react';
 import ShoppingCardMobile from './ShoppingCard/ShoppingCard.mobile';
 import styles from './ShoppingList.mobile.module.scss';
 
-const ShoppingListMobile = ({ ShoppingCards, title, intro, textButton, urlButton }) => {
+const ShoppingListMobile = ({ ShoppingCards, title, intro, textButton, urlButton, button }) => {
   return (
     <div className={styles.shoppingList}>
       <h2 className={`title-level2 ${styles.title}`}>{title}</h2>

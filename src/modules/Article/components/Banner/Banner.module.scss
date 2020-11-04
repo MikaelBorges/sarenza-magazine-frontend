@@ -1,6 +1,8 @@
 @import '../../../../app/components/_styles/theme';
 
 .bannerImage {
+  margin-top: 16px;
+
   img {
     display: block;
   }
@@ -25,6 +27,7 @@
 .hashTitle {
   text-transform: uppercase;
   font-family: futur, $safe-fonts;
-  font-size: 40px;
-  line-height: 40px;
+  margin-right: 24px;
+  text-align: left;
+  max-width: 63%;
 }
