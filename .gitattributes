@@ -1,0 +1,2 @@
+# Make EOL (end of line) in shell files to LF, corresponding to UNIX style.
+**/*.sh eol=lf
