@@ -47,7 +47,7 @@ const SubMenu = ({ data, tabActivate }) => {
                               : ''
                           }`}
                           key={link.label}>
-                          <a href={link.link || 'sdff'}>{link.label}</a>
+                          <a href={link.link}>{link.label}</a>
                         </li>
                       );
                     })}
