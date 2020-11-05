@@ -1,11 +1,13 @@
 import classnames from 'classnames';
-import Link from 'next/link';
 import PropTypes from 'prop-types';
 import * as React from 'react';
 
 import { LINK_TYPE } from '../../constants';
 import ChildrenWithIcon from './components/ChildrenWithIcon';
 import styles from './LinkGeneric.module.scss';
+import getConfig from 'next/config';
+
+const { serverRuntimeConfig } = getConfig();
 
 const LinkGeneric = ({
   type,
@@ -18,6 +20,7 @@ const LinkGeneric = ({
   onLeave,
   absolute,
   link,
+  noLink,
   noFollow,
   newTab,
   baseLinkStyle,
@@ -30,8 +33,10 @@ const LinkGeneric = ({
   children,
   dataTestid
 }) => {
-  const childrenLabel = children && <span className={styles.buttonLabel}>{children}</span>;
+  const linkPrefix = serverRuntimeConfig.CDN_PREFIX || '';
+  link = absolute ? link : (linkPrefix ? '/' + linkPrefix : '') + link;
 
+  const childrenLabel = children && <span className={styles.buttonLabel}>{children}</span>;
   const cssClasses = classnames(
     extraClasses && extraClasses.length > 0 ? extraClasses : null,
     {
@@ -64,18 +69,16 @@ const LinkGeneric = ({
         <ChildrenWithIcon icon={{ name: iconName, isAfter: iconAfter }} label={childrenLabel} />
       </a>
     ) : (
-      <Link href={link} rel={noFollow ? ' nofollow' : undefined} {...linkProps} passHref>
-        <a>
-          <ChildrenWithIcon icon={{ name: iconName, isAfter: iconAfter }} label={childrenLabel} />
-        </a>
-      </Link>
+      <a href={link} rel={noFollow ? ' nofollow' : undefined} {...linkProps}>
+        <ChildrenWithIcon icon={{ name: iconName, isAfter: iconAfter }} label={childrenLabel} />
+      </a>
     );
   }
 
   if (type === LINK_TYPE.BUTTON && (onClick || onKeyDown || link)) {
-    if (link) {
+    if (!noLink) {
       return (
-        <Link href={link} passHref>
+        <a href={link}>
           <button
             type="button"
             title={title}
@@ -97,7 +100,7 @@ const LinkGeneric = ({
               childrenLabel
             )}
           </button>
-        </Link>
+        </a>
       );
     }
     return (
@@ -148,6 +151,7 @@ LinkGeneric.propTypes = {
         user is redirected on click */,
   noFollow: PropTypes.bool,
   newTab: PropTypes.bool,
+  noLink: PropTypes.bool,
   baseLinkStyle: PropTypes.arrayOf(
     PropTypes.string
   ) /* describes the basic styling of the link,
@@ -180,6 +184,7 @@ LinkGeneric.defaultProps = {
   onEnter: undefined,
   onLeave: undefined,
   absolute: false,
+  noLink: false,
   link: undefined,
   noFollow: false,
   newTab: false,

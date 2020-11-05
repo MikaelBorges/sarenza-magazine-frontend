@@ -19,6 +19,7 @@ const PaginationComponent = ({ params }) => {
         <div className={styles.paginationRight}>
           <div className={styles.label}>
             <LinkButton
+              noLink
               onClick={() => params.prev && params.prev()}
               disabled={!prevActivate(params)}
               data-testid="pagePrevButton">
@@ -35,6 +36,7 @@ const PaginationComponent = ({ params }) => {
           </div>
 
           <LinkButton
+            noLink
             onClick={() => params.next && params.next()}
             disabled={!nextActivate(params)}
             data-testid="pageNextButton">

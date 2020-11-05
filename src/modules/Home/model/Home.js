@@ -11,7 +11,7 @@ const processToHomeArticle = (model = {}) => {
         link:
           (model.rubriques &&
             model.rubriques.length > 0 &&
-            `${model.rubriques[0].url}/${model.url}`) ||
+            `/${model.rubriques[0].url}/${model.url}`) ||
           ''
       }
     );
@@ -41,13 +41,17 @@ const getMarquee = (model, rubrique, type = 'top') => {
 function getDisplay(model, rubrique, type = 'top') {
   if (!rubrique) {
     if (type === 'top') {
-      return model.home.DisplayTop && model.home.DisplayTop.Display ? model.home.DisplayTop.Display : null;
+      return model.home.displayTop && model.home.displayTop.Display
+        ? model.home.displayTop.Display
+        : null;
     }
-    return model.home.DisplayBottom && model.home.DisplayBottom.Display ? model.home.DisplayBottom.Display : null;
+    return model.home.displayBottom && model.home.displayBottom.Display
+      ? model.home.displayBottom.Display
+      : null;
   }
   const rubriqueItem = model.rubriques.find((heading) => heading.url === rubrique);
   if (!rubriqueItem) {
-    return false
+    return false;
   }
   if (type === 'top') {
     return rubriqueItem.display_top && rubriqueItem.display_top.Display;
@@ -64,14 +68,14 @@ const processToRubrique = (model = []) => {
 };
 
 const processToHome = (model = {}, rubrique) => {
-  if (!model || !model.articles) return {}
+  if (!model || !model.articles) return {};
 
   const aLaUne =
     model.articles.find((it) => {
-      return (model.home && model.home.ArticleUne) ? (
-        model.home.ArticleUne.id === it.id &&
-        (it.rubriques.some((r) => r.url === rubrique) || !rubrique)
-      ) : null;
+      return model.home && model.home.ArticleUne
+        ? model.home.ArticleUne.id === it.id &&
+            (it.rubriques.some((r) => r.url === rubrique) || !rubrique)
+        : null;
     }) || model.articles[0];
 
   return {

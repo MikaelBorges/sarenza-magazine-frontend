@@ -9,7 +9,7 @@ const PageButton = ({ page, isActive, params }) => {
   }, [page]);
 
   return (
-    <LinkButton onClick={goPage} key={page} disabled={isActive}>
+    <LinkButton onClick={goPage} key={page} disabled={isActive} noLink>
       {page}
     </LinkButton>
   );
