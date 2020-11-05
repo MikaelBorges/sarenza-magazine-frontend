@@ -26,8 +26,8 @@
 }
 .wrapper {
   overflow: hidden;
-  width: 100vw;
   max-height: 48px;
+  min-width: 100vw;
 }
 .rubriques {
   width: 100%;

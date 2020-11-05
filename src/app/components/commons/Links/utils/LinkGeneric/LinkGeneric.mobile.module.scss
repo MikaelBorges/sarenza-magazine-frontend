@@ -17,9 +17,6 @@
 
 .link {
   text-decoration: none;
-  &:hover {
-    text-decoration: underline;
-  }
 }
 
 .button {
@@ -34,11 +31,9 @@
   border: 1px solid #d5d5d5;
   text-decoration: none;
   outline: none;
-  // align-items: center;
-  // user-select: none;
-  // vertical-align: middle;
-  // justify-content: center;
+  white-space: nowrap;
   background-color: $button-bg;
+  height: 48px;
   //transition: all 0.2s ease-in;
 
   &:not(:disabled) {
