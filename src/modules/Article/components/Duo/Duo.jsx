@@ -43,14 +43,15 @@ const Duo = ({ duo_image, title, duo_paragraphe, button }) => {
             })}
           </div>
         ) : null}
-      </div>
-      {button !== null ? (
+              {button !== null ? (
         <div className={styles.button}>
           <button className="button" href={button.link}>
             {button.label}
           </button>
         </div>
       ) : null}
+      </div>
+
     </div>
   );
 };

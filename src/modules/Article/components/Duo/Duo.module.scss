@@ -1,16 +1,30 @@
 @import '../../../../app/components/_styles/theme';
 
-.container:nth-child(even) {
+.container:nth-child(odd) {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: relative;
   .image {
-    float: left;
-    margin-right: 24px;
+    //float: left;
+    //margin-right: 24px;
+    order: 2;
+    align-self: center;
+    flex: 0 1 auto;
   }
 }
 
-.container:nth-child(odd) {
+.container:nth-child(even) {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: relative;
   .image {
-    float: right;
-    margin-left: 24px;
+    //float: right;
+    //margin-left: 24px;
+    order: 1;
+    align-self: center;
+    flex: 0 1 auto;
   }
 }
 
@@ -21,13 +35,25 @@
 
 .verbatimContainer {
   //margin: 24px 0;
-  margin-bottom: 48px;
+  //margin-bottom: 48px;
+  margin: 32px 0;
 }
 
-.textPart {
+.textPart:nth-child(even) {
   padding: 0 24px 24px;
   font-family: roboto, $safe-fonts;
+  order: 1;
+  align-self: center;
+  flex: 0 1 auto;
   //margin-top: 15%;
+}
+.textPart:nth-child(odd) {
+  padding: 0 24px 24px;
+  font-family: roboto, $safe-fonts;
+  order: 2;
+  align-self: center;
+  //margin-top: 15%;
+  flex: 0 1 auto;
 }
 
 .titleTextPart {
@@ -36,7 +62,7 @@
   text-align: left;
   line-height: 26px;
   line-height: 32px;
-  margin-bottom: 48px;
+  margin-bottom: 24px;
 }
 
 .paragraph {
@@ -51,7 +77,12 @@
 }
 
 .button {
-  margin: 6px 0 24px;
+  // position: absolute;
+  // bottom: -30px;
+  // left: 20%;
+  // transform: translateX(-20%);
+  margin: 32px 0 0;
+
 }
 
 @import 'Duo.module.wide';
