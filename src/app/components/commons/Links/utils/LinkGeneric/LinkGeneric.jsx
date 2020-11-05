@@ -34,7 +34,7 @@ const LinkGeneric = ({
   dataTestid
 }) => {
   const linkPrefix = serverRuntimeConfig.CDN_PREFIX || '';
-  link = absolute ? link : (linkPrefix ? '/' + linkPrefix : '') + link;
+  link = absolute ? link : (linkPrefix ? linkPrefix : '') + link;
 
   const childrenLabel = children && <span className={styles.buttonLabel}>{children}</span>;
   const cssClasses = classnames(
