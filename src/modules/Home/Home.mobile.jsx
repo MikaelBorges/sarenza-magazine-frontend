@@ -27,7 +27,9 @@ const Home = ({ data }) => {
                   }}
                 />
               )}
-              <Articles articles={articles.slice(0, 5)} position={1} />
+              {articles.slice(0, 5).length > 0 && (
+                <Articles articles={articles.slice(0, 5)} position={1} />
+              )}
               {data.displayFirst && (
                 <Display
                   text={data.displayFirst.text}
@@ -40,7 +42,9 @@ const Home = ({ data }) => {
                   whiteTheme={data.displayFirst.whiteTheme}
                 />
               )}
-              <Articles articles={articles.slice(5, 10)} position={2} />
+              {articles.slice(5, 10).length && (
+                <Articles articles={articles.slice(5, 10)} position={2} />
+              )}
               {data.displaySecond && (
                 <Display
                   text={data.displaySecond.text}
@@ -53,7 +57,7 @@ const Home = ({ data }) => {
                   whiteTheme={data.displaySecond.whiteTheme}
                 />
               )}
-              {data.marquee && data.marquee.length > 0 && (
+              {data.marquee && (
                 <Marquee
                   marquee={{
                     fastAnimation: false,
