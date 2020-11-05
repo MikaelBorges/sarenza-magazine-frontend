@@ -12,7 +12,7 @@ const Menu = ({ menus, genders }) => {
   useEffect(() => {
     {
       const overlay = document.getElementById('MainNavOverlay');
-      if (isHover) {
+      if (isHover && menus.find((i) => i.header.id === isHover).items.length > 0) {
         overlay.style.display = 'block';
         overlay.style.transition = 'opacity 1s ease 0s';
       } else if (overlay) {
@@ -21,7 +21,7 @@ const Menu = ({ menus, genders }) => {
       }
     }
   }, [isHover]);
-  if (!menus || menus.length <=0) {
+  if (!menus || menus.length <= 0) {
     return 'Loading...';
   }
   return (
@@ -67,28 +67,29 @@ const Menu = ({ menus, genders }) => {
                 className={cn('menu-group-list', {
                   active: isActive
                 })}>
-                {genders && genders.map((gender) => {
-                  return (
-                    <li
-                      data-menu-group={gender.id}
-                      className={cn('group-tab', {
-                        active: isActive === gender.id
-                      })}
-                      role="menuitem"
-                      onKeyPress={() => {}}
-                      tabIndex={-2}
-                      onClick={() => addActive(gender.id)}
-                      key={gender.id}>
-                      <a
-                        href="/chaussure-"
-                        onClick={(e) => {
-                          e.preventDefault();
-                        }}>
-                        {gender.gender}
-                      </a>
-                    </li>
-                  );
-                })}
+                {genders &&
+                  genders.map((gender) => {
+                    return (
+                      <li
+                        data-menu-group={gender.id}
+                        className={cn('group-tab', {
+                          active: isActive === gender.id
+                        })}
+                        role="menuitem"
+                        onKeyPress={() => {}}
+                        tabIndex={-2}
+                        onClick={() => addActive(gender.id)}
+                        key={gender.id}>
+                        <a
+                          href="/chaussure-"
+                          onClick={(e) => {
+                            e.preventDefault();
+                          }}>
+                          {gender.gender}
+                        </a>
+                      </li>
+                    );
+                  })}
               </ul>
               <ul className="main-list">
                 {/* [RD] - MegaMenu Item men: début */}
@@ -96,24 +97,27 @@ const Menu = ({ menus, genders }) => {
                   return (
                     <li
                       className={cn('menu-group', {
-                        'active animate': isHover === menu.id
+                        'active animate': isHover === menu.header.id
                       })}
                       role="menuitem"
-                      onMouseEnter={() => addHover(menu.id)}
+                      onMouseEnter={() => addHover(menu.header.id)}
                       onMouseLeave={() => addHover('')}
                       onKeyPress={() => {}}
                       tabIndex={-4}
-                      data-menu-group={menu.id}
-                      key={menu.id}
+                      data-menu-group={menu.header.id}
+                      key={menu.header.id}
                       style={{ transition: 'opacity 1s ease 0s' }}>
                       <a
                         className="tab"
                         data-promo
                         data-ea
-                        href="/chaussure-nouvelle-collection-homme">
+                        href={menu.url}
+                        style={{ color: menu.colorText || 'inherit' }}>
                         {menu.header.name}
                       </a>
-                      <SubMenu data={menu.items} tabActivate={isActive} />
+                      {menu.items.length > 0 && (
+                        <SubMenu data={menu.items} tabActivate={isActive} />
+                      )}
                     </li>
                   );
                 })}

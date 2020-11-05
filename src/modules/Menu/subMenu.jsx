@@ -7,30 +7,28 @@ const SubMenu = ({ data, tabActivate }) => {
         <a className="back" href="#0">
           Retour
         </a>
-        <a className="root  " data-promo data-ea href="/chaussure-nouvelle-collection-homme">
+        <a className="root" data-promo data-ea href="/chaussure-nouvelle-collection-homme">
           Afficher tout
         </a>
         {tabActivate
-          ? data
-              .filter((item) => item.category !== 'Genre')
-              .map((itemFiltered) => {
-                return (
-                  <div className="col" key={itemFiltered.id}>
-                    <span className="title">
-                      <span>{itemFiltered.category}</span>
-                    </span>
-                    <ul className="list">
-                      {itemFiltered.links.map((link) => {
-                        return (
-                          <li className="link" key={link.label}>
-                            <a href={link.link}>{link.label}</a>
-                          </li>
-                        );
-                      })}
-                    </ul>
-                  </div>
-                );
-              })
+          ? data.map((itemFiltered) => {
+              return (
+                <div className="col" key={itemFiltered.id}>
+                  <span className="title">
+                    <span>{itemFiltered.category}</span>
+                  </span>
+                  <ul className="list">
+                    {itemFiltered.links.map((link) => {
+                      return (
+                        <li className="link" key={link.label}>
+                          <a href={link.link}>{link.label}</a>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
+              );
+            })
           : data.map((item) => {
               return (
                 <div className="col" key={item.id}>
@@ -49,7 +47,7 @@ const SubMenu = ({ data, tabActivate }) => {
                               : ''
                           }`}
                           key={link.label}>
-                          <a href={item.link}>{link.label}</a>
+                          <a href={link.link || 'sdff'}>{link.label}</a>
                         </li>
                       );
                     })}

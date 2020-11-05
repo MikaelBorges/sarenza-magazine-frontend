@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 
 const SubMenu = ({ data, tabId, menuId, setId }) => {
   const [listOpen, addList] = useState(false);
-
   /* className={cn("sub-inner", {
                 ['visible']: tabId 
             })} */
@@ -12,7 +11,9 @@ const SubMenu = ({ data, tabId, menuId, setId }) => {
         <a
           className="back"
           href="#0"
-          onClick={() => setId(tabId)}
+          onClick={() => {
+            setId(undefined);
+          }}
           role="button"
           onKeyPress={() => {}}
           tabIndex={0}>
@@ -28,7 +29,7 @@ const SubMenu = ({ data, tabId, menuId, setId }) => {
               <div className="col" key={itemFiltered.id}>
                 <span
                   className="title"
-                  onClick={() => addList(itemFiltered.id, !listOpen)}
+                  onClick={() => addList(listOpen ? undefined : itemFiltered.id)}
                   role="button"
                   onKeyPress={() => {}}
                   tabIndex={0}>

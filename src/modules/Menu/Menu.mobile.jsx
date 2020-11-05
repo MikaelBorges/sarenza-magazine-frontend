@@ -37,7 +37,7 @@ const Menu = ({ menus, genders }) => {
           <div
             id="MainNavOpener"
             role="button"
-            onKeyPress={() => { }}
+            onKeyPress={() => {}}
             tabIndex={0}
             onClick={() => {
               setOpenMenu((show) => !show);
@@ -62,7 +62,7 @@ const Menu = ({ menus, genders }) => {
               className="closer"
               role="button"
               tabIndex={-1}
-              onKeyPress={() => { }}
+              onKeyPress={() => {}}
               onClick={() => {
                 setOpenMenu((show) => !show);
               }}>
@@ -88,14 +88,14 @@ const Menu = ({ menus, genders }) => {
                       onClick={() => addActive(gender.id)}
                       key={gender.id}
                       role="menuitem"
-                      onKeyPress={() => { }}
+                      onKeyPress={() => {}}
                       tabIndex={-2}>
                       <a
                         href="/chaussure-"
                         onClick={(e) => {
                           e.preventDefault();
                         }}
-                        onKeyPress={() => { }}
+                        onKeyPress={() => {}}
                         tabIndex={-3}>
                         {gender.gender}
                       </a>
@@ -116,12 +116,14 @@ const Menu = ({ menus, genders }) => {
                     <li
                       className={`menu-group${styles['menu-group']}`}
                       onClick={() => {
-                        setOpenTab(menu.id);
+                        if (!openTab) {
+                          setOpenTab(menu.id);
+                        }
                       }}
                       data-menu-group={2}
                       key={menu.id}
                       role="menuitem"
-                      onKeyPress={() => { }}
+                      onKeyPress={() => {}}
                       tabIndex={-4}>
                       <a className="tab" data-promo data-ea>
                         {menu.header.name}
@@ -130,7 +132,9 @@ const Menu = ({ menus, genders }) => {
                         data={menu.items}
                         tabId={openTab}
                         menuId={menu.id}
-                        setId={() => setOpenTab()}
+                        setId={(v) => {
+                          setOpenTab(undefined);
+                        }}
                       />
                     </li>
                   );
