@@ -13,9 +13,6 @@
 
 .link {
   text-decoration: none;
-  &:hover {
-    text-decoration: underline;
-  }
 }
 
 .button {
@@ -32,6 +29,8 @@
   font-size: 12px;
   font-family: robotoc;
   background-color: $button-bg;
+  white-space: nowrap;
+  height: 48px;
 
   &:not(:disabled) {
     &:hover,
