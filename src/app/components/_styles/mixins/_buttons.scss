@@ -1,12 +1,12 @@
 @import '../theme';
 
 @mixin buttonDigit() {
-  height: 40px;
-  max-width: 100px;
-  background: #fff;
-  color: $body-color;
-  border: none;
-  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+  // height: 40px;
+  // max-width: 100px;
+  // background: #fff;
+  // color: $body-color;
+  // border: none;
+  // box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
 
   &:not(:disabled) {
     &:hover,
@@ -15,7 +15,7 @@
       //   color: $color-primary;
 
       svg {
-        fill: $color-primary;
+        //fill: $color-primary;
       }
     }
     &:hover {

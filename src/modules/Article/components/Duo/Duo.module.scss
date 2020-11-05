@@ -20,13 +20,14 @@
 }
 
 .verbatimContainer {
-  margin: 24px 0;
+  //margin: 24px 0;
+  margin-bottom: 48px;
 }
 
 .textPart {
   padding: 0 24px 24px;
   font-family: roboto, $safe-fonts;
-  margin-top: 15%;
+  //margin-top: 15%;
 }
 
 .titleTextPart {
@@ -35,6 +36,7 @@
   text-align: left;
   line-height: 26px;
   line-height: 32px;
+  margin-bottom: 48px;
 }
 
 .paragraph {
