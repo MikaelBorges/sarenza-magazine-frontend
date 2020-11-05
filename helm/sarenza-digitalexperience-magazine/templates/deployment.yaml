@@ -31,7 +31,7 @@ spec:
               value: "80"
             - name: STRAPI_SERVICE_SCHEME
               value: "http"
-            - name: STRAPI_CDN_PREFIX
+            - name: CDN_PREFIX
               value: "/magazine"
           ports:
             - name: http

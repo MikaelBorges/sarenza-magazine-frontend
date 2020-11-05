@@ -8,6 +8,8 @@ const { serverRuntimeConfig } = getConfig();
 
 const { API_URL } = serverRuntimeConfig;
 
+console.log("API_URL",API_URL)
+
 export const getApolloClient = () => {
   return new ApolloClient({
     cache: new InMemoryCache(),

@@ -5,7 +5,7 @@ import { HOME_QUERY_ALL } from '../apollo/queries/home/homeQuery';
 import Home from '../modules/Home/Home';
 import HomeMobile from '../modules/Home/Home.mobile';
 import constant from "../infrastructure/constant"
-import ContextHelper from "utils/ContextHelper"
+import ContextHelper from "../utils/ContextHelper"
 import Layout from 'modules/Layout/Layout';
 
 const HomePage = ({ homeData, menus, genders, footer, isMobile }) => {
