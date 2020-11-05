@@ -50,7 +50,7 @@ export default class ContextHelper {
         this.context.device.mobile = this.context.device.mobile || (IS_MOBILE && IS_MOBILE.toLowerCase() === 'true')
         this.context.device.desktop = this.context.device.desktop || (IS_DESKTOP && IS_DESKTOP.toLowerCase() === 'true')
         this.context.device.tablet = this.context.device.tablet || (IS_TABLET && IS_TABLET.toLowerCase() === 'true')
-
+        this.context.DEBUG = DEBUG
         this.context.route.link_prefix = this.context.route.link_prefix || CDN_PREFIX || ''
     }
 }
