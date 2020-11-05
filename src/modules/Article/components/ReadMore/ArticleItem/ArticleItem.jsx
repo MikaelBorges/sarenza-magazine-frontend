@@ -4,10 +4,11 @@ import React from 'react';
 
 import ArticleTitle from '../ArticleTitle/ArticleTitle';
 import styles from './ArticleItem.module.scss';
+import LinkComponent from '@/components/commons/Links/LinkComponent/LinkComponent';
 
 const ArticleItem = ({ article, size, position }) => {
   return (
-    <a href={article.link}>
+    <LinkComponent link={article.link}>
       <div
         className={classnames({
           [styles.containerImgContent]:
@@ -24,7 +25,7 @@ const ArticleItem = ({ article, size, position }) => {
         size={size}
         position={position}
       />
-    </a>
+    </LinkComponent>
   );
 };
 

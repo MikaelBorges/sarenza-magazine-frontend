@@ -2,10 +2,6 @@
 @import '../../../../_styles/mixins/loader';
 
 .default {
-  box-sizing: border-box;
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  white-space: nowrap;
   cursor: default;
 
   &:not(:disabled) {

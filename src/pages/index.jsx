@@ -4,8 +4,13 @@ import getPageProps from 'utils/getPageProps';
 import { HOME_QUERY_ALL } from '../apollo/queries/home/homeQuery';
 import Home from '../modules/Home/Home';
 import HomeMobile from '../modules/Home/Home.mobile';
+<<<<<<< HEAD
 import constant from "../infrastructure/constant"
 import ContextHelper from "../utils/ContextHelper"
+=======
+import constant from '../infrastructure/constant';
+import ContextHelper from 'utils/ContextHelper';
+>>>>>>> 66bcdbb0fa5e335024c48f95cb32ddf7f11dce19
 import Layout from 'modules/Layout/Layout';
 
 const HomePage = ({ homeData, menus, genders, footer, isMobile }) => {
@@ -19,27 +24,39 @@ const HomePage = ({ homeData, menus, genders, footer, isMobile }) => {
 };
 
 export const getServerSideProps = async (ctx) => {
-  const { res } = ctx
+  const { res } = ctx;
 
-  const ct = new ContextHelper(ctx);  
+  const ct = new ContextHelper(ctx);
 
-  global.srz_ctx = ct.context
+  global.srz_ctx = ct.context;
 
   const apolloClient = getApolloClient();
 
-  const { data, error } = await apolloClient.execQuery({ query: HOME_QUERY_ALL }, { timeout: constant.home.timeout });
+  const { data, error } = await apolloClient.execQuery(
+    { query: HOME_QUERY_ALL },
+    { timeout: constant.home.timeout }
+  );
 
   if (!ct.context.DEBUG && error && error.hasError) {
-    res.statusCode = 301
-    res.setHeader('Location', constant.redirectLocation) // Replace <link> with your url link
-    return { props: {} }
+    res.statusCode = 301;
+    res.setHeader('Location', constant.redirectLocation); // Replace <link> with your url link
+    return { props: {} };
   }
 
   const { menus, genders, footer } = await getPageProps();
 
   const homeData = processToHome(data);
 
-  return { props: { homeData, menus, genders, footer, isMobile : ct.context.device.mobile, UrlPrefix: ct.context.route.link_prefix } };
+  return {
+    props: {
+      homeData,
+      menus,
+      genders,
+      footer,
+      isMobile: ct.context.device.mobile || false,
+      UrlPrefix: ct.context.route.link_prefix
+    }
+  };
 };
 
 export default HomePage;
