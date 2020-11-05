@@ -48,9 +48,9 @@ const DuoMobile = ({ duo_image, title, duo_paragraphe, button }) => {
       </div>
       {button !== null ? (
         <div className={styles.button}>
-          <button className="button" href={button.link}>
+          <a className="button" href={button.link}>
             {button.label}
-          </button>
+          </a>
         </div>
       ) : null}
     </div>
