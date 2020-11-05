@@ -4,17 +4,16 @@ import React from 'react';
 
 import ArticleItem from './ArticleItem/ArticleItem.mobile';
 import styles from './Articles.mobile.module.scss';
+import { LinkComponent } from '@/components/commons/Links';
 
 const Articles = ({ articles, position }) => {
   return (
     <div className={styles.container}>
       {articles.map((article, index) => {
         return (
-          <Link href={article.link} key={article.link} passHref>
-            <a key={article.id} className={styles.content}>
-              <ArticleItem article={article} size={index} position={position} />
-            </a>
-          </Link>
+          <LinkComponent link={article.link} key={article.link} extraClasses={[styles.content]}>
+            <ArticleItem article={article} size={index} position={position} />
+          </LinkComponent>
         );
       })}
     </div>

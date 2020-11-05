@@ -3,10 +3,11 @@ import React from 'react';
 
 import ArticleTitle from '../ArticleTitle/ArticleTitle.mobile';
 import styles from './ArticleItem.mobile.module.scss';
+import { LinkComponent } from '@/components/commons/Links';
 
 const ArticleItem = ({ article, size, position }) => {
   return (
-    <a href={article.link}>
+    <LinkComponent link={article.link}>
       <img src={article.image.medium} alt={article.title} className={styles.image} />
       <ArticleTitle
         title={article.title}
@@ -15,7 +16,7 @@ const ArticleItem = ({ article, size, position }) => {
         size={size}
         position={position}
       />
-    </a>
+    </LinkComponent>
   );
 };
 

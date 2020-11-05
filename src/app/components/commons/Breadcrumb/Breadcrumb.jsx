@@ -22,19 +22,20 @@ const Breadcrumb = () => {
         <LinkText link="/">Retour</LinkText>
       </div>
       <div className={styles.breadcrumb}>
-        <LinkText link="https://www.sarenza.com">Accueil</LinkText>
+        <LinkText link="https://www.sarenza.com" absolute>
+          Accueil
+        </LinkText>
       </div>
       <div className={styles.breadcrumb}>
         <LinkText link="/">Magazine</LinkText>
       </div>
-      
 
       {Object.keys(router.query).map((urlKey, i) => {
         return urlKey !== 'isMobile' ? (
           <div key={`${urlKey}${i}`} className={styles.breadcrumb}>
-            <a href={`/${router.query[urlKey]}`} >
+            <LinkText link={`/${router.query[urlKey]}`}>
               {router.query[urlKey].replace(/-/g, ' ')}
-            </a>
+            </LinkText>
           </div>
         ) : null;
       })}
