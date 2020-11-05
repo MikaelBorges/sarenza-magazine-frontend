@@ -86,8 +86,8 @@ const processToHome = (model = {}, rubrique) => {
     },
     firstArticle: processToHomeArticle(aLaUne) || {},
     articles: model.articles.filter((it) => it.id !== aLaUne.id).map(processToHomeArticle),
-    marquee: getMarquee(model, rubrique, 'bottom'),
-    marqueeTop: getMarquee(model, rubrique, 'top'),
+    marquee: getMarquee(model, rubrique, 'bottom') || [],
+    marqueeTop: getMarquee(model, rubrique, 'top') || [],
     displayFirst: getDisplay(model, rubrique, 'top'),
     displaySecond: getDisplay(model, rubrique, 'bottom')
   };
