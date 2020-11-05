@@ -60,5 +60,7 @@
 }
 a.content,
 a.contentThree {
-  text-decoration: none;
+  &:hover {
+    text-decoration: none;
+  }
 }

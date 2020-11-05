@@ -5,7 +5,7 @@ import * as React from 'react';
 
 import { LINK_TYPE } from '../../constants';
 import ChildrenWithIcon from './components/ChildrenWithIcon';
-import styles from './LinkGeneric.module.scss';
+import styles from './LinkGeneric.mobile.module.scss';
 
 const LinkGeneric = ({
   type,
