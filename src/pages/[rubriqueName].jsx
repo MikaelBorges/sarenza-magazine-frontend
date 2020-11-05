@@ -47,7 +47,7 @@ export const getServerSideProps = async (ctx) => {
       menus,
       genders,
       footer,
-      isMobile: true,
+      isMobile: ct.context.device.mobile || false,
       UrlPrefix: ct.context.route.link_prefix
     }
   };
