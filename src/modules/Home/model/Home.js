@@ -30,7 +30,7 @@ const getMarquee = (model, rubrique, type = 'top') => {
 
   const marquees = model.rubriques.find((heading) => heading.url === rubrique);
 
-  if(!marquees){
+  if (!marquees) {
     return false;
   }
   if (type === 'top') {
@@ -41,12 +41,12 @@ const getMarquee = (model, rubrique, type = 'top') => {
 function getDisplay(model, rubrique, type = 'top') {
   if (!rubrique) {
     if (type === 'top') {
-      return model.home.display_components[0].Display || null;
+      return model.home.DisplayTop && model.home.DisplayTop.Display ? model.home.DisplayTop.Display : null;
     }
-    return model.home.display_components[1].Display || null;
+    return model.home.DisplayBottom && model.home.DisplayBottom.Display ? model.home.DisplayBottom.Display : null;
   }
   const rubriqueItem = model.rubriques.find((heading) => heading.url === rubrique);
-  if(!rubriqueItem) {
+  if (!rubriqueItem) {
     return false
   }
   if (type === 'top') {
@@ -65,13 +65,13 @@ const processToRubrique = (model = []) => {
 
 const processToHome = (model = {}, rubrique) => {
   if (!model || !model.articles) return {}
-  
+
   const aLaUne =
     model.articles.find((it) => {
-      return (
+      return (model.home && model.home.ArticleUne) ? (
         model.home.ArticleUne.id === it.id &&
         (it.rubriques.some((r) => r.url === rubrique) || !rubrique)
-      );
+      ) : null;
     }) || model.articles[0];
 
   return {

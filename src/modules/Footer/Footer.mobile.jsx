@@ -17,7 +17,7 @@ const FooterMobile = ({ footer }) => {
     footer ? (
       <footer id="MainFooter">
         <ul className="advantages10reasons gtm-zone" data-track-zone="advantages10reasons">
-          {footer.reassurances.map((reassurance) => {
+          {footer.reassurances && footer.reassurances.map((reassurance) => {
             return <ReassurancesMobile data={reassurance} key={reassurance.id} />;
           })}
         </ul>
@@ -29,7 +29,7 @@ const FooterMobile = ({ footer }) => {
         <ReviewsMobile data={footer.review} />
 
         <nav className="footer-nav" role="navigation">
-          {footer.blockLinks.map((blockLink) => {
+          {footer.blockLinks && footer.blockLinks.map((blockLink) => {
             return <BlockLinksMobile data={blockLink} key={blockLink.id} />;
           })}
 
@@ -39,7 +39,7 @@ const FooterMobile = ({ footer }) => {
         </nav>
 
         <ul className="legal-navigation">
-          {footer.footerLinks.map((footerLink) => {
+          {footer.footerLinks && footer.footerLinks.map((footerLink) => {
             return <FooterLinkMobile data={footerLink} key={footerLink.id} />;
           })}
         </ul>

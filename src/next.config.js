@@ -4,6 +4,12 @@ const API_URL = `${process.env.STRAPI_SERVICE_SCHEME}://${process.env.STRAPI_SER
 
 module.exports = {
   serverRuntimeConfig: {
-    API_URL
-  }
+    API_URL,
+    DEBUG: process.env.DEBUG_ENABLED || !isProd,
+    IS_MOBILE: process.env.IS_MOBILE,
+    IS_DESKTOP: process.env.IS_DESKTOP,
+    IS_TABLET: process.env.IS_TABLET,
+    CDN_PREFIX: process.env.CDN_PREFIX || '',
+  },
+  assetPrefix: process.env.CDN_PREFIX || ''
 };

@@ -6,7 +6,7 @@ const CountrySelectorMobile = ({ data }) => {
   return (
     <>
       {/* Pays courant */}
-      {data
+      {data && data
         .filter((country) => country.isCurrent === true)
         .map((filteredCountry) => (
           <div
@@ -17,7 +17,7 @@ const CountrySelectorMobile = ({ data }) => {
         ))}
       {/* liste des pays sans le pays courant */}
       <ul className="fold sprite-flags">
-        {data
+        {data && data
           .filter((country) => country.isCurrent === null)
           .map((filteredCountry) => (
             <li key={filteredCountry.id}>

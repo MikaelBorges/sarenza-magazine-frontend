@@ -1,10 +1,12 @@
 import Document, { Head, Html, Main, NextScript } from 'next/document';
+import ContextHelper from "utils/contextHelper"
 
 class MyDocument extends Document {
 
   static async getInitialProps(ctx) {
+    const ct = new ContextHelper(ctx)
     const initialProps = await Document.getInitialProps(ctx);
-    return { ...initialProps, isMobile: ctx.query.isMobile };
+    return { ...initialProps, isMobile: ct.context.device.mobile };
   }
 
   render() {

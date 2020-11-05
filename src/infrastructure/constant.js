@@ -1,8 +1,8 @@
 const constant = {
-    footer: { timeout: 200 },
-    menu: { timeout: 200 },
-    home: { timeout: 400 },
-    article: { timeout: 100 },
+    footer: { timeout: 4000 },
+    menu: { timeout: 4000 },
+    home: { timeout: 8000 },
+    article: { timeout: 2000 },
     redirectLocation: `http://www.sarenza.com/system/error`
 }
 

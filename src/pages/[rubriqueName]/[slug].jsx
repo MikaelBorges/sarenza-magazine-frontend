@@ -8,8 +8,6 @@ import { getPageProps } from 'utils/getPageProps';
 import constant from "../../infrastructure/constant"
 import { timeout } from "../../utils/httpUtils"
 
-const { serverRuntimeConfig } = getConfig();
-
 const Article = ({ article, menus, genders, footer, recentArticle, isMobile }) => {
   return (
     <Layout menus={menus} genders={genders} footer={footer} isMobile={isMobile}>
@@ -23,6 +21,7 @@ const Article = ({ article, menus, genders, footer, recentArticle, isMobile }) =
 };
 
 export const getServerSideProps = async ({ res, query }) => {
+  const { serverRuntimeConfig } = getConfig()
   const isMobile = query.isMobile === 'true'
 
   const { slug, rubriqueName } = query;
@@ -32,7 +31,7 @@ export const getServerSideProps = async ({ res, query }) => {
     return { hasError: true }
   })
 
-  if (response.hasError) {
+  if (!serverRuntimeConfig.DEBUG && response.hasError) {
     res.statusCode = 301
     res.setHeader('Location', constant.redirectLocation) // Replace <link> with your url link
     return { props: {} }

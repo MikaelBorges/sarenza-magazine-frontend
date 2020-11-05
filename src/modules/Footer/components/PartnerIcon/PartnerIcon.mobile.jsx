@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 const PartnerIconMobile = ({ data }) => {
   let iconGroup = [];
 
-  data.forEach((partnerIconItem) => {
+  data && data.forEach((partnerIconItem) => {
     if (!iconGroup.some((item) => item.title === partnerIconItem.title)) {
       iconGroup.push({
         title: partnerIconItem.title,

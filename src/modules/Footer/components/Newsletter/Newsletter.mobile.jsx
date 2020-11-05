@@ -6,7 +6,8 @@ import AreaInputMobile from './AreaInput.mobile';
 
 const NewsletterMobile = ({ data }) => {
   return (
-    <form
+    <>
+    {data && <form
       action="/subscription/contest"
       className="subscribe-newsletter"
       method="POST"
@@ -32,7 +33,8 @@ const NewsletterMobile = ({ data }) => {
         key={data.input.id}
       />
       <div className="legal-message">{parse(data.term)}</div>
-    </form>
+    </form>}
+    </>
   );
 };
 

@@ -5,7 +5,7 @@ const SocialMediaMobile = ({ data }) => {
   return (
     <>
       <ul className="list social-media">
-        {data.socialMediaItem.map((item) => {
+        {data && data.socialMediaItem.map((item) => {
           return (
             <li key={item.id}>
               <a

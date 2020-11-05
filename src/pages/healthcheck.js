@@ -6,7 +6,6 @@ export const getServerSideProps = async (ctx) => {
             ...(await healthcheckSSRprops(ctx)).props
         }
     }
-  };
 };
 
 export default Healthcheck;

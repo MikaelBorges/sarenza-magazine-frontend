@@ -6,6 +6,7 @@ import Heading from '@/components/commons/Heading';
 import RubriquesLinks from '../RubriquesLinks/RubriquesLinks';
 import styles from './Header.module.scss';
 
+
 const Header = ({ header }) => {
   return (
     <div className={styles.header}>

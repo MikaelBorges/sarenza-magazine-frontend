@@ -25,19 +25,6 @@ export const HOME_QUERY = gql`
           isShow
         }
       }
-      display_components {
-        id
-        Display {
-          id
-          text
-          whiteTheme
-          button {
-            id
-            label
-            link
-          }
-        }
-      }
     }
     articles(sort: "updated_at:desc", where: { rubriques: { url: $rubriqueName } }) {
       id
@@ -106,6 +93,30 @@ export const HOME_QUERY_ALL = gql`
       ArticleUne {
         id
       }
+      displayBottom {
+        Display {
+          id
+          text
+          whiteTheme
+          button {
+            id
+            label
+            link
+          }
+        }
+      }
+      displayTop {
+        Display {
+          id
+          text
+          whiteTheme
+          button {
+            id
+            label
+            link
+          }
+        }
+      }
       marquee {
         id
         MarqueeComponent {
@@ -120,19 +131,6 @@ export const HOME_QUERY_ALL = gql`
           id
           text
           isShow
-        }
-      }
-      display_components {
-        id
-        Display {
-          id
-          text
-          whiteTheme
-          button {
-            id
-            label
-            link
-          }
         }
       }
     }

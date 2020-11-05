@@ -9,7 +9,7 @@ const style = {
 
 const ReviewsMobile = ({ data }) => {
   return (
-    <section className="reviews">
+    <>{data && <section className="reviews">
       <div
         className="reviews-sarenza googleBc mt-1"
         itemScope
@@ -30,7 +30,7 @@ const ReviewsMobile = ({ data }) => {
           <VotesMobile data={data.votes} />
         </p>
       </div>
-    </section>
+    </section>}</>
   );
 };
 
