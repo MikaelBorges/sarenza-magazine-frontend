@@ -39,7 +39,7 @@ export const getServerSideProps = async (ctx) => {
 
   const homeData = processToHome(data);
 
-  return { props: { homeData, menus, genders, footer, isMobile : ct.context.device.mobile, UrlPrefix: ct.context.route.link_prefix } };
+  return { props: { homeData, menus, genders, footer, isMobile : !!ct.context.device.mobile, UrlPrefix: ct.context.route.link_prefix } };
 };
 
 export default HomePage;

@@ -8,12 +8,12 @@
   outline: none;
 }
 
-#MainNavOverlay {
-  .block {
-    display: block;
-    opacity: 1;
-  }
-}
+.no-touch
+> #MainNavOverlay {
+    width: 1200px;
+   }
+
+
 
 .closer {
   outline: none;
