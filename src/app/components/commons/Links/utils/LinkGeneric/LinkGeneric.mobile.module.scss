@@ -23,7 +23,7 @@
 }
 
 .button {
-  // display: inline-flex;
+  display: inline-block;
   position: relative;
   margin: 0;
   padding: $button-padding;
@@ -34,9 +34,9 @@
   border: 1px solid #d5d5d5;
   text-decoration: none;
   outline: none;
-  align-items: center;
-  user-select: none;
-  vertical-align: middle;
+  // align-items: center;
+  // user-select: none;
+  // vertical-align: middle;
   // justify-content: center;
   background-color: $button-bg;
   //transition: all 0.2s ease-in;
@@ -44,7 +44,7 @@
   &:not(:disabled) {
     &:hover,
     &:active {
-      // border: 1px transparent;
+      border: 1px transparent;
       background: #f2f2f2;
       //font-family: RobotoC;
       font-weight: bold;
@@ -52,7 +52,7 @@
       cursor: pointer;
     }
     &:active {
-      //border: 1px transparent;
+      border: 1px transparent;
       background: #f2f2f2;
       //font-family: RobotoC;
       font-weight: bold;
@@ -80,5 +80,5 @@
 
 svg + .buttonLabel,
 .buttonLabel + svg {
- // margin-left: 5px;
+  // margin-left: 5px;
 }

@@ -20,7 +20,7 @@ const ShoppingList = ({ vignette, title, description, button }) => {
     ]
   };
   return (
-    <div className={styles.shoppingList_mobile}>
+    <div className={styles.shoppingList}>
       <h2 className="title-edito2">{title}</h2>
       <p className={styles.intro}>{description}</p>
       <div className={styles.SliderContainer}>
@@ -31,7 +31,10 @@ const ShoppingList = ({ vignette, title, description, button }) => {
         </Slider>
       </div>
       {button !== null ? (
-        <button type="button" className={`button ${styles.buttonShoppingList_mobile}`} href={button.link}>
+        <button
+          type="button"
+          className={`button ${styles.buttonShoppingList_mobile}`}
+          href={button.link}>
           {button.label}
         </button>
       ) : null}

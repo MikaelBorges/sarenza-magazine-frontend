@@ -12,8 +12,8 @@ $button-hover-color: $color-white !default;
 
 .button {
   box-sizing: border-box;
-  white-space: nowrap;
-  display: inline-flex;
+  //white-space: nowrap;
+  display: inline-block;
   position: relative;
   margin: 0;
   line-height: 1.75;
