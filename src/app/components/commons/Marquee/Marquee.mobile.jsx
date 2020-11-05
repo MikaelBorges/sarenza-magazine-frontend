@@ -6,7 +6,8 @@ import styles from './Marquee.mobile.module.scss';
 
 const Marquee = ({ marquee }) => {
   return (
-    marquee && (
+    marquee &&
+    marquee.text && (
       <div className={styles.toto}>
         <div
           className={classnames([styles.animate, styles.marquee], {

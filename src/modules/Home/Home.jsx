@@ -29,7 +29,9 @@ const Home = ({ data }) => {
                 />
               )}
 
-              <Articles articles={articles.slice(0, 5)} position={1} />
+              {articles.slice(0, 5).length > 0 && (
+                <Articles articles={articles.slice(0, 5)} position={1} />
+              )}
               {data.displayFirst && (
                 <Display
                   text={data.displayFirst.text}
@@ -41,17 +43,20 @@ const Home = ({ data }) => {
                 />
               )}
 
-              <Articles articles={articles.slice(5, 10)} position={2} />
-              {data.displaySecond && (
-                <Display
-                  text={data.displaySecond.text}
-                  button={{
-                    label: data.displaySecond.button.label,
-                    url: data.displaySecond.button.link
-                  }}
-                  whiteTheme={data.displaySecond.whiteTheme}
-                />
+              {articles.slice(5, 10).length > 0 && (
+                <Articles articles={articles.slice(5, 10)} position={2} />
               )}
+              {data.displaySecond &&
+                data.displaySecond.text(
+                  <Display
+                    text={data.displaySecond.text}
+                    button={{
+                      label: data.displaySecond.button.label,
+                      url: data.displaySecond.button.link
+                    }}
+                    whiteTheme={data.displaySecond.whiteTheme}
+                  />
+                )}
               {data.marquee ? (
                 <Marquee
                   marquee={{

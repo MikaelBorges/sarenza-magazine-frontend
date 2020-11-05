@@ -34,9 +34,19 @@ const getMarquee = (model, rubrique, type = 'top') => {
     return false;
   }
   if (type === 'top') {
-    return marquees.marquee_top && marquees.marquee_top.MarqueeComponent;
+    return (
+      (marquees.marquee_top &&
+        marquees.marquee_top.MarqueeComponent.length > 0 &&
+        marquees.marquee_top.MarqueeComponent) ||
+      null
+    );
   }
-  return marquees.marquee_bottom && marquees.marquee_bottom.MarqueeComponent;
+  return (
+    (marquees.marquee_bottom &&
+      marquees.marquee_bottom.MarqueeComponent.length > 0 &&
+      marquees.marquee_bottom.MarqueeComponent) ||
+    null
+  );
 };
 function getDisplay(model, rubrique, type = 'top') {
   if (!rubrique) {
