@@ -91,8 +91,8 @@ const Menu = ({ menus, genders }) => {
                       onKeyPress={() => {}}
                       tabIndex={-2}>
                       <a
-                        href="/chaussure-"
-                        onClick={(e) => {
+                          href={`/chaussure-${gender.gender}`}
+                          onClick={(e) => {
                           e.preventDefault();
                         }}
                         onKeyPress={() => {}}
