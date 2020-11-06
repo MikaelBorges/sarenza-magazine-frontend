@@ -39,7 +39,7 @@ const Menu = ({ menus, genders }) => {
             }}>
             Menu
           </div>
-          <div id="MainNavOverlay" style={{ display: 'none', opacity: 1, width: "1200px" }} />
+          <div id="MainNavOverlay" style={{ display: 'none', opacity: 1, width: '1200px' }} />
           {/* Logo */}
           <a href="/" className="sprited logo" data-track-label="Logo">
             Chaussures et sacs sarenza.com
@@ -81,9 +81,8 @@ const Menu = ({ menus, genders }) => {
                         onClick={() => addActive(gender.id)}
                         key={gender.id}>
                         <a
-                          href="/chaussure-"
-                          onClick={(e) => {
-                            e.preventDefault();
+                          href={`/chaussure-${gender.gender.toLowerCase()}`}
+                          onClick={() => {
                           }}>
                           {gender.gender}
                         </a>
