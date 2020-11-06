@@ -82,8 +82,7 @@ const Menu = ({ menus, genders }) => {
                         key={gender.id}>
                         <a
                           href={`/chaussure-${gender.gender}`}
-                          onClick={(e) => {
-                            e.preventDefault();
+                          onClick={() => {
                           }}>
                           {gender.gender}
                         </a>
