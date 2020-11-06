@@ -81,7 +81,7 @@ const Menu = ({ menus, genders }) => {
                         onClick={() => addActive(gender.id)}
                         key={gender.id}>
                         <a
-                          href={`/chaussure-${gender.gender}`}
+                          href={`/chaussure-${gender.gender.toLowerCase()}`}
                           onClick={() => {
                           }}>
                           {gender.gender}
