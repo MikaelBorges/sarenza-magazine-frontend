@@ -2,12 +2,16 @@ import { createWrapper, HYDRATE } from 'next-redux-wrapper';
 import { createStore } from 'redux';
 
 // create your reducer
-const reducer = (state = { tick: 'init' }, action) => {
+const reducer = (state = { tick: 'init', article: undefined, rubriques: undefined }, action) => {
   switch (action.type) {
     case HYDRATE:
       return { ...state, ...action.payload };
     case 'TICK':
       return { ...state, tick: action.payload };
+    case 'ARTICLE_SUCCESS':
+      return { ...state, article: action.article };
+    case 'RUBRIQUE_SUCCESS':
+      return { ...state, rubriques: action.rubriques };
     default:
       return state;
   }

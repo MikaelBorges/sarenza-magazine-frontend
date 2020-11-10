@@ -1,11 +1,12 @@
 import { useRouter } from 'next/router';
 // import PropTypes from 'prop-types';
 import React from 'react';
+import { connect } from 'react-redux';
 
 import { LinkText } from '../Links';
 import styles from './Breadcrumb.module.scss';
 
-const Breadcrumb = () => {
+const Breadcrumb = ({ article }) => {
   const router = useRouter();
   const handleClick = (e) => {
     e.preventDefault();
@@ -34,7 +35,7 @@ const Breadcrumb = () => {
         return urlKey !== 'isMobile' ? (
           <div key={`${urlKey}${i}`} className={styles.breadcrumb}>
             <LinkText link={`/${router.query[urlKey]}`}>
-              {router.query[urlKey].replace(/-/g, ' ')}
+              {getLabel(urlKey, article, router)}
             </LinkText>
           </div>
         ) : null;
@@ -56,4 +57,13 @@ const Breadcrumb = () => {
 //   breadcrumbs: []
 // };
 
-export default Breadcrumb;
+export default connect((state) => {
+  return state;
+})(Breadcrumb);
+function getLabel(urlKey, article, router) {
+  if (article) {
+    if (urlKey === 'slug') return article.title;
+    if (urlKey === 'rubriqueName') return article.rubrique.rubrique;
+  }
+  return router.query[urlKey].replace(/-/g, ' ');
+}
