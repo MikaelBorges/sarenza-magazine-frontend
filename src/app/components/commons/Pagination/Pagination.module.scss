@@ -1,0 +1,15 @@
+.pagination {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+}
+
+.button {
+  border: none;
+}
+
+.active {
+  border: 1px solid black;
+  color: black;
+  font-weight: 700;
+}
