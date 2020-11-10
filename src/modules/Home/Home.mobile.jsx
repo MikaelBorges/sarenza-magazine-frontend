@@ -70,6 +70,8 @@ const Home = ({ data }) => {
           )}
         />
       )}
+      <Articles articles={data.articles.slice(10, 12)} position={1} />
+      <Pagination totalRecords={50} pageLimit={5} />
     </>
   );
 };

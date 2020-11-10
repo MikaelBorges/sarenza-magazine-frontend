@@ -133,17 +133,19 @@ class Pagination extends Component {
     return (
       <Fragment>
         Page {currentPage} / {this.totalPages}
-        <nav aria-label="Article Pagination">
-          <ul className={styles.pagination}>
+        <nav aria-label="Article Pagination" className={styles.nav}>
+          <ul className={styles.ul}>
             {pages.map((page, index) => {
               if (page === LEFT_PAGE)
                 return (
                   <li key={index} className="page-item">
                     <LinkButton
                       disabled={currentPage === 1}
+                      pagination
                       link="?test=1"
                       className="page-link"
                       aria-label="Previous"
+                      first
                       onClick={this.handleMoveLeft}>
                       <span className="sr-only">Précédent</span>
                     </LinkButton>
@@ -158,6 +160,8 @@ class Pagination extends Component {
                       noLink
                       className="page-link"
                       aria-label="Next"
+                      pagination
+                      last
                       onClick={this.handleMoveRight}>
                       <span className="sr-only">Suivant</span>
                     </LinkButton>
@@ -172,6 +176,7 @@ class Pagination extends Component {
                     })}
                     disabled={currentPage === page || page === '...'}
                     onClick={this.handleClick(page)}
+                    pagination
                     noLink>
                     {page}
                   </LinkButton>
