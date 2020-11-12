@@ -8,6 +8,7 @@ import { getPageProps } from 'utils/getPageProps';
 import constant from '../../infrastructure/constant';
 import { timeout } from '../../utils/httpUtils';
 import ContextHelper from 'utils/ContextHelper';
+import wrapper from '../../app/store';
 
 const Article = ({ article, menus, genders, footer, recentArticle, isMobile }) => {
   return (
@@ -21,7 +22,7 @@ const Article = ({ article, menus, genders, footer, recentArticle, isMobile }) =
   );
 };
 
-export const getServerSideProps = async (ctx) => {
+export const getServerSideProps = wrapper.getServerSideProps(async (ctx) => {
   const { serverRuntimeConfig } = getConfig();
 
   const { slug, rubriqueName } = ctx.query;
@@ -54,9 +55,11 @@ export const getServerSideProps = async (ctx) => {
     )
   ).json();
 
+  const article = ArticleModel(data[0]);
+  ctx.store.dispatch({ type: 'ARTICLE_SUCCESS', article });
   return {
     props: {
-      article: ArticleModel(data[0]),
+      article,
       recentArticle: ArticlesModel(recentArticle.filter((item) => item.url !== slug).slice(0, 3)),
       menus,
       genders,
@@ -64,6 +67,6 @@ export const getServerSideProps = async (ctx) => {
       isMobile: ct.context.device.mobile || false
     }
   };
-};
+});
 
 export default Article;

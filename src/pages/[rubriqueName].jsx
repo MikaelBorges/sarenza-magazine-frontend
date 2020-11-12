@@ -8,6 +8,7 @@ import HomeMobile from '../modules/Home/Home.mobile';
 import constant from '../infrastructure/constant';
 import ContextHelper from 'utils/ContextHelper';
 import Layout from 'modules/Layout/Layout';
+import wrapper from '../app/store';
 
 const ArticleList = ({ rubriques, menus, genders, footer, isMobile }) => {
   return (
@@ -17,7 +18,7 @@ const ArticleList = ({ rubriques, menus, genders, footer, isMobile }) => {
   );
 };
 
-export const getServerSideProps = async (ctx) => {
+export const getServerSideProps = wrapper.getServerSideProps(async (ctx) => {
   const { res } = ctx;
 
   const ct = new ContextHelper(ctx);
@@ -41,6 +42,8 @@ export const getServerSideProps = async (ctx) => {
 
   const rubriques = processToHome(data, ctx.query.rubriqueName);
 
+  ctx.store.dispatch({ type: 'RUBRIQUE_SUCCESS', rubriques });
+
   return {
     props: {
       rubriques,
@@ -51,6 +54,6 @@ export const getServerSideProps = async (ctx) => {
       UrlPrefix: ct.context.route.link_prefix
     }
   };
-};
+});
 
 export default ArticleList;
