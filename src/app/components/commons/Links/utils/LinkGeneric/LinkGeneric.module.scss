@@ -9,6 +9,10 @@
       cursor: pointer;
     }
   }
+  &.disabled {
+    color: black;
+    pointer-events: none;
+  }
 }
 
 .link {

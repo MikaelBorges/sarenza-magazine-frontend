@@ -6,12 +6,13 @@ import { connect } from 'react-redux';
 import { LinkText } from '../Links';
 import styles from './Breadcrumb.module.scss';
 
-const Breadcrumb = ({ article }) => {
+const Breadcrumb = ({ article, rubriques }) => {
   const router = useRouter();
   const handleClick = (e) => {
     e.preventDefault();
     router.back();
   };
+  const urlKeys = Object.keys(router.query);
   return (
     <>
       <div
@@ -31,11 +32,11 @@ const Breadcrumb = ({ article }) => {
         <LinkText link="/">Magazine</LinkText>
       </div>
 
-      {Object.keys(router.query).map((urlKey, i) => {
+      {urlKeys.map((urlKey, i) => {
         return urlKey !== 'isMobile' ? (
           <div key={`${urlKey}${i}`} className={styles.breadcrumb}>
-            <LinkText link={`/${router.query[urlKey]}`}>
-              {getLabel(urlKey, article, router)}
+            <LinkText link={`/${router.query[urlKey]}`} disabled={urlKeys.length === i + 1}>
+              {getLabel(urlKey, article, rubriques, router)}
             </LinkText>
           </div>
         ) : null;
@@ -60,10 +61,15 @@ const Breadcrumb = ({ article }) => {
 export default connect((state) => {
   return state;
 })(Breadcrumb);
-function getLabel(urlKey, article, router) {
+function getLabel(urlKey, article, rubriques, router) {
   if (article) {
     if (urlKey === 'slug') return article.title;
     if (urlKey === 'rubriqueName') return article.rubrique.rubrique;
+  }
+  if (rubriques) {
+    if (urlKey === 'rubriqueName') {
+      return rubriques.header.rubriques.find((r) => router.query[urlKey] === r.url).name;
+    }
   }
   return router.query[urlKey].replace(/-/g, ' ');
 }
