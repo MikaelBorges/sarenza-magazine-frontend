@@ -29,7 +29,7 @@ const Breadcrumb = ({ article, rubriques }) => {
         </LinkText>
       </div>
       <div className={styles.breadcrumb}>
-        <LinkText link="/">Magazine</LinkText>
+        <LinkText link="/" disabled={urlKeys.length==0}>Magazine</LinkText>
       </div>
 
       {urlKeys.map((urlKey, i) => {
