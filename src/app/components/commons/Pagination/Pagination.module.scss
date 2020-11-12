@@ -1,0 +1,69 @@
+.nav{
+  margin: 64px 0 40px;
+}
+.ul {
+  display: inline-flex;
+  flex-direction: row;
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+    > li {
+      flex: 0 1 auto;
+      align-self: center;
+    }
+}
+
+.button {
+  border: none;
+  color: #999999;
+  font-family: robotoc;
+  font-weight: bold;
+  font-size: 12px;
+  letter-spacing: -0.34px;
+  width: 40px;
+  height: 40px;
+  display: inline;
+  vertical-align: middle;
+  padding: 0 !important;
+  margin: 0 !important;
+
+  &:not(:disabled) {
+    &:hover,
+     &:active{
+      border: 1px solid #f2f2f2 !important;
+      font-family: robotoc;
+      font-weight: bold !important;
+      font-size: 12px !important;
+      color: #000000 !important;
+      letter-spacing: -0.34px !important;
+      text-align: center;
+      background: none !important;
+      text-shadow: none !important;
+    }
+   }
+}
+
+.active {
+  border: 1px solid #f2f2f2 !important;
+  font-family: robotoc;
+  font-weight: bold !important;
+  font-size: 12px !important;
+  color: #000000 !important;
+  letter-spacing: -0.34px !important;
+  text-align: center;
+}
+.first{
+  margin-right: 24px !important;
+  margin-left: 0 !important;
+}
+.last{
+  margin-left: 24px !important;
+  margin-right: 0 !important;
+}
+//mobOnly
+.total{
+  font-size: 18px;
+  line-height: 40px;
+  font-family: robotoc;
+  font-weight: bold;
+}

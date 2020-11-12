@@ -28,7 +28,10 @@ const LinkGeneric = ({
   iconAfter,
   title,
   children,
-  dataTestid
+  dataTestid,
+  pagination,
+  first,
+  last
 }) => {
   const childrenLabel = children && <span className={styles.buttonLabel}>{children}</span>;
 
@@ -39,6 +42,9 @@ const LinkGeneric = ({
       [styles.link]: type === LINK_TYPE.TEXT,
       [styles.button]: type === LINK_TYPE.BUTTON,
       [styles.disabled]: disabled,
+      [styles.pagination]: pagination,
+      [styles.first]: first,
+      [styles.last]: last,
       [styles[componentCustomClass]]: componentCustomClass
     },
     ...(baseLinkStyle || [{ 0: 'default' }])
@@ -50,6 +56,9 @@ const LinkGeneric = ({
       className: cssClasses,
       ...extraParameters,
       disabled
+      pagination,
+      first,
+      last
     };
 
     return absolute ? (
@@ -83,6 +92,9 @@ const LinkGeneric = ({
           onKeyDown={onKeyDown}
           onClick={onClick}
           disabled={disabled}
+          pagination={pagination}
+            first={first}
+            last={last}
           className={cssClasses}
           data-testid={dataTestid}>
           {iconName ? (
@@ -105,6 +117,12 @@ LinkGeneric.propTypes = {
   disabled:
     PropTypes.bool /* if true, the item is disabled, the mouse has a forbidden pointer and
     the links do not work */,
+    pagination:
+    PropTypes.bool,
+    first:
+    PropTypes.bool,
+    last:
+    PropTypes.bool,
   onClick: PropTypes.func /* function describing the behaviour of the item when clicked on */,
   onFocus: PropTypes.func,
   onKeyDown: PropTypes.func,
@@ -164,7 +182,10 @@ LinkGeneric.defaultProps = {
   iconAfter: false,
   children: undefined,
   title: '',
-  dataTestid: ''
+  dataTestid: '',
+  pagination: false,
+  first:false,
+   last:false
 };
 
 export default LinkGeneric;
