@@ -22,7 +22,6 @@ const Home = ({ data }) => {
           }}
         />
       )}
-
       {data.articles.slice(0, 5).length > 0 && (
         <Articles articles={data.articles.slice(0, 5)} position={1} />
       )}
@@ -36,7 +35,6 @@ const Home = ({ data }) => {
           whiteTheme={data.displayFirst.whiteTheme}
         />
       )}
-
       {data.articles.slice(5, 10).length > 0 && (
         <Articles articles={data.articles.slice(5, 10)} position={2} />
       )}
@@ -62,7 +60,7 @@ const Home = ({ data }) => {
         />
       ) : null}
       <Articles articles={data.articles.slice(10, 12)} position={1} />
-      <Pagination totalRecords={50} pageLimit={5} isMobile={false}/>
+      <Pagination totalRecords={24} pageLimit={10} isMobile={false} />
     </>
   );
 };
