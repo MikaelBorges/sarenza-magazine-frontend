@@ -11,67 +11,57 @@ import Header from './components/Header/Header.mobile';
 const Home = ({ data }) => {
   return (
     <>
-      {data && (
-        <Pagination
-          data={data.articles}
-          renderContent={(articles) => (
-            <>
-              <Header header={data.header} />
-              <MainComponent article={data.firstArticle} />
-              {data.marqueeTop && (
-                <Marquee
-                  marquee={{
-                    fastAnimation: false,
-                    slowAnimation: false,
-                    text: data.marqueeTop.text
-                  }}
-                />
-              )}
-              {articles.slice(0, 5).length > 0 && (
-                <Articles articles={articles.slice(0, 5)} position={1} />
-              )}
-              {data.displayFirst && (
-                <Display
-                  text={data.displayFirst.text}
-                  button={
-                    data.displayFirst.button && {
-                      label: data.displayFirst.button.label,
-                      url: data.displayFirst.button.link
-                    }
-                  }
-                  whiteTheme={data.displayFirst.whiteTheme}
-                />
-              )}
-              {articles.slice(5, 10).length > 0 && (
-                <Articles articles={articles.slice(5, 10)} position={2} />
-              )}
-              {data.displaySecond && (
-                <Display
-                  text={data.displaySecond.text}
-                  button={
-                    data.displaySecond.button && {
-                      label: data.displaySecond.button.label,
-                      url: data.displaySecond.button.link
-                    }
-                  }
-                  whiteTheme={data.displaySecond.whiteTheme}
-                />
-              )}
-              {data.marquee && (
-                <Marquee
-                  marquee={{
-                    fastAnimation: false,
-                    slowAnimation: false,
-                    text: data.marquee.text
-                  }}
-                />
-              )}
-            </>
-          )}
+      <Header header={data.header} /> 
+      <MainComponent article={data.firstArticle} />
+      {data.marqueeTop && (
+        <Marquee
+          marquee={{
+            fastAnimation: false,
+            slowAnimation: false,
+            text: data.marqueeTop.text
+          }}
         />
       )}
+      {data.articles.slice(0, 5).length > 0 && <Articles articles={data.articles.slice(0, 5)} position={1} />}
+      {data.displayFirst && (
+        <Display
+          text={data.displayFirst.text}
+          button={
+            data.displayFirst.button && {
+              label: data.displayFirst.button.label,
+              url: data.displayFirst.button.link
+            }
+          }
+          whiteTheme={data.displayFirst.whiteTheme}
+        />
+      )}
+      {data.articles.slice(5, 10).length > 0 && (
+        <Articles articles={data.articles.slice(5, 10)} position={2} />
+      )}
+      {data.displaySecond && (
+        <Display
+          text={data.displaySecond.text}
+          button={
+            data.displaySecond.button && {
+              label: data.displaySecond.button.label,
+              url: data.displaySecond.button.link
+            }
+          }
+          whiteTheme={data.displaySecond.whiteTheme}
+        />
+      )}
+      {data.marquee && (
+        <Marquee
+          marquee={{
+            fastAnimation: false,
+            slowAnimation: false,
+            text: data.marquee.text
+          }}
+        />
+      )}
+
       <Articles articles={data.articles.slice(10, 12)} position={1} />
-      <Pagination totalRecords={50} pageLimit={5} />
+      <Pagination totalRecords={50} pageLimit={5} isMobile={true}/>
     </>
   );
 };

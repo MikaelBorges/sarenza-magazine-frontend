@@ -40,7 +40,6 @@ class Pagination extends Component {
 
   componentDidMount() {
     this.gotoPage(1);
-    console.log('this.props', this.props);
   }
 
   gotoPage = (page) => {
@@ -86,7 +85,6 @@ class Pagination extends Component {
       const startPage = Math.max(2, currentPage - pageNeighbours);
       const endPage = Math.min(totalPages - 1, currentPage + pageNeighbours);
       let pages = range(startPage, endPage);
-      console.log('Pagination -> fetchPageNumbers -> pages', pages);
 
       /**
        * hasLeftSpill: has hidden pages to the left
@@ -132,17 +130,45 @@ class Pagination extends Component {
 
     return (
       <Fragment>
-        Page {currentPage} / {this.totalPages}
         <nav aria-label="Article Pagination" className={styles.nav}>
           <ul className={styles.ul}>
-            {pages.map((page, index) => {
+         { this.props.isMobile ? (
+           <>
+              <li className="page-item">
+              <LinkButton
+                disabled={currentPage === 1}
+                pagination
+                className="page-link"
+                aria-label="Previous"
+                first
+                onClick={this.handleMoveLeft}>
+                <span className="sr-only">Précédent</span>
+              </LinkButton>
+            </li>
+                <li className={styles.total}>
+                  Page {currentPage} sur {this.totalPages}
+                </li>
+                <li className="page-item">
+                    <LinkButton
+                      disabled={currentPage === this.totalPages}
+                      noLink
+                      className="page-link"
+                      aria-label="Next"
+                      pagination
+                      last
+                      onClick={this.handleMoveRight}>
+                      <span className="sr-only">Suivant</span>
+                    </LinkButton>
+                  </li>
+                </>
+              ) : 
+            pages.map((page, index) => {
               if (page === LEFT_PAGE)
                 return (
                   <li key={index} className="page-item">
                     <LinkButton
                       disabled={currentPage === 1}
                       pagination
-                      link="?test=1"
                       className="page-link"
                       aria-label="Previous"
                       first
