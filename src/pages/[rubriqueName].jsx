@@ -10,10 +10,10 @@ import ContextHelper from 'utils/ContextHelper';
 import Layout from 'modules/Layout/Layout';
 import wrapper from '../app/store';
 
-const ArticleList = ({ rubriques, menus, genders, footer, isMobile }) => {
+const ArticleList = ({ rubriques, menus, genders, footer, isMobile, isRubrique }) => {
   return (
     <Layout menus={menus} genders={genders} footer={footer} isMobile={isMobile}>
-      {isMobile ? <HomeMobile data={rubriques} /> : <Home data={rubriques} />}
+      {isMobile ? <HomeMobile data={rubriques} isRubrique/> : <Home data={rubriques} isRubrique/>}
     </Layout>
   );
 };
@@ -41,12 +41,15 @@ export const getServerSideProps = wrapper.getServerSideProps(async (ctx) => {
   const { menus, genders, footer } = await getPageProps();
 
   const rubriques = processToHome(data, ctx.query.rubriqueName);
+  const isRubrique = ctx.query.rubriqueName;
+
 
   ctx.store.dispatch({ type: 'RUBRIQUE_SUCCESS', rubriques });
 
   return {
     props: {
       rubriques,
+      isRubrique,
       menus,
       genders,
       footer,
