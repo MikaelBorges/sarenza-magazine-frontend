@@ -8,11 +8,11 @@ import Articles from './components/Articles/Articles';
 import MainComponent from './components/Articles/MainComponent/MainComponent';
 import Header from './components/Header/Header';
 
-const Home = ({ data }) => {
+const Home = ({ data, isRubrique }) => {
   return (
     <>
       <Header header={data.header} />
-      <MainComponent article={data.firstArticle} />
+      <MainComponent article={data.firstArticle} isRubrique={isRubrique}/>
       {data.marqueeTop && (
         <Marquee
           marquee={{

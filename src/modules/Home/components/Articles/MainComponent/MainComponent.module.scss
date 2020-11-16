@@ -30,6 +30,27 @@
     width: 33%;
     height: 310px;
   }
+  &HP{
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    z-index: 2;
+    background-color: $color-white;
+    width: 43%;
+    height: 230px;
+    text-align: left;
+    line-height: 36px;
+    font-weight: bold;
+    padding: 1% 2.8%;
+    @media screen and (min-width: 975px) {
+      width: 33%;
+      height: 310px;
+    }
+  }
 }
 .containerOne {
   width: 69.1%;
@@ -43,6 +64,18 @@
     max-height: 452px;
   }
   //left: inherit;
+  &HP{
+    width: 69.1%;
+    max-height: 273px;
+    position: absolute;
+    left: 0;
+    overflow: hidden;
+    max-width: 459px;
+    @media screen and (min-width: 975px) {
+      max-width: 829px;
+      max-height: 452px;
+    }
+  }
 }
 .image {
   position: relative;
