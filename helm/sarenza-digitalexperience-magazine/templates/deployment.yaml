@@ -26,24 +26,24 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env: 
             - name: STRAPI_SERVICE_HOST
-              value: "strapi-sarenza-digitalexperience-cms-strapi"
+              value: "strapi-dev-sarenza-digitalexperience-cms-strapi"
             - name: STRAPI_SERVICE_PORT
               value: "80"
             - name: STRAPI_SERVICE_SCHEME
               value: "http"
-            - name: CDN_PREFIX
-              value: "/magazine"
+            # - name: CDN_PREFIX
+            #   value: "/magazine"
           ports:
             - name: http
               containerPort: 3000
               protocol: TCP
           livenessProbe:
             httpGet:
-              path: /
+              path: /healthcheck
               port: http
           readinessProbe:
             httpGet:
-              path: /
+              path: /healthcheck
               port: http
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
