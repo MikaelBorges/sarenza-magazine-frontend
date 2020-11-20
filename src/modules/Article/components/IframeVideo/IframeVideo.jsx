@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Image } from './Image/Image';
-import styles from 'IframeVideo.scss'
+import styles from './IframeVideo.module.scss'
+import Image from '@/components/commons/Image/Image';
 
 const IframeVideo = ({ src, iframe }) => {
     const [play, setPlay] = useState(!src);
