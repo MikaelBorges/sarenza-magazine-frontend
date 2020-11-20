@@ -8,16 +8,17 @@ import HomeMobile from '../modules/Home/Home.mobile';
 import constant from '../infrastructure/constant';
 import ContextHelper from 'utils/ContextHelper';
 import Layout from 'modules/Layout/Layout';
+import wrapper from '../app/store';
 
-const ArticleList = ({ rubriques, menus, genders, footer, isMobile }) => {
+const ArticleList = ({ rubriques, menus, genders, footer, isMobile, isRubrique }) => {
   return (
     <Layout menus={menus} genders={genders} footer={footer} isMobile={isMobile}>
-      {isMobile ? <HomeMobile data={rubriques} /> : <Home data={rubriques} />}
+      {isMobile ? <HomeMobile data={rubriques} isRubrique/> : <Home data={rubriques} isRubrique/>}
     </Layout>
   );
 };
 
-export const getServerSideProps = async (ctx) => {
+export const getServerSideProps = wrapper.getServerSideProps(async (ctx) => {
   const { res } = ctx;
 
   const ct = new ContextHelper(ctx);
@@ -40,10 +41,15 @@ export const getServerSideProps = async (ctx) => {
   const { menus, genders, footer } = await getPageProps();
 
   const rubriques = processToHome(data, ctx.query.rubriqueName);
+  const isRubrique = ctx.query.rubriqueName;
+
+
+  ctx.store.dispatch({ type: 'RUBRIQUE_SUCCESS', rubriques });
 
   return {
     props: {
       rubriques,
+      isRubrique,
       menus,
       genders,
       footer,
@@ -51,6 +57,6 @@ export const getServerSideProps = async (ctx) => {
       UrlPrefix: ct.context.route.link_prefix
     }
   };
-};
+});
 
 export default ArticleList;

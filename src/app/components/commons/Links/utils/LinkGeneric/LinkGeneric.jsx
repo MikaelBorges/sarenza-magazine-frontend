@@ -31,7 +31,11 @@ const LinkGeneric = ({
   iconAfter,
   title,
   children,
-  dataTestid
+  dataTestid,
+  pagination,
+  first,
+  last
+  
 }) => {
   const linkPrefix = serverRuntimeConfig.CDN_PREFIX || '';
   link = absolute ? link : (linkPrefix ? linkPrefix : '') + link;
@@ -44,6 +48,9 @@ const LinkGeneric = ({
       [styles.link]: type === LINK_TYPE.TEXT,
       [styles.button]: type === LINK_TYPE.BUTTON,
       [styles.disabled]: disabled,
+      [styles.pagination]: pagination,
+      [styles.first]: first,
+      [styles.last]: last,
       [styles[componentCustomClass]]: componentCustomClass
     },
     ...(baseLinkStyle || [{ 0: 'default' }])
@@ -54,7 +61,10 @@ const LinkGeneric = ({
       target: newTab ? '_blank' : undefined,
       className: cssClasses,
       ...extraParameters,
-      disabled
+      disabled,
+      pagination,
+      first,
+      last
     };
 
     return absolute ? (
@@ -90,6 +100,9 @@ const LinkGeneric = ({
             onClick={onClick}
             disabled={disabled}
             className={cssClasses}
+            pagination={pagination}
+            first={first}
+            last={last}
             data-testid={dataTestid}>
             {iconName ? (
               <ChildrenWithIcon
@@ -114,6 +127,9 @@ const LinkGeneric = ({
         onKeyDown={onKeyDown}
         onClick={onClick}
         disabled={disabled}
+        pagination={pagination}
+        first={first}
+        last={last}
         className={cssClasses}
         data-testid={dataTestid}>
         {iconName ? (
@@ -135,6 +151,12 @@ LinkGeneric.propTypes = {
   disabled:
     PropTypes.bool /* if true, the item is disabled, the mouse has a forbidden pointer and
     the links do not work */,
+    pagination:
+    PropTypes.bool,
+    first:
+    PropTypes.bool,
+    last:
+    PropTypes.bool,
   onClick: PropTypes.func /* function describing the behaviour of the item when clicked on */,
   onFocus: PropTypes.func,
   onKeyDown: PropTypes.func,
@@ -177,6 +199,7 @@ LinkGeneric.defaultProps = {
   type: LINK_TYPE.TEXT,
   // I put undefined values here so that the created objects do not contain null entries
   disabled: false,
+  pagination: false,
   onClick: undefined,
   onFocus: undefined,
   onKeyDown: undefined,
@@ -196,7 +219,9 @@ LinkGeneric.defaultProps = {
   iconAfter: false,
   children: undefined,
   title: '',
-  dataTestid: ''
+  dataTestid: '',
+  first:false,
+  last:false
 };
 
 export default LinkGeneric;

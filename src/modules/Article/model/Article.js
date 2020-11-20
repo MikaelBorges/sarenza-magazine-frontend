@@ -12,6 +12,7 @@ export function ArticleModel(model = {}) {
     publishDate: new Date(model.updated_at).toLocaleDateString('fr-FR'),
     author: model.author || '',
     subtitle: model.subtitle || '',
+    rubrique: model.rubriques[0],
     link: (model.rubriques && `/${model.rubriques[0].url}/${model.url}`) || ''
   };
 }
