@@ -5,7 +5,6 @@ import React from 'react';
 
 import styles from './Article.module.scss';
 import Banner from './components/Banner/Banner';
-// import IframeVideo from './components/IframeVideo/IframeVideo';
 import ReadMore from './components/ReadMore/ReadMore';
 import { getComponent } from './config/LoadableComponent';
 
@@ -26,7 +25,6 @@ const Article = ({ article, recentArticle }) => {
         {article.modules && article.modules.map((item, i) => {
           return getComponent(item, i);
         })}
-        {/* <IframeVideo iframe={article.video.iframe} /> */}
         {recentArticle && recentArticle.length > 0 && <ReadMore articles={recentArticle} />}
       </div>
     ) : (

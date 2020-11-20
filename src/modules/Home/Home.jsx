@@ -9,6 +9,7 @@ import MainComponent from './components/Articles/MainComponent/MainComponent';
 import Header from './components/Header/Header';
 
 const Home = ({ data, isRubrique }) => {
+  console.log(data);
   return (
     <>
       <Header header={data.header} />

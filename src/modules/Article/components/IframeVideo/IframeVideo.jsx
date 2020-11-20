@@ -6,11 +6,10 @@ const IframeVideo = ({ src, iframe }) => {
     const [play, setPlay] = useState(!src);
     return (
         <div
-            className="video"
-            style={styles.video}>
+            className={styles.video}>
             {play ? (
                 <iframe
-                    style={styles.iframe}
+                    className={styles.iframe}
                     src={iframe}
                     frameBorder="0"
                 />
