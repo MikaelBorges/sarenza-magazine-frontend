@@ -36,7 +36,6 @@ export default class ContextHelper {
 
     parseRequest(req) {
         if (!req) return {}
-        debugger
         const { headers } = req
         if (headers) {
             this.context.device["mobile"] = headers["is_mobile"] && headers["is_mobile"].toLowerCase() === 'true'
@@ -47,12 +46,11 @@ export default class ContextHelper {
     }
 
     parseConfig(config) {
-        debugger
         const { IS_MOBILE, IS_DESKTOP, IS_TABLET, CDN_PREFIX, DEBUG } = config
         this.context.device.mobile = this.context.device.mobile || (IS_MOBILE && IS_MOBILE.toLowerCase() === 'true')
         this.context.device.desktop = this.context.device.desktop || (IS_DESKTOP && IS_DESKTOP.toLowerCase() === 'true')
         this.context.device.tablet = this.context.device.tablet || (IS_TABLET && IS_TABLET.toLowerCase() === 'true')
-
+        this.context.DEBUG = DEBUG
         this.context.route.link_prefix = this.context.route.link_prefix || CDN_PREFIX || ''
     }
 }

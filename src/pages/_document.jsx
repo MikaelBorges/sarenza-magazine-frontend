@@ -1,5 +1,5 @@
 import Document, { Head, Html, Main, NextScript } from 'next/document';
-import ContextHelper from 'utils/contextHelper';
+import ContextHelper from "../utils/ContextHelper"
 
 class MyDocument extends Document {
   static async getInitialProps(ctx) {

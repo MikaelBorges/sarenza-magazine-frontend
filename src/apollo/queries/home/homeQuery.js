@@ -26,6 +26,7 @@ export const HOME_QUERY = gql`
         }
       }
     }
+    articleCount
     articles(
       sort: "updated_at:desc"
       where: { rubriques: { url: $rubriqueName } }
@@ -139,6 +140,7 @@ export const HOME_QUERY_ALL = gql`
         }
       }
     }
+    articleCount
     articles(sort: "updated_at:desc", start: $start, limit: $limit) {
       id
       title

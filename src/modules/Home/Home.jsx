@@ -8,10 +8,10 @@ import Articles from './components/Articles/Articles';
 import MainComponent from './components/Articles/MainComponent/MainComponent';
 import Header from './components/Header/Header';
 
-const Home = ({ data }) => {
+const Home = ({ data, isRubrique }) => {
   return (
     <>
-      <Header header={data.header} />
+      {data.header && <Header header={data.header} />}
       <MainComponent article={data.firstArticle} />
       {data.marqueeTop && (
         <Marquee
@@ -60,7 +60,7 @@ const Home = ({ data }) => {
         />
       ) : null}
       <Articles articles={data.articles.slice(10, 12)} position={1} />
-      <Pagination totalRecords={24} pageLimit={10} isMobile={false} />
+      <Pagination totalRecords={data.numberArticles} pageLimit={10} isMobile={false} />
     </>
   );
 };
