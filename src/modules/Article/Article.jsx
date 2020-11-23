@@ -9,7 +9,6 @@ import ReadMore from './components/ReadMore/ReadMore';
 import { getComponent } from './config/LoadableComponent';
 
 const Article = ({ article, recentArticle }) => {
-  console.log(article);
   return (
     article ? (
       <div className={styles.article}>

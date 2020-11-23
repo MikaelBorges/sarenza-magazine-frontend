@@ -1,20 +1,26 @@
-import React, { useState } from 'react';
+import React, { useState,useCallback } from 'react';
 import styles from './IframeVideo.module.scss'
 import Image from '@/components/commons/Image/Image';
 
-const IframeVideo = ({ src, iframe }) => {
-    const [play, setPlay] = useState(!src);
+const IframeVideo = ({ image, iframe_url }) => {
+    const [play, setPlay] = useState(false);
+
+ const handlePlay = useCallback(
+    () => setPlay(true),
+     [],
+ )
+
     return (
         <div
             className={styles.video}>
             {play ? (
                 <iframe
                     className={styles.iframe}
-                    src={iframe}
+                    src={iframe_url}
                     frameBorder="0"
                 />
             ) : (
-                <Image src={src} alt={'Video'} onClick={() => setPlay((p) => !p)} />
+                <Image src={image.url} alt={image.alt} onClick={handlePlay} />
             )}
         </div>
     );
