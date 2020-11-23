@@ -9,17 +9,20 @@ import constant from '../infrastructure/constant';
 import ContextHelper from 'utils/ContextHelper';
 import Layout from 'modules/Layout/Layout';
 import wrapper from '../app/store';
+import { timeout } from '../utils/httpUtils';
+import getConfig from 'next/config';
 
 const ArticleList = ({ rubriques, menus, genders, footer, isMobile, isRubrique }) => {
   return (
     <Layout menus={menus} genders={genders} footer={footer} isMobile={isMobile}>
-      {isMobile ? <HomeMobile data={rubriques} isRubrique/> : <Home data={rubriques} isRubrique/>}
+      {isMobile ? <HomeMobile data={rubriques} isRubrique /> : <Home data={rubriques} isRubrique />}
     </Layout>
   );
 };
 
 export const getServerSideProps = wrapper.getServerSideProps(async (ctx) => {
   const { res } = ctx;
+  const { serverRuntimeConfig } = getConfig();
 
   const ct = new ContextHelper(ctx);
 
@@ -27,8 +30,11 @@ export const getServerSideProps = wrapper.getServerSideProps(async (ctx) => {
 
   const apolloClient = getApolloClient();
 
+  const start = (parseInt(ctx.query.page) - 1) * 11 || 0;
+  const limit = parseInt(ctx.query.page) * 11 || 11;
+
   const { data, error } = await apolloClient.execQuery(
-    { query: HOME_QUERY, variables: ctx.query },
+    { query: HOME_QUERY, variables: { ...ctx.query, limit: limit, start: start } },
     { timeout: constant.home.timeout }
   );
 
@@ -37,12 +43,17 @@ export const getServerSideProps = wrapper.getServerSideProps(async (ctx) => {
     res.setHeader('Location', constant.redirectLocation); // Replace <link> with your url link
     return { props: {} };
   }
+  const count = await (
+    await timeout(
+      constant.article.timeout,
+      fetch(`${serverRuntimeConfig.API_URL}/articles/count?rubriques.url=${ctx.query.rubriqueName}`)
+    )
+  ).json();
 
   const { menus, genders, footer } = await getPageProps();
-
   const rubriques = processToHome(data, ctx.query.rubriqueName);
+  rubriques.numberArticles = count;
   const isRubrique = ctx.query.rubriqueName;
-
 
   ctx.store.dispatch({ type: 'RUBRIQUE_SUCCESS', rubriques });
 

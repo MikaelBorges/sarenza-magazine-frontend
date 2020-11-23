@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { LinkButton } from '../Links';
 import styles from './Pagination.module.scss';
+import router from 'next/router';
 const LEFT_PAGE = 'LEFT';
 const RIGHT_PAGE = 'RIGHT';
 
@@ -39,10 +40,8 @@ class Pagination extends Component {
   }
 
   componentDidMount() {
-    this.gotoPage(1);
-  }
-
-  gotoPage = (page) => {
+    const { query } = router;
+    const page = query.page || 1;
     const { onPageChanged = (f) => f } = this.props;
     const currentPage = Math.max(0, Math.min(page, this.totalPages));
     const paginationData = {
@@ -53,6 +52,13 @@ class Pagination extends Component {
     };
 
     this.setState({ currentPage }, () => onPageChanged(paginationData));
+  }
+  gotoPage = (page) => {
+    if (page <= 1) {
+      window.location.href = window.location.href.split('?')[0];
+    } else {
+      window.location.href = window.location.href.split('?')[0] + `?page=${page}`;
+    }
   };
 
   handleClick = (page) => (evt) => {
@@ -119,7 +125,9 @@ class Pagination extends Component {
       return [LEFT_PAGE, 1, ...pages, totalPages, RIGHT_PAGE];
     }
 
-    return range(1, totalPages);
+    const rang = range(1, totalPages);
+
+    return [LEFT_PAGE, ...rang, RIGHT_PAGE];
   };
 
   render() {
@@ -132,83 +140,84 @@ class Pagination extends Component {
       <Fragment>
         <nav aria-label="Article Pagination" className={styles.nav}>
           <ul className={styles.ul}>
-         { this.props.isMobile ? (
-           <>
-              <li className="page-item">
-              <LinkButton
-                disabled={currentPage === 1}
-                pagination
-                className="page-link"
-                aria-label="Previous"
-                first
-                onClick={this.handleMoveLeft}>
-                <span className="sr-only">Précédent</span>
-              </LinkButton>
-            </li>
+            {this.props.isMobile ? (
+              <>
+                <li className="page-item">
+                  <LinkButton
+                    disabled={currentPage === 1}
+                    pagination
+                    className="page-link"
+                    aria-label="Previous"
+                    first
+                    onClick={this.handleMoveLeft}>
+                    <span className="sr-only">Précédent</span>
+                  </LinkButton>
+                </li>
                 <li className={styles.total}>
                   Page {currentPage} sur {this.totalPages}
                 </li>
                 <li className="page-item">
-                    <LinkButton
-                      disabled={currentPage === this.totalPages}
-                      noLink
-                      className="page-link"
-                      aria-label="Next"
-                      pagination
-                      last
-                      onClick={this.handleMoveRight}>
-                      <span className="sr-only">Suivant</span>
-                    </LinkButton>
-                  </li>
-                </>
-              ) : 
-            pages.map((page, index) => {
-              if (page === LEFT_PAGE)
-                return (
-                  <li key={index} className="page-item">
-                    <LinkButton
-                      disabled={currentPage === 1}
-                      pagination
-                      className="page-link"
-                      aria-label="Previous"
-                      first
-                      onClick={this.handleMoveLeft}>
-                      <span className="sr-only">Précédent</span>
-                    </LinkButton>
-                  </li>
-                );
-
-              if (page === RIGHT_PAGE)
-                return (
-                  <li key={index} className="page-item">
-                    <LinkButton
-                      disabled={currentPage === this.totalPages}
-                      noLink
-                      className="page-link"
-                      aria-label="Next"
-                      pagination
-                      last
-                      onClick={this.handleMoveRight}>
-                      <span className="sr-only">Suivant</span>
-                    </LinkButton>
-                  </li>
-                );
-
-              return (
-                <li key={index}>
                   <LinkButton
-                    extraClasses={classnames(styles.button, {
-                      [styles.active]: currentPage === page
-                    })}
-                    disabled={currentPage === page || page === '...'}
-                    onClick={this.handleClick(page)}
+                    disabled={currentPage === this.totalPages}
+                    noLink
+                    className="page-link"
+                    aria-label="Next"
                     pagination
-                    noLink>
-                    {page}
+                    last
+                    onClick={this.handleMoveRight}>
+                    <span className="sr-only">Suivant</span>
                   </LinkButton>
                 </li>
-              );
-            })}
+              </>
+            ) : (
+              pages.map((page, index) => {
+                if (page === LEFT_PAGE)
+                  return (
+                    <li key={index} className="page-item">
+                      <LinkButton
+                        disabled={currentPage === 1}
+                        pagination
+                        className="page-link"
+                        aria-label="Previous"
+                        first
+                        onClick={this.handleMoveLeft}>
+                        <span className="sr-only">Précédent</span>
+                      </LinkButton>
+                    </li>
+                  );
+
+                if (page === RIGHT_PAGE)
+                  return (
+                    <li key={index} className="page-item">
+                      <LinkButton
+                        disabled={currentPage === this.totalPages}
+                        noLink
+                        className="page-link"
+                        aria-label="Next"
+                        pagination
+                        last
+                        onClick={this.handleMoveRight}>
+                        <span className="sr-only">Suivant</span>
+                      </LinkButton>
+                    </li>
+                  );
+
+                return (
+                  <li key={index}>
+                    <LinkButton
+                      extraClasses={classnames(styles.button, {
+                        [styles.active]: currentPage === page
+                      })}
+                      disabled={currentPage === page || page === '...'}
+                      onClick={this.handleClick(page)}
+                      pagination
+                      noLink>
+                      {page}
+                    </LinkButton>
+                  </li>
+                );
+              })
+            )}
           </ul>
         </nav>
       </Fragment>
