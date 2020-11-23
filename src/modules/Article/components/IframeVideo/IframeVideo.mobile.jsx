@@ -1,6 +1,6 @@
 import Image from '@/components/commons/Image/Image';
 import React, { useState, useCallback } from 'react';
-import styles from './IframeVideo.module.scss';
+import styles from './IframeVideo.mobile.module.scss';
 
 const IframeVideo = ({ image, iframe_url }) => {
   const [play, setPlay] = useState(false);
@@ -8,10 +8,11 @@ const IframeVideo = ({ image, iframe_url }) => {
   return (
     <div className={styles.video}>
       {play && iframe_url ? (
-        <iframe className={styles.iframe} src={iframe_url} frameBorder="0" allow="fullscreen"/>
+        <iframe className={styles.iframe} src={iframe_url} frameBorder="0" allow="fullscreen" />
       ) : (
         <>
-          <Image src={image.url} alt={image.alt} onClick={handlePlay} />(
+          <Image src={image.url_mobile} alt={image.alt} onClick={handlePlay} />
+
           <button className={styles.play} onClick={handlePlay}></button>
         </>
       )}

@@ -12,7 +12,7 @@ const Home = ({ data, isRubrique }) => {
   return (
     <>
       <Header header={data.header} />
-      <MainComponent article={data.firstArticle} isRubrique={isRubrique}/>
+      <MainComponent article={data.firstArticle} isRubrique={isRubrique} />
       {data.marqueeTop && (
         <Marquee
           marquee={{
@@ -23,7 +23,7 @@ const Home = ({ data, isRubrique }) => {
         />
       )}
 
-      {data.articles.slice(0, 5).length > 0 && (
+      {data.articles && data.articles.slice(0, 5).length > 0 && (
         <Articles articles={data.articles.slice(0, 5)} position={1} />
       )}
       {data.displayFirst && (
@@ -37,7 +37,7 @@ const Home = ({ data, isRubrique }) => {
         />
       )}
 
-      {data.articles.slice(5, 10).length > 0 && (
+      {data.articles && data.articles.slice(5, 10).length > 0 && (
         <Articles articles={data.articles.slice(5, 10)} position={2} />
       )}
       {data.displaySecond &&
@@ -61,8 +61,10 @@ const Home = ({ data, isRubrique }) => {
           margin
         />
       ) : null}
-      <Articles articles={data.articles.slice(10, 12)} position={1} />
-      <Pagination totalRecords={50} pageLimit={5} isMobile={false}/>
+      {data.articles && data.articles.slice(5, 10).length > 0 && (
+        <Articles articles={data.articles.slice(10, 12)} position={1} />
+      )}
+      <Pagination totalRecords={50} pageLimit={5} isMobile={false} />
     </>
   );
 };

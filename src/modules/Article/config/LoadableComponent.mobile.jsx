@@ -5,7 +5,9 @@ export const COMPONENT_NAME = {
   MODULE_IMAGE: 'media.image',
   MODULE_PARAGRAPHE: 'module.paragraphe',
   MODULE_DUO: 'module.duo',
-  MODULE_SHOPPING_LIST: 'module.slider-article'
+  MODULE_SHOPPING_LIST: 'module.slider-article',
+  MODULE_VIDEO: 'media.video'
+
 };
 export const getComponent = (item) => {
   let Component;
@@ -23,6 +25,9 @@ export const getComponent = (item) => {
     case COMPONENT_NAME.MODULE_SHOPPING_LIST:
       Component = dynamic(() => import('../components/ShoppingList/ShoppingList.mobile'));
       break;
+      case COMPONENT_NAME.MODULE_VIDEO:
+        Component = dynamic(() => import('../components/IframeVideo/IframeVideo.mobile'));
+        break;
     default:
       throw new Error('the component doesnt exist');
   }
