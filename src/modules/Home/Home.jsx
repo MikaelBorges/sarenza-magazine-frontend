@@ -11,8 +11,8 @@ import Header from './components/Header/Header';
 const Home = ({ data, isRubrique }) => {
   return (
     <>
-      <Header header={data.header} />
-      <MainComponent article={data.firstArticle} isRubrique={isRubrique}/>
+      {data.header && <Header header={data.header} />}
+      <MainComponent article={data.firstArticle} />
       {data.marqueeTop && (
         <Marquee
           marquee={{
@@ -60,7 +60,7 @@ const Home = ({ data, isRubrique }) => {
         />
       ) : null}
       <Articles articles={data.articles.slice(10, 12)} position={1} />
-      <Pagination totalRecords={24} pageLimit={10} isMobile={false} />
+      <Pagination totalRecords={data.numberArticles} pageLimit={10} isMobile={false} />
     </>
   );
 };

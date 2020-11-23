@@ -11,7 +11,7 @@ import Header from './components/Header/Header.mobile';
 const Home = ({ data }) => {
   return (
     <>
-      <Header header={data.header} />
+      {data.header && <Header header={data.header} />}
       <MainComponent article={data.firstArticle} />
       {data.marqueeTop && (
         <Marquee
@@ -61,9 +61,8 @@ const Home = ({ data }) => {
           }}
         />
       )}
-
       <Articles articles={data.articles.slice(10, 12)} position={1} />
-      <Pagination totalRecords={24} pageLimit={10} isMobile={true} />
+      <Pagination totalRecords={data.numberArticles} pageLimit={10} isMobile={true} />
     </>
   );
 };
