@@ -61,10 +61,10 @@ const Home = ({ data, isRubrique }) => {
           margin
         />
       ) : null}
-      {data.articles && data.articles.slice(5, 10).length > 0 && (
+      {data.articles && data.articles.slice(10, 12).length > 0 && (
         <Articles articles={data.articles.slice(10, 12)} position={1} />
       )}
-      <Pagination totalRecords={50} pageLimit={5} isMobile={false} />
+      <Pagination totalRecords={data.numberArticles} pageLimit={12} isMobile={false} />
     </>
   );
 };
