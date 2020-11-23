@@ -125,7 +125,9 @@ class Pagination extends Component {
       return [LEFT_PAGE, 1, ...pages, totalPages, RIGHT_PAGE];
     }
 
-    return range(1, totalPages);
+    const rang = range(1, totalPages);
+
+    return [LEFT_PAGE, ...rang, RIGHT_PAGE];
   };
 
   render() {

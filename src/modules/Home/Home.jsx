@@ -8,7 +8,7 @@ import Articles from './components/Articles/Articles';
 import MainComponent from './components/Articles/MainComponent/MainComponent';
 import Header from './components/Header/Header';
 
-const Home = ({ data, isRubrique }) => {
+const Home = ({ data }) => {
   return (
     <>
       {data.header && <Header header={data.header} />}
@@ -22,7 +22,7 @@ const Home = ({ data, isRubrique }) => {
           }}
         />
       )}
-      {data.articles.slice(0, 5).length > 0 && (
+      {data.articles && data.articles.slice(0, 5).length > 0 && (
         <Articles articles={data.articles.slice(0, 5)} position={1} />
       )}
       {data.displayFirst && (
@@ -35,7 +35,7 @@ const Home = ({ data, isRubrique }) => {
           whiteTheme={data.displayFirst.whiteTheme}
         />
       )}
-      {data.articles.slice(5, 10).length > 0 && (
+      {data.articles && data.articles.slice(5, 10).length > 0 && (
         <Articles articles={data.articles.slice(5, 10)} position={2} />
       )}
       {data.displaySecond &&
@@ -59,8 +59,10 @@ const Home = ({ data, isRubrique }) => {
           margin
         />
       ) : null}
-      <Articles articles={data.articles.slice(10, 12)} position={1} />
-      <Pagination totalRecords={data.numberArticles} pageLimit={10} isMobile={false} />
+      {data.articles && data.articles.slice(10, 12).length > 0 && (
+        <Articles articles={data.articles.slice(10, 12)} position={1} />
+      )}
+      <Pagination totalRecords={data.numberArticles} pageLimit={12} isMobile={false} />
     </>
   );
 };

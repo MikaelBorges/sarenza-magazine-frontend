@@ -62,7 +62,7 @@ const Home = ({ data }) => {
         />
       )}
       <Articles articles={data.articles.slice(10, 12)} position={1} />
-      <Pagination totalRecords={data.numberArticles} pageLimit={10} isMobile={true} />
+      <Pagination totalRecords={data.numberArticles} pageLimit={12} isMobile={true} />
     </>
   );
 };

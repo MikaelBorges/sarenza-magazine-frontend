@@ -26,7 +26,6 @@ export const HOME_QUERY = gql`
         }
       }
     }
-    articleCount
     articles(
       sort: "updated_at:desc"
       where: { rubriques: { url: $rubriqueName } }
