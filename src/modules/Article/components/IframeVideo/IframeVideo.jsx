@@ -8,10 +8,15 @@ const IframeVideo = ({ image, iframe_url }) => {
   return (
     <div className={styles.video}>
       {play && iframe_url ? (
-        <iframe className={styles.iframe} src={iframe_url} frameBorder="0" allow="fullscreen"/>
+        <iframe
+          className={styles.iframe}
+          src={iframe_url}
+          frameBorder="0"
+          allow="fullscreen; autoplay;"
+        />
       ) : (
         <>
-          <Image src={image.url} alt={image.alt} onClick={handlePlay} />(
+          <Image src={image.url} alt={image.alt} onClick={handlePlay} />
           <button className={styles.play} onClick={handlePlay}></button>
         </>
       )}

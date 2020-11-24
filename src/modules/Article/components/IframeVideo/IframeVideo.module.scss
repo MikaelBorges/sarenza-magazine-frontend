@@ -1,12 +1,12 @@
 .video{
     position: relative;
-    padding-bottom: 56.25%;
-    padding-top: 25;
+    padding-bottom: calc(var(--aspect-ratio, .5625) * 100%); 
     height: 0;
     width: 100%;
+    overflow: hidden;
     @media screen and (min-width:975px){
         max-width: 1008px;
-        margin: 0 auto;
+        margin:  auto;
     }
 }
 .iframe{
