@@ -5,22 +5,26 @@ import MissingContent from '../MissingComponent';
 import { LinkComponent } from '@/components/commons/Links';
 
 const MainComponent = ({ article, isRubrique }) => {
+  console.log(article);
+
   return article && Object.entries(article).length !== 0 ? (
-    <LinkComponent link={article.link}>
-      <div className={styles.container}>
-        <div className={(isRubrique && isRubrique) ? styles.content : styles.contentHP}>
-          <ArticleTitle
-            title={article.title}
-            author={article.author}
-            publishDate={article.publishDate}
-            firstArticle
-          />
+    <>
+      <LinkComponent link={article.link}>
+        <div className={styles.container}>
+          <div className={isRubrique && isRubrique ? styles.content : styles.contentHP}>
+            <ArticleTitle
+              title={article.title}
+              author={article.author}
+              publishDate={article.publishDate}
+              firstArticle
+            />
+          </div>
+          <div className={isRubrique && isRubrique ? styles.containerOne : styles.containerOneHP}>
+            <img src={article.image} className={styles.image} alt={article.title} />
+          </div>
         </div>
-        <div className={(isRubrique && isRubrique) ? styles.containerOne : styles.containerOneHP }>
-          <img src={article.image} className={styles.image} alt={article.title} />
-        </div>
-      </div>
-    </LinkComponent>
+      </LinkComponent>
+    </>
   ) : (
     <MissingContent />
   );

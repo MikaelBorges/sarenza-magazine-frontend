@@ -8,6 +8,16 @@ export const HOME_QUERY = gql`
       shortDescription
       ArticleUne {
         id
+        title
+        author
+        image
+        ImageArticleMobile
+        updated_at
+        url
+        rubriques {
+          id
+          url
+        }
       }
       marquee {
         id
@@ -97,6 +107,16 @@ export const HOME_QUERY_ALL = gql`
       shortDescription
       ArticleUne {
         id
+        title
+        author
+        image
+        ImageArticleMobile
+        updated_at
+        url
+        rubriques {
+          id
+          url
+        }
       }
       displayBottom {
         Display {

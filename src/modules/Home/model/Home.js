@@ -79,14 +79,16 @@ const processToRubrique = (model = []) => {
 
 const processToHome = (model = {}, rubrique) => {
   if (!model || !model.articles) return {};
-
   const aLaUne =
-    model.articles.find((it) => {
-      return model.home && model.home.ArticleUne
-        ? model.home.ArticleUne.id === it.id &&
-            (it.rubriques.some((r) => r.url === rubrique) || !rubrique)
-        : null;
-    }) || model.articles[0];
+    model.home.ArticleUne.rubriques[0].url === rubrique || !rubrique
+      ? model.home.ArticleUne
+      : model.articles[0];
+  // model.articles.find((it) => {
+  //   return model.home && model.home.ArticleUne
+  //     ? model.home.ArticleUne.id === it.id &&
+  //         (it.rubriques.some((r) => r.url === rubrique) || !rubrique)
+  //     : null;
+  // }) || model.articles[0];
 
   return {
     header: {
