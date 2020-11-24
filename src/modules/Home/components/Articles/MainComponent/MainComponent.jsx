@@ -9,7 +9,6 @@ const MainComponent = ({ article, isRubrique }) => {
 
   return article && Object.entries(article).length !== 0 ? (
     <>
-    {article.link}
       <LinkComponent link={article.link}>
         <div className={styles.container}>
           <div className={isRubrique && isRubrique ? styles.content : styles.contentHP}>
