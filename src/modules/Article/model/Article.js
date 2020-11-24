@@ -22,3 +22,5 @@ export function ArticlesModel(model = []) {
     return ArticleModel(art);
   });
 }
+
+

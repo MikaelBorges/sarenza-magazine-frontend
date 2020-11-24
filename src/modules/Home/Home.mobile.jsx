@@ -11,7 +11,7 @@ import Header from './components/Header/Header.mobile';
 const Home = ({ data }) => {
   return (
     <>
-      <Header header={data.header} /> 
+      {data.header && <Header header={data.header} />}
       <MainComponent article={data.firstArticle} />
       {data.marqueeTop && (
         <Marquee
@@ -22,7 +22,9 @@ const Home = ({ data }) => {
           }}
         />
       )}
-      {data.articles.slice(0, 5).length > 0 && <Articles articles={data.articles.slice(0, 5)} position={1} />}
+      {data.articles.slice(0, 5).length > 0 && (
+        <Articles articles={data.articles.slice(0, 5)} position={1} />
+      )}
       {data.displayFirst && (
         <Display
           text={data.displayFirst.text}
@@ -59,9 +61,8 @@ const Home = ({ data }) => {
           }}
         />
       )}
-
       <Articles articles={data.articles.slice(10, 12)} position={1} />
-      <Pagination totalRecords={50} pageLimit={5} isMobile={true}/>
+      <Pagination totalRecords={data.numberArticles} pageLimit={12} isMobile={true} />
     </>
   );
 };

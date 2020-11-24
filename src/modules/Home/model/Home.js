@@ -79,14 +79,16 @@ const processToRubrique = (model = []) => {
 
 const processToHome = (model = {}, rubrique) => {
   if (!model || !model.articles) return {};
-
   const aLaUne =
-    model.articles.find((it) => {
-      return model.home && model.home.ArticleUne
-        ? model.home.ArticleUne.id === it.id &&
-            (it.rubriques.some((r) => r.url === rubrique) || !rubrique)
-        : null;
-    }) || model.articles[0];
+    model.home.ArticleUne.rubriques[0].url === rubrique || !rubrique
+      ? model.home.ArticleUne
+      : model.articles[0];
+  // model.articles.find((it) => {
+  //   return model.home && model.home.ArticleUne
+  //     ? model.home.ArticleUne.id === it.id &&
+  //         (it.rubriques.some((r) => r.url === rubrique) || !rubrique)
+  //     : null;
+  // }) || model.articles[0];
 
   return {
     header: {
@@ -94,6 +96,7 @@ const processToHome = (model = {}, rubrique) => {
       description: model.home.shortDescription || '',
       rubriques: model.rubriques.map(processToRubrique).sort((a, b) => a.order - b.order) || []
     },
+    numberArticles: model.articleCount,
     firstArticle: processToHomeArticle(aLaUne) || {},
     articles: model.articles.filter((it) => it.id !== aLaUne.id).map(processToHomeArticle),
     marquee: getMarquee(model, rubrique, 'bottom') || [],

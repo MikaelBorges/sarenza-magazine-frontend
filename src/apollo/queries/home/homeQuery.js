@@ -1,13 +1,23 @@
 import gql from 'graphql-tag';
 
 export const HOME_QUERY = gql`
-  query PageList($rubriqueName: String = "") {
+  query PageList($rubriqueName: String = "", $start: Int, $limit: Int) {
     home {
       id
       title
       shortDescription
       ArticleUne {
         id
+        title
+        author
+        image
+        ImageArticleMobile
+        updated_at
+        url
+        rubriques {
+          id
+          url
+        }
       }
       marquee {
         id
@@ -26,7 +36,12 @@ export const HOME_QUERY = gql`
         }
       }
     }
-    articles(sort: "updated_at:desc", where: { rubriques: { url: $rubriqueName } }) {
+    articles(
+      sort: "updated_at:desc"
+      where: { rubriques: { url: $rubriqueName } }
+      start: $start
+      limit: $limit
+    ) {
       id
       title
       author
@@ -85,13 +100,23 @@ export const HOME_QUERY = gql`
 `;
 
 export const HOME_QUERY_ALL = gql`
-  query PageListAll {
+  query PageList($start: Int, $limit: Int) {
     home {
       id
       title
       shortDescription
       ArticleUne {
         id
+        title
+        author
+        image
+        ImageArticleMobile
+        updated_at
+        url
+        rubriques {
+          id
+          url
+        }
       }
       displayBottom {
         Display {
@@ -134,7 +159,8 @@ export const HOME_QUERY_ALL = gql`
         }
       }
     }
-    articles(sort: "updated_at:desc") {
+    articleCount
+    articles(sort: "updated_at:desc", start: $start, limit: $limit) {
       id
       title
       author

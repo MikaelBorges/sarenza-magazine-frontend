@@ -12,7 +12,9 @@ const Breadcrumb = ({ article, rubriques }) => {
     e.preventDefault();
     router.back();
   };
-  const urlKeys = Object.keys(router.query);
+  const urlKeys = Object.keys(router.query).filter(
+    (param) => param === 'rubriqueName' || param === 'slug'
+  );
   return (
     <>
       <div
@@ -29,7 +31,9 @@ const Breadcrumb = ({ article, rubriques }) => {
         </LinkText>
       </div>
       <div className={styles.breadcrumb}>
-        <LinkText link="/" disabled={urlKeys.length==0}>Magazine</LinkText>
+        <LinkText link="/" disabled={urlKeys.length == 0}>
+          Magazine
+        </LinkText>
       </div>
 
       {urlKeys.map((urlKey, i) => {
