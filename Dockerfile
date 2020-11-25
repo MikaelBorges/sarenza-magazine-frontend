@@ -2,8 +2,6 @@ ARG NODE_VERSION=lts-alpine3.12
 
 FROM node:${NODE_VERSION}
 
-ENV STRAPI_CDN_PREFIX=/magazine
-
 EXPOSE 3000
 
 RUN mkdir /srv/app && chown 1000:1000 -R /srv/app
