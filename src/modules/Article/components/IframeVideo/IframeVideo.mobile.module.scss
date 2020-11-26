@@ -1,9 +1,9 @@
 .video{
     position: relative;
     padding-bottom: 56.25%;
-    padding-top: 25;
     height: 0;
     width: 100%;
+    overflow: hidden;
 }
 .iframe{
     position: absolute;
@@ -14,45 +14,27 @@
 }
 
 .play { 
-    background: red;
-    border-radius: 50%/10%;
-    color: #FFFFFF;
-    font-size: 1em;
-    height: 3em;
-    top: 50%;
+  background: #ff2157;
+  color: #ffffff;
+  font-size: 14px;
+  height: 40px;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  text-align: center;
+  width: 40px;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+
+  span {
+    position: absolute;
     left: 50%;
-    position: absolute;
-    text-align: center;
-    text-indent: 0.1em;
-    transition: all 150ms ease-out;
-    width: 4em;
-    transform: translate(-50%,-50%);
-  }
-  
-  .play:hover {
-    background: darkorange;
-  }
-  
-  .play::before { 
-    background: inherit;
-    border-radius: 5% / 50%;
-    bottom: 9%;
-    content: "";
-    left: -5%;
-    position: absolute;
-    right: -5%;
-    top: 9%;
-  }
-  
-  .play::after {
-    border-style: solid;
-    border-width: 1em 0 1em 1.732em;
-    border-color: transparent transparent transparent rgba(255, 255, 255, 0.75);
-    content: ' ';
-    font-size: 0.75em;
-    height: 0;
-    margin: -1em 0 0 -0.75em;
     top: 50%;
-    position: absolute;
+    transform: translate(-50%, -50%);
     width: 0;
+    height: 0;
+    border-top: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+    border-left: 10px solid #fff;
+  }
   }
