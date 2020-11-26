@@ -7,13 +7,15 @@ import Pagination from '@/components/commons/Pagination/Pagination';
 import Articles from './components/Articles/Articles.mobile';
 import MainComponent from './components/Articles/MainComponent/MainComponent.mobile';
 import Header from './components/Header/Header.mobile';
+import { useRouter } from 'next/router';
 
 const Home = ({ data }) => {
+  const { query } = useRouter();
   return (
     <>
       {data.header && <Header header={data.header} />}
       <MainComponent article={data.firstArticle} />
-      {data.marqueeTop && (
+      {data.marqueeTop && !query.page && (
         <Marquee
           marquee={{
             fastAnimation: false,
@@ -25,7 +27,7 @@ const Home = ({ data }) => {
       {data.articles.slice(0, 5).length > 0 && (
         <Articles articles={data.articles.slice(0, 5)} position={1} />
       )}
-      {data.displayFirst && (
+      {data.displayFirst && !query.page && (
         <Display
           text={data.displayFirst.text}
           button={
@@ -40,7 +42,7 @@ const Home = ({ data }) => {
       {data.articles.slice(5, 10).length > 0 && (
         <Articles articles={data.articles.slice(5, 10)} position={2} />
       )}
-      {data.displaySecond && (
+      {data.displaySecond && !query.page && (
         <Display
           text={data.displaySecond.text}
           button={
@@ -52,7 +54,7 @@ const Home = ({ data }) => {
           whiteTheme={data.displaySecond.whiteTheme}
         />
       )}
-      {data.marquee && (
+      {data.marquee && !query.page && (
         <Marquee
           marquee={{
             fastAnimation: false,
