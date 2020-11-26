@@ -11,11 +11,12 @@ import { useRouter } from 'next/router';
 
 const Home = ({ data }) => {
   const { query } = useRouter();
+  const onlyFirstPage = !query.page;
   return (
     <>
       {data.header && <Header header={data.header} />}
-      <MainComponent article={data.firstArticle} />
-      {data.marqueeTop && !query.page && (
+      {onlyFirstPage && <MainComponent article={data.firstArticle} />}
+      {data.marqueeTop && onlyFirstPage && (
         <Marquee
           marquee={{
             fastAnimation: false,
@@ -27,7 +28,7 @@ const Home = ({ data }) => {
       {data.articles.slice(0, 5).length > 0 && (
         <Articles articles={data.articles.slice(0, 5)} position={1} />
       )}
-      {data.displayFirst && !query.page && (
+      {data.displayFirst && onlyFirstPage && (
         <Display
           text={data.displayFirst.text}
           button={
@@ -42,7 +43,7 @@ const Home = ({ data }) => {
       {data.articles.slice(5, 10).length > 0 && (
         <Articles articles={data.articles.slice(5, 10)} position={2} />
       )}
-      {data.displaySecond && !query.page && (
+      {data.displaySecond && onlyFirstPage && (
         <Display
           text={data.displaySecond.text}
           button={
@@ -54,7 +55,7 @@ const Home = ({ data }) => {
           whiteTheme={data.displaySecond.whiteTheme}
         />
       )}
-      {data.marquee && !query.page && (
+      {data.marquee && onlyFirstPage && (
         <Marquee
           marquee={{
             fastAnimation: false,
