@@ -13,7 +13,7 @@ const IframeVideo = ({ image, iframe_url }) => {
         <>
           <Image src={image.url_mobile} alt={image.alt} onClick={handlePlay} />
 
-          <button className={styles.play} onClick={handlePlay}></button>
+          <a className={styles.play} onClick={handlePlay}><span></span></a>
         </>
       )}
     </div>
