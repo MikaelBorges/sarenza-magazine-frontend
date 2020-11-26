@@ -4,8 +4,8 @@ import getPageProps from 'utils/getPageProps';
 import { HOME_QUERY_ALL } from '../apollo/queries/home/homeQuery';
 import Home from '../modules/Home/Home';
 import HomeMobile from '../modules/Home/Home.mobile';
-import constant from "../infrastructure/constant"
-import ContextHelper from "../utils/ContextHelper"
+import constant from '../infrastructure/constant';
+import ContextHelper from '../utils/ContextHelper';
 import Layout from 'modules/Layout/Layout';
 
 const HomePage = ({ homeData, menus, genders, footer, isMobile }) => {
@@ -27,8 +27,8 @@ export const getServerSideProps = async (ctx) => {
 
   const apolloClient = getApolloClient();
 
-  const start = (parseInt(ctx.query.page) - 1) * 11 || 0;
-  const limit = parseInt(ctx.query.page) * 11 || 11;
+  const start = (parseInt(ctx.query.page) - 1) * 12 || 0;
+  const limit = parseInt(ctx.query.page) * 12 || 12;
 
   const { data, error } = await apolloClient.execQuery(
     { query: HOME_QUERY_ALL, variables: { ...ctx.query, limit: limit, start: start } },
