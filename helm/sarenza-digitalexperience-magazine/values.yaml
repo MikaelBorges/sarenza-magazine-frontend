@@ -6,8 +6,8 @@ replicaCount: 2
 
 image:
   repository: srzlab.azurecr.io/magazine
-  tag: 1.0.0
-  pullPolicy: Always # IfNotPresent
+  tag: 1.2.0-pagination-1
+  pullPolicy: IfNotPresent
 
 imagePullSecrets: 
   - name: srzlab.azurecr.io
@@ -35,4 +35,14 @@ nodeSelector: {}
 
 tolerations: []
 
-affinity: {}
+affinity:
+  nodeAffinity:
+    preferredDuringSchedulingIgnoredDuringExecution:
+    - preference:
+        matchExpressions:
+        - key: sarenza.com/lifecycle
+          operator: In
+          values:
+          - persistent
+      weight: 100
+
