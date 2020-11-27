@@ -7,14 +7,16 @@ import Pagination from '@/components/commons/Pagination/Pagination';
 import Articles from './components/Articles/Articles';
 import MainComponent from './components/Articles/MainComponent/MainComponent';
 import Header from './components/Header/Header';
+import { useRouter } from 'next/router';
 
 const Home = ({ data, isRubrique }) => {
-  console.log(data.firstArticle);
+  const { query } = useRouter();
+  const onlyFirstPage = !query.page;
   return (
     <>
       <Header header={data.header} />
-      <MainComponent article={data.firstArticle} isRubrique={isRubrique} />
-      {data.marqueeTop && (
+      {onlyFirstPage && <MainComponent article={data.firstArticle} isRubrique={isRubrique} />}
+      {data.marqueeTop && onlyFirstPage && (
         <Marquee
           marquee={{
             fastAnimation: false,
@@ -23,11 +25,10 @@ const Home = ({ data, isRubrique }) => {
           }}
         />
       )}
-
       {data.articles && data.articles.slice(0, 5).length > 0 && (
         <Articles articles={data.articles.slice(0, 5)} position={1} />
       )}
-      {data.displayFirst && (
+      {data.displayFirst && onlyFirstPage && (
         <Display
           text={data.displayFirst.text}
           button={{
@@ -37,11 +38,11 @@ const Home = ({ data, isRubrique }) => {
           whiteTheme={data.displayFirst.whiteTheme}
         />
       )}
-
       {data.articles && data.articles.slice(5, 10).length > 0 && (
         <Articles articles={data.articles.slice(5, 10)} position={2} />
       )}
       {data.displaySecond &&
+        onlyFirstPage &&
         data.displaySecond.text(
           <Display
             text={data.displaySecond.text}
@@ -52,7 +53,7 @@ const Home = ({ data, isRubrique }) => {
             whiteTheme={data.displaySecond.whiteTheme}
           />
         )}
-      {data.marquee ? (
+      {data.marquee && onlyFirstPage ? (
         <Marquee
           marquee={{
             fastAnimation: false,
@@ -62,10 +63,24 @@ const Home = ({ data, isRubrique }) => {
           margin
         />
       ) : null}
-      {data.articles && data.articles.slice(10, 12).length > 0 && (
-        <Articles articles={data.articles.slice(10, 12)} position={1} />
+      {data.articles && data.articles.slice(10, 15).length > 0 && (
+        <Articles articles={data.articles.slice(10, 15)} position={1} />
       )}
-      <Pagination totalRecords={data.numberArticles} pageLimit={12} isMobile={false} />
+      {data.articles && data.articles.slice(15, 20).length > 0 && (
+        <Articles articles={data.articles.slice(15, 20)} position={2} />
+      )}
+      {data.articles && data.articles.slice(20, 25).length > 0 && (
+        <Articles articles={data.articles.slice(20, 25)} position={1} />
+      )}
+      {data.articles && data.articles.slice(25, 30).length > 0 && (
+        <Articles articles={data.articles.slice(25, 30)} position={2} />
+      )}
+      {data.articles && data.articles.slice(30, 35).length > 0 && (
+        <Articles articles={data.articles.slice(30, 35)} position={1} />
+      )}
+      {data.articles && data.articles.slice(35, 40).length > 0 && (
+        <Articles articles={data.articles.slice(35, 40)} position={2} />
+      )}
     </>
   );
 };
