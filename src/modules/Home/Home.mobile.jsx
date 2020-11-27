@@ -65,7 +65,16 @@ const Home = ({ data }) => {
         />
       )}
       <Articles articles={data.articles.slice(10, 12)} position={1} />
-      <Pagination totalRecords={data.numberArticles} pageLimit={12} isMobile={true} />
+      {data.articles.slice(12, 17).length > 0 && (
+        <Articles articles={data.articles.slice(12, 17)} position={2} />
+      )}
+      {data.articles.slice(17, 22).length > 0 && (
+        <Articles articles={data.articles.slice(17, 22)} position={1} />
+      )}
+      {data.articles.slice(22, 24).length > 0 && (
+        <Articles articles={data.articles.slice(22, 24)} position={2} />
+      )}
+      {/* <Pagination totalRecords={data.numberArticles} pageLimit={12} isMobile={true} />  */}
     </>
   );
 };
