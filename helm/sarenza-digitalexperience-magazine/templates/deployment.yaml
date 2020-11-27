@@ -15,6 +15,7 @@ spec:
       labels:
         app.kubernetes.io/name: {{ include "sarenza-digitalexperience-magazine.name" . }}
         app.kubernetes.io/instance: {{ .Release.Name }}
+        stack: js
     spec:
     {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
@@ -26,13 +27,13 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env: 
             - name: STRAPI_SERVICE_HOST
-              value: "strapi-dev-sarenza-digitalexperience-cms-strapi"
+              value: "strapi-sarenza-digitalexperience-cms-strapi"
             - name: STRAPI_SERVICE_PORT
               value: "80"
             - name: STRAPI_SERVICE_SCHEME
               value: "http"
-            # - name: CDN_PREFIX
-            #   value: "/magazine"
+            - name: CDN_PREFIX
+              value: "/magazine"
           ports:
             - name: http
               containerPort: 3000

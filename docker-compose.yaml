@@ -2,7 +2,7 @@ version: "3.8"
 services:
   magazine:
     container_name: sarenzamag
-    image: srzlab.azurecr.io/magazine:1.0.0
+    image: srzlab.azurecr.io/magazine:1.2.0-pagination-1
     stdin_open: true
     tty: true
     restart: unless-stopped
@@ -10,7 +10,7 @@ services:
       - STRAPI_SERVICE_HOST=strapi.prd.sarenza.corp
       - STRAPI_SERVICE_PORT=80
       - STRAPI_SERVICE_SCHEME=http
-      # - CDN_PREFIX=/magazine
+      - CDN_PREFIX=/magazine
       - IS_MOBILE=false
       - DEBUG_ENABLED=true
     build:
