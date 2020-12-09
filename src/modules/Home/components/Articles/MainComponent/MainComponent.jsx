@@ -5,6 +5,7 @@ import MissingContent from '../MissingComponent';
 import { LinkComponent } from '@/components/commons/Links';
 
 const MainComponent = ({ article, isRubrique }) => {
+
   return article && Object.entries(article).length !== 0 ? (
     <>
       <LinkComponent link={article.link}>
