@@ -13,7 +13,6 @@ export const COMPONENT_NAME = {
 export const getComponent = (item, i) => {
   let Component;
   // eslint-disable-next-line no-underscore-dangle
-  console.log(item);
   switch (item.__component) {
     case COMPONENT_NAME.MODULE_IMAGE:
       Component = dynamic(() => import('../components/ImageText/ImageText'));
