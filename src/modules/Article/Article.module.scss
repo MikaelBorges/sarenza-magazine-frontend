@@ -25,9 +25,8 @@
         line-height: 16px;
         text-decoration: none;
         @media screen and (min-width:975px){
-            right: 0;
-            position: absolute;
-            bottom: -48px;
+            left: 50%;
+            transform: translateX(-50%);
         }
         &:after {
           position: absolute;
