@@ -8,10 +8,18 @@ import Breadcrumb from '@/components/commons/Breadcrumb/Breadcrumb';
 
 import stylesMobile from './app.mobile.module.scss';
 import styles from './app.module.scss';
+import Head from 'next/head';
 
-const Layout = ({ menus, genders, footer, children, isMobile }) => {
+const Layout = ({ menus, genders, footer, children, isMobile, metaData }) => {
   return (
     <>
+      {metaData && (
+        <Head>
+          <title>{metaData.title}</title>
+          <meta name="description" content={metaData.description.substr(0, 170)} />
+        </Head>
+
+      )}
       {isMobile ? (
         <MenuMobile menus={menus} genders={genders} />
       ) : (

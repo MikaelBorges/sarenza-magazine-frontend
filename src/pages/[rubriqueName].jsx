@@ -12,9 +12,9 @@ import wrapper from '../app/store';
 import { timeout } from '../utils/httpUtils';
 import getConfig from 'next/config';
 
-const ArticleList = ({ rubriques, menus, genders, footer, isMobile, isRubrique }) => {
+const ArticleList = ({ rubriques, menus, genders, footer, isMobile }) => {
   return (
-    <Layout menus={menus} genders={genders} footer={footer} isMobile={isMobile}>
+    <Layout menus={menus} genders={genders} footer={footer} isMobile={isMobile} metaData={{title: rubriques.currentRubrique.rubrique, description: rubriques.header.description}}>
       {isMobile ? <HomeMobile data={rubriques} isRubrique /> : <Home data={rubriques} isRubrique />}
     </Layout>
   );

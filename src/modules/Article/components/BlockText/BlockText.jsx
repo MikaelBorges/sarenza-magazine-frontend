@@ -17,9 +17,9 @@ const BlockText = ({ Texte, title, urlButton, textButton, positionVerbatim, verb
             positionVerbatim && styles.textPartIsAfter
           }`}>
           <div className={styles.titleTextPart}>
-            <Text huge secondary>
+            <h2 huge secondary className={styles.title}>
               {title}
-            </Text>
+            </h2>
           </div>
           <div className={styles.paragraph}>
             <Text big>

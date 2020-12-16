@@ -14,13 +14,6 @@ import wrapper from '../app/store';
 function App({ Component, pageProps }) {
   return (
     <>
-      <Head>
-        <title
-        //todo: trad
-        >
-          Sarenza - Magazine
-        </title>
-      </Head>
       <Component {...pageProps} />
     </>
   );

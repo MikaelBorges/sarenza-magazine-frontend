@@ -16,9 +16,9 @@ const Duo = ({ duo_image, title, duo_paragraphe, button }) => {
       <img src={duo_image.url} alt="alt" className={styles.image} />
       <div className={styles.textPart}>
         <div className={styles.titleTextPart}>
-          <Text huge secondary>
+          <h2 huge secondary className={styles.title}>
             {title}
-          </Text>
+          </h2>
         </div>
         {duo_paragraphe !== null ? (
           <div className={styles.paragraph}>

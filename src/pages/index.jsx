@@ -11,7 +11,7 @@ import Layout from 'modules/Layout/Layout';
 const HomePage = ({ homeData, menus, genders, footer, isMobile }) => {
   return (
     <>
-      <Layout menus={menus} genders={genders} footer={footer} isMobile={isMobile}>
+      <Layout menus={menus} genders={genders} footer={footer} isMobile={isMobile} metaData={{title: homeData.header.title, description: homeData.header.description}}>
         {isMobile ? <HomeMobile data={homeData} /> : <Home data={homeData} />}
       </Layout>
     </>

@@ -14,9 +14,9 @@ const BlockTextMobile = ({ Texte, title, urlButton, textButton, verbatim }) => {
     <div className={styles.blockText}>
       <div className={styles.textPart}>
         <div className={styles.titleTextPart}>
-          <Text huge secondary>
+          <h2 huge secondary className={styles.title}>
             {title}
-          </Text>
+          </h2>
         </div>
         <div className={styles.paragraph}>
           <Text big>

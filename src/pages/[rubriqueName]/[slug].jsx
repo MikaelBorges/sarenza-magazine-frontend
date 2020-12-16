@@ -12,7 +12,7 @@ import wrapper from '../../app/store';
 
 const Article = ({ article, menus, genders, footer, recentArticle, isMobile }) => {
   return (
-    <Layout menus={menus} genders={genders} footer={footer} isMobile={isMobile}>
+    <Layout menus={menus} genders={genders} footer={footer} isMobile={isMobile} metaData={{title: article.title, description: (article.modules.length && article.modules[0].Texte) || ""}}>
       {isMobile ? (
         <ArticlesMobile article={article} recentArticle={recentArticle} />
       ) : (

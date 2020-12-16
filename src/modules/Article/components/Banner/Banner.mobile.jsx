@@ -26,9 +26,9 @@ const BannerMobile = ({
       )}
       <div className={styles.description}>
         <div className={styles.hashTitle}>
-          <Text huge secondary>
+          <h1 huge secondary className={styles.title}>
             {subTitleBanner}
-          </Text>
+          </h1>
         </div>
         <Description author={author} publishDate={publishDate} updateDate={updateDate} />
       </div>
