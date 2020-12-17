@@ -16,17 +16,14 @@ const BlocEditoCourt = ({ BlockText, Image, Button }) => {
                 </>
               );
             })}
+          {Button && (
+            <a href={Button.link} className={styles.link}>
+              {Button.label}
+            </a>
+          )}
         </div>
-        {Button && (
-          <a href={Button.link} className={styles.link}>
-            {Button.label}
-          </a>
-        )}
       </div>
-      {Image && (
-      <img src={Image.url} className={styles.visual} alt={Image.alt} />
-      )
-      }
+      {Image && <img src={Image.url} className={styles.visual} alt={Image.alt} />}
     </div>
   ) : null;
 };

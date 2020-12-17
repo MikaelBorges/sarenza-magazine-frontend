@@ -11,6 +11,7 @@
     order: 2;
     align-self: center;
     flex: 0 1 auto;
+    max-width: 49%;
   }
 }
 
@@ -25,6 +26,7 @@
     order: 1;
     align-self: center;
     flex: 0 1 auto;
+    max-width: 49%;
   }
 }
 
@@ -46,6 +48,7 @@
   align-self: center;
   flex: 0 1 auto;
   //margin-top: 15%;
+  max-width: 52%;
 }
 .textPart:nth-child(odd) {
   padding: 0 24px 24px;
@@ -54,6 +57,7 @@
   align-self: center;
   //margin-top: 15%;
   flex: 0 1 auto;
+  max-width: 52%;
 }
 
 .titleTextPart {
