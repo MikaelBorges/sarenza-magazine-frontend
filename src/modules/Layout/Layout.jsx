@@ -15,8 +15,12 @@ const Layout = ({ menus, genders, footer, children, isMobile, metaData }) => {
     <>
       {metaData && (
         <Head>
-          <title>{metaData.title}</title>
-          <meta name="description" content={metaData.description.substr(0, 170)} />
+          {
+            metaData.title &&
+            <title>{metaData.title}</title>
+          }
+          <meta name="description" content={metaData.description} />
+          {/* <link rel="canonical" href="https://www.sarenza.com/magazine"/> */}
         </Head>
 
       )}

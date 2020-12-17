@@ -12,7 +12,7 @@ import wrapper from '../../app/store';
 
 const Article = ({ article, menus, genders, footer, recentArticle, isMobile }) => {
   return (
-    <Layout menus={menus} genders={genders} footer={footer} isMobile={isMobile} metaData={{title: article.title, description: (article.modules.length && article.modules[0].Texte) || ""}}>
+    <Layout menus={menus} genders={genders} footer={footer} isMobile={isMobile} metaData={{title: article.metaSeo.title, description: article.metaSeo.description}}>
       {isMobile ? (
         <ArticlesMobile article={article} recentArticle={recentArticle} />
       ) : (
@@ -21,6 +21,7 @@ const Article = ({ article, menus, genders, footer, recentArticle, isMobile }) =
     </Layout>
   );
 };
+
 
 export const getServerSideProps = wrapper.getServerSideProps(async (ctx) => {
   const { serverRuntimeConfig } = getConfig();
