@@ -1,0 +1,12 @@
+@media screen and (max-width: 975px) {
+    .picture {
+        max-width: 480px;
+        > img {
+            width: 480px;
+        }
+    }
+    .textContainer {
+        margin-left: 24px;
+        padding: 24px;
+    }
+}
