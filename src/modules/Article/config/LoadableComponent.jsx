@@ -7,7 +7,8 @@ export const COMPONENT_NAME = {
   MODULE_DUO: 'module.duo',
   MODULE_SHOPPING_LIST: 'module.slider-article',
   MODULE_VIDEO: 'media.video',
-  MODULE_EDITO_COURT: 'edito.edito-court'
+  MODULE_EDITO_COURT: 'edito.edito-court',
+  MODULE_DUO_QR_IMAGE: 'module.duo-qr'
 };
 
 export const getComponent = (item, i) => {
@@ -31,6 +32,9 @@ export const getComponent = (item, i) => {
       break;
     case COMPONENT_NAME.MODULE_EDITO_COURT:
       Component = dynamic(() => import('../components/BlocEditoCourt/BlocEditoCourt'));
+      break;
+    case COMPONENT_NAME.MODULE_DUO_QR_IMAGE:
+      Component = dynamic(() => import('../components/DuoQRImage/DuoQRImage'));
       break;
     default:
       throw new Error('the component doesnt exist');

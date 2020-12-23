@@ -11,6 +11,7 @@ import Text from '@/components/commons/Text/Text';
 import styles from './Duo.module.scss';
 
 const Duo = ({ duo_image, title, duo_paragraphe, button }) => {
+  console.log (replaceByJsx(duo_paragraphe));
   return (
     <div className={styles.container}>
       <img src={duo_image.url} alt="alt" className={styles.image} />

@@ -1,0 +1,52 @@
+@import '../../../../app/components/_styles/theme';
+
+.duoQR {
+    overflow: hidden;
+    padding-top: 24px;
+
+    &:nth-child(odd) {
+      .imageContainer {
+        float: right;
+        margin-left: 24px;
+      }
+    }
+
+    &:nth-child(even) {
+      .imageContainer {
+        float: left;
+        margin-right: 24px;
+      }
+    }
+
+    .imageContainer {
+      width: 403px;
+      height: 580px;
+      overflow: hidden;
+      margin-bottom: 24px;
+    }
+
+    .image {
+      display: block;
+      width: 100%;
+    }
+
+    .textContainer {
+      text-align: left;
+      padding: 0 24px 24px;
+    }
+
+    .mainTitle {
+      color: #FF2157;
+      margin-bottom: 32px;
+    }
+
+    .paragraph {
+      margin: 16px 0;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+}
+
+@import 'DuoQRImage.module.wide';

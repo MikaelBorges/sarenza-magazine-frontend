@@ -7,10 +7,10 @@ export const COMPONENT_NAME = {
   MODULE_DUO: 'module.duo',
   MODULE_SHOPPING_LIST: 'module.slider-article',
   MODULE_VIDEO: 'media.video',
-  MODULE_EDITO_COURT: 'edito.edito-court'
-
-
+  MODULE_EDITO_COURT: 'edito.edito-court',
+  MODULE_DUO_QR_IMAGE: 'module.duo-qr'
 };
+
 export const getComponent = (item) => {
   let Component;
   // eslint-disable-next-line no-underscore-dangle
@@ -27,12 +27,15 @@ export const getComponent = (item) => {
     case COMPONENT_NAME.MODULE_SHOPPING_LIST:
       Component = dynamic(() => import('../components/ShoppingList/ShoppingList.mobile'));
       break;
-      case COMPONENT_NAME.MODULE_VIDEO:
-        Component = dynamic(() => import('../components/IframeVideo/IframeVideo.mobile'));
-        break;
-        case COMPONENT_NAME.MODULE_EDITO_COURT:
-          Component = dynamic(() => import('../components/BlocEditoCourt/BlocEditoCourt.mobile'));
-          break;
+    case COMPONENT_NAME.MODULE_VIDEO:
+      Component = dynamic(() => import('../components/IframeVideo/IframeVideo.mobile'));
+      break;
+    case COMPONENT_NAME.MODULE_EDITO_COURT:
+      Component = dynamic(() => import('../components/BlocEditoCourt/BlocEditoCourt.mobile'));
+      break;
+    case COMPONENT_NAME.MODULE_DUO_QR_IMAGE:
+      Component = dynamic(() => import('../components/DuoQRImage/DuoQRImage.mobile'));
+      break;
     default:
       throw new Error('the component doesnt exist');
   }
