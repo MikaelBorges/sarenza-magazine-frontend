@@ -1,0 +1,17 @@
+.card {
+  display: flex;
+  margin-right: 16px;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.SliderContainer {
+  padding: 0 16px;
+}
+
+.cards {
+  overflow: auto;
+  display: flex;
+}
