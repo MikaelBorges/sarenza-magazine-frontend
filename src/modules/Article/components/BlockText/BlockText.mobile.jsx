@@ -14,20 +14,20 @@ const BlockTextMobile = ({ Texte, title, urlButton, textButton, verbatim }) => {
     <div className={styles.blockText}>
       <div className={styles.textPart}>
         <div className={styles.titleTextPart}>
-          <Text huge secondary>
+          <h3 className={styles.huge}>
             {title}
-          </Text>
+          </h3>
         </div>
         <div className={styles.paragraph}>
-          <Text big>
+          <div>
             <Markdown options={{ forceInline: false }}>{Texte}</Markdown>
-          </Text>
+          </div>
         </div>
       </div>
       {textVerbatim && (
-        <Text verbatimBlockTextMobile>
+        <div className={styles.verbatimBlockTextMobile}>
           <Markdown options={{ forceInline: false }}>{textVerbatim}</Markdown>
-        </Text>
+        </div>
       )}
       {urlButton && (
         <div className={styles.button}>

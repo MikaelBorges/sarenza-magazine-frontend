@@ -1,8 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import Text from '@/components/commons/Text/Text';
-
 import style from './ArticleTitle.module.scss';
 
 const ArticleTitle = ({ title, author, publishDate, size, position, firstArticle }) => {
@@ -10,19 +8,19 @@ const ArticleTitle = ({ title, author, publishDate, size, position, firstArticle
     <>
       <div className={style.resume}>
         {(size < 2 && position === 1) || (size > 2 && position === 2) || firstArticle ? (
-          <Text huge secondary>
+          <h2 className={huge }>
             {title}
-          </Text>
+          </h2>
         ) : (
-          <Text medium secondary>
+          <h2 className={style.medium}>
             {title}
-          </Text>
+          </h2>
         )}
       </div>
       <div className={style.author}>
-        <Text small>
+        <p className={style.small}>
           {author} - {publishDate}
-        </Text>
+        </p>
       </div>
     </>
   );

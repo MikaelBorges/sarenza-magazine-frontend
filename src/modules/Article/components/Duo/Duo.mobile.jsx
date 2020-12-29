@@ -4,8 +4,6 @@ import Markdown from 'markdown-to-jsx';
 import { replaceByJsx } from 'modules/Article/utils';
 import React from 'react';
 
-import Text from '@/components/commons/Text/Text';
-
 import styles from './Duo.mobile.module.scss';
 
 const DuoMobile = ({ duo_image, title, duo_paragraphe, button }) => {
@@ -16,9 +14,9 @@ const DuoMobile = ({ duo_image, title, duo_paragraphe, button }) => {
       </div>
       <div className={styles.textPart}>
         <div className={styles.titleTextPart}>
-          <Text huge secondary>
+          <h3 className={styles.huge}>
             {title}
-          </Text>
+          </h3>
         </div>
         {duo_paragraphe !== null ? (
           <div className={styles.paragraph}>
@@ -26,18 +24,18 @@ const DuoMobile = ({ duo_image, title, duo_paragraphe, button }) => {
               if (item.type === 'text') {
                 return (
                   <div className={styles.textContainer} key={item.id}>
-                    <Text big>
+                  <div className={styles.big}>
                       <Markdown options={{ forceInline: false }}>{item.text}</Markdown>
-                    </Text>
+                    </div>
                   </div>
                 );
               }
               if (item.type === 'verbatim') {
                 return (
                   <div className={styles.verbatimContainer} key={item.id}>
-                    <Text verbatimMobile>
+                    <div className={styles.verbatimMobile}>
                       <Markdown options={{ forceInline: false }}>{item.text}</Markdown>
-                    </Text>
+                    </div>
                   </div>
                 );
               }

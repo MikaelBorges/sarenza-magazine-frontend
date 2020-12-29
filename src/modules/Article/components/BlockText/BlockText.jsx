@@ -17,21 +17,21 @@ const BlockText = ({ Texte, title, urlButton, textButton, positionVerbatim, verb
             positionVerbatim && styles.textPartIsAfter
           }`}>
           <div className={styles.titleTextPart}>
-            <Text huge secondary>
+            <h3 className={styles.huge}>
               {title}
-            </Text>
+            </h3>
           </div>
           <div className={styles.paragraph}>
-            <Text big>
+            <div className={styles.big}>
               <Markdown options={{ forceInline: false }}>{Texte}</Markdown>
-            </Text>
+            </div>
           </div>
         </div>
         {textVerbatim && (
           <div className={styles.verbatimContainer}>
-            <Text verbatimBlockText>
+            <div className={styles.verbatimBlockText}>
               <Markdown options={{ forceInline: false }}>{textVerbatim}</Markdown>
-            </Text>
+            </div>
           </div>
         )}
       </div>
