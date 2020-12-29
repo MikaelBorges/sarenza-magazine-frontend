@@ -32,6 +32,7 @@ export const getComponent = (item, i) => {
       break;
     case COMPONENT_NAME.MODULE_EDITO_COURT:
       Component = dynamic(() => import('../components/BlocEditoCourt/BlocEditoCourt'));
+      break;
     case COMPONENT_NAME.MODULE_LIGNE_PRODUIT:
       Component = dynamic(() => import('../components/ProductLine/ProductLine'));
       break;

@@ -1,28 +1,22 @@
 .card {
   position: relative;
-  display: flex;
-  padding-right: 16px;
-
+  margin-bottom: 16px;
   &:focus {
     outline: none;
   }
 }
 
-.SliderContainer {
-  padding: 0 16px;
-  width: 960px;
-  margin: 0 auto;
-}
-
 .cards {
-  overflow: auto;
   display: flex;
+  flex-direction: column;
+  width: 190px;
+  margin: 0 auto;
 }
 
 .btn {
   position: absolute;
   bottom: 30px;
-  left: 100px;
+  left: 45px;
   background-color: white;
   padding: 8px;
   border-radius: 16px;
