@@ -9,9 +9,9 @@ import styles from './ReadMore.mobile.module.scss';
 const Articles = ({ articles, position }) => {
   return (
     <div className={styles.container}>
-      <Heading headingLevel="h2" huge bold>
+      <div className={styles.title}>
         À LIRE AUSSI
-      </Heading>
+      </div>
       {articles.map((article, index) => {
         return (
           <div key={article.id} className={styles.content}>
