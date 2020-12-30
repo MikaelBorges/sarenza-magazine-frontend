@@ -27,7 +27,7 @@ const Banner = ({
         )}
         <div className={styles.description}>
           <div className={styles.hashTitle}>
-            <Text secondary>{subTitleBanner}</Text>
+            <h1 className={styles.secondary}>{subTitleBanner}</h1>
           </div>
           <Description author={author} publishDate={publishDate} updateDate={updateDate} />
         </div>

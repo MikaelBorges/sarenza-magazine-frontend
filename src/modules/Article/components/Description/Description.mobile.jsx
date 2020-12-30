@@ -8,10 +8,10 @@ import styles from './Description.mobile.module.scss';
 const DescriptionMobile = ({ author, publishDate, updateDate }) => {
   return (
     <div className={styles.rightBlock}>
-      <Text medium secondary author>
+      <p className={styles.author}>
         {author} - Publié le {publishDate}
-      </Text>
-      <Text>mis à jour le {updateDate}</Text>
+      </p>
+      <span>mis à jour le {updateDate}</span>
     </div>
   );
 };
