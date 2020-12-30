@@ -14,9 +14,9 @@ const DuoMobile = ({ duo_image, title, duo_paragraphe, button }) => {
       </div>
       <div className={styles.textPart}>
         <div className={styles.titleTextPart}>
-          <h3 className={styles.huge}>
+          <h2 className={styles.huge}>
             {title}
-          </h3>
+          </h2>
         </div>
         {duo_paragraphe !== null ? (
           <div className={styles.paragraph}>

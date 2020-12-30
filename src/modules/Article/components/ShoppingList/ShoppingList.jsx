@@ -21,7 +21,7 @@ const ShoppingList = ({ vignette, title, description, button }) => {
   };
   return (
     <div className={styles.shoppingList}>
-      <h2 className="title-edito2">{title}</h2>
+      <div className="title-edito2">{title}</div>
       <p className={styles.intro}>{description}</p>
       <div className={styles.SliderContainer}>
         <Slider {...settings} className={styles.cards}>
