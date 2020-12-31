@@ -1,29 +1,29 @@
 @import '../../../../app/components/_styles/theme';
 
 .duoQR {
-    text-align: left;
-    padding: 16px 0;
+  text-align: left;
+  padding: 16px 0;
 
-    .mainTitle {
-      color: #FF2157;
-      text-align: center;
-      padding: 16px 24px 32px;
+  .mainTitle {
+    color: #FF2157;
+    text-align: center;
+    padding: 16px 24px 32px;
+  }
+
+  .image {
+    display: block;
+    width: 100%;
+  }
+
+  .richTextContainer {
+    padding: 24px 24px 0;
+  }
+
+  .paragraph {
+    margin: 16px 0;
+
+    &:last-child {
+      margin-bottom: 0;
     }
-
-    .image {
-      display: block;
-      width: 100%;
-    }
-
-    .richTextContainer {
-      padding: 24px 24px 0;
-    }
-
-    .paragraph {
-      margin: 16px 0;
-
-      &:last-child {
-        margin-bottom: 0;
-      }
-    }
+  }
 }
