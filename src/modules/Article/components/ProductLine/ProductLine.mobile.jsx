@@ -47,25 +47,6 @@ const ProductLineMobile = ({ ProductCard }) => {
           );
         })}
 
-          {/* <div className={styles.vignette}>
-            <div className={styles.imageContainer}>
-              <Image src="https://cdn.sarenza.net/_img/productsv4/0000264771/0000264771_484173_09_504x690.jpg" alt="image-product-line" />
-              <a className={`button darkseid pictenza pictenza-basket ${styles.gellule}`}>
-                <span className={styles.onlyText}>Voir tous les produits</span>
-              </a>
-              <span
-                className={`pictenza pictenza-favorites ${styles.favoriteCard} ${
-                  favoriteStatus ? styles.pictenzaFavoritesSelect : ''
-                }`}
-                data-pcid="6"
-                onClick={(e) => handleClick(e)}
-                role="button"
-                tabIndex={-2}
-              >
-              </span>
-            </div>
-          </div> */}
-
     </div>
   );
 };

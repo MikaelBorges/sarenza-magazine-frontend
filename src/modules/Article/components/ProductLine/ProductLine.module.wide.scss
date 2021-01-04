@@ -1,0 +1,53 @@
+@media screen and (min-width: 975px) {
+  .productLine {
+    .SliderContainer {
+      padding: 0;
+      display: block;
+    }
+
+    .cards {
+      padding: 0 60px;
+      overflow: hidden;
+
+      // center hack
+      > div > div {
+        margin: auto;
+      }
+    }
+
+    .card {
+      margin-right: 0;
+    }
+
+    .cardSubcontainer {
+      width: auto;
+
+      overflow: hidden;
+    }
+
+    img {
+      max-width: calc(100% - 16px);
+
+      &:hover {
+        + .gellule {
+          bottom: 16px;
+        }
+      }
+    }
+
+    .favoriteCard {
+      &:hover {
+        color: #ff2157;
+      }
+    }
+
+    .gellule {
+      transition: bottom 0.5s;
+      bottom: -40px;
+
+      &:hover {
+        bottom: 16px;
+      }
+    }
+  }
+}
