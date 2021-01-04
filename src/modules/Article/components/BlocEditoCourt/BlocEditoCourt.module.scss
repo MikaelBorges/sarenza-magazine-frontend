@@ -20,6 +20,7 @@
     overflow-y: auto;
     overflow-x:hidden;
     max-height: 482px;
+    text-align: left;
     @media screen and (min-width:975px){
         max-width: 528px;
         max-height: 658px;
@@ -53,7 +54,6 @@
   }
   .link {
     position: relative; 
-    left: -30%;
     font: 700 12px/14px robotoc, Arial Narrow, sans-serif;
     text-transform: uppercase;
     padding: 0 64px 0 32px;
@@ -70,10 +70,7 @@
     letter-spacing: -0.34px;
     text-align: left;
     line-height: 16px;
-    
-    @media screen and (min-width:975px){
-        left: -35%;
-    }
+  
     
   
     &:after {
@@ -114,6 +111,7 @@
       overflow-y: auto;
       overflow-x: hidden;
       max-height: 482px;
+      text-align: left;
 
       @media screen and (min-width: 975px) {
         max-width: 528px;
@@ -149,7 +147,6 @@
       }
       .link {
         position: relative;
-        left: -30%;
         display: inline-flex;
         align-items: center;
         vertical-align: middle;
@@ -168,9 +165,7 @@
         line-height: 16px;
         text-decoration: none;
         
-        @media screen and (min-width:975px){
-          left: -35%;
-        }
+      
         &:after {
           position: absolute;
           right: 32px;

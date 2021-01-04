@@ -1,20 +1,15 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
 import styles from './BlocEditoCourt.mobile.module.scss';
+import Mardown from 'markdown-to-jsx';
 
-const BlocEditoCourt = ({ BlockText, Image, Button }) => {
-  return BlockText && Image && Button ? (
+const BlocEditoCourt = ({ Title, Text, Image, Button }) => {
+  return Title && Text && Image && Button ? (
     <div className={styles.wrapper}>
       <div className={styles.boxButton}>
         <div className={styles.blocText}>
-          {BlockText && BlockText.map((item) => {
-            return (
-              <>
-                <h2 className={styles.title}>{item.Title}</h2>
-                <p className={styles.text}>{item.Text}</p>
-              </>
-            );
-          })}
+          <h2 className={styles.title}>{Title}</h2>
+          <Mardown options={{ forceInline: false }}>{Text}</Mardown>
         </div>
         {Button && (
           <a href={Button.link} className={styles.link}>
@@ -22,12 +17,9 @@ const BlocEditoCourt = ({ BlockText, Image, Button }) => {
           </a>
         )}
       </div>
-      {Image && (
-      <img src={Image.url} className={styles.visual} alt={Image.alt} />
-      )}
+      {Image && <img src={Image.url} className={styles.visual} alt={Image.alt} />}
     </div>
-  ): 
-  null;
+  ) : null;
 };
 
 // BlocEditoCourt.propTypes = {
