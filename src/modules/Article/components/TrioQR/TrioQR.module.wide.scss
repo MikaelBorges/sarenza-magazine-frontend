@@ -2,6 +2,9 @@
     .container {
         max-width: 1008px;
         margin: 32px auto;
+        > h3 {
+            text-align: left;
+        }
     }
     .blocQR {
         flex: auto;

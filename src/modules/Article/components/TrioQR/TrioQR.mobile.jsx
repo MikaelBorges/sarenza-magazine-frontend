@@ -8,17 +8,18 @@ const TrioQR = ({Title, QuestionsReponses}) => {
             {Title && (
             <h3>{Title}</h3>
             )}
-
-            <ul className={styles.listQR}>
-            {QuestionsReponses.map(QuestionReponse => {
-                return (
-                    <li className={styles.blocQR} style={{backgroundColor:QuestionReponse.Background}} key={QuestionReponse.id}>
-                        <div className={styles.question}>{QuestionReponse.Question}</div>
-                        <div className={styles.reponse}>{QuestionReponse.Reponse}</div>
-                    </li>
-                );
-            })}
-            </ul>
+            <div className={styles.listContainer}>
+                <ul className={styles.listQR}>
+                {QuestionsReponses.map(QuestionReponse => {
+                    return (
+                        <li className={styles.blocQR} style={{backgroundColor:QuestionReponse.Background}} key={QuestionReponse.id}>
+                            <div className={styles.question}>{QuestionReponse.Question}</div>
+                            <div className={styles.reponse}>{QuestionReponse.Reponse}</div>
+                        </li>
+                    );
+                })}
+                </ul>
+            </div>
         </div>
     );
 };
