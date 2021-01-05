@@ -7,11 +7,14 @@
 .picture {
     > img {
         display: block;
+        width: 100%;
     }
 }
 .textContainer {
     padding: 24px;
     text-align: left;
+    background-color: #F2F2F2;
+    
     > h3 {
         font-family: robotoc, $safe-fonts;
         font-size: 16px;

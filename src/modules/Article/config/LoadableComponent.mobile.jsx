@@ -8,7 +8,7 @@ export const COMPONENT_NAME = {
   MODULE_SHOPPING_LIST: 'module.slider-article',
   MODULE_VIDEO: 'media.video',
   MODULE_EDITO_COURT: 'edito.edito-court',
-  MODULE_IDENTITY_FICHES: 'module.identity-fiche'
+  MODULE_IDENTITY_FICHES: 'module.identity-card'
 
 
 };

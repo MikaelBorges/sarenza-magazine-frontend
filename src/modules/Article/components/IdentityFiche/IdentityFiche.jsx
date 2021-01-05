@@ -8,14 +8,16 @@ const IdentifyFiche = (data) => {
        
         <div className={styles.container}>
             <div className={styles.picture}>
-                {data.Image.url && (
-                <Image src={data.Image.url} alt={data.Image.alt} />
+                {data.Picture.url && (
+                <Image src={data.Picture.url} alt={data.Picture.alt} />
                 )}
             </div>
+            
             {data.Text && (
-            <Markdown className={styles.textContainer} style={{backgroundColor:data.backgroundColor}} options={{ forceInline: false }}>{data.Text}</Markdown>
+            <Markdown className={styles.textContainer} style={{backgroundColor:data.BackgroundColor}} options={{ forceInline: false }}>{data.Text}</Markdown>
             )}
         </div>
+
     ) : null
 };
 
