@@ -2,29 +2,20 @@
   padding: 8px 0;
 
   .SliderContainer {
-    // padding: 0 16px;
     display: flex;
     justify-content: center;
-
-    //background-color: maroon;
   }
 
   .cards {
     overflow: auto;
     display: flex;
-
-    //background-color: orange;
   }
 
   .card {
     display: flex;
-    //margin-right: 16px;
     margin-left: 16px;
 
-    //background-color: cyan;
-
     &:last-child {
-      //margin-right: 0;
       padding-right: 16px;
     }
 
@@ -68,14 +59,12 @@
   }
 
   .cardSubcontainer {
-    width: 228px; //300px
+    width: 228px;
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-end;
-
-    //background-color: black;
   }
 
   img {

@@ -26,8 +26,6 @@ const ProductLine = ({ ProductCard }) => {
   };
 
   return (
-    <>
-
     <div className={styles.productLine}>
       <div className={styles.SliderContainer}>
         <Slider {...settings} className={styles.cards}>
@@ -66,40 +64,9 @@ const ProductLine = ({ ProductCard }) => {
               </div>
             );
           })}
-
-          {/* <div className={styles.card} key="1">
-              <div className={styles.cardSubcontainer}>
-                <img className={styles.image} src="https://cdn.sarenza.net/_img/productsv4/0000264771/0000264771_484173_09_504x690.jpg" alt="model" />
-                <span
-                  className={`pictenza pictenza-favorites ${styles.favoriteCard} ${
-                    favoriteStatus ? styles.pictenzaFavoritesSelect : ''
-                  }`}
-                  data-pcid="1234"
-                  onClick={(e) => handleClick(e)}
-                >
-                </span>
-              </div>
-          </div>
-
-          <div className={styles.card} key="2">
-              <div className={styles.cardSubcontainer}>
-                <img className={styles.image} src="https://cdn.sarenza.net/_img/productsv4/0000264771/0000264771_484173_09_504x690.jpg" alt="model" />
-                <span
-                  className={`pictenza pictenza-favorites ${styles.favoriteCard} ${
-                    favoriteStatus ? styles.pictenzaFavoritesSelect : ''
-                  }`}
-                  data-pcid="1234"
-                  onClick={(e) => handleClick(e)}
-                >
-                </span>
-              </div>
-          </div> */}
-
         </Slider>
       </div>
     </div>
-
-    </>
   );
 };
 

@@ -9,7 +9,7 @@
       padding: 0 60px;
       overflow: hidden;
 
-      // center hack
+      // positionning hack on react slick elements
       > div > div {
         margin: auto;
       }
@@ -37,7 +37,6 @@
 
     .cardSubcontainer {
       width: auto;
-
       overflow: hidden;
     }
 
