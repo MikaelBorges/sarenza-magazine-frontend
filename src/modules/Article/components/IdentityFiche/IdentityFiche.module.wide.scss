@@ -1,4 +1,9 @@
-@media screen and (max-width: 975px) {
+@media screen and (min-width: 975px) {
+    .container {
+        max-width: 1008px;
+        margin-left: auto;
+        margin-right: auto;
+    }
     .picture {
         max-width: 480px;
         > img {
