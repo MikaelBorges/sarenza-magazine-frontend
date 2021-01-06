@@ -1,5 +1,6 @@
 .vignetteContainer {
   overflow: auto;
+  margin: 8px 0;
 
   /* select only first item, when there are four items or more */
   .vignette:first-child:nth-last-child(n+4) {

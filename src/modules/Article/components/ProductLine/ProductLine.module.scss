@@ -5,18 +5,22 @@
     padding: 0 16px;
     display: flex;
     justify-content: center;
+
+    //background-color: maroon;
   }
 
   .cards {
     overflow: auto;
     display: flex;
 
-    // background-color: antiquewhite;
+    //background-color: orange;
   }
 
   .card {
     display: flex;
     margin-right: 16px;
+
+    //background-color: cyan;
 
     &:last-child {
       margin-right: 0;
@@ -58,22 +62,20 @@
   }
 
   .cardSubcontainer {
-    width: 300px;
+    width: 228px; //300px
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-end;
+
+    //background-color: black;
   }
 
   img {
     margin: 0 auto;
     width: 100%;
     display: block;
-  }
-
-  .cardSubcontainer {
-    position: relative;
   }
 
   .pictenzaFavoritesSelect {
