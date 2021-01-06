@@ -13,10 +13,26 @@
       > div > div {
         margin: auto;
       }
+
+      > button {
+        top: 50%;
+      }
+
+      > button:first-child {
+        left: 28px;
+      }
+
+      > button:last-child {
+        right: 28px;
+      }
     }
 
     .card {
-      margin-right: 0;
+      margin: 0;
+
+      &:last-child {
+        padding-right: 0;
+      }
     }
 
     .cardSubcontainer {

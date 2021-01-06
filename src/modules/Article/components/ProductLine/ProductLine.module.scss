@@ -2,7 +2,7 @@
   padding: 8px 0;
 
   .SliderContainer {
-    padding: 0 16px;
+    // padding: 0 16px;
     display: flex;
     justify-content: center;
 
@@ -18,12 +18,14 @@
 
   .card {
     display: flex;
-    margin-right: 16px;
+    //margin-right: 16px;
+    margin-left: 16px;
 
     //background-color: cyan;
 
     &:last-child {
-      margin-right: 0;
+      //margin-right: 0;
+      padding-right: 16px;
     }
 
     &:focus {
