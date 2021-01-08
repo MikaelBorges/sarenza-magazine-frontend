@@ -20,26 +20,28 @@ const ProductLineMobile = ({ ProductCard }) => {
               <a href={card.url_cta} className={styles.link} role="button" tabIndex={-1}>
                 <div className={styles.imageContainer}>
                   {card.url_image && (
-                    <Image src={card.url_image} alt="image-product-line" />
-                  )}
-                  {card.url_cta && (
-                    <span
-                      className={`button darkseid pictenza pictenza-basket ${styles.gellule}`}
-                    >
-                      <span className={styles.onlyText}>{card.url_text}</span>
-                    </span>
-                  )}
-                  {card.pcid && (
-                    <span
-                      className={`pictenza pictenza-favorites ${styles.favoriteCard} ${
-                        favoriteStatus ? styles.pictenzaFavoritesSelect : ''
-                      }`}
-                      data-pcid={card.pcid}
-                      onClick={(e) => handleClick(e)}
-                      role="button"
-                      tabIndex={-2}
-                    >
-                    </span>
+                    <div className={styles.imageSubContainer}>
+                      <Image src={card.url_image} alt="image-product-line" />
+                      {card.pcid && (
+                        <span
+                          className={`pictenza pictenza-favorites ${styles.favoriteCard} ${
+                            favoriteStatus ? styles.pictenzaFavoritesSelect : ''
+                          }`}
+                          data-pcid={card.pcid}
+                          onClick={(e) => handleClick(e)}
+                          role="button"
+                          tabIndex={-2}
+                        >
+                        </span>
+                      )}
+                      {card.url_cta && (
+                        <span
+                          className={`button darkseid pictenza pictenza-basket ${styles.gellule}`}
+                        >
+                          <span className={styles.onlyText}>{card.url_text}</span>
+                        </span>
+                      )}
+                    </div>
                   )}
                 </div>
               </a>
