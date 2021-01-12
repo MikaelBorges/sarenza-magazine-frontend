@@ -1,4 +1,4 @@
-.wrapper:nth-child(even) {
+.wrapper:nth-child(odd) {
   max-width: 1008px;
   display: flex;
   flex-direction: row;
@@ -9,21 +9,22 @@
   margin-bottom: 48px;
 
   .boxButton{
-    align-self: flex-start;
+    align-self: center;
     order: 1;
     width: 49.9%;
     position: relative;
   }
 
   .blocText {
-    padding: 10px 10px 0 24px;
-
+    padding: 0 24px;
+    overflow-y: auto;
+    overflow-x:hidden;
+    max-height: 482px;
+    text-align: left;
     @media screen and (min-width:975px){
-        overflow-y: scroll;
         max-width: 528px;
         max-height: 658px;
-        padding: 10px 10px 0 0;
-    }    
+      }   
   }
   .visual {
     align-self: flex-start;
@@ -35,7 +36,8 @@
     font-size: 32px;
     text-align: left;
     margin: 0;
-    margin-bottom: 16px;
+    margin-bottom: 24px;
+    margin-top: 32px;
     font-family: robotoC;
     font-weight: bold;
     line-height: 32px;
@@ -51,11 +53,7 @@
     line-height: 25px;
   }
   .link {
-    position: absolute;
-    order: 3;
-    left: 24px;
-    bottom: -68px;
-    z-index: 0;
+    position: relative; 
     font: 700 12px/14px robotoc, Arial Narrow, sans-serif;
     text-transform: uppercase;
     padding: 0 64px 0 32px;
@@ -72,10 +70,7 @@
     letter-spacing: -0.34px;
     text-align: left;
     line-height: 16px;
-    
-    @media screen and (min-width:975px){
-        left: 0;
-    }
+  
     
   
     &:after {
@@ -94,7 +89,7 @@
     }
   }
 }
-.wrapper:nth-child(odd) {
+.wrapper:nth-child(even) {
     max-width: 1008px;
     display: flex;
     flex-direction: row;
@@ -105,20 +100,23 @@
     margin-bottom: 48px;
 
     .boxButton{
-        align-self: flex-start;
+        align-self: center;
         order: 2;
         width: 49.9%;
         position: relative;
       }
 
     .blocText {
-      padding: 10px 0 0 24px;
-     
+      padding: 0 24px;
+      overflow-y: auto;
+      overflow-x: hidden;
+      max-height: 482px;
+      text-align: left;
+
       @media screen and (min-width: 975px) {
-        overflow-y: scroll;
         max-width: 528px;
+        padding: 0 24px;
         max-height: 658px;
-        padding: 10px 0 0 10px;
       }
     }
     .visual {
@@ -131,7 +129,8 @@
         font-size: 32px;
         text-align: left;
         margin: 0;
-        margin-bottom: 16px;
+        margin-bottom: 24px;
+        margin-top: 32px;
         font-family: robotoC;
         font-weight: bold;
         line-height: 32px;
@@ -147,11 +146,9 @@
         line-height: 25px;
       }
       .link {
-        z-index: 0;
-        position: absolute;
-        bottom: -68px;
-        order: 3;
-        left: 24px;
+        position: relative;
+        display: inline-flex;
+        align-items: center;
         vertical-align: middle;
         font: 700 12px/14px robotoc, Arial Narrow, sans-serif;
         text-transform: uppercase;
@@ -161,18 +158,14 @@
         height: 48px;
         overflow: hidden;
         outline: 0;
-        transition: background 0.25s ease, color 0.25s ease, border 0.25s ease;
-        display: inline-flex;
-        align-items: center;
         font-size: 12px;
         color: #ffffff;
         letter-spacing: -0.34px;
         text-align: left;
         line-height: 16px;
+        text-decoration: none;
         
-        @media screen and (min-width:975px){
-            left: 10px;
-        }
+      
         &:after {
           position: absolute;
           right: 32px;
