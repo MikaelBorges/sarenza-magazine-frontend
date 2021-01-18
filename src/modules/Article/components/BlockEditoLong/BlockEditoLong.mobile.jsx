@@ -3,13 +3,13 @@ import React from 'react';
 import styles from './BlockEditoLong.mobile.module.scss';
 import Mardown from 'markdown-to-jsx';
 
-const BlockEditoLong = ({ BlockText, Image, Button }) => {
-  return BlockText && Image ? (
+const BlockEditoLong = ({ Title, Text, Image, Button }) => {
+  return Title && Text && Image ? (
     <div className={styles.wrapper}>
       <div className={styles.boxButton}>
         <div className={styles.blocText}>
-          <h2 className={styles.title}>{BlockText.Title}</h2>
-          <Mardown options={{ forceInline: false }}>{BlockText.Text}</Mardown>
+          <h2 className={styles.title}>{Title}</h2>
+          <Mardown options={{ forceInline: false }}>{Text}</Mardown>
         </div>
         {Button && 
           <a href={Button.link} className={styles.link}>
