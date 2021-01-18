@@ -13,9 +13,16 @@ import { timeout } from '../utils/httpUtils';
 import getConfig from 'next/config';
 
 const ArticleList = ({ rubriques, menus, genders, footer, isMobile }) => {
-  console.log(rubriques);
   return (
-    <Layout menus={menus} genders={genders} footer={footer} isMobile={isMobile} metaData={{title: rubriques.currentRubrique.rubrique, description: rubriques.header.description}}>
+    <Layout
+      menus={menus}
+      genders={genders}
+      footer={footer}
+      isMobile={isMobile}
+      metaData={{
+        title: rubriques.currentRubrique.rubrique,
+        description: rubriques.header.description
+      }}>
       {isMobile ? <HomeMobile data={rubriques} isRubrique /> : <Home data={rubriques} isRubrique />}
     </Layout>
   );
@@ -31,8 +38,8 @@ export const getServerSideProps = wrapper.getServerSideProps(async (ctx) => {
 
   const apolloClient = getApolloClient();
 
-  const start =  0;
-  const limit =  100;
+  const start = 0;
+  const limit = 100;
 
   const { data, error } = await apolloClient.execQuery(
     { query: HOME_QUERY, variables: { ...ctx.query, limit: limit, start: start } },
@@ -57,7 +64,6 @@ export const getServerSideProps = wrapper.getServerSideProps(async (ctx) => {
   const isRubrique = ctx.query.rubriqueName;
 
   ctx.store.dispatch({ type: 'RUBRIQUE_SUCCESS', rubriques });
-
   return {
     props: {
       rubriques,

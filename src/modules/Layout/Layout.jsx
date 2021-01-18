@@ -9,9 +9,17 @@ import Breadcrumb from '@/components/commons/Breadcrumb/Breadcrumb';
 import stylesMobile from './app.mobile.module.scss';
 import styles from './app.module.scss';
 import Head from 'next/head';
+import { useRouter } from 'next/router'
 
 const Layout = ({ menus, genders, footer, children, isMobile, metaData }) => {
-  return (
+
+const rubriqueName = useRouter().query.rubriqueName;
+const slug = useRouter().query.slug;
+const canonical = `https://www.sarenza.com/magazine${rubriqueName ? `/${rubriqueName}` : ""}${slug ? `/${slug}` : ""}`;
+
+
+return (
+    
     <>
       {metaData && (
         <Head>
@@ -19,8 +27,8 @@ const Layout = ({ menus, genders, footer, children, isMobile, metaData }) => {
             metaData.title &&
             <title>{metaData.title}</title>
           }
-          <meta name="description" content={metaData.description} />
-          {/* <link rel="canonical" href="https://www.sarenza.com/magazine"/> */}
+          <meta name="description" content={`${metaData.description}`} />
+           <link rel="canonical" href={canonical} />
         </Head>
 
       )}

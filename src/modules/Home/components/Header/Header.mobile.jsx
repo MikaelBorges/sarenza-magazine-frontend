@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import Heading from '@/components/commons/Heading/Heading.mobile';
 import Text from '@/components/commons/Text/Text.mobile';
 
 import RubriquesLinks from '../RubriquesLinks/RubriquesLinks';
@@ -12,7 +11,6 @@ const Header = ({ header }) => {
     <div className={styles.header}>
       <div className={styles.blockText}>
         <div className={styles.title}>
-          <Heading>{header.title}</Heading>
           <img
             src="https://cdn.sarenza.net/v3/Prod/visuels-site/Mag/Logo/logoMagazine.jpg"
             alt="logo"
