@@ -7,7 +7,7 @@ const { serverRuntimeConfig } = getConfig();
 
 const getSeo = async () => {
   try {
-    const res = await timeout(constant.prefix.timeout, fetch(`${serverRuntimeConfig.API_URL}/Prefix-Meta-Descriptions`));
+    const res = await timeout(constant.prefix.timeout, fetch(`${serverRuntimeConfig.API_URL}/Prefix-Meta-Description`));
     const data = await res.json();
     return seo(data);
   } catch (error) {
