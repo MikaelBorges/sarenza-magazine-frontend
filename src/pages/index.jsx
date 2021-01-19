@@ -2,16 +2,18 @@ import processToHome from 'modules/Home/model/Home';
 import { getApolloClient } from 'utils/apollo';
 import getPageProps from 'utils/getPageProps';
 import { HOME_QUERY_ALL } from '../apollo/queries/home/homeQuery';
+
 import Home from '../modules/Home/Home';
 import HomeMobile from '../modules/Home/Home.mobile';
 import constant from '../infrastructure/constant';
 import ContextHelper from '../utils/ContextHelper';
 import Layout from 'modules/Layout/Layout';
 
-const HomePage = ({ homeData, menus, genders, footer, isMobile }) => {
+
+const HomePage = ({ homeData, menus, genders, footer, isMobile, seo }) => {
   return (
     <>
-      <Layout menus={menus} genders={genders} footer={footer} isMobile={isMobile} metaData={{title: homeData.header.title, description: homeData.header.description}}>
+      <Layout menus={menus} genders={genders} footer={footer} isMobile={isMobile} metaData={{title: homeData.header.title, description: `${seo.prefix}${homeData.header.description}`}}>
         {isMobile ? <HomeMobile data={homeData} /> : <Home data={homeData} />}
       </Layout>
     </>
@@ -44,9 +46,10 @@ export const getServerSideProps = async (ctx) => {
     return { props: {} };
   }
 
-  const { menus, genders, footer } = await getPageProps();
+  const { menus, genders, footer, seo } = await getPageProps();
 
   const homeData = processToHome(data);
+
 
   return {
     props: {
@@ -54,8 +57,10 @@ export const getServerSideProps = async (ctx) => {
       menus,
       genders,
       footer,
+      seo,
       isMobile: ct.context.device.mobile || false,
       UrlPrefix: ct.context.route.link_prefix
+
     }
   };
 };

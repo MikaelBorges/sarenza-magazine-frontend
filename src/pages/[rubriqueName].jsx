@@ -12,7 +12,7 @@ import wrapper from '../app/store';
 import { timeout } from '../utils/httpUtils';
 import getConfig from 'next/config';
 
-const ArticleList = ({ rubriques, menus, genders, footer, isMobile }) => {
+const ArticleList = ({ rubriques, menus, genders, footer, isMobile, seo }) => {
   return (
     <Layout
       menus={menus}
@@ -21,7 +21,7 @@ const ArticleList = ({ rubriques, menus, genders, footer, isMobile }) => {
       isMobile={isMobile}
       metaData={{
         title: rubriques.currentRubrique.rubrique,
-        description: rubriques.header.description
+        description: `${seo.prefix}${rubriques.header.description}`
       }}>
       {isMobile ? <HomeMobile data={rubriques} isRubrique /> : <Home data={rubriques} isRubrique />}
     </Layout>
@@ -58,7 +58,7 @@ export const getServerSideProps = wrapper.getServerSideProps(async (ctx) => {
     )
   ).json();
 
-  const { menus, genders, footer } = await getPageProps();
+  const { menus, genders, footer, seo } = await getPageProps();
   const rubriques = processToHome(data, ctx.query.rubriqueName);
   rubriques.numberArticles = count;
   const isRubrique = ctx.query.rubriqueName;
@@ -72,7 +72,8 @@ export const getServerSideProps = wrapper.getServerSideProps(async (ctx) => {
       genders,
       footer,
       isMobile: ct.context.device.mobile || false,
-      UrlPrefix: ct.context.route.link_prefix
+      UrlPrefix: ct.context.route.link_prefix,
+      seo
     }
   };
 });
