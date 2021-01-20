@@ -10,9 +10,19 @@ import { timeout } from '../../utils/httpUtils';
 import ContextHelper from 'utils/ContextHelper';
 import wrapper from '../../app/store';
 
-const Article = ({ article, menus, genders, footer, recentArticle, isMobile }) => {
+const Article = ({ article, menus, genders, footer, recentArticle, isMobile, seo }) => {
   return (
-    <Layout menus={menus} genders={genders} footer={footer} isMobile={isMobile}>
+    <Layout
+      menus={menus}
+      genders={genders}
+      footer={footer}
+      isMobile={isMobile}
+      metaData={{
+        title: article.title,
+        description: `${seo.prefix}${
+          article.title
+        }`
+      }}>
       {isMobile ? (
         <ArticlesMobile article={article} recentArticle={recentArticle} />
       ) : (
@@ -44,7 +54,7 @@ export const getServerSideProps = wrapper.getServerSideProps(async (ctx) => {
 
   const data = await response.json();
 
-  const { menus, genders, footer } = await getPageProps();
+  const { menus, genders, footer, seo } = await getPageProps();
 
   const recentArticle = await (
     await timeout(
@@ -64,7 +74,8 @@ export const getServerSideProps = wrapper.getServerSideProps(async (ctx) => {
       menus,
       genders,
       footer,
-      isMobile: ct.context.device.mobile || false
+      isMobile: ct.context.device.mobile || false,
+      seo
     }
   };
 });
