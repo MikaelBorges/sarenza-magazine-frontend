@@ -9,6 +9,7 @@ import MainComponent from './components/Articles/MainComponent/MainComponent';
 import Header from './components/Header/Header';
 import { useRouter } from 'next/router';
 
+
 const Home = ({ data, isRubrique }) => {
   const { query } = useRouter();
   const onlyFirstPage = !query.page;

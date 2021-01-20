@@ -31,17 +31,30 @@ const Breadcrumb = ({ article, rubriques }) => {
         </LinkText>
       </div>
       <div className={styles.breadcrumb}>
-        <LinkText link="/" disabled={urlKeys.length == 0}>
-          Magazine
-        </LinkText>
+        {urlKeys.length == 0 ? (
+          <h1 className={styles.h1}>Magazine</h1>
+        ) : (
+          <LinkText link="/">
+            Magazine
+          </LinkText>
+        )}
       </div>
 
       {urlKeys.map((urlKey, i) => {
         return urlKey !== 'isMobile' ? (
           <div key={`${urlKey}${i}`} className={styles.breadcrumb}>
-            <LinkText link={`/${router.query[urlKey]}`} disabled={urlKeys.length === i + 1}>
-              {getLabel(urlKey, article, rubriques, router)}
-            </LinkText>
+            {
+              urlKeys.length === i + 1  && !article ? (
+                <h1 className={styles.h1} link={`/${router.query[urlKey]}`}>
+                  {getLabel(urlKey, article, rubriques, router)}
+                </h1>
+              ) : 
+              (
+              <LinkText link={`/${router.query[urlKey]}`} disabled={urlKeys.length === i + 1}>
+                {getLabel(urlKey, article, rubriques, router)}
+              </LinkText>
+              )
+            }
           </div>
         ) : null;
       })}
