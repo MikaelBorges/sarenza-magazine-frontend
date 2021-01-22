@@ -2,7 +2,7 @@ version: "3.8"
 services:
   magazine:
     container_name: sarenzamag
-    image: srzlab.azurecr.io/magazine:1.3.0-unstable-2
+    image: srzlab.azurecr.io/magazine:${VERSION:-latest}
     stdin_open: true
     tty: true
     restart: unless-stopped

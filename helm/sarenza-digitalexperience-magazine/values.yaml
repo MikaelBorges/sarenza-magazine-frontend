@@ -6,7 +6,7 @@ replicaCount: 4
 
 image:
   repository: srzlab.azurecr.io/magazine
-  tag: 1.3.0-unstable-2
+  tag: 1.0.0
   pullPolicy: IfNotPresent
 
 imagePullSecrets: 
