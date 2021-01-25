@@ -29,11 +29,11 @@ export const getServerSideProps = async (ctx) => {
 
   const apolloClient = getApolloClient();
 
-  // const start = (parseInt(ctx.query.page) - 1) * 12 || 0;
-  // const limit = parseInt(ctx.query.page) * 12 || 12;
+   const start = (parseInt(ctx.query.page) - 1) * 12 || 0;
+   const limit = parseInt(ctx.query.page) * 12 || 12;
 
-  const start = 0;
-  const limit = 100;
+  // const start = 0;
+  // const limit = 100;
 
   const { data, error } = await apolloClient.execQuery(
     { query: HOME_QUERY_ALL, variables: { ...ctx.query, limit: limit, start: start } },
