@@ -2,8 +2,6 @@
 import Markdown from 'markdown-to-jsx';
 import React from 'react';
 
-import Text from '@/components/commons/Text/Text';
-
 import styles from './BlockText.module.scss';
 
 const BlockText = ({ Texte, title, urlButton, textButton, positionVerbatim, verbatim }) => {
@@ -17,21 +15,21 @@ const BlockText = ({ Texte, title, urlButton, textButton, positionVerbatim, verb
             positionVerbatim && styles.textPartIsAfter
           }`}>
           <div className={styles.titleTextPart}>
-            <Text huge secondary>
+            <h2 className={styles.huge}>
               {title}
-            </Text>
+            </h2>
           </div>
           <div className={styles.paragraph}>
-            <Text big>
+            <div className={styles.big}>
               <Markdown options={{ forceInline: false }}>{Texte}</Markdown>
-            </Text>
+            </div>
           </div>
         </div>
         {textVerbatim && (
           <div className={styles.verbatimContainer}>
-            <Text verbatimBlockText>
+            <div className={styles.verbatimBlockText}>
               <Markdown options={{ forceInline: false }}>{textVerbatim}</Markdown>
-            </Text>
+            </div>
           </div>
         )}
       </div>
