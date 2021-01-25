@@ -24,6 +24,7 @@
         text-align: left;
         line-height: 16px;
         text-decoration: none;
+        cursor: pointer;
         @media screen and (min-width:975px){
             left: 50%;
             transform: translateX(-50%);
@@ -31,16 +32,13 @@
         &:after {
           position: absolute;
           right: 32px;
-          top: 14px;
-          margin-top: 0;
-          margin-left: 1.5em;
+          transform: rotate(-90deg);
           content: '\e372';
           font-family: pictenza;
-          font-size: 1em;
+          font-size: 1.5em;
           font-style: normal;
           speak: none;
           font-weight: 700;
-          -webkit-font-smoothing: antialiased;
         }
       }
 }

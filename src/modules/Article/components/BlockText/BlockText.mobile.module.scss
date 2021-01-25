@@ -20,8 +20,59 @@
   margin-top: 16px;
   text-align: left;
   font-family: robotoc, $safe-fonts;
+
+ div > span{
+    color: #999;
+    font-size: 16px;
+    line-height: 25px;
+  }
+}
+.title{
+  line-height: 28px;
+  font-size: 24px;
+  margin: 0;
 }
 
 .button {
   margin: 24px 0;
+}
+
+.huge{
+  font-size: 24px;
+  line-height: 28px;
+  color: #1d1d1b;
+}
+.verbatimBlockTextMobile {
+  &:before {
+    content: '“';
+    color: $color-sarenza;
+    font-size: 200px;
+    line-height: 200px;
+    display: table-cell;
+    position: relative;
+    top: 124px;
+    font-family: 'robotoc';
+  }
+
+  font-size: 32px;
+  line-height: 32px;
+  font-weight: bolder;
+  color: $color-secondary;
+  text-transform: uppercase;
+  text-align: center;
+  display: table;
+  margin-top: -120px;
+  font-family: 'futur';
+
+  &:after {
+    content: '„';
+    color: $color-sarenza;
+    font-size: 200px;
+    line-height: 200px;
+    display: table-cell;
+    vertical-align: bottom;
+    position: relative;
+    top: -10px;
+    font-family: 'robotoc';
+  }
 }

@@ -23,7 +23,7 @@ const MainComponent = ({ article }) => {
       </div>
     </LinkComponent>
   ) : (
-    <Text>Aucun Article</Text>
+    <MissingContent />
   );
 };
 

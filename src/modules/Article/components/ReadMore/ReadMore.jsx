@@ -9,9 +9,9 @@ import styles from './ReadMore.module.scss';
 const Articles = ({ articles, position }) => {
   return (
     <>
-      <Heading headingLevel="h2" huge bold>
+      <div className={styles.title}>
         À LIRE AUSSI
-      </Heading>
+      </div>
       <div className={styles.container}>
         {articles.map((article, index) => (<div key={`article-${index}`} className={styles.content}>
           <ArticleItem article={article} size={index} position={position} />
