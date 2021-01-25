@@ -26,9 +26,6 @@ export const getComponent = (item) => {
     case COMPONENT_NAME.MODULE_SHOPPING_LIST:
       Component = dynamic(() => import('../components/ShoppingList/ShoppingList.mobile'));
       break;
-    case COMPONENT_NAME.MODULE_LIGNE_PRODUIT:
-      Component = dynamic(() => import('../components/ProductLine/ProductLine.mobile'));
-      break;
       case COMPONENT_NAME.MODULE_VIDEO:
         Component = dynamic(() => import('../components/IframeVideo/IframeVideo.mobile'));
         break;
