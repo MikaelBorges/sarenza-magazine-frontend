@@ -4,7 +4,7 @@ import '../styles/modules/PartnerPicto.css';
 import '../styles/pages/PageMarqueAH17.css';
 import '../styles/modules/HeaderAH17.css';
 import '../styles/modules/BrandMainNewsAH17.css';
-import '../app/components/_styles/boot.scss';
+import '../app/components/_styles/reset.scss';
 import '../styles/modules/ReactSlick.scss';
 
 import Head from 'next/head';
@@ -14,13 +14,9 @@ import wrapper from '../app/store';
 function App({ Component, pageProps }) {
   return (
     <>
-      <Head>
-        <title
-        //todo: trad
-        >
-          Sarenza - Magazine
-        </title>
-      </Head>
+    <Head>
+      <title>Magazine - Sarenza</title>
+    </Head>
       <Component {...pageProps} />
     </>
   );

@@ -6,8 +6,10 @@ export const COMPONENT_NAME = {
   MODULE_PARAGRAPHE: 'module.paragraphe',
   MODULE_DUO: 'module.duo',
   MODULE_SHOPPING_LIST: 'module.slider-article',
-  MODULE_VIDEO: 'media.video'
+  MODULE_VIDEO: 'media.video',
+  MODULE_EDITO_LONG: 'module.block-edito-long'
 };
+
 export const getComponent = (item, i) => {
   let Component;
   // eslint-disable-next-line no-underscore-dangle
@@ -24,8 +26,11 @@ export const getComponent = (item, i) => {
     case COMPONENT_NAME.MODULE_SHOPPING_LIST:
       Component = dynamic(() => import('../components/ShoppingList/ShoppingList'));
       break;
-      case COMPONENT_NAME.MODULE_VIDEO:
+    case COMPONENT_NAME.MODULE_VIDEO:
       Component = dynamic(() => import('../components/IframeVideo/IframeVideo'));
+      break;
+    case COMPONENT_NAME.MODULE_EDITO_LONG:
+      Component = dynamic(() => import('../components/BlockEditoLong/BlockEditoLong'));
       break;
     default:
       throw new Error('the component doesnt exist');

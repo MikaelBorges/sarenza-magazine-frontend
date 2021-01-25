@@ -2,7 +2,6 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import Image from '@/components/commons/Image/Image';
-import Text from '@/components/commons/Text/Text';
 
 import Description from '../Description/Description.mobile';
 import styles from './Banner.mobile.module.scss';
@@ -26,9 +25,9 @@ const BannerMobile = ({
       )}
       <div className={styles.description}>
         <div className={styles.hashTitle}>
-          <Text huge secondary>
+          <h1 className={styles.huge}>
             {subTitleBanner}
-          </Text>
+          </h1>
         </div>
         <Description author={author} publishDate={publishDate} updateDate={updateDate} />
       </div>
