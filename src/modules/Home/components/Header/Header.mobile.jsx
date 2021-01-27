@@ -12,7 +12,7 @@ const Header = ({ header }) => {
     <div className={styles.header}>
       <div className={styles.blockText}>
         <div className={styles.title}>
-          <Heading>{header.title}</Heading>
+          <h1 className={styles.heading1}>{header.title}</h1>
           <img
             src="https://cdn.sarenza.net/v3/Prod/visuels-site/Mag/Logo/logoMagazine.jpg"
             alt="logo"
@@ -20,7 +20,7 @@ const Header = ({ header }) => {
           />
         </div>
         <div className={styles.description}>
-          <Text medium>{header.description}</Text>
+          <p className={styles.medium}>{header.description}</p>
         </div>
       </div>
       <div className={styles.wrapper}>

@@ -12,9 +12,17 @@ import wrapper from '../app/store';
 import { timeout } from '../utils/httpUtils';
 import getConfig from 'next/config';
 
-const ArticleList = ({ rubriques, menus, genders, footer, isMobile, isRubrique }) => {
+const ArticleList = ({ rubriques, menus, genders, footer, isMobile, seo }) => {
   return (
-    <Layout menus={menus} genders={genders} footer={footer} isMobile={isMobile}>
+    <Layout
+      menus={menus}
+      genders={genders}
+      footer={footer}
+      isMobile={isMobile}
+      metaData={{
+        title: rubriques.currentRubrique.rubrique,
+        description: `${seo.prefix}${rubriques.header.description}`
+      }}>
       {isMobile ? <HomeMobile data={rubriques} isRubrique /> : <Home data={rubriques} isRubrique />}
     </Layout>
   );
@@ -30,8 +38,8 @@ export const getServerSideProps = wrapper.getServerSideProps(async (ctx) => {
 
   const apolloClient = getApolloClient();
 
-  const start =  0;
-  const limit =  100;
+  const start = 0;
+  const limit = 100;
 
   const { data, error } = await apolloClient.execQuery(
     { query: HOME_QUERY, variables: { ...ctx.query, limit: limit, start: start } },
@@ -50,13 +58,12 @@ export const getServerSideProps = wrapper.getServerSideProps(async (ctx) => {
     )
   ).json();
 
-  const { menus, genders, footer } = await getPageProps();
+  const { menus, genders, footer, seo } = await getPageProps();
   const rubriques = processToHome(data, ctx.query.rubriqueName);
   rubriques.numberArticles = count;
   const isRubrique = ctx.query.rubriqueName;
 
   ctx.store.dispatch({ type: 'RUBRIQUE_SUCCESS', rubriques });
-
   return {
     props: {
       rubriques,
@@ -65,7 +72,8 @@ export const getServerSideProps = wrapper.getServerSideProps(async (ctx) => {
       genders,
       footer,
       isMobile: ct.context.device.mobile || false,
-      UrlPrefix: ct.context.route.link_prefix
+      UrlPrefix: ct.context.route.link_prefix,
+      seo
     }
   };
 });

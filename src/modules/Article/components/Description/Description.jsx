@@ -1,17 +1,15 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import Text from '@/components/commons/Text/Text';
-
 import styles from './Description.module.scss';
 
 const Description = ({ author, publishDate, updateDate }) => {
   return (
     <div className={styles.rightBlock}>
-      <Text medium secondary author>
+      <p className={styles.author}>
         {author} - Publié le {publishDate}
-      </Text>
-      <Text>mis à jour le {updateDate}</Text>
+      </p>
+      <span>mis à jour le {updateDate}</span>
     </div>
   );
 };
