@@ -32,7 +32,7 @@ const PartnerIconMobile = ({ data }) => {
           tabIndex="-1">
           {item.title}
         </div>
-        <ul className="fold sprite">
+        <ul className="fold sprite" key={`ul-${i}`}>
           {item.items.map((partner) => {
             return (
               <li key={partner.id}>

@@ -33,7 +33,7 @@ const FooterMobile = ({ footer }) => {
             return <BlockLinksMobile data={blockLink} key={blockLink.id} />;
           })}
 
-          <PartnerIconMobile data={footer.partnerIcons} />
+          <PartnerIconMobile data={footer.partnerIcons}/>
 
           <CountrySelectorMobile data={footer.countrySelectors} />
         </nav>

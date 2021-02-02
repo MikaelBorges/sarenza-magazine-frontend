@@ -23,7 +23,7 @@ const Duo = ({ duo_image, title, duo_paragraphe, button }) => {
             {replaceByJsx(duo_paragraphe).map((item) => {
               if (item.type === 'text') {
                 return (
-                  <div className={styles.big}>
+                  <div className={styles.big} key={item.text}>
                     <Markdown options={{ forceInline: false }}>{item.text}</Markdown>
                   </div>
                 );
