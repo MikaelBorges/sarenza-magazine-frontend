@@ -14,7 +14,7 @@ const Articles = ({ articles, position }) => {
       </div>
       {articles.map((article, index) => {
         return (
-          <div key={article.id} className={styles.content}>
+          <div key={index} className={styles.content}>
             <ArticleItem article={article} size={index} position={position} />
           </div>
         );

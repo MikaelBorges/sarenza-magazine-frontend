@@ -55,8 +55,8 @@ const LinkGeneric = ({
       target: newTab ? '_blank' : undefined,
       className: cssClasses,
       ...extraParameters,
-      disabled
-      pagination,
+      disabled,
+      pagination: pagination ? true : undefined,
       first,
       last
     };

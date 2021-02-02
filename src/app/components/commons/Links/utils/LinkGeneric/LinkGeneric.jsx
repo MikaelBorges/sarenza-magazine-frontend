@@ -62,9 +62,9 @@ const LinkGeneric = ({
       className: cssClasses,
       ...extraParameters,
       disabled,
-      pagination,
-      first,
-      last
+      pagination: pagination ? true : undefined,
+      first: first ? true : undefined,
+      last: last ? true : undefined
     };
 
     return absolute ? (

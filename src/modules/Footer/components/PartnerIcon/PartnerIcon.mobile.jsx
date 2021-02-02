@@ -33,10 +33,6 @@ const PartnerIconMobile = ({ data }) => {
           {item.title}
         </div>
         <ul className="fold sprite">
-          {/* Changer la structure de la data côté strapi pour pouvoir maper aussi sur les li
-            il manque aussi les titres correspondants
-            */}
-
           {item.items.map((partner) => {
             return (
               <li key={partner.id}>
