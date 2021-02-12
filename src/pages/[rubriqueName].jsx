@@ -12,7 +12,9 @@ import wrapper from '../app/store';
 import { timeout } from '../utils/httpUtils';
 import getConfig from 'next/config';
 
+
 const ArticleList = ({ rubriques, menus, genders, footer, isMobile, seo }) => {
+  
   return (
     <Layout
       menus={menus}

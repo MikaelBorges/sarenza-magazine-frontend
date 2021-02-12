@@ -2,10 +2,10 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import Image from '@/components/commons/Image/Image';
-import Text from '@/components/commons/Text/Text';
 
 import Description from '../Description/Description';
 import styles from './Banner.module.scss';
+
 
 const Banner = ({
   subTitleOptional,
@@ -16,6 +16,8 @@ const Banner = ({
   publishDate,
   updateDate
 }) => {
+
+
   return (
     <div className={styles.bannerContainer}>
       <div className={styles.bannerImage}>
