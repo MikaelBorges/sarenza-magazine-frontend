@@ -4,63 +4,30 @@ import React, {useRef} from 'react';
 
 import ArticleTitle from '../ArticleTitle/ArticleTitle';
 import styles from './ArticleItem.module.scss';
-import TagManager from 'react-gtm-module';
 import { useRouter } from 'next/router'
 import useOnScreen from 'utils/useOnScreen';
+import useGTM from 'utils/useGTM';
 
 const ArticleItem = ({ article, size, position }) => {
-
 
   const rubriqueName = useRouter().query.rubriqueName;
 
   const trackArticle = useRef();
   const isVisible = useOnScreen(trackArticle);
 
- const trackPrint = ()=>{
-    {isVisible && process.browser
-      ? TagManager.dataLayer({
-          dataLayer: {
-            event: 'promotionPrint',
-            ecommerce: {
-              promoView: {
-                promotions: [
-                  {
-                    id: `${rubriqueName}`,
-                    name: `${article.title}`,
-                    creative: `${article.image.large}`,
-                     position: ""
-                  }
-                ]
-              }
-            }
-          }
-        })
-      : null}
-  }
+  const trackGTM = (article, eventName) => {
+    let obj = {
+      id: `${rubriqueName === undefined ? 'Tous les articles' : rubriqueName}`,
+      name: `${article.title}`,
+      creative: `${article.image}`,
+      position: ''
+    };
+    useGTM(obj, eventName);
+  };
 
-  const trackClick = () => {
-    TagManager.dataLayer(
-      {
-        dataLayer: {
-          event: 'promoTionClick',
-          ecommerce: {
-            promoClick: {
-              promotions: [
-                {
-                  id: `${rubriqueName}`,
-                  name: `${article.title}`,
-                  creative: `${article.image.large}`,
-                   position: ""
-                }
-              ]
-            }
-          }
-        }
-      }
-    )
-  }
+  {isVisible && process.browser ? trackGTM(article, 'promotionPrint') : null}
+
   
-
   return (
     <>
       <div
@@ -69,11 +36,9 @@ const ArticleItem = ({ article, size, position }) => {
             (size < 2 && position === 1) || (size > 2 && position === 2),
           [styles.containerImgContentThree]:
             (size >= 2 && position === 1) || (size <= 2 && position === 2)
-        })} ref={trackArticle} onClick={
-          ()=>{ 
-            trackClick();
+        })} ref={trackArticle} onClick={() => {
+          trackGTM(article, 'promotionClick');
         }}>
-         {trackPrint()}
         <img
           src={article.ImageArticleMobile}
           alt={"image"}

@@ -1,61 +1,28 @@
 import PropTypes from 'prop-types';
-import React, { useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 import ArticleItem from './ArticleItem/ArticleItem';
 import styles from './ReadMore.module.scss';
-import TagManager from 'react-gtm-module';
 import { useRouter } from 'next/router';
 import useOnScreen from 'utils/useOnScreen';
+import useGTM from 'utils/useGTM';
 
 const Articles = ({ articles, position }) => {
-  const rubriqueName = useRouter().query.rubriqueName;
 
   const trackReadMore = useRef();
   const isVisible = useOnScreen(trackReadMore);
+  const rubriqueName = useRouter().query.rubriqueName;
 
-  const trackPrint = (article, index) => {
-    {
-      isVisible && process.browser
-        ? TagManager.dataLayer({
-            dataLayer: {
-              event: 'promotionPrint',
-              ecommerce: {
-                promoView: {
-                  promotions: [
-                    {
-                      id: `${rubriqueName === undefined ? 'Tous les articles' : rubriqueName}`,
-                      name: `${article.title}`,
-                      creative: `${article.image.small}`,
-                      position: 'A lire aussi'
-                    }
-                  ]
-                }
-              }
-            }
-          })
-        : null;
-    }
+  const trackGTM = (article, eventName) => {
+    let obj = {
+      id: `${rubriqueName === undefined ? 'Tous les articles' : rubriqueName}`,
+      name: `${article.title}`,
+      creative: `${article.image.small}`,
+      position: 'A lire aussi'
+    };
+    useGTM(obj, eventName);
   };
 
-  const trackClick = (article) => {
-    TagManager.dataLayer({
-      dataLayer: {
-        event: 'promoTionClick',
-        ecommerce: {
-          promoClick: {
-            promotions: [
-              {
-                id: `${rubriqueName === undefined ? 'Tous les articles' : rubriqueName}`,
-                name: `${article.title}`,
-                creative: `${article.image.small}`,
-                position: 'A lire aussi'
-              }
-            ]
-          }
-        }
-      }
-    });
-  };
 
   return (
     <>
@@ -67,9 +34,9 @@ const Articles = ({ articles, position }) => {
             className={styles.content}
             ref={trackReadMore}
             onClick={() => {
-              trackClick(article, index);
+              trackGTM(article, 'promotionClick');
             }}>
-            {trackPrint(article, index)}
+            {isVisible && process.browser ? trackGTM(article, 'promotionPrint') : null}
             <ArticleItem article={article} size={index} position={position} />
           </div>
         ))}

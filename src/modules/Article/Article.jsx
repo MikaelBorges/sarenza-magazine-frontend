@@ -7,15 +7,32 @@ import styles from './Article.module.scss';
 import Banner from './components/Banner/Banner';
 import ReadMore from './components/ReadMore/ReadMore';
 import { getComponent } from './config/LoadableComponent';
+import { useRouter } from 'next/router'
+import useGTM from 'utils/useGTM';
 
 
 const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop);
 
 const Article = ({ article, recentArticle }) => {
+  
   const myRef = useRef(null);
   const executeScroll = () => scrollToRef(myRef);
+  const rubriqueName = useRouter().query.rubriqueName;
 
 
+   const trackGTM = (article, eventName) => {
+    let obj = {
+      id: `${rubriqueName}`,
+      name: `${article.title}`,
+      creative: `${article.image.large}`,
+       position: ""
+    };
+    useGTM(obj, eventName);
+  };
+
+  if(process.browser){
+    trackGTM(article, "promotionPrint");
+   }
 
   return article ? (
     <div className={styles.article} ref={myRef}>

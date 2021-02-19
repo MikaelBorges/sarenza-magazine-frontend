@@ -3,9 +3,9 @@ import ArticleTitle from '../ArticleTitle/ArticleTitle';
 import styles from './MainComponent.module.scss';
 import MissingContent from '../MissingComponent';
 import { LinkComponent } from '@/components/commons/Links';
-import TagManager from 'react-gtm-module';
 import { useRouter } from 'next/router'
 import useOnScreen from 'utils/useOnScreen';
+import useGTM from 'utils/useGTM';
 
 const MainComponent = ({ article, isRubrique }) => {
 
@@ -14,58 +14,25 @@ const MainComponent = ({ article, isRubrique }) => {
   const trackMaincomp = useRef();
   const isVisible = useOnScreen(trackMaincomp);
 
-  const trackPrint = ()=>{
-    {isVisible && process.browser
-      ? TagManager.dataLayer({
-          dataLayer: {
-            event: 'promotionPrint',
-            ecommerce: {
-              promoView: {
-                promotions: [
-                  {
-                    id: `${rubriqueName === undefined ? "Tous les articles" : rubriqueName}`,
-                    name: `${article.title}`,
-                    creative: `${article.image}`,
-                     position: "A la une"
-                  }
-                ]
-              }
-            }
-          }
-        })
-      : null}
-  }
 
-  const trackClick = () => {
-    TagManager.dataLayer(
-      {
-        dataLayer: {
-          event: 'promoTionClick',
-          ecommerce: {
-            promoClick: {
-              promotions: [
-                {
-                  id: `${rubriqueName === undefined ? "Tous les articles" : rubriqueName}`,
-                  name: `${article.title}`,
-                  creative: `${article.image}`,
-                   position: "A la une"
-                }
-              ]
-            }
-          }
-        }
-      }
-    )
-  }
+  const trackGTM = (article, eventName) => {
+    let obj = {
+      id: `${rubriqueName === undefined ? 'Tous les articles' : rubriqueName}`,
+      name: `${article.title}`,
+      creative: `${article.image}`,
+      position: 'A la une'
+    };
+    useGTM(obj, eventName);
+  };
+
 
   return article && Object.entries(article).length !== 0 ? (
     <>
       <LinkComponent link={article.link}>
-        <div className={styles.container} ref={trackMaincomp} onClick={
-          ()=>{ 
-            trackClick();
-        }}>
-        {trackPrint()}
+        <div className={styles.container} ref={trackMaincomp} onClick={() => {
+              trackGTM(article, 'promotionClick');
+            }}>
+          {isVisible && process.browser ? trackGTM(article, 'promotionPrint') : null}
           <div className={isRubrique && isRubrique ? styles.content : styles.contentHP}>
             <ArticleTitle
               title={article.title}
