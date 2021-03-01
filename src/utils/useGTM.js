@@ -1,7 +1,6 @@
 import TagManager from 'react-gtm-module';
 
 export default function useGTM(obj, trackEvent) {
-  console.log(obj, trackEvent);
 
   switch (trackEvent) {
     case 'promotionPrint':
@@ -26,11 +25,6 @@ export default function useGTM(obj, trackEvent) {
             }
           }
         }
-      });
-      break;
-    case 'click':
-      TagManager.dataLayer({
-        dataLayer: obj
       });
       break;
     case 'productClick':
@@ -59,7 +53,9 @@ export default function useGTM(obj, trackEvent) {
         break;
 
     default:
-      '';
+        TagManager.dataLayer({
+            dataLayer: obj
+          });
       break;
   }
 }
