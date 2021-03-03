@@ -1,13 +1,19 @@
 import TagManager from 'react-gtm-module';
+import getConfig from 'next/config';
+
+
+ const { serverRuntimeConfig } = getConfig();
+ const { IS_PROD, IS_MOBILE } = serverRuntimeConfig;
+
 
  const tagManagerArgs = {
-  gtmId: 'GTM-5DJ7GTF',
+  gtmId: 'GTM-5DJ7GTF', //variabliser plus tard
   dataLayer: {
     env_channel: 'web',
     env_country: 'FR',
-    env_platform: '',
+    env_platform: `${IS_MOBILE ? 'Mobile' : 'Desktop' }`,//LE fichier .env target uniquement le mobile donc à revoir
     env_template: 'Magazine',
-    env_work: 'http://localhost:1337',
+    env_work: `${IS_PROD ? 'production' : 'development' }`, //rework à prévoir pour récupérer les environnements réels
     env_language: 'fra',
     domain_id: 'com'
   },
