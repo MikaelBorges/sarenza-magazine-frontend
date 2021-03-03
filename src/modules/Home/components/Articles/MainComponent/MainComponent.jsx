@@ -5,7 +5,7 @@ import MissingContent from '../MissingComponent';
 import { LinkComponent } from '@/components/commons/Links';
 import { useRouter } from 'next/router'
 import useOnScreen from 'utils/useOnScreen';
-import useGTM from 'utils/useGTM';
+import useGTM, {TrackEvent} from 'utils/useGTM';
 
 const MainComponent = ({ article, isRubrique }) => {
 
@@ -30,9 +30,9 @@ const MainComponent = ({ article, isRubrique }) => {
     <>
       <LinkComponent link={article.link}>
         <div className={styles.container} ref={trackMaincomp} onClick={() => {
-              trackGTM(article, 'promotionClick');
+              trackGTM(article, TrackEvent.PromotionClick);
             }}>
-          {isVisible && process.browser ? trackGTM(article, 'promotionPrint') : null}
+          {isVisible ? trackGTM(article, TrackEvent.PromotionPrint) : null}
           <div className={isRubrique && isRubrique ? styles.content : styles.contentHP}>
             <ArticleTitle
               title={article.title}

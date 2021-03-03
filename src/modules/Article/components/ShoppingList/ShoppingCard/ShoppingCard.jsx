@@ -3,9 +3,9 @@ import React, { useState, useRef } from 'react';
 
 import styles from './ShoppingCard.module.scss';
 import useOnScreen from 'utils/useOnScreen';
-import useGTM from 'utils/useGTM';
+import useGTM, {TrackEvent} from 'utils/useGTM';
 
-const ShoppingCard = ({ visuelUrl, url, statusLabel, model, pcid, brand, position, ...props }) => {
+const ShoppingCard = ({ visuelUrl, url, statusLabel, model, pcid, brand, position }) => {
 
   const [favoriteStatus, setFavoriteStatus] = useState(false);
 
@@ -37,11 +37,10 @@ const ShoppingCard = ({ visuelUrl, url, statusLabel, model, pcid, brand, positio
 
   return (
     <div className={styles.card} ref={trackProduct} onClick={
-      (e)=>{ 
-        e.preventDefault()
-       trackGTM('productClick') 
+      ()=>{ 
+       trackGTM(TrackEvent.ProductClick) 
     }}>
-            {isVisible && process.browser ? trackGTM('productPrint') : null}
+            {isVisible ? trackGTM(TrackEvent.ProductPrint) : null}
       <a href={url} className={styles.cardLink} role="button" tabIndex={-1}>
         <div className={styles.cardSubcontainer}>
           <img className={styles.image} src={visuelUrl} alt={model} />

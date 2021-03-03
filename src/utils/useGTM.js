@@ -1,9 +1,17 @@
 import TagManager from 'react-gtm-module';
 
+export const TrackEvent = {
+  PromotionPrint : 'promotionPrint',
+  PromotionClick : 'promotionClick',
+  ProductClick : 'productClick',
+  ProductPrint : 'productPrint'
+
+}
+
 export default function useGTM(obj, trackEvent) {
 
   switch (trackEvent) {
-    case 'promotionPrint':
+    case TrackEvent.PromotionPrint :
       TagManager.dataLayer({
         dataLayer: {
           event: `${trackEvent}`,
@@ -15,7 +23,7 @@ export default function useGTM(obj, trackEvent) {
         }
       });
       break;
-    case 'promotionClick':
+    case TrackEvent.PromotionClick :
       TagManager.dataLayer({
         dataLayer: {
           event: `${trackEvent}`,
@@ -27,7 +35,7 @@ export default function useGTM(obj, trackEvent) {
         }
       });
       break;
-    case 'productClick':
+    case TrackEvent.ProductClick:
       TagManager.dataLayer({
         dataLayer: {
           ecommerce: {
@@ -39,7 +47,7 @@ export default function useGTM(obj, trackEvent) {
         }
       });
       break;
-      case 'productPrint':
+      case TrackEvent.ProductPrint :
         TagManager.dataLayer({
           dataLayer: {
             ecommerce: {

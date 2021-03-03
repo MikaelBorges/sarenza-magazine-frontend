@@ -6,7 +6,7 @@ import ArticleTitle from '../ArticleTitle/ArticleTitle';
 import styles from './ArticleItem.module.scss';
 import { useRouter } from 'next/router'
 import useOnScreen from 'utils/useOnScreen';
-import useGTM from 'utils/useGTM';
+import useGTM, {TrackEvent} from 'utils/useGTM';
 
 const ArticleItem = ({ article, size, position }) => {
 
@@ -25,7 +25,7 @@ const ArticleItem = ({ article, size, position }) => {
     useGTM(obj, eventName);
   };
 
-  {isVisible && process.browser ? trackGTM(article, 'promotionPrint') : null}
+  {isVisible ? trackGTM(article, TrackEvent.PromotionPrint) : null}
 
   
   return (
@@ -37,7 +37,7 @@ const ArticleItem = ({ article, size, position }) => {
           [styles.containerImgContentThree]:
             (size >= 2 && position === 1) || (size <= 2 && position === 2)
         })} ref={trackArticle} onClick={() => {
-          trackGTM(article, 'promotionClick');
+          trackGTM(article, TrackEvent.PromotionClick);
         }}>
         <img
           src={article.ImageArticleMobile}

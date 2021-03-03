@@ -8,7 +8,7 @@ import Banner from './components/Banner/Banner';
 import ReadMore from './components/ReadMore/ReadMore';
 import { getComponent } from './config/LoadableComponent';
 import { useRouter } from 'next/router'
-import useGTM from 'utils/useGTM';
+import useGTM, {TrackEvent} from 'utils/useGTM';
 
 
 const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop);
@@ -30,9 +30,10 @@ const Article = ({ article, recentArticle }) => {
     useGTM(obj, eventName);
   };
 
-  if(process.browser){
-    trackGTM(article, "promotionPrint");
-   }
+  useEffect(() => {
+    trackGTM(article, TrackEvent.PromotionPrint );
+
+  }, [])
 
   return article ? (
     <div className={styles.article} ref={myRef}>
