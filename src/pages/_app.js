@@ -10,26 +10,8 @@ import '../styles/modules/ReactSlick.scss';
 import Head from 'next/head';
 
 import wrapper from '../app/store';
-import TagManager from 'react-gtm-module';
+import {initTagManager} from 'utils/useGTM';
 import {useEffect} from 'react';
-
-const tagManagerArgs = {
-  gtmId: 'GTM-5DJ7GTF',
-  dataLayer: {
-    env_channel: 'web',
-    env_country: 'FR',
-    env_platform: '',
-    env_template: 'Magazine',
-    env_work: 'http://localhost:1337',
-    env_language: 'fra',
-    domain_id: 'com'
-  },
-  events: {
-    promotionPrint : 'promotionPrint',
-    promotionClick: 'promotionClick'
-  }
-  }
-
 
 
 // const envWork = `${process.env.STRAPI_SERVICE_SCHEME}://${process.env.STRAPI_SERVICE_HOST}:${
@@ -38,9 +20,9 @@ const tagManagerArgs = {
 // console.log(envWork);
 
 function App({ Component, pageProps }) {
-  
+
   useEffect(() => {
-    TagManager.initialize(tagManagerArgs);
+    initTagManager();
   
   }, [])
 
