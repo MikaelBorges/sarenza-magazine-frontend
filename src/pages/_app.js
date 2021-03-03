@@ -11,6 +11,7 @@ import Head from 'next/head';
 
 import wrapper from '../app/store';
 import TagManager from 'react-gtm-module';
+import {useEffect} from 'react';
 
 const tagManagerArgs = {
   gtmId: 'GTM-5DJ7GTF',
@@ -28,9 +29,8 @@ const tagManagerArgs = {
     promotionClick: 'promotionClick'
   }
   }
-if (process.browser) {
-TagManager.initialize(tagManagerArgs);
-}
+
+
 
 // const envWork = `${process.env.STRAPI_SERVICE_SCHEME}://${process.env.STRAPI_SERVICE_HOST}:${
 //   process.env.STRAPI_SERVICE_PORT ? process.env.STRAPI_SERVICE_PORT : 80
@@ -38,6 +38,11 @@ TagManager.initialize(tagManagerArgs);
 // console.log(envWork);
 
 function App({ Component, pageProps }) {
+  
+  useEffect(() => {
+    TagManager.initialize(tagManagerArgs);
+  
+  }, [])
 
   return (
     <>
