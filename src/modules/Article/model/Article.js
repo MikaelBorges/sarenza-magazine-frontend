@@ -13,7 +13,6 @@ export function ArticleModel(model = {}) {
     author: model.author || '',
     subtitle: model.subtitle || '',
     rubrique: model.rubriques[0],
-    event: model.Event,
     link: (model.rubriques && `/${model.rubriques[0].url}/${model.url}`) || '',
   };
 }

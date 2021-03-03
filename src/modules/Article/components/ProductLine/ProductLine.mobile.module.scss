@@ -1,7 +1,7 @@
 .vignetteContainer {
   overflow-y: hidden;
   overflow-x: auto;
-  margin: 8px 0;
+  margin: 16px 0;
 
   /* select only first item, when there are four items or more */
   .vignette:first-child:nth-last-child(n+4) {
@@ -15,7 +15,8 @@
     padding-right: 16px;
 
     .imageContainer {
-      width: 288px;
+      width: 80vw;
+      max-width: 288px;
       padding: 0;
     }
   }
