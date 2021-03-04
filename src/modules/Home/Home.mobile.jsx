@@ -82,6 +82,18 @@ const Home = ({ data }) => {
       {data.articles && data.articles.slice(35, 40).length > 0 && (
         <Articles articles={data.articles.slice(35, 40)} position={2} />
       )}
+           {data.articles && data.articles.slice(40, 45).length > 0 && (
+        <Articles articles={data.articles.slice(40, 45)} position={2} />
+      )}
+      {data.articles && data.articles.slice(45, 50).length > 0 && (
+        <Articles articles={data.articles.slice(45, 50)} position={2} />
+      )}
+       {data.articles && data.articles.slice(50, 55).length > 0 && (
+        <Articles articles={data.articles.slice(50, 55)} position={2} />
+      )}
+       {data.articles && data.articles.slice(55, 60).length > 0 && (
+        <Articles articles={data.articles.slice(55, 60)} position={2} />
+      )}
       {/* <Pagination totalRecords={data.numberArticles} pageLimit={12} isMobile={true} />  */}
     </>
   );
