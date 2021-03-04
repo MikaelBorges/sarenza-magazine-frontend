@@ -64,7 +64,7 @@ const Home = ({ data }) => {
           }}
         />
       )}
-        {data.articles && data.articles.slice(10, 15).length > 0 && (
+        {/* {data.articles && data.articles.slice(10, 15).length > 0 && (
         <Articles articles={data.articles.slice(10, 15)} position={1} />
       )}
       {data.articles && data.articles.slice(15, 20).length > 0 && (
@@ -81,8 +81,8 @@ const Home = ({ data }) => {
       )}
       {data.articles && data.articles.slice(35, 40).length > 0 && (
         <Articles articles={data.articles.slice(35, 40)} position={2} />
-      )}
-      {/* <Pagination totalRecords={data.numberArticles} pageLimit={12} isMobile={true} />  */}
+      )} */}
+      <Pagination totalRecords={data.numberArticles} pageLimit={12} isMobile={true} /> 
     </>
   );
 };
