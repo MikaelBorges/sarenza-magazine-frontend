@@ -18,7 +18,7 @@ const Article = ({ article, recentArticle }) => {
       <a ref={myRef}></a>
       <Banner
         subTitleOptional={article.subtitle}
-        srcImage={article.image && article.image.large}
+        srcImage={article.image && article.image.medium}
         altImage="image de l'article"
         subTitleBanner={article.title}
         author={article.author}

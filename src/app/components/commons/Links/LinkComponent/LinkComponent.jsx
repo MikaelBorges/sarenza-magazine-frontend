@@ -14,6 +14,12 @@ LinkComponent.propTypes = {
   disabled:
     PropTypes.bool /* if true, the item is disabled, the mouse has a forbidden pointer and
     the links do not work */,
+    pagination:
+    PropTypes.bool,
+    first:
+    PropTypes.bool,
+    last:
+    PropTypes.bool,
   onClick: PropTypes.func /* function describing the behaviour of the item when clicked on */,
   onFocus: PropTypes.func,
   onKeyDown: PropTypes.func,
@@ -73,7 +79,10 @@ LinkComponent.defaultProps = {
   iconAfter: false,
   children: undefined,
   title: '',
-  dataTestid: ''
+  dataTestid: '',
+  first:false,
+  last:false,
+  pagination: false
 };
 
 export default LinkComponent;
