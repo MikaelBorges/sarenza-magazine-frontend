@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useRef} from 'react';
 
 import Display from '@/components/commons/Display/Display';
 import Marquee from '@/components/commons/Marquee/Marquee';
@@ -27,7 +27,7 @@ const Home = ({ data, isRubrique }) => {
         />
       )}
       {data.articles && data.articles.slice(0, 5).length > 0 && (
-        <Articles articles={data.articles.slice(0, 5)} position={1} />
+        <Articles articles={data.articles.slice(0, 5)} position={1} firstArticle={data.firstArticle}/>
       )}
       {data.displayFirst && onlyFirstPage && (
         <Display
