@@ -7,7 +7,9 @@ import ChildrenWithIcon from './components/ChildrenWithIcon';
 import styles from './LinkGeneric.module.scss';
 import getConfig from 'next/config';
 
+
 const { serverRuntimeConfig } = getConfig();
+
 
 const LinkGeneric = ({
   type,
@@ -39,6 +41,7 @@ const LinkGeneric = ({
 }) => {
   const linkPrefix = serverRuntimeConfig.CDN_PREFIX || '';
   link = absolute ? link : (linkPrefix ? linkPrefix : '') + link;
+
 
   const childrenLabel = children && <span className={styles.buttonLabel}>{children}</span>;
   const cssClasses = classnames(

@@ -8,15 +8,23 @@ import '../app/components/_styles/reset.scss';
 import '../styles/modules/ReactSlick.scss';
 
 import Head from 'next/head';
-import React from 'react';
 
 import wrapper from '../app/store';
+import {initTagManager} from 'utils/useGTM';
+import {useEffect} from 'react';
+
 function App({ Component, pageProps }) {
+
+  useEffect(() => {
+    initTagManager();
+  
+  }, [])
+
   return (
     <>
-    <Head>
-      <title>Magazine - Sarenza</title>
-    </Head>
+      <Head>
+        <title>Magazine - Sarenza</title>
+      </Head>
       <Component {...pageProps} />
     </>
   );
