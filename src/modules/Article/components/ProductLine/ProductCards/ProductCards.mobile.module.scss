@@ -39,6 +39,9 @@
     display: block;
     width: 100%;
   }
+  >.gellule{
+    background: #ffffff;
+  }
 }
 
 .pictenzaFavoritesSelect {
@@ -91,7 +94,7 @@
   border: none;
   height: 40px;
   min-width: 0;
-  padding: 0 16px 0 14px;
+  padding: 0 24px;
 
   &:after {
     display: none;
