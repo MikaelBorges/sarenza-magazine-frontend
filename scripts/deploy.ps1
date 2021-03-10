@@ -29,7 +29,8 @@ $project='srz-prj-a5a67395'
 $subscription='srz-gke-hp-99aad13f'
 $replicaCount=2
 $rebuildContainer=$true
-
+$tiller="digitalexperience-tiller"
+$ns="digitalexperience"
 
 switch ($envSelection)
  {
@@ -44,9 +45,7 @@ switch ($envSelection)
          $project='srz-prj-ec4f7b6b'
          $subscription='srz-gke-prd-36d82766'
          $replicaCount=4
-         $rebuildContainer=$false
-         $tiller="digitalexperience-tiller"
-         $ns="digitalexperience"
+         $rebuildContainer=$false   
      } 'q' {
          return
      }
@@ -55,8 +54,13 @@ switch ($envSelection)
 $version=Read-Host "Please enter a target version"
 $Env:VERSION = $version
 
-$tiller="digitalexperience-$env-tiller"
-$ns="digitalexperience-$env"
+if(-not ($envSelection -eq '4'))
+{    
+    $tiller="digitalexperience-$env-tiller"
+    Write-Host "Tiller setted - $tiller"
+    $ns="digitalexperience-$env"
+    Write-Host "Namespace setted - $ns"
+}
 
 if($Vbs -eq $true)
 {
@@ -80,7 +84,7 @@ if($rebuildContainer -eq $true)
     docker-compose build $forceBuildParameter
     az acr login -n srzlab
     docker-compose push
-    gcloud container clusters get-credentials $subscription --zone europe-west1-b --project $project
 }
 
+gcloud container clusters get-credentials $subscription --zone europe-west1-b --project $project
 helm upgrade -i $forceDeployParameter --set replicaCount=$replicaCount --set image.tag=$version --wait magazine ./helm/sarenza-digitalexperience-magazine --tiller-namespace $tiller --namespace $ns
