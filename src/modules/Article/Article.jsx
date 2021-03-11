@@ -18,16 +18,17 @@ const Article = ({ article, recentArticle }) => {
   const myRef = useRef(null);
   const executeScroll = () => scrollToRef(myRef);
   const rubriqueName = useRouter().query.rubriqueName;
+  console.log(article);
 
 
-   const trackGTM = (article, eventName) => {
+   const trackGTM = (article) => {
     let obj = {
-      id: `${rubriqueName}`,
-      name: `${article.title}`,
-      creative: `${article.image.large}`,
-       position: ""
+       date_publication: `${article.publishDate}`,
+       date_mise_a_jour: `${article.updatedDate}`,
+       categorie_article: `${rubriqueName}`,
+       titre_article: `${article.title}`
     };
-    useGTM(obj, eventName);
+    useGTM(obj);
   };
 
   useEffect(() => {
