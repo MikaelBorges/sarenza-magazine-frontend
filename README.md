@@ -1,4 +1,15 @@
 
+## Installation
+
+/!\ Mettre à jour le .env (dupliquer le .env.example)
+
+``` sh
+STRAPI_SERVICE_HOST=localhost
+STRAPI_SERVICE_PORT=9337 # Le bon numéro de port
+STRAPI_SERVICE_SCHEME=http
+IS_MOBILE=true/false # Pour changer de mode (dev only)
+```
+
 ## Dependencies 
 
 ### Globales 
