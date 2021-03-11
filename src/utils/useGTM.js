@@ -66,9 +66,9 @@ export default function useGTM(obj, trackEvent) {
       TagManager.dataLayer({
         dataLayer: {
           ecommerce: {
-            impressions: {
+            impressions: [
               obj
-            }
+            ]
           },
           event: `${trackEvent}`
         }
@@ -78,9 +78,9 @@ export default function useGTM(obj, trackEvent) {
         TagManager.dataLayer({
           dataLayer: {
             ecommerce: {
-              impressions: {
+              impressions: [
                 obj
-              }
+              ]
             },
             event: `${trackEvent}`
           }

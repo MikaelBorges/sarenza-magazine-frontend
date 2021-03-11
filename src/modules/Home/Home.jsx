@@ -94,6 +94,18 @@ const Home = ({ data, isRubrique }) => {
        {data.articles && data.articles.slice(55, 60).length > 0 && (
         <Articles articles={data.articles.slice(55, 60)} position={2} />
       )}
+         {data.articles && data.articles.slice(60, 65).length > 0 && (
+        <Articles articles={data.articles.slice(60, 65)} position={2} />
+      )}
+       {data.articles && data.articles.slice(65, 70).length > 0 && (
+        <Articles articles={data.articles.slice(65, 70)} position={2} />
+      )}
+       {data.articles && data.articles.slice(70, 75).length > 0 && (
+        <Articles articles={data.articles.slice(70, 75)} position={2} />
+      )}
+       {data.articles && data.articles.slice(75, 80).length > 0 && (
+        <Articles articles={data.articles.slice(75, 80)} position={2} />
+      )}
     </>
   );
 };
