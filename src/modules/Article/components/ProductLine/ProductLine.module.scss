@@ -1,0 +1,15 @@
+.productLine {
+  padding: 8px 0;
+
+  .SliderContainer {
+    display: flex;
+    justify-content: center;
+  }
+
+  .cards {
+    overflow: auto;
+    display: flex;
+  }
+}
+
+@import 'ProductLine.module.wide';

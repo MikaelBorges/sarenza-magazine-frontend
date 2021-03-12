@@ -1,0 +1,68 @@
+@media screen and (min-width: 975px) {
+  .productLine {
+    .SliderContainer {
+      padding: 0;
+      display: block;
+    }
+
+    .cards {
+      padding: 0 60px;
+      overflow: hidden;
+
+      // positionning hack on react slick elements
+      > div > div {
+        margin: auto;
+      }
+
+      > button {
+        top: 50%;
+      }
+
+      > button:first-child {
+        left: 28px;
+      }
+
+      > button:last-child {
+        right: 28px;
+      }
+    }
+
+    /* .card {
+      margin: 0;
+
+      &:last-child {
+        padding-right: 0;
+      }
+    }
+
+    .cardSubcontainer {
+      width: auto;
+      overflow: hidden;
+    }
+
+    img {
+      max-width: calc(100% - 16px);
+
+      &:hover {
+        + .gellule {
+          bottom: 16px;
+        }
+      }
+    }
+
+    .favoriteCard {
+      &:hover {
+        color: #ff2157;
+      }
+    }
+
+    .gellule {
+      transition: bottom 0.5s;
+      bottom: -40px;
+
+      &:hover {
+        bottom: 16px;
+      }
+    } */
+  }
+}

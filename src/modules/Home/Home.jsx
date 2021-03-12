@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useRef} from 'react';
 
 import Display from '@/components/commons/Display/Display';
 import Marquee from '@/components/commons/Marquee/Marquee';
@@ -27,7 +27,7 @@ const Home = ({ data, isRubrique }) => {
         />
       )}
       {data.articles && data.articles.slice(0, 5).length > 0 && (
-        <Articles articles={data.articles.slice(0, 5)} position={1} />
+        <Articles articles={data.articles.slice(0, 5)} position={1} firstArticle={data.firstArticle}/>
       )}
       {data.displayFirst && onlyFirstPage && (
         <Display
@@ -81,6 +81,30 @@ const Home = ({ data, isRubrique }) => {
       )}
       {data.articles && data.articles.slice(35, 40).length > 0 && (
         <Articles articles={data.articles.slice(35, 40)} position={2} />
+      )}
+      {data.articles && data.articles.slice(40, 45).length > 0 && (
+        <Articles articles={data.articles.slice(40, 45)} position={2} />
+      )}
+      {data.articles && data.articles.slice(45, 50).length > 0 && (
+        <Articles articles={data.articles.slice(45, 50)} position={2} />
+      )}
+       {data.articles && data.articles.slice(50, 55).length > 0 && (
+        <Articles articles={data.articles.slice(50, 55)} position={2} />
+      )}
+       {data.articles && data.articles.slice(55, 60).length > 0 && (
+        <Articles articles={data.articles.slice(55, 60)} position={2} />
+      )}
+         {data.articles && data.articles.slice(60, 65).length > 0 && (
+        <Articles articles={data.articles.slice(60, 65)} position={2} />
+      )}
+       {data.articles && data.articles.slice(65, 70).length > 0 && (
+        <Articles articles={data.articles.slice(65, 70)} position={2} />
+      )}
+       {data.articles && data.articles.slice(70, 75).length > 0 && (
+        <Articles articles={data.articles.slice(70, 75)} position={2} />
+      )}
+       {data.articles && data.articles.slice(75, 80).length > 0 && (
+        <Articles articles={data.articles.slice(75, 80)} position={2} />
       )}
     </>
   );
