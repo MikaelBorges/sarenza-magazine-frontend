@@ -11,7 +11,7 @@ const DescriptionMobile = ({ author, publishDate, updateDate }) => {
       <p className={styles.author}>
         {author} - Publié le {publishDate}
       </p>
-      <span>mis à jour le {updateDate}</span>
+      {updateDate !== publishDate ? <span>mis à jour le {updateDate}</span> : null}
     </div>
   );
 };

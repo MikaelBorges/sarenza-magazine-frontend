@@ -12,7 +12,7 @@ const Articles = ({ articles, position }) => {
       <div className={styles.title}>
         À LIRE AUSSI
       </div>
-      {articles.map((article, index) => {
+      {articles.slice().sort((a, b) => new Date(b.publishDate) > new Date(a.publishDate) ? 1: -1).map((article, index) => {
         return (
           <div key={article.id} className={styles.content}>
             <ArticleItem article={article} size={index} position={position} />
