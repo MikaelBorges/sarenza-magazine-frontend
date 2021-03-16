@@ -11,6 +11,7 @@ import Layout from 'modules/Layout/Layout';
 
 
 const HomePage = ({ homeData, menus, genders, footer, isMobile, seo }) => {
+  
   return (
     <>
       <Layout menus={menus} genders={genders} footer={footer} isMobile={isMobile} metaData={{title: homeData.header.title, description: `${seo.prefix}${homeData.header.description}`}}>
@@ -29,8 +30,8 @@ export const getServerSideProps = async (ctx) => {
 
   const apolloClient = getApolloClient();
 
-   const start = (parseInt(ctx.query.page) - 1) * 12 || 0;
-   const limit = parseInt(ctx.query.page) * 12 || 12;
+   const start = (parseInt(ctx.query.page) - 1) * 13 || 0;
+   const limit = parseInt(ctx.query.page) * 13 || 13;
 
   // const start = 0;
   // const limit = 100;

@@ -13,6 +13,7 @@ import { useRouter } from 'next/router';
 const Home = ({ data, isRubrique }) => {
   const { query } = useRouter();
   const onlyFirstPage = !query.page;
+  console.log(data);
   return (
     <>
       <Header header={data.header} />
@@ -64,24 +65,6 @@ const Home = ({ data, isRubrique }) => {
           margin
         />
       ) : null}
-      {/* {data.articles && data.articles.slice(10, 15).length > 0 && (
-        <Articles articles={data.articles.slice(10, 15)} position={1} />
-      )}
-      {data.articles && data.articles.slice(15, 20).length > 0 && (
-        <Articles articles={data.articles.slice(15, 20)} position={2} />
-      )}
-      {data.articles && data.articles.slice(20, 25).length > 0 && (
-        <Articles articles={data.articles.slice(20, 25)} position={1} />
-      )}
-      {data.articles && data.articles.slice(25, 30).length > 0 && (
-        <Articles articles={data.articles.slice(25, 30)} position={2} />
-      )}
-      {data.articles && data.articles.slice(30, 35).length > 0 && (
-        <Articles articles={data.articles.slice(30, 35)} position={1} />
-      )}
-      {data.articles && data.articles.slice(35, 40).length > 0 && (
-        <Articles articles={data.articles.slice(35, 40)} position={2} />
-      )} */}
       <Pagination totalRecords={data.numberArticles} pageLimit={12} isMobile={false} />
     </>
   );
