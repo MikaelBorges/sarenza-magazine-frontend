@@ -35,9 +35,9 @@ const ShoppingList = ({ vignette, title, description, button }) => {
         </Slider>
       </div>
       {button !== null ? (
-        <button type="button" className={`button ${styles.buttonShoppingList}`} href={button.link}>
+        <a type="button" className={`button ${styles.buttonShoppingList}`} href={button.link}>
           {button.label}
-        </button>
+        </a>
       ) : null}
     </div>
   );
