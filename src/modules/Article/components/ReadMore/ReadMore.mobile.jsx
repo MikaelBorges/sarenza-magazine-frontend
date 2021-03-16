@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import Heading from '@/components/commons/Heading';
 
 import ArticleItem from './ArticleItem/ArticleItem.mobile';
 import styles from './ReadMore.mobile.module.scss';
@@ -12,7 +11,7 @@ const Articles = ({ articles, position }) => {
       <div className={styles.title}>
         À LIRE AUSSI
       </div>
-      {articles.slice().sort((a, b) => new Date(b.publishDate) > new Date(a.publishDate) ? 1: -1).map((article, index) => {
+      {articles.map((article, index) => {
         return (
           <div key={article.id} className={styles.content}>
             <ArticleItem article={article} size={index} position={position} />

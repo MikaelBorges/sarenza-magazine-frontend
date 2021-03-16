@@ -1,8 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import Text from '@/components/commons/Text/Text';
-
 import styles from './Description.mobile.module.scss';
 
 const DescriptionMobile = ({ author, publishDate, updateDate }) => {

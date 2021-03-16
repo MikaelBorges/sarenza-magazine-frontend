@@ -17,6 +17,7 @@ const Banner = ({
   updateDate
 }) => {
 
+
   return (
     <div className={styles.bannerContainer}>
       <div className={styles.bannerImage}>

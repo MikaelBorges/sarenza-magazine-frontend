@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef } from 'react';
 
 import ArticleItem from './ArticleItem/ArticleItem';
 import styles from './ReadMore.module.scss';
@@ -28,7 +28,7 @@ const Articles = ({ articles, position }) => {
     <>
       <div className={styles.title}>À LIRE AUSSI</div>
       <div className={styles.container}>
-        {articles.slice().sort((a, b) => new Date(b.publishDate) > new Date(a.publishDate) ? 1: -1).map((article, index) => (
+        {articles.map((article, index) => (
           <div
             key={`article-${index}`}
             className={styles.content}
