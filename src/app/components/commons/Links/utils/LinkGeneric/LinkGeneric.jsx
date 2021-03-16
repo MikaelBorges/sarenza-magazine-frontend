@@ -100,9 +100,9 @@ const LinkGeneric = ({
             onClick={onClick}
             disabled={disabled}
             className={cssClasses}
-            pagination={pagination}
-            first={first}
-            last={last}
+            pagination={+false}
+            first={+false}
+            last={+false}
             data-testid={dataTestid}>
             {iconName ? (
               <ChildrenWithIcon
@@ -127,9 +127,9 @@ const LinkGeneric = ({
         onKeyDown={onKeyDown}
         onClick={onClick}
         disabled={disabled}
-        pagination={pagination}
-        first={first}
-        last={last}
+        pagination={+false}
+        first={+false}
+        last={+false}
         className={cssClasses}
         data-testid={dataTestid}>
         {iconName ? (
