@@ -39,8 +39,8 @@ const Home = ({ data, isRubrique }) => {
           whiteTheme={data.displayFirst.whiteTheme}
         />
       )}
-      {data.articles && data.articles.slice(5, 10).length > 0 && (
-        <Articles articles={data.articles.slice(5, 10)} position={2} />
+      {data.articles && data.articles.slice(5, 12).length > 0 && (
+        <Articles articles={data.articles.slice(5, 12)} position={2} />
       )}
       {data.displaySecond &&
         onlyFirstPage &&
