@@ -11,7 +11,7 @@ const ArticleItem = ({ article, size, position }) => {
       <ArticleTitle
         title={article.title}
         author={article.author}
-        publishDate={article.publishDate}
+        publishDate={article.publishDate.split("-").reverse().join("-").replace(/\b(\d{1})\b/g, '0$1')}
         size={size}
         position={position}
       />
