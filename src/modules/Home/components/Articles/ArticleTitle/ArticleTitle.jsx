@@ -24,7 +24,7 @@ const ArticleTitle = ({ title, author, publishDate, size, position, firstArticle
       </div>
       <div className={style.author}>
         <p className={style.small}>
-          {author} - {publishDate.split("-").reverse().join("-").replace(/\b(\d{1})\b/g, '0$1')}
+          {author} - {publishDate}
         </p>
       </div>
     </>

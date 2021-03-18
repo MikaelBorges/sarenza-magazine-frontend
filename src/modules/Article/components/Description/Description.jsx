@@ -7,9 +7,9 @@ const Description = ({ author, publishDate, updateDate }) => {
   return (
     <div className={styles.rightBlock}>
       <p className={styles.author}>
-        {author} - Publié le {publishDate.split("-").reverse().join("-").replace(/\b(\d{1})\b/g, '0$1')}
+        {author} - Publié le {publishDate}
       </p>
-      {updateDate !== publishDate ? <span>mis à jour le {updateDate.split("-").reverse().join("-").replace(/\b(\d{1})\b/g, '0$1')}</span> : null}
+      {updateDate !== publishDate ? <span>mis à jour le {updateDate}</span> : null}
     </div>
   );
 };
