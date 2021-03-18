@@ -19,7 +19,7 @@ const ArticleTitle = ({ title, author, size, position, firstArticle, updateDate 
       </div>
       <div className={style.author}>
         <p className={style.small}>
-          {author} - {updateDate}
+          {author} - {updateDate.split("-").reverse().join("-").replace(/\b(\d{1})\b/g, '0$1')}
         </p>
       </div>
     </>
