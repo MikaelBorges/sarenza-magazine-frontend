@@ -8,7 +8,7 @@ import styles from './Duo.mobile.module.scss';
 
 const DuoMobile = ({ duo_image, title, duo_paragraphe, button }) => {
   return (
-    <div className={styles.container}>
+    <section className={styles.container}>
       <div className={styles.imageContainer}>
         <img src={duo_image.url} alt="alt" className={styles.image} />
       </div>
@@ -51,7 +51,7 @@ const DuoMobile = ({ duo_image, title, duo_paragraphe, button }) => {
           </a>
         </div>
       ) : null}
-    </div>
+    </section>
   );
 };
 

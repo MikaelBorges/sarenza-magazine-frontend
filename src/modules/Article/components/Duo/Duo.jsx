@@ -10,7 +10,7 @@ import styles from './Duo.module.scss';
 
 const Duo = ({ duo_image, title, duo_paragraphe, button }) => {
   return (
-    <div className={styles.container}>
+    <section className={styles.container}>
       {duo_image &&
       <img src={duo_image.url} alt="alt" className={styles.image} />
       }
@@ -51,7 +51,7 @@ const Duo = ({ duo_image, title, duo_paragraphe, button }) => {
           </div>
         ) : null}
       </div>
-    </div>
+    </section>
   );
 };
 
