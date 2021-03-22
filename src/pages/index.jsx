@@ -30,8 +30,8 @@ export const getServerSideProps = async (ctx) => {
 
   const apolloClient = getApolloClient();
 
-   const start = (parseInt(ctx.query.page) - 1) * 13 || 0;
-   const limit = parseInt(ctx.query.page) * 13 || 13;
+   const start = ctx.query.page ? (parseInt(ctx.query.page) - 1) * 12 : 0;
+   const limit = 12;
 
   // const start = 0;
   // const limit = 100;
