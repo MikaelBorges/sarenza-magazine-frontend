@@ -11,7 +11,7 @@ const Articles = ({ articles, position }) => {
     <div className={styles.container}>
       {articles.map((article, index) => {
         return (
-          <LinkComponent link={article.link} key={article.link} extraClasses={[styles.content]}>
+          <LinkComponent link={article.link} key={article.link} extraClasses={styles.content}>
             <ArticleItem article={article} size={index} position={position} />
           </LinkComponent>
         );
