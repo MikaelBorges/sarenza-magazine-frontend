@@ -22,7 +22,7 @@ const PartnerIconMobile = ({ data }) => {
 
   return iconGroup.map((item, i) => {
     return (
-      <>
+      <React.Fragment key={i}>
         <div
           key={`partnericon-${i}`}
           className={isActive.id === item.id && isActive.open ? 'folder open' : 'folder'}
@@ -33,9 +33,9 @@ const PartnerIconMobile = ({ data }) => {
           {item.title}
         </div>
         <ul className="fold sprite" key={`ul-${i}`}>
-          {item.items.map((partner) => {
+          {item.items.map((partner, index) => {
             return (
-              <li key={partner.id}>
+              <li key={`partner-${partner.id}-${index}`}>
                 <a
                   href={partner.href}
 
@@ -49,7 +49,7 @@ const PartnerIconMobile = ({ data }) => {
             );
           })}
         </ul>
-      </>
+      </React.Fragment>
     );
   });
 };

@@ -13,7 +13,7 @@ import { useRouter } from 'next/router';
 const Home = ({ data, isRubrique }) => {
   const { query } = useRouter();
   const onlyFirstPage = !query.page;
-  console.log(data);
+  // console.log(data);
   return (
     <>
       <Header header={data.header} />

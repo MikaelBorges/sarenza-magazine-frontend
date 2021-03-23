@@ -25,8 +25,8 @@ const ShoppingList = ({ vignette, title, description, button }) => {
       <p className={styles.intro}>{description}</p>
       <div className={styles.SliderContainer}>
         <Slider {...settings} className={styles.cards}>
-          {vignette.map((card) => {
-            return <ShoppingCard {...card} key={card.pcid} />;
+          {vignette.map((card, index) => {
+            return <ShoppingCard {...card} key={`${card.pcid}-${index}`} />;
           })}
         </Slider>
       </div>

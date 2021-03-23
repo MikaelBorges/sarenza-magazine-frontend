@@ -13,7 +13,7 @@ const Articles = ({ articles, position }) => {
         return (
           <LinkComponent
             link={article.link}
-            key={article.link}
+            key={`${article.link}-${index}`}
             extraClasses={classnames({
               [styles.content]: (index < 2 && position === 1) || (index > 2 && position === 2),
               [styles.contentThree]:
