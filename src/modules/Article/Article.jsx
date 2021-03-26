@@ -18,7 +18,6 @@ const Article = ({ article, recentArticle }) => {
   const myRef = useRef(null);
   const executeScroll = () => scrollToRef(myRef);
   const rubriqueName = useRouter().query.rubriqueName;
-  console.log(article);
 
 
    const trackGTM = (article) => {
