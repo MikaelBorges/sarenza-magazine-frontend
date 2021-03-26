@@ -1,14 +1,14 @@
 import TagManager from 'react-gtm-module';
 import getConfig from 'next/config';
-import checkCookies from './checkCookies';
+import getCookieConsentList from './getCookieConsentList';
 
 const { serverRuntimeConfig } = getConfig();
 const { IS_PROD, IS_MOBILE } = serverRuntimeConfig;
 
-let isCookies;
+let cookieConsentList;
 
 export const initTagManager = () => {
-   isCookies = checkCookies();
+  cookieConsentList = getCookieConsentList();
 
   const tagManagerArgs = {
     gtmId: 'GTM-5DJ7GTF', //variabliser plus tard
@@ -20,9 +20,9 @@ export const initTagManager = () => {
       env_work: 'Prod', //rework à prévoir pour récupérer les environnements réels
       env_language: 'fra',
       domain_id: 'com',
-      cookie_audience: isCookies && isCookies.includes('Audience') ? true : false,
-      cookie_personalization: isCookies && isCookies.includes('Personalisation') ? true : false,
-      cookie_advertising: isCookies && isCookies.includes('Advertising') ? true : false
+      cookie_audience: cookieConsentList && cookieConsentList.includes('Audience') ? true : false,
+      cookie_personalization: cookieConsentList && cookieConsentList.includes('Personalisation') ? true : false,
+      cookie_advertising: cookieConsentList && cookieConsentList.includes('Advertising') ? true : false
     },
     events: {
       promotionPrint: 'promotionPrint',
@@ -42,7 +42,7 @@ export const TrackEvent = {
 
 export default function useGTM(obj, trackEvent) {
   
-  if(isCookies != null){
+  if(cookieConsentList != null){
   switch (trackEvent) {
     case TrackEvent.PromotionPrint:
       TagManager.dataLayer({
