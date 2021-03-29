@@ -1,7 +1,7 @@
 import Image from '@/components/commons/Image/Image';
 import React, { useState, useCallback } from 'react';
 import styles from './IframeVideo.mobile.module.scss';
-import getCookieConsentList from '../../../../utils/getCookieConsentList';
+import { getCookieConsentList } from '../../../../utils/cookieManager';
 
 const IframeVideo = ({ image, iframe_url, iframe_page }) => {
   const [play, setPlay] = useState(false);

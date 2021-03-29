@@ -1,6 +1,6 @@
 import TagManager from 'react-gtm-module';
 import getConfig from 'next/config';
-import getCookieConsentList from './getCookieConsentList';
+import { getCookieConsentList } from './cookieManager';
 
 const { serverRuntimeConfig } = getConfig();
 const { IS_PROD, IS_MOBILE } = serverRuntimeConfig;
