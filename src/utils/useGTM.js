@@ -22,7 +22,8 @@ export const initTagManager = () => {
       domain_id: 'com',
       cookie_audience: cookieConsentList && cookieConsentList.includes('Audience') ? true : false,
       cookie_personalization: cookieConsentList && cookieConsentList.includes('Personalisation') ? true : false,
-      cookie_advertising: cookieConsentList && cookieConsentList.includes('Advertising') ? true : false
+      cookie_advertising: cookieConsentList && cookieConsentList.includes('Advertising') ? true : false,
+      cookie_socials: cookieConsentList && cookieConsentList.includes('Socials') ? true : false,
     },
     events: {
       promotionPrint: 'promotionPrint',
