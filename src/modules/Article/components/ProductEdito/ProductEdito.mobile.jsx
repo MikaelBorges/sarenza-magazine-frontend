@@ -2,7 +2,6 @@ import React from 'react';
 import styles from './ProductEdito.mobile.module.scss';
 
 const ProductEdito = ({ Title, Text, Vignette, CTA }) => {
-  console.log(Vignette);
   return Title && Text && Vignette ? (
     <section className={styles.productEdito}>
       <div className={styles.wrapperText}>
@@ -11,7 +10,6 @@ const ProductEdito = ({ Title, Text, Vignette, CTA }) => {
       </div>
       <div className={styles.wrapperVignettes}>
         {Vignette.map((item) => {
-          console.log(item);
           return (
             <a href={item.url} className={styles.url}>
               <div className={styles.vignette} key={item.id}>
