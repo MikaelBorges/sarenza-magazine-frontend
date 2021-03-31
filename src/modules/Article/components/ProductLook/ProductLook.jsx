@@ -10,7 +10,22 @@ const ProductLook = (props) => {
         <p className={styles.paragraphe}>{props.Text}</p>
         {
             props.Vignettes.map((vignette)=>{
-                return 
+                return (
+                    <a href={vignette.url} className={styles.url}>
+                    <div className={styles.vignette} key={vignette.id}>
+                      <img
+                        src={vignette.visuelUrl}
+                        alt={`image du produit ${vignette.brand} - ${vignette.model}`}
+                        className={styles.imgVignette}
+                      />
+                      <div className={styles.containerTxt}>
+                        <span className={styles.statuLabel}>{vignette.statusLabel}</span>
+                        <span className={styles.brand}>{vignette.brand}</span>
+                        <span className={styles.model}>{vignette.model}</span>
+                      </div>
+                    </div>
+                  </a>
+                )
             })
         }
       </div>
