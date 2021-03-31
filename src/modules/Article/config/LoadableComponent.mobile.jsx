@@ -37,7 +37,7 @@ export const getComponent = (item) => {
       Component = dynamic(() => import('../components/ProductLine/ProductLine.mobile'));
       break;
     case COMPONENT_NAME.MODULE_PRODUCT_LOOK:
-      Component = dynamic(() => import('../components/ProductLook/ProductLook'));
+      Component = dynamic(() => import('../components/ProductLook/ProductLook.mobile'));
       break;
     default:
       throw new Error('the component doesnt exist');
