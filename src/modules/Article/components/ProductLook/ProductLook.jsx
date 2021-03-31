@@ -28,6 +28,11 @@ const ProductLook = (props) => {
                 )
             })
         }
+          {props.CTA && (
+          <a href={props.CTA.link} className={styles.link}>
+            {props.CTA.label}
+          </a>
+        )}
       </div>
     </section>
   );
