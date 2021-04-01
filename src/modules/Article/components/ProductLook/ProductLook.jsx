@@ -12,7 +12,7 @@ const ProductLook = (props) => {
             props.Vignettes.map((vignette)=>{
                 return (
                     <a href={vignette.url} className={styles.url}>
-                    <div className={styles.vignette} key={vignette.id}>
+                    <div className={styles.vignette} key={vignette.id} data-pcid={vignette.pcid}>
                       <img
                         src={vignette.visuelUrl}
                         alt={`image du produit ${vignette.brand} - ${vignette.model}`}
