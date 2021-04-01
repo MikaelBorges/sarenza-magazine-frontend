@@ -14,6 +14,12 @@ LinkComponent.propTypes = {
   disabled:
     PropTypes.bool /* if true, the item is disabled, the mouse has a forbidden pointer and
     the links do not work */,
+    pagination:
+    PropTypes.bool,
+    first:
+    PropTypes.bool,
+    last:
+    PropTypes.bool,
   onClick: PropTypes.func /* function describing the behaviour of the item when clicked on */,
   onFocus: PropTypes.func,
   onKeyDown: PropTypes.func,
@@ -37,7 +43,7 @@ LinkComponent.propTypes = {
   componentCustomClass:
     PropTypes.string /* adds a classname to the item, which should already
     exist in the item's CSS (ex: instances of linkStyle and buttonStyle) */,
-  extraClasses: PropTypes.arrayOf(PropTypes.string),
+  extraClasses: PropTypes.string,
   extraParameters: PropTypes.objectOf(
     PropTypes.any
   ) /* adds extra parameters to the link (the a
@@ -73,7 +79,10 @@ LinkComponent.defaultProps = {
   iconAfter: false,
   children: undefined,
   title: '',
-  dataTestid: ''
+  dataTestid: '',
+  first:false,
+  last:false,
+  pagination: false
 };
 
 export default LinkComponent;

@@ -30,7 +30,7 @@ const ShoppingList = ({ vignette, title, description, button }) => {
       <div className={styles.SliderContainer}>
         <Slider {...settings} className={styles.cards}>
           {vignette.map((card, position ) => {
-            return <ShoppingCard {...card} key={card.pcid} position={position}/>;
+            return <ShoppingCard {...card} key={`${card.pcid}-${position}`} position={position}/>;
           })}
         </Slider>
       </div>

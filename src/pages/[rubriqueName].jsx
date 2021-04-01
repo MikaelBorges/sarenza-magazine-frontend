@@ -40,8 +40,10 @@ export const getServerSideProps = wrapper.getServerSideProps(async (ctx) => {
 
   const apolloClient = getApolloClient();
 
-  const start = 0;
-  const limit = 100;
+  // const start = 0;
+  // const limit = 100;
+  const start = (parseInt(ctx.query.page) - 1) * 12 || 0;
+  const limit = 12;
 
   const { data, error } = await apolloClient.execQuery(
     { query: HOME_QUERY, variables: { ...ctx.query, limit: limit, start: start } },

@@ -20,11 +20,11 @@ const DuoMobile = ({ duo_image, title, duo_paragraphe, button }) => {
         </div>
         {duo_paragraphe !== null ? (
           <div className={styles.paragraph}>
-            {replaceByJsx(duo_paragraphe).map((item) => {
+            {replaceByJsx(duo_paragraphe).map((item, index) => {
               if (item.type === 'text') {
                 return (
-                  <div className={styles.textContainer} key={item.id}>
-                  <div className={styles.big}>
+                  <div className={styles.textContainer} key={`duo-text-${index}`}>
+                    <div className={styles.big}>
                       <Markdown options={{ forceInline: false }}>{item.text}</Markdown>
                     </div>
                   </div>
@@ -32,7 +32,7 @@ const DuoMobile = ({ duo_image, title, duo_paragraphe, button }) => {
               }
               if (item.type === 'verbatim') {
                 return (
-                  <div className={styles.verbatimContainer} key={item.id}>
+                  <div className={styles.verbatimContainer} key={`duo-verbatim-${index}`}>
                     <div className={styles.verbatimMobile}>
                       <Markdown options={{ forceInline: false }}>{item.text}</Markdown>
                     </div>

@@ -10,7 +10,7 @@ export const COMPONENT_NAME = {
   MODULE_EDITO_LONG: 'module.block-edito-long',
   MODULE_LIGNE_PRODUIT: 'module.ligne-produit'
 };
-export const getComponent = (item) => {
+export const getComponent = (item, i) => {
   let Component;
   // eslint-disable-next-line no-underscore-dangle
   switch (item.__component) {
@@ -38,5 +38,5 @@ export const getComponent = (item) => {
     default:
       throw new Error('the component doesnt exist');
   }
-  return <Component {...item} />;
+  return <Component key={`loadableComponent.${i}`} {...item} />;
 };
