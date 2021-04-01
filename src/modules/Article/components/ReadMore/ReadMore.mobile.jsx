@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import Heading from '@/components/commons/Heading';
 
 import ArticleItem from './ArticleItem/ArticleItem.mobile';
 import styles from './ReadMore.mobile.module.scss';

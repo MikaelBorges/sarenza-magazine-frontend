@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef } from 'react';
 
 import ArticleItem from './ArticleItem/ArticleItem';
 import styles from './ReadMore.module.scss';

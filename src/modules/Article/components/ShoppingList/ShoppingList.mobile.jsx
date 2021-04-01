@@ -31,12 +31,12 @@ const ShoppingList = ({ vignette, title, description, button }) => {
         </Slider>
       </div>
       {button !== null ? (
-        <button
+        <a
           type="button"
           className={`button ${styles.buttonShoppingList_mobile}`}
           href={button.link}>
           {button.label}
-        </button>
+        </a>
       ) : null}
     </div>
   );

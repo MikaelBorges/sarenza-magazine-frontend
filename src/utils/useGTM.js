@@ -13,7 +13,7 @@ import getConfig from 'next/config';
     env_country: 'FR',
     env_platform: `${IS_MOBILE ? 'Mobile' : 'Desktop' }`,//LE fichier .env target uniquement le mobile donc à revoir
     env_template: 'Magazine',
-    env_work: `${IS_PROD ? 'Prod' : 'development' }`, //rework à prévoir pour récupérer les environnements réels
+    env_work: "Prod", //rework à prévoir pour récupérer les environnements réels
     env_language: 'fra',
     domain_id: 'com'
   },

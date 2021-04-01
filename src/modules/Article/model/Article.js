@@ -9,7 +9,7 @@ export function ArticleModel(model = {}) {
     },
     modules: model.module || [],
     updatedDate: new Date(model.updated_at).toLocaleDateString('fr-FR'),
-    publishDate: new Date(model.updated_at).toLocaleDateString('fr-FR'),
+    publishDate: new Date(model.published_at).toLocaleDateString('fr-FR'),
     author: model.author || '',
     subtitle: model.subtitle || '',
     rubrique: model.rubriques[0],

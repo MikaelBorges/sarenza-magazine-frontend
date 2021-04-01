@@ -3,7 +3,7 @@ import React from 'react';
 
 import style from './ArticleTitle.mobile.module.scss';
 
-const ArticleTitle = ({ title, author, publishDate }) => {
+const ArticleTitle = ({ title, author, updateDate }) => {
   return (
     <>
       <div className={style.resume}>
@@ -13,7 +13,7 @@ const ArticleTitle = ({ title, author, publishDate }) => {
       </div>
       <div className={style.author}>
         <p className={style.small}>
-          {author} - {publishDate}
+          {author} - {updateDate}
         </p>
       </div>
     </>
