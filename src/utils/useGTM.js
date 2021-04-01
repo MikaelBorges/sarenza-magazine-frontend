@@ -1,44 +1,51 @@
 import TagManager from 'react-gtm-module';
 import getConfig from 'next/config';
+import { getCookieConsentList } from './cookieManager';
 
+const { serverRuntimeConfig } = getConfig();
+const { IS_PROD, IS_MOBILE } = serverRuntimeConfig;
 
- const { serverRuntimeConfig } = getConfig();
- const { IS_PROD, IS_MOBILE } = serverRuntimeConfig;
+let cookieConsentList;
 
+export const initTagManager = () => {
+  cookieConsentList = getCookieConsentList();
 
- const tagManagerArgs = {
-  gtmId: 'GTM-5DJ7GTF', //variabliser plus tard
-  dataLayer: {
-    env_channel: 'web',
-    env_country: 'FR',
-    env_platform: `${IS_MOBILE ? 'Mobile' : 'Desktop' }`,//LE fichier .env target uniquement le mobile donc à revoir
-    env_template: 'Magazine',
-    env_work: "Prod", //rework à prévoir pour récupérer les environnements réels
-    env_language: 'fra',
-    domain_id: 'com'
-  },
-  events: {
-    promotionPrint : 'promotionPrint',
-    promotionClick: 'promotionClick'
-  }
-  }
+  const tagManagerArgs = {
+    gtmId: 'GTM-5DJ7GTF', //variabliser plus tard
+    dataLayer: {
+      env_channel: 'web',
+      env_country: 'FR',
+      env_platform: `${IS_MOBILE ? 'Mobile' : 'Desktop'}`, //LE fichier .env target uniquement le mobile donc à revoir
+      env_template: 'Magazine',
+      env_work: 'Prod', //rework à prévoir pour récupérer les environnements réels
+      env_language: 'fra',
+      domain_id: 'com',
+      cookie_audience: cookieConsentList && cookieConsentList.includes('Audience') ? true : false,
+      cookie_personalization: cookieConsentList && cookieConsentList.includes('Personalisation') ? true : false,
+      cookie_advertising: cookieConsentList && cookieConsentList.includes('Advertising') ? true : false,
+      cookie_socials: cookieConsentList && cookieConsentList.includes('Socials') ? true : false,
+    },
+    events: {
+      promotionPrint: 'promotionPrint',
+      promotionClick: 'promotionClick'
+    }
+  };
 
-  export const initTagManager = () => {
-    TagManager.initialize(tagManagerArgs)
-  }
+  TagManager.initialize(tagManagerArgs);
+};
 
-  export const TrackEvent = {
-    PromotionPrint : 'promotionPrint',
-    PromotionClick : 'promotionClick',
-    ProductClick : 'productClick',
-    ProductPrint : 'productPrint'
-  
-  }
+export const TrackEvent = {
+  PromotionPrint: 'promotionPrint',
+  PromotionClick: 'promotionClick',
+  ProductClick: 'productClick',
+  ProductPrint: 'productPrint'
+};
 
 export default function useGTM(obj, trackEvent) {
-
+  
+  if(cookieConsentList != null){
   switch (trackEvent) {
-    case TrackEvent.PromotionPrint :
+    case TrackEvent.PromotionPrint:
       TagManager.dataLayer({
         dataLayer: {
           event: `${trackEvent}`,
@@ -50,7 +57,7 @@ export default function useGTM(obj, trackEvent) {
         }
       });
       break;
-    case TrackEvent.PromotionClick :
+    case TrackEvent.PromotionClick:
       TagManager.dataLayer({
         dataLayer: {
           event: `${trackEvent}`,
@@ -66,33 +73,28 @@ export default function useGTM(obj, trackEvent) {
       TagManager.dataLayer({
         dataLayer: {
           ecommerce: {
-            impressions: [
-              obj
-            ]
+            impressions: [obj]
           },
           event: `${trackEvent}`
         }
       });
       break;
-      case TrackEvent.ProductPrint :
-        TagManager.dataLayer({
-          dataLayer: {
-            ecommerce: {
-              impressions: [
-                obj
-              ]
-            },
-            event: `${trackEvent}`
-          }
-        });
-        break;
+    case TrackEvent.ProductPrint:
+      TagManager.dataLayer({
+        dataLayer: {
+          ecommerce: {
+            impressions: [obj]
+          },
+          event: `${trackEvent}`
+        }
+      });
+      break;
 
     default:
-        TagManager.dataLayer({
-            dataLayer: obj
-          });
+      TagManager.dataLayer({
+        dataLayer: obj
+      });
       break;
   }
-
-
+}
 }
