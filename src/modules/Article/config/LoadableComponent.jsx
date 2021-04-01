@@ -37,7 +37,7 @@ export const getComponent = (item, i) => {
     case COMPONENT_NAME.MODULE_LIGNE_PRODUIT:
       Component = dynamic(() => import('../components/ProductLine/ProductLine'));
       break;
-      case COMPONENT_NAME.MODULE_PRODUCT_LOOK:
+    case COMPONENT_NAME.MODULE_PRODUCT_LOOK:
       Component = dynamic(() => import('../components/ProductLook/ProductLook'));
       break;
     default:
