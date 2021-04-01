@@ -17,7 +17,7 @@ const ProductEdito = ({ Title, Text, Vignette, CTA }) => {
         {Vignette.map((item) => {
           return (
             <a href={item.url} className={styles.url}>
-              <div className={styles.vignette} key={item.id}>
+              <div className={styles.vignette} key={item.id} data-pcid={item.pcid}>
                 <img
                   src={item.visuelUrl}
                   alt={`image du produit ${item.brand} - ${item.model}`}
