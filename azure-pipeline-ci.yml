@@ -17,11 +17,20 @@ variables:
 steps:
 - powershell: 'Write-Output ("##vso[task.setvariable variable=MyVersionNumber;]$([DateTime]::Today.Year).$(get-date -UFormat %V).$((get-date).DayOfWeek.value__).$(Build.BuildId)")'
   displayName: 'Compute version number'
-- task: Docker@0
+# - task: Docker@0
+#   inputs:
+#     containerregistrytype: 'Container Registry'
+#     dockerRegistryConnection: 'srzlab.azurecr.io'
+#     action: 'Build an image'
+#     dockerFile: '**/Dockerfile'
+#     imageName: '$(ImageNameWithBuildId)'
+#     includeLatestTag: true
+- task: DockerCompose@0
   inputs:
     containerregistrytype: 'Container Registry'
-    dockerRegistryConnection: 'srzlab.azurecr.io'
-    action: 'Build an image'
-    dockerFile: '**/Dockerfile'
-    imageName: '$(ImageNameWithBuildId)'
-    includeLatestTag: true
+    dockerRegistryEndpoint: 'srzlab.azurecr.io'
+    dockerComposeFile: '**/docker-compose.yaml'
+    projectName: '$(ImageName)'
+    qualifyImageNames: false
+    action: 'Run a Docker Compose command'
+    dockerComposeCommand: 'build'
