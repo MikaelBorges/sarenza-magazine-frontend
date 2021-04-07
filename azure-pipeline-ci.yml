@@ -55,6 +55,7 @@ steps:
     dockerComposeCommand: 'push'
   
 - task: PublishBuildArtifacts@1
+  displayName: Publish Helm Chart
   inputs:
     PathtoPublish: 'helm'
     ArtifactName: 'helm'
