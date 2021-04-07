@@ -35,3 +35,14 @@ steps:
     qualifyImageNames: false
     action: 'Run a Docker Compose command'
     dockerComposeCommand: 'build'
+    
+- task: DockerCompose@0
+  inputs:
+    containerregistrytype: 'Container Registry'
+    dockerRegistryEndpoint: 'srzlab.azurecr.io'
+    dockerComposeFile: '**/docker-compose.yaml'
+    dockerComposeFileArgs: 'VERSION=$(build.buildId)'
+    projectName: '$(ImageName)'
+    qualifyImageNames: false
+    action: 'Run a Docker Compose command'
+    dockerComposeCommand: 'push'
