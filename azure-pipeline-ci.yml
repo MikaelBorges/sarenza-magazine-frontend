@@ -16,7 +16,8 @@ variables:
   - name: GitVersion.SemVer
     value: ''
   - name: ImageNameWithBuildId
-    value: "$(ImageName):$(build.buildId)"
+    value: "$(ImageName):$(GitVersion.SemVer)"
+name: $(GitVersion.SemVer)
 steps:
 - powershell: 'Write-Output ("##vso[task.setvariable variable=MyVersionNumber;]$([DateTime]::Today.Year).$(get-date -UFormat %V).$((get-date).DayOfWeek.value__).$(Build.BuildId)")'
   displayName: 'Compute version number'
