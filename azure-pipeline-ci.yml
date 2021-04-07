@@ -53,3 +53,9 @@ steps:
     qualifyImageNames: false
     action: 'Run a Docker Compose command'
     dockerComposeCommand: 'push'
+  
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: 'helm'
+    ArtifactName: 'helm'
+    publishLocation: 'Container'
