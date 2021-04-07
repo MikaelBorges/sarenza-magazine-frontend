@@ -43,6 +43,7 @@ steps:
     qualifyImageNames: false
     action: 'Run a Docker Compose command'
     dockerComposeCommand: 'build'
+    arguments: '--force-rm --no-cache'
     
 - task: DockerCompose@0
   inputs:
