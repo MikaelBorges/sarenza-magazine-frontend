@@ -67,7 +67,7 @@ steps:
     filepath: 'version.json'
     filecontent: |
       {
-          "version": $(GitVersion.SemVer)
+          "version": "$(GitVersion.SemVer)"
       }
     fileoverwrite: true
     skipempty: true
