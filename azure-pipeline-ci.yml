@@ -71,3 +71,9 @@ steps:
       }
     fileoverwrite: true
     skipempty: true
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: 'version.json'
+    ArtifactName: 'version'
+    publishLocation: 'Container'
