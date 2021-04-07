@@ -18,6 +18,8 @@ RUN apk update && apk add -q dos2unix
 
 RUN dos2unix /usr/local/bin/entrypoint.sh && apk del dos2unix
 
+RUN chmod +x /usr/local/bin/entrypoint.sh
+
 ENTRYPOINT ["entrypoint.sh"]
 
 CMD ["yarn", "start"]
