@@ -17,6 +17,7 @@ function Show-Menu
     Write-Host "2: Recette (re7)"
     Write-Host "3: UAT"
     Write-Host "4: Production"
+    Write-Host "5: Dev"
     Write-Host "Q: Press 'Q' to quit."
 }
 
@@ -45,6 +46,9 @@ switch ($envSelection)
          $project='srz-prj-ec4f7b6b'
          $subscription='srz-gke-prd-36d82766'
          $replicaCount=4
+         $rebuildContainer=$false   
+     } '5' {
+         $env='dev'
          $rebuildContainer=$false   
      } 'q' {
          return

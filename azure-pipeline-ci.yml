@@ -2,6 +2,7 @@ resources:
 - repo: self
 pool:  
   name: $(PoolName)
+
 variables:
   - group: Internal
   - name: RegistryName
@@ -12,16 +13,68 @@ variables:
     value: magazine 
   - name: ImageName
     value: $(RegistryName)/$(ProjectName)
+  - name: GitVersion.SemVer
+    value: ''
   - name: ImageNameWithBuildId
-    value: "$(ImageName):$(build.buildId)"
+    value: "$(ImageName):$(GitVersion.SemVer)"
+name: $(GitVersion.SemVer)
 steps:
 - powershell: 'Write-Output ("##vso[task.setvariable variable=MyVersionNumber;]$([DateTime]::Today.Year).$(get-date -UFormat %V).$((get-date).DayOfWeek.value__).$(Build.BuildId)")'
   displayName: 'Compute version number'
-- task: Docker@0
+# - task: Docker@0
+#   inputs:
+#     containerregistrytype: 'Container Registry'
+#     dockerRegistryConnection: 'srzlab.azurecr.io'
+#     action: 'Build an image'
+#     dockerFile: '**/Dockerfile'
+#     imageName: '$(ImageNameWithBuildId)'
+#     includeLatestTag: true
+
+- task: GitVersion@5
+  displayName: gitversion
+
+- task: DockerCompose@0
   inputs:
     containerregistrytype: 'Container Registry'
-    dockerRegistryConnection: 'srzlab.azurecr.io'
-    action: 'Build an image'
-    dockerFile: '**/Dockerfile'
-    imageName: '$(ImageNameWithBuildId)'
-    includeLatestTag: true
+    dockerRegistryEndpoint: 'srzlab.azurecr.io'
+    dockerComposeFile: '**/docker-compose.yaml'
+    dockerComposeFileArgs: 'VERSION=$(GitVersion.SemVer)'
+    projectName: '$(ImageName)'
+    qualifyImageNames: false
+    action: 'Run a Docker Compose command'
+    dockerComposeCommand: 'build'
+    arguments: '--force-rm --no-cache'
+    
+- task: DockerCompose@0
+  inputs:
+    containerregistrytype: 'Container Registry'
+    dockerRegistryEndpoint: 'srzlab.azurecr.io'
+    dockerComposeFile: '**/docker-compose.yaml'
+    dockerComposeFileArgs: 'VERSION=$(GitVersion.SemVer)'
+    projectName: '$(ImageName)'
+    qualifyImageNames: false
+    action: 'Run a Docker Compose command'
+    dockerComposeCommand: 'push'
+  
+- task: PublishBuildArtifacts@1
+  displayName: Publish Helm Chart
+  inputs:
+    PathtoPublish: 'helm'
+    ArtifactName: 'helm'
+    publishLocation: 'Container'
+  
+- task: file-creator@6
+  inputs:
+    filepath: 'version.json'
+    filecontent: |
+      {
+          "version": "$(GitVersion.SemVer)"
+      }
+    fileoverwrite: true
+    skipempty: true
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: 'version.json'
+    ArtifactName: 'version'
+    publishLocation: 'Container'
