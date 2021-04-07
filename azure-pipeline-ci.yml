@@ -30,6 +30,7 @@ steps:
     containerregistrytype: 'Container Registry'
     dockerRegistryEndpoint: 'srzlab.azurecr.io'
     dockerComposeFile: '**/docker-compose.yaml'
+    dockerComposeFileArgs: 'VERSION=$(build.buildId)'
     projectName: '$(ImageName)'
     qualifyImageNames: false
     action: 'Run a Docker Compose command'
