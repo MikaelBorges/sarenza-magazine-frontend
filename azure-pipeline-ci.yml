@@ -2,6 +2,7 @@ resources:
 - repo: self
 pool:  
   name: $(PoolName)
+
 variables:
   - group: Internal
   - name: RegistryName
@@ -12,6 +13,8 @@ variables:
     value: magazine 
   - name: ImageName
     value: $(RegistryName)/$(ProjectName)
+  - name: GitVersion.SemVer
+    value: ''
   - name: ImageNameWithBuildId
     value: "$(ImageName):$(build.buildId)"
 steps:
@@ -25,12 +28,16 @@ steps:
 #     dockerFile: '**/Dockerfile'
 #     imageName: '$(ImageNameWithBuildId)'
 #     includeLatestTag: true
+
+- task: GitVersion@5
+  displayName: gitversion
+
 - task: DockerCompose@0
   inputs:
     containerregistrytype: 'Container Registry'
     dockerRegistryEndpoint: 'srzlab.azurecr.io'
     dockerComposeFile: '**/docker-compose.yaml'
-    dockerComposeFileArgs: 'VERSION=$(build.buildId)'
+    dockerComposeFileArgs: 'VERSION=$(GitVersion.SemVer)'
     projectName: '$(ImageName)'
     qualifyImageNames: false
     action: 'Run a Docker Compose command'
@@ -41,7 +48,7 @@ steps:
     containerregistrytype: 'Container Registry'
     dockerRegistryEndpoint: 'srzlab.azurecr.io'
     dockerComposeFile: '**/docker-compose.yaml'
-    dockerComposeFileArgs: 'VERSION=$(build.buildId)'
+    dockerComposeFileArgs: 'VERSION=$(GitVersion.SemVer)'
     projectName: '$(ImageName)'
     qualifyImageNames: false
     action: 'Run a Docker Compose command'
