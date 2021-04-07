@@ -61,3 +61,13 @@ steps:
     PathtoPublish: 'helm'
     ArtifactName: 'helm'
     publishLocation: 'Container'
+  
+- task: file-creator@6
+  inputs:
+    filepath: 'version.json'
+    filecontent: |
+      {
+          "version": $(GitVersion.SemVer)
+      }
+    fileoverwrite: true
+    skipempty: true
