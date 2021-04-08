@@ -8,7 +8,8 @@ export const COMPONENT_NAME = {
   MODULE_SHOPPING_LIST: 'module.slider-article',
   MODULE_VIDEO: 'media.video',
   MODULE_EDITO_LONG: 'module.block-edito-long',
-  MODULE_LIGNE_PRODUIT: 'module.ligne-produit'
+  MODULE_LIGNE_PRODUIT: 'module.ligne-produit',
+  MODULE_IMAGE_LEGEND: 'module.images-legend'
 };
 export const getComponent = (item, i) => {
   let Component;
@@ -26,15 +27,18 @@ export const getComponent = (item, i) => {
     case COMPONENT_NAME.MODULE_SHOPPING_LIST:
       Component = dynamic(() => import('../components/ShoppingList/ShoppingList.mobile'));
       break;
-      case COMPONENT_NAME.MODULE_VIDEO:
-        Component = dynamic(() => import('../components/IframeVideo/IframeVideo.mobile'));
-        break;
-        case COMPONENT_NAME.MODULE_EDITO_LONG:
-          Component = dynamic(() => import('../components/BlockEditoLong/BlockEditoLong.mobile'));
-          break;
-          case COMPONENT_NAME.MODULE_LIGNE_PRODUIT:
-            Component = dynamic(() => import('../components/ProductLine/ProductLine.mobile'));
-            break;
+    case COMPONENT_NAME.MODULE_VIDEO:
+      Component = dynamic(() => import('../components/IframeVideo/IframeVideo.mobile'));
+      break;
+    case COMPONENT_NAME.MODULE_EDITO_LONG:
+      Component = dynamic(() => import('../components/BlockEditoLong/BlockEditoLong.mobile'));
+      break;
+    case COMPONENT_NAME.MODULE_LIGNE_PRODUIT:
+      Component = dynamic(() => import('../components/ProductLine/ProductLine.mobile'));
+      break;
+    case COMPONENT_NAME.MODULE_IMAGE_LEGEND:
+      Component = dynamic(() => import('../components/ImageLegend/ImageLegend.mobile'));
+      break;
     default:
       throw new Error('the component doesnt exist');
   }
