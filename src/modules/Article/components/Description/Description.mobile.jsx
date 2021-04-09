@@ -1,8 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import Text from '@/components/commons/Text/Text';
-
 import styles from './Description.mobile.module.scss';
 
 const DescriptionMobile = ({ author, publishDate, updateDate }) => {
@@ -11,7 +9,7 @@ const DescriptionMobile = ({ author, publishDate, updateDate }) => {
       <p className={styles.author}>
         {author} - Publié le {publishDate}
       </p>
-      <span>mis à jour le {updateDate}</span>
+      {updateDate !== publishDate ? <span>mis à jour le {updateDate}</span> : null}
     </div>
   );
 };

@@ -58,16 +58,16 @@ const LinkGeneric = ({
     },
     ...(baseLinkStyle || [{ 0: 'default' }])
   );
-
+  
   if (type === LINK_TYPE.TEXT && link) {
     const linkProps = {
       target: newTab ? '_blank' : undefined,
       className: cssClasses,
       ...extraParameters,
       disabled,
-      pagination,
-      first,
-      last
+      pagination: pagination ? true : undefined,
+      first: first ? true : undefined,
+      last: last ? true : undefined
     };
 
     return absolute ? (
@@ -103,9 +103,9 @@ const LinkGeneric = ({
             onClick={onClick}
             disabled={disabled}
             className={cssClasses}
-            pagination={pagination}
-            first={first}
-            last={last}
+            pagination={+false}
+            first={+false}
+            last={+false}
             data-testid={dataTestid}>
             {iconName ? (
               <ChildrenWithIcon
@@ -130,9 +130,9 @@ const LinkGeneric = ({
         onKeyDown={onKeyDown}
         onClick={onClick}
         disabled={disabled}
-        pagination={pagination}
-        first={first}
-        last={last}
+        pagination={+false}
+        first={+false}
+        last={+false}
         className={cssClasses}
         data-testid={dataTestid}>
         {iconName ? (
@@ -184,7 +184,7 @@ LinkGeneric.propTypes = {
   componentCustomClass:
     PropTypes.string /* adds a classname to the item, which should already
     exist in the item's CSS (ex: instances of linkStyle and buttonStyle) */,
-  extraClasses: PropTypes.arrayOf(PropTypes.string),
+  extraClasses: PropTypes.string,
   extraParameters: PropTypes.objectOf(
     PropTypes.any
   ) /* adds extra parameters to the link (the a

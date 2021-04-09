@@ -55,8 +55,8 @@ const LinkGeneric = ({
       target: newTab ? '_blank' : undefined,
       className: cssClasses,
       ...extraParameters,
-      disabled
-      pagination,
+      disabled,
+      pagination: pagination ? true : undefined,
       first,
       last
     };
@@ -146,7 +146,7 @@ LinkGeneric.propTypes = {
   componentCustomClass:
     PropTypes.string /* adds a classname to the item, which should already
     exist in the item's CSS (ex: instances of linkStyle and buttonStyle) */,
-  extraClasses: PropTypes.arrayOf(PropTypes.string),
+  extraClasses: PropTypes.string,
   extraParameters: PropTypes.objectOf(
     PropTypes.any
   ) /* adds extra parameters to the link (the a

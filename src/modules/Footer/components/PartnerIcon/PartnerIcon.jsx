@@ -9,7 +9,6 @@ const PartnerIcon = ({ data }) => {
     <li className={data.liClass}>
       <a
         href={data.href}
-        key={data.id}
         className={`ea-tracker gtm-click partners-com-${dashed} sprited`}
         shipping={data.shipping}
         quality={data.quality}

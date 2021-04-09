@@ -14,12 +14,10 @@ import useGTM, {TrackEvent} from 'utils/useGTM';
 const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop);
 
 const Article = ({ article, recentArticle }) => {
-  
+ 
   const myRef = useRef(null);
   const executeScroll = () => scrollToRef(myRef);
   const rubriqueName = useRouter().query.rubriqueName;
-  console.log(article);
-
 
    const trackGTM = (article) => {
     let obj = {

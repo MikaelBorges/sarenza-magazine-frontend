@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import Heading from '@/components/commons/Heading';
 
 import ArticleItem from './ArticleItem/ArticleItem.mobile';
 import styles from './ReadMore.mobile.module.scss';
@@ -14,7 +13,7 @@ const Articles = ({ articles, position }) => {
       </div>
       {articles.map((article, index) => {
         return (
-          <div key={article.id} className={styles.content}>
+          <div key={index} className={styles.content}>
             <ArticleItem article={article} size={index} position={position} />
           </div>
         );

@@ -21,7 +21,7 @@ const ArticleItem = ({ article, size, position }) => {
       <ArticleTitle
         title={article.title}
         author={article.author}
-        publishDate={article.publishDate}
+        updateDate={article.updatedDate}
         size={size}
         position={position}
       />

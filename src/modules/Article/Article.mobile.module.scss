@@ -7,10 +7,7 @@
     padding-bottom: 16px;
     .link {
         z-index: 10;
-        position: absolute;
-        bottom: -48px;
-        left: 50%;
-        transform: translateX(-50%);
+        position: relative;
         vertical-align: middle;
         font: 700 12px/14px robotoc, Arial Narrow, sans-serif;
         text-transform: uppercase;

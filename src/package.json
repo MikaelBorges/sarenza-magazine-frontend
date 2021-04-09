@@ -27,6 +27,7 @@
     "graphql-tag": "^2.11.0",
     "html-react-parser": "^0.14.0",
     "isomorphic-unfetch": "^3.1.0",
+    "markdown-to-jsx": "^7.1.2",
     "next": "9.5.3",
     "next-redux-wrapper": "^6.0.2",
     "next-with-apollo": "^5.1.0",

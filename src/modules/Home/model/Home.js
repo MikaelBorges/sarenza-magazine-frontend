@@ -5,7 +5,7 @@ const processToHomeArticle = (model = {}) => {
         id: model.id,
         title: model.title || '',
         author: model.author || '',
-        publishDate: new Date(model.updated_at).toLocaleDateString('fr-FR'),
+        publishDate: new Date().toLocaleDateString('fr-FR'),
         image: model.image || 'Image inconnue',
         ImageArticleMobile: model.ImageArticleMobile || 'Image inconnue',
         link:

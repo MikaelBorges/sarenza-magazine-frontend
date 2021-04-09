@@ -10,8 +10,10 @@ import styles from './Duo.module.scss';
 
 const Duo = ({ duo_image, title, duo_paragraphe, button }) => {
   return (
-    <div className={styles.container}>
+    <section className={styles.container}>
+      {duo_image &&
       <img src={duo_image.url} alt="alt" className={styles.image} />
+      }
       <div className={styles.textPart}>
         <div className={styles.titleTextPart}>
           <h2 className={styles.huge}>
@@ -20,17 +22,17 @@ const Duo = ({ duo_image, title, duo_paragraphe, button }) => {
         </div>
         {duo_paragraphe !== null ? (
           <div className={styles.paragraph}>
-            {replaceByJsx(duo_paragraphe).map((item) => {
+            {replaceByJsx(duo_paragraphe).map((item, index) => {
               if (item.type === 'text') {
                 return (
-                  <div className={styles.big}>
+                  <div className={styles.big} key={`duo-text-${index}`}>
                     <Markdown options={{ forceInline: false }}>{item.text}</Markdown>
                   </div>
                 );
               }
               if (item.type === 'verbatim') {
                 return (
-                  <div className={styles.verbatimContainer}>
+                  <div className={styles.verbatimContainer} key={`duo-verbatim-${index}`}>
                     <div className={styles.verbatim}>
                       <Markdown options={{ forceInline: false }}>{item.text}</Markdown>
                     </div>
@@ -49,7 +51,7 @@ const Duo = ({ duo_image, title, duo_paragraphe, button }) => {
           </div>
         ) : null}
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -3,7 +3,7 @@ import React from 'react';
 
 import style from './ArticleTitle.module.scss';
 
-const ArticleTitle = ({ title, author, publishDate, size, position, firstArticle }) => {
+const ArticleTitle = ({ title, author, size, position, firstArticle, updateDate }) => {
   return (
     <>
       <div className={style.resume}>
@@ -19,7 +19,7 @@ const ArticleTitle = ({ title, author, publishDate, size, position, firstArticle
       </div>
       <div className={style.author}>
         <p className={style.small}>
-          {author} - {publishDate}
+          {author} - {updateDate}
         </p>
       </div>
     </>

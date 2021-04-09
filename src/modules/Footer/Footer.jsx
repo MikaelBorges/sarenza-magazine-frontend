@@ -54,8 +54,8 @@ const Footer = ({ footer }) => {
         </nav>
         <div className="partners">
           <ul className="fold sprite">
-            {footer.partnerIcons && footer.partnerIcons.map((partnerIcon) => {
-              return <PartnerIcon data={partnerIcon} key={partnerIcon.id} />;
+            {footer.partnerIcons && footer.partnerIcons.map((partnerIcon,  index) => {
+              return <PartnerIcon data={partnerIcon} key={`${partnerIcon.id}-${index}`} />;
             })}
           </ul>
         </div>
