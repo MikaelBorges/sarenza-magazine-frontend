@@ -1,6 +1,5 @@
 import React from 'react';
 import styles from './ImageLegend.module.scss';
-import Mardown from 'markdown-to-jsx';
 
 const ImageLegend = (props) => {
   return (
@@ -15,26 +14,34 @@ const ImageLegend = (props) => {
         />
         <div className={styles.box}>
           <img
-            src={props.OptionalImage.url}
-            alt={props.OptionalImage.alt}
+            src={props.ImageText.url}
+            alt={props.ImageText.alt}
             className={styles.optionalImage}
           />
-          <h4 className={styles.h4}>{props.OptionalSubtitle}</h4>
-          <h2 className={styles.h2}>{props.OptionalTitle}</h2>
-          <p className={styles.optionalText}>{props.OptionalText}</p>
-          <a href={props.OptionalButton.link} className={styles.button}>
-            {props.OptionalButton.label}
-          </a>
+          <div className={styles.blockText}>
+            <h5 className={styles.h5}>{props.ImageText.Subtitle}</h5>
+            <h2 className={styles.h2}>{props.ImageText.Title}</h2>
+            <p className={styles.optionalText}>{props.ImageText.Paragraph}</p>
+            <a href={props.ImageText.Link} className={styles.button}>
+              {props.ImageText.Label}
+            </a>
+          </div>
         </div>
       </div>
       <div className={styles.lastBlock}>
-        <h4 className={styles.h4}>{props.LastSubtitle}</h4>
-        <h2 className={styles.h2}>{props.LastTitle}</h2>
-        <p className={styles.lastText}>{props.LastText}</p>
-        <a href={props.LastButton.link} className={styles.button}>
-          {props.LastButton.label}
-        </a>
-        <img src={props.LastImage.url} alt={props.LastImage.alt} className={styles.lastImage} />
+        <div className={styles.lastBlockText}>
+          <h5 className={styles.h5}>{props.ImageTextOptional.Subtitle}</h5>
+          <h2 className={styles.h2}>{props.ImageTextOptional.Title}</h2>
+          <p className={styles.lastText}>{props.ImageTextOptional.Paragraph}</p>
+          <a href={props.ImageTextOptional.Link} className={styles.button}>
+            {props.ImageTextOptional.Label}
+          </a>
+        </div>
+        <img
+          src={props.ImageTextOptional.url}
+          alt={props.ImageTextOptional.alt}
+          className={styles.lastImage}
+        />
       </div>
     </div>
   );
