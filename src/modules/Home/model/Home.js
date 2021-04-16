@@ -97,7 +97,7 @@ const processToHome = (model = {}, rubrique) => {
       rubriques: model.rubriques.map(processToRubrique).sort((a, b) => a.order - b.order) || []
     },
     currentRubrique: model.rubriques.find(r => r.url === rubrique) || {},
-    numberArticles: model.articleCount,
+    numberArticles: model.articleCount - 1,
     firstArticle: processToHomeArticle(aLaUne) || {},
     articles: model.articles.filter((it) => it.id !== aLaUne.id).map(processToHomeArticle),
     marquee: getMarquee(model, rubrique, 'bottom') || [],
