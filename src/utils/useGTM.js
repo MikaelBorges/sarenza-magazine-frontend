@@ -6,8 +6,18 @@ const { serverRuntimeConfig } = getConfig();
 const { IS_PROD, IS_MOBILE } = serverRuntimeConfig;
 
 let cookieConsentList;
+let gtmStack = [];
+const purgeStack = (func) => {
+  gtmStack.forEach((func) => {
+    if (typeof func == 'function') func();
+  })
+  gtmStack.push = (func) => {
+    if (typeof func == 'function') func();
+  }
+}
 
 export const initTagManager = () => {
+
   cookieConsentList = getCookieConsentList();
 
   const tagManagerArgs = {
@@ -32,6 +42,7 @@ export const initTagManager = () => {
   };
 
   TagManager.initialize(tagManagerArgs);
+  purgeStack();
 };
 
 export const TrackEvent = {
@@ -42,59 +53,64 @@ export const TrackEvent = {
 };
 
 export default function useGTM(obj, trackEvent) {
-  
-  if(cookieConsentList != null){
-  switch (trackEvent) {
-    case TrackEvent.PromotionPrint:
-      TagManager.dataLayer({
-        dataLayer: {
-          event: `${trackEvent}`,
-          ecommerce: {
-            promoView: {
-              promotions: [obj]
-            }
-          }
-        }
-      });
-      break;
-    case TrackEvent.PromotionClick:
-      TagManager.dataLayer({
-        dataLayer: {
-          event: `${trackEvent}`,
-          ecommerce: {
-            promoClick: {
-              promotions: [obj]
-            }
-          }
-        }
-      });
-      break;
-    case TrackEvent.ProductClick:
-      TagManager.dataLayer({
-        dataLayer: {
-          ecommerce: {
-            impressions: [obj]
-          },
-          event: `${trackEvent}`
-        }
-      });
-      break;
-    case TrackEvent.ProductPrint:
-      TagManager.dataLayer({
-        dataLayer: {
-          ecommerce: {
-            impressions: [obj]
-          },
-          event: `${trackEvent}`
-        }
-      });
-      break;
 
-    default:
-      TagManager.dataLayer({
-        dataLayer: obj
-      });
-      break;
-  }
-}
+  gtmStack.push(function () {
+    
+    if (cookieConsentList != null) {
+      switch (trackEvent) {
+        case TrackEvent.PromotionPrint:
+          TagManager.dataLayer({
+            dataLayer: {
+              event: `${trackEvent}`,
+              ecommerce: {
+                promoView: {
+                  promotions: [obj]
+                }
+              }
+            }
+          });
+          break;
+        case TrackEvent.PromotionClick:
+          TagManager.dataLayer({
+            dataLayer: {
+              event: `${trackEvent}`,
+              ecommerce: {
+                promoClick: {
+                  promotions: [obj]
+                }
+              }
+            }
+          });
+          break;
+        case TrackEvent.ProductClick:
+          TagManager.dataLayer({
+            dataLayer: {
+              ecommerce: {
+                impressions: [obj]
+              },
+              event: `${trackEvent}`
+            }
+          });
+          break;
+        case TrackEvent.ProductPrint:
+          TagManager.dataLayer({
+            dataLayer: {
+              ecommerce: {
+                impressions: [obj]
+              },
+              event: `${trackEvent}`
+            }
+          });
+          break;
+
+        default:
+          TagManager.dataLayer({
+            dataLayer: obj
+          });
+          break;
+      }
+    }
+  })
+
+
 }
