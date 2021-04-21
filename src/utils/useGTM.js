@@ -56,8 +56,8 @@ export const TrackEvent = {
 export default function useGTM(obj, trackEvent) {
 
   /* Prevent mutliple tracking on same page */
-  if(trackedItemList.includes(obj.name)) return;
-  trackedItemList.push(obj.name);
+  if(trackedItemList.includes(obj.name + trackEvent)) return;
+  trackedItemList.push(obj.name + trackEvent);
 
   gtmStack.push(function () {
     
