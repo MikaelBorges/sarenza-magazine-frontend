@@ -7,6 +7,7 @@ const { IS_PROD, IS_MOBILE } = serverRuntimeConfig;
 
 let cookieConsentList;
 let gtmStack = [];
+let trackedItemList = []
 const purgeStack = (func) => {
   gtmStack.forEach((func) => {
     if (typeof func == 'function') func();
@@ -53,6 +54,10 @@ export const TrackEvent = {
 };
 
 export default function useGTM(obj, trackEvent) {
+
+  /* Prevent mutliple tracking on same page */
+  if(trackedItemList.includes(obj.name)) return;
+  trackedItemList.push(obj.name);
 
   gtmStack.push(function () {
     
