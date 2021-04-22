@@ -8,11 +8,12 @@ export const COMPONENT_NAME = {
   MODULE_SHOPPING_LIST: 'module.slider-article',
   MODULE_VIDEO: 'media.video',
   MODULE_EDITO_LONG: 'module.block-edito-long',
-  MODULE_LIGNE_PRODUIT: 'module.ligne-produit',
   MODULE_DUO_QR_IMAGE: 'module.duo-qr',
   MODULE_IDENTITY_FICHES: 'module.identity-card',
   MODULE_EDITO_COURT: 'edito.edito-court',
-  MODULE_TRIO_QR: 'module.trio-qr'
+  MODULE_TRIO_QR: 'module.trio-qr',
+  MODULE_LIGNE_PRODUIT: 'module.ligne-produit',
+  MODULE_PRODUCT_LOOK: 'module.product-look'
 };
 
 export const getComponent = (item, i) => {
@@ -33,7 +34,7 @@ export const getComponent = (item, i) => {
       break;
     case COMPONENT_NAME.MODULE_VIDEO:
       Component = dynamic(() => import('../components/IframeVideo/IframeVideo.mobile'));
-        break;
+      break;
     case COMPONENT_NAME.MODULE_EDITO_LONG:
       Component = dynamic(() => import('../components/BlockEditoLong/BlockEditoLong.mobile'));
       break;
@@ -48,6 +49,9 @@ export const getComponent = (item, i) => {
       break;
     case COMPONENT_NAME.MODULE_TRIO_QR:
       Component = dynamic(() => import('../components/TrioQR/TrioQR.mobile'));
+      break;
+    case COMPONENT_NAME.MODULE_PRODUCT_LOOK:
+      Component = dynamic(() => import('../components/ProductLook/ProductLook.mobile'));
       break;
     default:
       throw new Error('the component doesnt exist');
