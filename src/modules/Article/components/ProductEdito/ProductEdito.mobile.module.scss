@@ -1,0 +1,101 @@
+.productEdito {
+  .wrapperVignettes {
+    padding: 1rem;
+    display: flex;
+    overflow-x: scroll;
+    scroll-padding: 0 50%;
+
+    .url{
+        outline: none;
+    }
+    .vignette {
+      display: inline-block;
+      min-width: 60vw;
+      padding-right: 16px;
+
+      .imgVignette {
+      }
+      .containerTxt {
+        text-align: left;
+        margin-left: 5px;
+      }
+      .statuLabel {
+        color: #ff2157;
+        font-size: 12px;
+        font-family: 'RobotoC';
+        font-weight: bold;
+        margin: 7px 0 4px 0;
+        display: block;
+      }
+      .brand {
+        display: block;
+        font-size: 14px;
+        font-family: 'RobotoC';
+        font-weight: bold;
+        color: #1d1d1b;
+      }
+      .model {
+        display: block;
+        color: #999999;
+        font-family: 'RobotoC';
+        font-size: 12px;
+        margin-top: 8px;
+      }
+    }
+  }
+
+  .wrapperText {
+    text-align: left;
+    padding: 0 24px;
+
+    .title {
+      font-size: 24px;
+      margin: 0;
+      margin-bottom: 24px;
+      margin-top: 32px;
+      font-family: robotoC;
+      font-weight: bold;
+      line-height: 32px;
+      color: #1d1d1b;
+    }
+    .text {
+      font-size: 16px;
+      line-height: 25px;
+      color: #737373;
+    }
+  }
+  .link {
+    position: relative;
+    font: 700 12px/14px robotoc, Arial Narrow, sans-serif;
+    text-transform: uppercase;
+    padding: 0 64px 0 32px;
+    background: #1d1d1b;
+    min-width: 96px;
+    height: 48px;
+    overflow: hidden;
+    outline: 0;
+    display: inline-flex;
+    align-items: center;
+    font-size: 12px;
+    color: #ffffff;
+    letter-spacing: -0.34px;
+    text-align: left;
+    line-height: 16px;
+    margin-top: 32px;
+
+    &:after {
+      position: absolute;
+      right: 32px;
+      top: 14px;
+      margin-top: 0;
+      margin-left: 1.5em;
+      content: '\e372';
+      font-family: pictenza;
+      font-size: 1em;
+      font-style: normal;
+      speak: none;
+      font-weight: 700;
+      -webkit-font-smoothing: antialiased;
+    }
+  }
+}
