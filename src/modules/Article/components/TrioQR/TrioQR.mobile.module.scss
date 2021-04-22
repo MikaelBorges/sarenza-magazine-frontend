@@ -1,0 +1,57 @@
+@import '../../../../app/components/_styles/theme';
+
+.container {
+    font-family: robotoC, $safe-fonts;
+    margin: 32px 0;
+
+    > h3 {
+        font-size: 32px;
+        line-height: 38px;
+        color: #FF2157;
+        font-weight: bold;
+        margin: 0 24px 24px 24px;
+    }
+}
+
+.listContainer {
+    overflow: hidden;
+}
+
+.listQR {
+    margin: 0;
+    padding: 0 16px 0 0;
+    list-style: none;
+    white-space: nowrap;
+    overflow-x: auto;
+    display: flex;
+}
+
+.blocQR {
+    text-align: left;
+    flex: 0 0 82.5%;
+    vertical-align: top;
+    max-width: 309px;
+    padding: 32px;
+    background: #F2F2F2;
+    position: relative;
+    margin: 0 0 0 16px;
+
+    &:nth-of-type(3n) {
+        margin: 0 16px 0 16px;
+        border-right: 16px solid #fff;
+    }
+}
+.question {
+    font-size: 24px;
+    line-height: 28px;
+    font-weight: bold;
+    color: #1D1D1B;
+    margin-bottom: 24px;
+    white-space: initial;
+}
+.reponse {
+    white-space: initial;
+    color: #737373;
+    font-size: 16px;
+    line-height: 22px;
+}
