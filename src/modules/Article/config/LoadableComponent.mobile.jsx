@@ -9,8 +9,8 @@ export const COMPONENT_NAME = {
   MODULE_VIDEO: 'media.video',
   MODULE_EDITO_LONG: 'module.block-edito-long',
   MODULE_LIGNE_PRODUIT: 'module.ligne-produit',
-  MODULE_EDITO_COURT: 'edito.edito-court',
-   MODULE_DUO_QR_IMAGE: 'module.duo-qr'
+  MODULE_DUO_QR_IMAGE: 'module.duo-qr',
+  MODULE_IDENTITY_FICHES: 'module.identity-card'
 };
 
 export const getComponent = (item, i) => {
@@ -32,17 +32,17 @@ export const getComponent = (item, i) => {
     case COMPONENT_NAME.MODULE_VIDEO:
       Component = dynamic(() => import('../components/IframeVideo/IframeVideo.mobile'));
         break;
-        case COMPONENT_NAME.MODULE_EDITO_LONG:
-          Component = dynamic(() => import('../components/BlockEditoLong/BlockEditoLong.mobile'));
-          break;
-          case COMPONENT_NAME.MODULE_LIGNE_PRODUIT:
-            Component = dynamic(() => import('../components/ProductLine/ProductLine.mobile'));
-            break;
-    case COMPONENT_NAME.MODULE_EDITO_COURT:
-      Component = dynamic(() => import('../components/BlocEditoCourt/BlocEditoCourt.mobile'));
-            break;
+    case COMPONENT_NAME.MODULE_EDITO_LONG:
+      Component = dynamic(() => import('../components/BlockEditoLong/BlockEditoLong.mobile'));
+      break;
+    case COMPONENT_NAME.MODULE_LIGNE_PRODUIT:
+      Component = dynamic(() => import('../components/ProductLine/ProductLine.mobile'));
+      break;
     case COMPONENT_NAME.MODULE_DUO_QR_IMAGE:
       Component = dynamic(() => import('../components/DuoQRImage/DuoQRImage.mobile'));
+      break;
+    case COMPONENT_NAME.MODULE_IDENTITY_FICHES:
+      Component = dynamic(() => import('../components/IdentityFiche/IdentityFiche.mobile'));
       break;
     default:
       throw new Error('the component doesnt exist');
