@@ -30,7 +30,7 @@ const Article = ({ article, recentArticle }) => {
   };
 
   useEffect(() => {
-    trackGTM(article, TrackEvent.PromotionPrint );
+    trackGTM(article);
 
   }, [])
 
