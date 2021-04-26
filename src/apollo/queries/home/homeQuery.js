@@ -6,19 +6,6 @@ export const HOME_QUERY = gql`
       id
       title
       shortDescription
-      ArticleUne {
-        id
-        title
-        author
-        image
-        ImageArticleMobile
-        updated_at
-        url
-        rubriques {
-          id
-          url
-        }
-      }
       marquee {
         id
         MarqueeComponent {
@@ -37,7 +24,7 @@ export const HOME_QUERY = gql`
       }
     }
     articles(
-      sort: "updated_at:desc"
+      sort: "isHeadline:desc,updated_at:desc"
       where: { rubriques: { url: $rubriqueName } }
       start: $start
       limit: $limit
@@ -105,19 +92,6 @@ export const HOME_QUERY_ALL = gql`
       id
       title
       shortDescription
-      ArticleUne {
-        id
-        title
-        author
-        image
-        ImageArticleMobile
-        updated_at
-        url
-        rubriques {
-          id
-          url
-        }
-      }
       displayBottom {
         Display {
           id
@@ -161,8 +135,7 @@ export const HOME_QUERY_ALL = gql`
     }
     articleCount
     articles(
-      where: { isHeadline_ne: true }
-      sort: "updated_at:desc"
+      sort: "isHeadline:desc,updated_at:desc"
       start: $start
       limit: $limit
     ) {
