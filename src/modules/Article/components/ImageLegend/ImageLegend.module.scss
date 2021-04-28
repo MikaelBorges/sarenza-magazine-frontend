@@ -20,6 +20,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    margin-bottom: 48px;
   }
   .verticalImage {
     width: 48%;
@@ -40,7 +41,28 @@
     justify-content: space-between;
 
     .lastImage {
-      width: 48%;
+      max-width: 618px
+    }
+
+    .lastBlockText{
+      max-width: 350px;
+    }
+  }
+
+  .button{
+    font-family: "Roboto";
+    font-weight: bold;
+    font-size: 12px;
+    text-decoration: underline;
+    position: relative;
+    &:after{
+      content: "\e372";
+      font-family: pictenza;
+      position: absolute;
+      right: -11px;
+      top: 0;
+      font-size: 1em;
+      color: black;
     }
   }
 }

@@ -28,7 +28,8 @@ const ImageLegend = (props) => {
           </div>
         </div>
       </div>
-      <div className={styles.lastBlock}>
+{
+     props.ImageTextOptional && ( <div className={styles.lastBlock}>
         <div className={styles.lastBlockText}>
           <h5 className={styles.h5}>{props.ImageTextOptional.Subtitle}</h5>
           <h2 className={styles.h2}>{props.ImageTextOptional.Title}</h2>
@@ -42,7 +43,7 @@ const ImageLegend = (props) => {
           alt={props.ImageTextOptional.alt}
           className={styles.lastImage}
         />
-      </div>
+      </div>)}
     </div>
   );
 };
