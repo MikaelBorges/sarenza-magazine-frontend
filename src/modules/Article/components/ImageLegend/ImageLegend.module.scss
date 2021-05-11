@@ -9,12 +9,15 @@
   .h5{
       color: #FF2147;
       font-size: 14px;
+      font-weight: bold;
   }
   .h2 {
     color: #1d1d1b;
+    margin-top: 8px;
   }
   .p {
     color: #737373;
+    margin-bottom: 32px;
   }
   .containerFlex {
     display: flex;
@@ -41,7 +44,10 @@
     justify-content: space-between;
 
     .lastImage {
-      max-width: 618px
+      max-width: 408px;
+      @media screen and (min-width:975px){
+        max-width: 618px
+      }
     }
 
     .lastBlockText{
@@ -50,10 +56,12 @@
   }
 
   .button{
-    font-family: "Roboto";
+    font-family: robotoC;
     font-weight: bold;
     font-size: 12px;
     text-decoration: underline;
+    text-transform: uppercase;
+    color: #1D1D1B;
     position: relative;
     &:after{
       content: "\e372";
@@ -62,7 +70,7 @@
       right: -11px;
       top: 0;
       font-size: 1em;
-      color: black;
+      color: #1D1D1B;
     }
   }
 }
