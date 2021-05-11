@@ -17,9 +17,11 @@
 }
 
 .vignette {
-    max-width: 216px;
+    max-width: 200px;
     margin-bottom: 24px;
-   
+    @media screen and (min-width:975px){
+      max-width: 216px;
+    }
   }
 .containerTxt {
     text-align: left;
@@ -140,7 +142,7 @@
     flex-flow: row wrap;
     margin-right: 25px;
     @media screen and (min-width: 975px){
-        flex: 1 1 20%;
+        flex: 1 1 26%;
         margin-right: 56px;
     } 
     }
