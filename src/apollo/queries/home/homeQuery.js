@@ -24,7 +24,7 @@ export const HOME_QUERY = gql`
       }
     }
     articles(
-      sort: "isHeadline:desc,updated_at:desc"
+      sort: "isHeadline:desc,isSeo:asc,updated_at:desc"
       where: { rubriques: { url: $rubriqueName } }
       start: $start
       limit: $limit
@@ -135,7 +135,7 @@ export const HOME_QUERY_ALL = gql`
     }
     articleCount
     articles(
-      sort: "isHeadline:desc,updated_at:desc"
+      sort: "isHeadline:desc,isSeo:asc,updated_at:desc"
       start: $start
       limit: $limit
     ) {
