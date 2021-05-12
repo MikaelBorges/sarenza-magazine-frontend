@@ -10,6 +10,7 @@
       color: #FF2147;
       font-size: 14px;
       font-weight: bold;
+      font-family: futur, Arial Narrow, sans-serif;
   }
   .h2 {
     color: #1d1d1b;
@@ -52,12 +53,12 @@
 
     .lastBlockText{
       max-width: 350px;
+      align-self: center;
     }
   }
 
   .button{
-    font-family: robotoC;
-    font-weight: bold;
+    font-family: futur, Arial Narrow, sans-serif;
     font-size: 12px;
     text-decoration: underline;
     text-transform: uppercase;
@@ -70,7 +71,7 @@
       right: -11px;
       top: 0;
       font-size: 1em;
-      color: #1D1D1B;
+      color: #000000;
     }
   }
 }
