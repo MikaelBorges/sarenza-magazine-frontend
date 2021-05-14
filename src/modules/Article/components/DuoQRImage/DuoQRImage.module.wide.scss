@@ -5,18 +5,18 @@
 
     &:nth-child(odd) {
       .imageContainer {
-        margin-left: 32px;
+        margin-right: 32px;
       }
     }
   
     &:nth-child(even) {
       .imageContainer {
-        margin-right: 32px;
+        margin-left: 32px;
       }
     }
 
     .textContainer {
-      padding: 20px 32px 24px;
+      padding: 20px 0 24px;
     }
 
     .mainTitle {
@@ -26,8 +26,7 @@
 
     .imageContainer {
       width: 480px;
-      height: 658px;
-      margin-bottom: 32px;
+      margin-bottom: 16px;
     }
   }
 }
