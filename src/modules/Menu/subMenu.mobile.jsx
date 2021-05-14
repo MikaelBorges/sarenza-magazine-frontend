@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import styles from './SubMenu.mobile.module.scss';
 
 const SubMenu = ({ data, tabId, menuId, setId }) => {
   const [listOpen, addList] = useState(false);
@@ -24,6 +25,9 @@ const SubMenu = ({ data, tabId, menuId, setId }) => {
         </a>
         {data
           .filter((item) => item.category !== 'Genre')
+          .sort(function (a, b) {
+            return a.position - b.position;
+          })
           .map((itemFiltered) => {
             return (
               <div className="col" key={itemFiltered.id}>
@@ -43,7 +47,10 @@ const SubMenu = ({ data, tabId, menuId, setId }) => {
                   {itemFiltered.links.map((link) => {
                     return (
                       <li className="link" key={link.label}>
-                        <a href={link.link}>{link.label}</a>
+                        <a href={link.link}>
+                          {link.label}
+                          {link.labelPicto ? <span className={styles.picto} style={{ color: link.colorPicto }}> {link.labelPicto}</span> : null }
+                        </a>
                       </li>
                     );
                   })}
