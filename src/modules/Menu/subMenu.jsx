@@ -3,14 +3,17 @@ import styles from './SubMenu.module.scss';
 
 const SubMenu = ({ data }) => {
 
-  data.sort(function (a, b) {
-    return a.position - b.position;
-  });
-
   let columns = [];
+  let build = [];
+
+  /* Build zone 1 → 6 repartition */
+  for(let i = 1; i <= 6; i++){
+    let column = data.find((menu)=> menu.position == i) ?? null;
+    build.push(column);
+  }
 
   const allColumns = () => {
-    const numberOfColumns = Math.ceil(data.length / 2);
+    const numberOfColumns = Math.ceil(build.length / 2);
     for (let i = 1; i <= numberOfColumns; i++) {
       columns.push(
         column(i)
@@ -20,8 +23,8 @@ const SubMenu = ({ data }) => {
 
   const column = i => {
     return (
-      data.slice((i*2)-2, i*2).map(item => (
-        <div className="col" key={item.id}>
+      build.slice((i*2)-2, i*2).map(item => (
+        item && <div className="col" key={item.id}>
           <span className="title">
             <span>{item.category}</span>
           </span>
