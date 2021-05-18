@@ -33,9 +33,7 @@ const SubMenu = ({ data }) => {
               return (
                 <li
                   className={`link ${
-                    link.label === 'Femme' ||
-                    link.label === 'Homme' ||
-                    link.label === 'Enfant'
+                    link.boldLink === true
                       ? 'all'
                       : ''
                   }`}
