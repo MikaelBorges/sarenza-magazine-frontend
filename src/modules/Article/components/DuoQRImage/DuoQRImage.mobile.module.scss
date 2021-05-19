@@ -1,0 +1,28 @@
+.duoQR {
+  text-align: left;
+  padding: 16px 0;
+
+  .mainTitle {
+    color: #FF2157;
+    text-align: center;
+    padding: 16px 24px 32px;
+  }
+
+  .image {
+    display: block;
+    width: 100%;
+  }
+
+  .richTextContainer {
+    padding: 24px 24px 0;
+  }
+
+  .paragraph {
+    margin: 16px 0 32px;
+    font-size: 16px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

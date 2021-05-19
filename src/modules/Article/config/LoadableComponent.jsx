@@ -8,7 +8,13 @@ export const COMPONENT_NAME = {
   MODULE_SHOPPING_LIST: 'module.slider-article',
   MODULE_VIDEO: 'media.video',
   MODULE_EDITO_LONG: 'module.block-edito-long',
-  MODULE_LIGNE_PRODUIT: 'module.ligne-produit'
+  MODULE_DUO_QR_IMAGE: 'module.duo-qr',
+  MODULE_IDENTITY_FICHES: 'module.identity-card',
+  MODULE_TRIO_QR: 'module.trio-qr',
+  MODULE_LIGNE_PRODUIT: 'module.ligne-produit',
+  MODULE_PRODUCT_LOOK: 'module.product-look',
+  MODULE_PRODUCT_EDITO: 'module.produit-edito',
+  MODULE_IMAGE_LEGEND: 'module.images-legend'
 };
 
 export const getComponent = (item, i) => {
@@ -35,6 +41,24 @@ export const getComponent = (item, i) => {
       break;
     case COMPONENT_NAME.MODULE_LIGNE_PRODUIT:
       Component = dynamic(() => import('../components/ProductLine/ProductLine'));
+      break;
+    case COMPONENT_NAME.MODULE_DUO_QR_IMAGE:
+      Component = dynamic(() => import('../components/DuoQRImage/DuoQRImage'));
+      break;
+    case COMPONENT_NAME.MODULE_IDENTITY_FICHES:
+      Component = dynamic(() => import('../components/IdentityFiche/IdentityFiche'));
+      break;
+    case COMPONENT_NAME.MODULE_TRIO_QR:
+      Component = dynamic(() => import('../components/TrioQR/TrioQR'));
+      break;
+    case COMPONENT_NAME.MODULE_PRODUCT_LOOK:
+      Component = dynamic(() => import('../components/ProductLook/ProductLook'));
+      break;
+    case COMPONENT_NAME.MODULE_PRODUCT_EDITO:
+      Component = dynamic(() => import('../components/ProductEdito/ProductEdito'));
+      break;
+    case COMPONENT_NAME.MODULE_IMAGE_LEGEND:
+      Component = dynamic(() => import('../components/ImageLegend/ImageLegend'));
       break;
     default:
       throw new Error('the component doesnt exist');

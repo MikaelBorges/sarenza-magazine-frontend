@@ -1,0 +1,35 @@
+@import '../../../../app/components/_styles/theme';
+
+.container {
+    margin: 32px 0 0 0;
+}
+
+.picture {
+    > img {
+        display: block;
+        width: 100%;
+    }
+}
+.textContainer {
+    padding: 24px;
+    text-align: left;
+    background-color: #F2F2F2;
+    
+    > h3 {
+        font-family: robotoc, $safe-fonts;
+        font-size: 16px;
+        font-weight: normal;
+        color: #737373;
+        line-height: 24px;
+        margin: 0;
+        text-transform: uppercase;
+    }
+    > p {
+        margin: 4px 0 0 0;
+        font-family: robotoc, $safe-fonts;
+        font-size: 16px;
+        font-weight: bold;
+        color: #1D1D1B;
+        line-height: 24px;
+    }
+}

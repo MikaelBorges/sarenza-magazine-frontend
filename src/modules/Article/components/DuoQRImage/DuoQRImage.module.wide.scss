@@ -1,0 +1,32 @@
+@media screen and (min-width: 975px) {
+  .duoQR {
+    max-width: 1008px;
+    margin: auto;
+
+    &:nth-child(odd) {
+      .imageContainer {
+        margin-right: 32px;
+      }
+    }
+  
+    &:nth-child(even) {
+      .imageContainer {
+        margin-left: 32px;
+      }
+    }
+
+    .textContainer {
+      padding: 20px 0 24px;
+    }
+
+    .mainTitle {
+      font-size: 40px;
+      line-height: 42px;
+    }
+
+    .imageContainer {
+      width: 480px;
+      margin-bottom: 16px;
+    }
+  }
+}
