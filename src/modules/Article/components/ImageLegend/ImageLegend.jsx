@@ -7,11 +7,15 @@ const ImageLegend = (props) => {
       <h2 className={styles.h2}>{props.Title}</h2>
       <p className={styles.p}>{props.Text}</p>
       <div className={styles.containerFlex}>
-        <img
+      {    props.VerticalImage && (
+            <img
           src={props.VerticalImage.url}
           alt={props.VerticalImage.alt}
           className={styles.verticalImage}
         />
+          )}      
+        {
+     props.ImageText && ( 
         <div className={styles.box}>
           <img
             src={props.ImageText.url}
@@ -27,6 +31,7 @@ const ImageLegend = (props) => {
             </a>
           </div>
         </div>
+     )}
       </div>
 {
      props.ImageTextOptional && ( <div className={styles.lastBlock}>
