@@ -5,7 +5,7 @@ const processToHomeArticle = (model = {}) => {
         id: model.id,
         title: model.title || '',
         author: model.author || '',
-        publishDate: new Date().toLocaleDateString('fr-FR'),
+        publishDate: new Date(model.published_at).toLocaleDateString('fr-FR'),
         image: model.image || 'Image inconnue',
         ImageArticleMobile: model.ImageArticleMobile || 'Image inconnue',
         link:
@@ -77,12 +77,9 @@ const processToRubrique = (model = []) => {
   };
 };
 
-const processToHome = (model = {}, rubrique) => {
+const processToHome = (model = {}, rubrique, page) => {
   if (!model || !model.articles) return {};
-  const aLaUne =
-    model.home.ArticleUne.rubriques[0].url === rubrique || !rubrique
-      ? model.home.ArticleUne
-      : model.articles[0];
+  const aLaUne = page ? {} : model.articles[0];
   // model.articles.find((it) => {
   //   return model.home && model.home.ArticleUne
   //     ? model.home.ArticleUne.id === it.id &&
