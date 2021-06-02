@@ -30,8 +30,9 @@ export const getServerSideProps = async (ctx) => {
 
   const apolloClient = getApolloClient();
 
-   const start = ctx.query.page ? (parseInt(ctx.query.page) - 1) * 12 : 0;
-   const limit = 12;
+  const page = ctx.query.page;
+  const start = page ? (parseInt(page) - 1) * 12 + 1 : 0;
+  const limit = page ? 12 : 13;
 
   // const start = 0;
   // const limit = 100;
@@ -49,7 +50,7 @@ export const getServerSideProps = async (ctx) => {
 
   const { menus, genders, footer, seo } = await getPageProps();
 
-  const homeData = processToHome(data);
+  const homeData = processToHome(data, undefined, page);
 
 
   return {

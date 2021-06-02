@@ -42,8 +42,9 @@ export const getServerSideProps = wrapper.getServerSideProps(async (ctx) => {
 
   // const start = 0;
   // const limit = 100;
-  const start = (parseInt(ctx.query.page) - 1) * 12 || 0;
-  const limit = 12;
+  const page = ctx.query.page;
+  const start = page ? (parseInt(page) - 1) * 12 + 1 : 0;
+  const limit = page ? 12 : 13;
 
   const { data, error } = await apolloClient.execQuery(
     { query: HOME_QUERY, variables: { ...ctx.query, limit: limit, start: start } },
@@ -63,7 +64,7 @@ export const getServerSideProps = wrapper.getServerSideProps(async (ctx) => {
   ).json();
 
   const { menus, genders, footer, seo } = await getPageProps();
-  const rubriques = processToHome(data, ctx.query.rubriqueName);
+  const rubriques = processToHome(data, ctx.query.rubriqueName, page);
   rubriques.numberArticles = count;
   const isRubrique = ctx.query.rubriqueName;
 
