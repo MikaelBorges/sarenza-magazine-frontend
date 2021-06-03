@@ -7,21 +7,6 @@ import router from 'next/router';
 const LEFT_PAGE = 'LEFT';
 const RIGHT_PAGE = 'RIGHT';
 
-/**
- * Helper method for creating a range of numbers
- * range(1, 5) => [1, 2, 3, 4, 5]
- */
-const range = (from, to, step = 1) => {
-  let i = from;
-  const range = [];
-
-  while (i <= to) {
-    range.push(i);
-    i += step;
-  }
-
-  return range;
-};
 class Pagination extends Component {
   constructor(props) {
     super(props);
@@ -76,58 +61,33 @@ class Pagination extends Component {
     this.gotoPage(this.state.currentPage + this.pageNeighbours * 2 + 1);
   };
   fetchPageNumbers = () => {
-    const totalPages = this.totalPages;
+    
     const currentPage = this.state.currentPage;
-    const pageNeighbours = this.pageNeighbours;
+    const splitter = '...';
+    /* Create full array of pages : [1,2,3,4,x] */
+    const pages = Array(this.totalPages).fill().map((x, i) => i + 1);
+    /* On first and latest page extend neighbors */
+    const neighbors = currentPage == 1 || currentPage == pages.length ? 2 : 1;
+    const finalPages = pages.reduce((arr, item) => {
+      if (
+        item === 1 /* First always there */
+        || (item == 2 && item + 1 >= currentPage - neighbors && item + 1 <= currentPage + neighbors) /* Prevent start solitary ellipsis : [1,'...',3,4,5,6] */
+        || (item >= currentPage - neighbors && item <= currentPage + neighbors) /* Intermediate pages */
+        || (item == pages.length - 1 && item - 1 >= currentPage - neighbors && item - 1 <= currentPage + neighbors) /* Prevent end solitary ellipsis : [1,2,3,4,'...',6] */
+        || item === pages.length /* Latest always there */
+      ) arr.push(item);
+      /* Add splitters */
+      else if (splitter !== arr[arr.length - 1]) arr.push(splitter);
 
-    /**
-     * totalNumbers: the total page numbers to show on the control
-     * totalBlocks: totalNumbers + 2 to cover for the left(<) and right(>) controls
-     */
-    const totalNumbers = this.pageNeighbours * 2 + 3;
-    const totalBlocks = totalNumbers + 2;
+      return arr;
+    }, []);
 
-    if (totalPages > totalBlocks) {
-      const startPage = Math.max(2, currentPage - pageNeighbours);
-      const endPage = Math.min(totalPages - 1, currentPage + pageNeighbours);
-      let pages = range(startPage, endPage);
+    /* Add PREV / NEXT */
+    finalPages.unshift(LEFT_PAGE);
+    finalPages.push(RIGHT_PAGE);
 
-      /**
-       * hasLeftSpill: has hidden pages to the left
-       * hasRightSpill: has hidden pages to the right
-       * spillOffset: number of hidden pages either to the left or to the right
-       */
-      const hasLeftSpill = startPage > 2;
-      const hasRightSpill = totalPages - endPage > 1;
-      const spillOffset = 2;
+    return finalPages;
 
-      switch (true) {
-        // handle: (1) < {5 6} [7] {8 9} (10)
-        case hasLeftSpill && !hasRightSpill: {
-          const extraPages = range(startPage - spillOffset, startPage - 1);
-          pages = [...extraPages, ...pages];
-          break;
-        }
-
-        case !hasLeftSpill && hasRightSpill: {
-          const extraPages = range(endPage + 1, endPage + spillOffset);
-          pages = [...pages, ...extraPages];
-          break;
-        }
-
-        default: {
-          const extraPages = range(endPage + 1, endPage + spillOffset);
-          pages = [...pages, ...extraPages, '...'];
-          break;
-        }
-      }
-
-      return [LEFT_PAGE, 1, ...pages, totalPages, RIGHT_PAGE];
-    }
-
-    const rang = range(1, totalPages);
-
-    return [LEFT_PAGE, ...rang, RIGHT_PAGE];
   };
 
   render() {
@@ -145,9 +105,10 @@ class Pagination extends Component {
                 <li className="page-item">
                   <LinkButton
                     disabled={currentPage === 1}
-                    pagination
+                    noLink
                     className="page-link"
                     aria-label="Previous"
+                    pagination
                     first
                     onClick={this.handleMoveLeft}>
                     <span className="sr-only">Précédent</span>
@@ -176,9 +137,10 @@ class Pagination extends Component {
                     <li key={index} className="page-item">
                       <LinkButton
                         disabled={currentPage === 1}
-                        pagination
+                        noLink
                         className="page-link"
                         aria-label="Previous"
+                        pagination
                         first
                         onClick={this.handleMoveLeft}>
                         <span className="sr-only">Précédent</span>
