@@ -5,6 +5,7 @@ import Markdown from 'markdown-to-jsx';
 const DuoImage = (props) => {
   return (
     <div className={styles.DuoImage}>
+        {props.Intro && (
       <Markdown
         options={{
             forceInline: false,
@@ -22,7 +23,9 @@ const DuoImage = (props) => {
         }}>
         {props.Intro}
       </Markdown>
+      )}
       <div className={styles.container}>
+          {props.BlockLeft && (
         <div className={styles.BlockLeft}>
           <img src={props.BlockLeft.image} alt="image block gauche" className={styles.imageLeft} />
           <h2 className={styles.title}>{props.BlockLeft.Title}</h2>
@@ -44,6 +47,8 @@ const DuoImage = (props) => {
             {props.BlockLeft.Text}
           </Markdown>
         </div>
+        )}
+        {props.BlockRight && (
         <div className={styles.BlockRight}>
           <img
             src={props.BlockRight.image}
@@ -69,6 +74,7 @@ const DuoImage = (props) => {
             {props.BlockRight.Text}
           </Markdown>
         </div>
+        )}
       </div>
     </div>
   );
