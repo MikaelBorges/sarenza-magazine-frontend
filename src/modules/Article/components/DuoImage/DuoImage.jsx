@@ -5,24 +5,27 @@ import Markdown from 'markdown-to-jsx';
 const DuoImage = (props) => {
     return (
       <div className={styles.DuoImage}>
-        <Markdown
-          options={{
-            forceInline: false,
-            forceBlock: true,
-            overrides: {
-              p: { props: { className: styles.Intro } },
-              span: { props: { className: styles.Intro } },
-              h1: { props: { className: styles.Intro } },
-              h2: { props: { className: styles.Intro } },
-              h3: { props: { className: styles.Intro } },
-              h4: { props: { className: styles.Intro } },
-              h5: { props: { className: styles.Intro } },
-              h6: { props: { className: styles.Intro } }
-            }
-          }}>
-          {props.Intro}
-        </Markdown>
+          {props.Intro && (
+    <Markdown
+    options={{
+      forceInline: false,
+      forceBlock: true,
+      overrides: {
+        p: { props: { className: styles.Intro } },
+        span: { props: { className: styles.Intro } },
+        h1: { props: { className: styles.Intro } },
+        h2: { props: { className: styles.Intro } },
+        h3: { props: { className: styles.Intro } },
+        h4: { props: { className: styles.Intro } },
+        h5: { props: { className: styles.Intro } },
+        h6: { props: { className: styles.Intro } }
+      }
+    }}>
+    {props.Intro}
+  </Markdown>
+          )}
         <div className={styles.container}>
+        {props.BlockLeft && (
           <div className={styles.BlockLeft}>
             <img src={props.BlockLeft.image} alt="image block gauche" className={styles.imageLeft} />
             <h2 className={styles.title}>{props.BlockLeft.Title}</h2>
@@ -44,6 +47,8 @@ const DuoImage = (props) => {
               {props.BlockLeft.Text}
             </Markdown>
           </div>
+          )}
+          {props.BlockRight && (
           <div className={styles.BlockRight}>
             <img
               src={props.BlockRight.image}
@@ -69,6 +74,7 @@ const DuoImage = (props) => {
               {props.BlockRight.Text}
             </Markdown>
           </div>
+          )}
         </div>
       </div>
     );
