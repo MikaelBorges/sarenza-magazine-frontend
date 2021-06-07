@@ -1,12 +1,13 @@
 import React from 'react';
 import styles from './ProductLook.mobile.module.scss';
+import Markdown from 'markdown-to-jsx';
 
 const ProductLook = (props) => {
   return (
     <section className={styles.productLook}>
       <div className={styles.blockScrollable}>
         <h2 className={styles.title}>{props.Title}</h2>
-        <p className={styles.paragraphe}>{props.Text}</p>
+        <Markdown options={{ forceInline: false }}>{props.Text}</Markdown>
       </div>
       <img src={props.Image.url} alt={props.Image.alt} className={styles.poster} />
       <div className={styles.vignettesContainer}>
