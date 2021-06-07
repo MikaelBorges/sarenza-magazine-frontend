@@ -1,12 +1,13 @@
 import React from 'react';
 import styles from './ProductEdito.module.scss';
+import Markdown from 'markdown-to-jsx';
 
 const ProductEdito = ({ Title, Text, Vignette, CTA }) => {
   return Title && Text && Vignette ? (
     <section className={styles.productEdito}>
       <div className={styles.wrapperText}>
         <h2 className={styles.title}>{Title}</h2>
-        <p className={styles.text}>{Text}</p>
+        <Markdown options={{ forceInline: false }}>{Text}</Markdown>
         {CTA && (
           <a href={CTA.link} className={styles.link}>
             {CTA.label}
