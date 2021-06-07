@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './ProductLook.module.scss';
+import Markdown from 'markdown-to-jsx';
 
 const ProductLook = (props) => {
   return (
@@ -7,7 +8,7 @@ const ProductLook = (props) => {
       <img src={props.Image.url} alt={props.Image.alt} className={styles.poster} />
       <div className={styles.blockScrollable}>
         <h2 className={styles.title}>{props.Title}</h2>
-        <p className={styles.paragraphe}>{props.Text}</p>
+        <Markdown options={{ forceInline: false }}>{props.Text}</Markdown>
         {
             props.Vignettes.map((vignette)=>{
                 return (
