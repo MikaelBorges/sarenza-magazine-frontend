@@ -30,7 +30,7 @@ const ShoppingCard = ({ visuelUrl, url, statusLabel, model, pcid, brand, positio
       position: `${position}`,
       color:'',
       dimension69 : '',
-      list:'product-slider-magazine'
+      list:'slider-magazine'
     };
     useGTM(obj, eventName);
   };

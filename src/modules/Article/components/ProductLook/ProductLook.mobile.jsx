@@ -65,7 +65,7 @@ const ProductLook = (props) => {
               <div className={styles.vignette} key={vignette.id} data-pcid={vignette.pcid}>
                 <img
                   src={vignette.visuelUrl}
-                  alt={image du produit ${vignette.brand} - ${vignette.model}}
+                  alt={`image du produit ${vignette.brand} - ${vignette.model}`}
                   className={styles.imgVignette}
                 />
                 <div className={styles.containerTxt}>

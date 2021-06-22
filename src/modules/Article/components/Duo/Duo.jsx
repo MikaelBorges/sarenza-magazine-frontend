@@ -41,14 +41,14 @@ const Duo = ({ duo_image, title, duo_paragraphe, button }) => {
             {replaceByJsx(duo_paragraphe).map((item, index) => {
               if (item.type === 'text') {
                 return (
-                  <div className={styles.big} key={duo-text-${index}}>
+                  <div className={styles.big} key={`duo-text-${index}`}>
                     <Markdown options={{ forceInline: false }}>{item.text}</Markdown>
                   </div>
                 );
               }
               if (item.type === 'verbatim') {
                 return (
-                  <div className={styles.verbatimContainer} key={duo-verbatim-${index}}>
+                  <div className={styles.verbatimContainer} key={`duo-verbatim-${index}`}>
                     <div className={styles.verbatim}>
                       <Markdown options={{ forceInline: false }}>{item.text}</Markdown>
                     </div>

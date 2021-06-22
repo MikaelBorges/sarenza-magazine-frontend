@@ -1,9 +1,11 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, {useRef} from 'react';
 import Slider from 'react-slick';
 
 import ShoppingCard from './ShoppingCard/ShoppingCard';
 import styles from './ShoppingList.module.scss';
+import useOnScreen from 'utils/useOnScreen';
+import useGTM, { TrackEvent } from 'utils/useGTM';
 
 
 
@@ -23,6 +25,21 @@ const ShoppingList = ({ vignette, title, description, button }) => {
     ]
   };
 
+  const trackCTA = useRef();
+  const isVisible = useOnScreen(trackCTA);
+
+  const trackGTM = (button, eventName) => {
+    let obj = {
+      id: button.id,
+      name: button.label,
+      position: 'Slider article'
+    };
+    useGTM(obj, eventName);
+  };
+
+  isVisible ? trackGTM(button, TrackEvent.PromotionPrint) : null;
+
+  
   return (
     <div className={styles.shoppingList}>
       <div className="title-edito2">{title}</div>
@@ -35,7 +52,11 @@ const ShoppingList = ({ vignette, title, description, button }) => {
         </Slider>
       </div>
       {button !== null ? (
-        <a type="button" className={`button ${styles.buttonShoppingList}`} href={button.link}>
+        <a type="button" className={`button ${styles.buttonShoppingList}`} href={button.link} ref={trackCTA}
+        onClick={(e) => {
+          e.preventDefault();
+          trackGTM(button, TrackEvent.PromotionClick);
+        }}>
           {button.label}
         </a>
       ) : null}

@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types';
-import React, { useState } from 'react';
-
+import React, { useState, useRef } from 'react';
 import styles from './ShoppingCard.mobile.module.scss';
+import useOnScreen from 'utils/useOnScreen';
+import useGTM, {TrackEvent} from 'utils/useGTM';
 
 const ShoppingCardMobile = ({
   cardImage,
@@ -17,9 +18,34 @@ const ShoppingCardMobile = ({
     setFavoriteStatus(!favoriteStatus);
   }
 
+  const trackProduct = useRef();
+  const isVisible = useOnScreen(trackProduct);
+
+
+  const trackGTM = (eventName) => {
+    let obj = {
+      brand: `${brand}`,
+      category: `${''}`,
+      name: `${model}`,
+      pid: `${''}`,
+      price:`${ ''}`,
+      id: `${pcid}`,
+      variant: '',
+      position: `${position}`,
+      color:'',
+      dimension69 : '',
+      list:'slider-magazine'
+    };
+    useGTM(obj, eventName);
+  };
+
   return (
     <li className={styles.card}>
-      <a href={urlProduct} className={styles.cardLink} role="button" tabIndex={-1}>
+      <a href={urlProduct} className={styles.cardLink} role="button" tabIndex={-1} ref={trackProduct} onClick={
+      ()=>{ 
+       trackGTM(TrackEvent.ProductClick) 
+    }}>
+        {isVisible ? trackGTM(TrackEvent.ProductPrint) : null}
         <div className={styles.cardImageContainer}>
           <img className={styles.cardImage} src={cardImage} alt={titleProduct} />
           {pcid && (

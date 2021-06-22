@@ -3,69 +3,56 @@ import styles from './ProductLook.module.scss';
 import useOnScreen from 'utils/useOnScreen';
 import useGTM, { TrackEvent } from 'utils/useGTM';
 
-const ProductLook = (props) => {
+const ProductLook = ({Image, Title, Text, Vignettes, CTA}) => {
   const trackCTA = useRef();
   const isVisible = useOnScreen(trackCTA);
 
   const trackGTM = (props, eventName) => {
     let obj = {
-      id: props.CTA.id,
-      name: props.CTA.label,
+      id: CTA.id,
+      name: CTA.label,
       position: 'Product Look'
     };
     useGTM(obj, eventName);
   };
 
-  {
-    isVisible ? trackGTM(props, TrackEvent.PromotionPrint) : null;
-  }
+  isVisible ? trackGTM(props, TrackEvent.PromotionPrint) : null;
 
-   
-  const trackCard = useRef();
-  const isVisibleCard = useOnScreen(trackCard);
 
-  const trackGTMCard = (props,vignette, eventName) => {
-    let obj = {
-      brand: props.brand,
-      category: '',
-      name: props.model,
-      pid: '',
-      price: '',
-      id: props.pcid,
-      variant: '',
-      position: 'position',
-      color: '',
-      dimension69: '',
-      list: 'product look'
-    };
-    useGTM(obj, eventName);
-  };
+      const trackCard = useRef();
+      const isVisibleCard = useOnScreen(trackCard);
+    
+      const trackGTMCard = (vignette, eventName) => {
+        let obj = {
+          brand: vignette.brand,
+          category: '',
+          name: vignette.model,
+          pid: '',
+          price: '',
+          id: vignette.pcid,
+          variant: '',
+          position: 'position',
+          color: '',
+          dimension69: '',
+          list: 'product look'
+        };
+        useGTM(obj, eventName);
+      };
 
   return (
     <section className={styles.productLook}>
-      <img src={props.Image.url} alt={props.Image.alt} className={styles.poster} />
+      <img src={Image.url} alt={Image.alt} className={styles.poster} />
       <div className={styles.blockScrollable}>
-        <h2 className={styles.title}>{props.Title}</h2>
-        <p className={styles.paragraphe}>{props.Text}</p>
-
-        {props.Vignettes.map((vignette) => {
-         
-          return (
-            <a
-              href={vignette.url}
-              className={styles.url}
-              key={vignette.id}
-              onClick={(e) => {
-                e.preventDefault();
-                trackGTMCard(vignette, TrackEvent.ProductClick);
-              }}
-              ref={trackCard}>
-              {isVisibleCard ? trackGTMCard(vignette, TrackEvent.ProductPrint) : null}
-
+        <h2 className={styles.title}>{Title}</h2>
+        <p className={styles.paragraphe}>{Text}</p>
+        {Vignettes.map((vignette) =>    
+             (
+            <a href={vignette.url} className={styles.url} ref={trackCard} key={vignette.id}>
+              { isVisibleCard ? trackGTMCard(vignette, TrackEvent.ProductPrint) : null}
               <div className={styles.vignette} data-pcid={vignette.pcid}>
                 <img
                   src={vignette.visuelUrl}
-                  alt={image du produit ${vignette.brand} - ${vignette.model}}
+                  alt={`image du produit ${vignette.brand} - ${vignette.model}`}
                   className={styles.imgVignette}
                 />
                 <div className={styles.containerTxt}>
@@ -75,18 +62,18 @@ const ProductLook = (props) => {
                 </div>
               </div>
             </a>
-          );
-        })}
-        {props.CTA && (
+          )
+        )}
+        {CTA && (
           <a
-            href={props.CTA.link}
+            href={CTA.link}
             className={styles.link}
             ref={trackCTA}
             onClick={(e) => {
               e.preventDefault();
               trackGTM(props, TrackEvent.PromotionClick);
             }}>
-            {props.CTA.label}
+            {CTA.label}
           </a>
         )}
       </div>

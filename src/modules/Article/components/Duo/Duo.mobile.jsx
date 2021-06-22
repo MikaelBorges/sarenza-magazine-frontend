@@ -1,3 +1,4 @@
+
 import Markdown from 'markdown-to-jsx';
 import { replaceByJsx } from 'modules/Article/utils';
 import React, {useRef} from 'react';
@@ -38,7 +39,7 @@ const DuoMobile = ({ duo_image, title, duo_paragraphe, button }) => {
             {replaceByJsx(duo_paragraphe).map((item, index) => {
               if (item.type === 'text') {
                 return (
-                  <div className={styles.textContainer} key={duo-text-${index}}>
+                  <div className={styles.textContainer} key={`duo-text-${index}`}>
                     <div className={styles.big}>
                       <Markdown options={{ forceInline: false }}>{item.text}</Markdown>
                     </div>
@@ -47,7 +48,7 @@ const DuoMobile = ({ duo_image, title, duo_paragraphe, button }) => {
               }
               if (item.type === 'verbatim') {
                 return (
-                  <div className={styles.verbatimContainer} key={duo-verbatim-${index}}>
+                  <div className={styles.verbatimContainer} key={`duo-verbatim-${index}`}>
                     <div className={styles.verbatimMobile}>
                       <Markdown options={{ forceInline: false }}>{item.text}</Markdown>
                     </div>
