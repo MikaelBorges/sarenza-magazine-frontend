@@ -10,7 +10,7 @@ import styles from './Duo.module.scss';
 import useOnScreen from 'utils/useOnScreen';
 import useGTM, {TrackEvent} from 'utils/useGTM';
 
-const Duo = ({ duo_image, title, duo_paragraphe, button }) => {
+const Duo = ({ duo_image, title, duo_paragraphe, button, id }) => {
 
   const trackCTA = useRef();
   const isVisible = useOnScreen(trackCTA);
@@ -20,7 +20,8 @@ const Duo = ({ duo_image, title, duo_paragraphe, button }) => {
     let obj = {
       id: button.id,
       name: button.label,
-      position: 'DUO'
+      position: 'DUO',
+      strapId: `${id}-${button.label}-${eventName}`
     };
     useGTM(obj, eventName);
   };

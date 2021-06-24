@@ -10,7 +10,9 @@ const ShoppingCardMobile = ({
   titleProduct,
   descriptionProduct,
   urlProduct,
-  pcid
+  pcid,
+  id,
+  model
 }) => {
   const [favoriteStatus, setFavoriteStatus] = useState(false);
   function handleClick(e) {
@@ -34,7 +36,8 @@ const ShoppingCardMobile = ({
       position: `${position}`,
       color:'',
       dimension69 : '',
-      list:'slider-magazine'
+      list:'slider-magazine',
+      strapId: `${id}-${model}-${eventName}`
     };
     useGTM(obj, eventName);
   };

@@ -93,20 +93,20 @@ export default function useGTM(obj, trackEvent) {
         case TrackEvent.ProductClick:
           TagManager.dataLayer({
             dataLayer: {
+              event: `${trackEvent}`,
               ecommerce: {
                 impressions: [obj]
-              },
-              event: `${trackEvent}`
+              }
             }
           });
           break;
         case TrackEvent.ProductPrint:
           TagManager.dataLayer({
             dataLayer: {
+              event: `${trackEvent}`,
               ecommerce: {
                 impressions: [obj]
-              },
-              event: `${trackEvent}`
+              }
             }
           });
           break;

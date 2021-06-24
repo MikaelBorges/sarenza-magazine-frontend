@@ -22,7 +22,7 @@ const ProductLook = (props) => {
   const trackCard = useRef();
   const isVisibleCard = useOnScreen(trackCard);
 
-  const trackGTMCard = (props,vignette, eventName) => {
+  const trackGTMCard = (props, eventName) => {
     let obj = {
       brand: props.brand,
       category: '',

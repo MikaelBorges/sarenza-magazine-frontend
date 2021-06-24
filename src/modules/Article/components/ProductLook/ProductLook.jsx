@@ -11,7 +11,8 @@ const ProductLook = ({Image, Title, Text, Vignettes, CTA}) => {
     let obj = {
       id: CTA.id,
       name: CTA.label,
-      position: 'Product Look'
+      position: 'Product Look',
+      strapId: `${CTA.id}-${CTA.label}-${eventName}`
     };
     useGTM(obj, eventName);
   };
@@ -34,7 +35,8 @@ const ProductLook = ({Image, Title, Text, Vignettes, CTA}) => {
           position: 'position',
           color: '',
           dimension69: '',
-          list: 'product look'
+          list: 'product look',
+          strapId: `${vignette.id}-${vignette.model}-${eventName}`
         };
         useGTM(obj, eventName);
       };
