@@ -7,7 +7,7 @@ const ProductLook = ({Image, Title, Text, Vignettes, CTA}) => {
   const trackCTA = useRef();
   const isVisible = useOnScreen(trackCTA);
 
-  const trackGTM = (props, eventName) => {
+  const trackGTM = (CTA, eventName) => {
     let obj = {
       id: CTA.id,
       name: CTA.label,
@@ -16,7 +16,7 @@ const ProductLook = ({Image, Title, Text, Vignettes, CTA}) => {
     useGTM(obj, eventName);
   };
 
-  isVisible ? trackGTM(props, TrackEvent.PromotionPrint) : null;
+  isVisible ? trackGTM(CTA, TrackEvent.PromotionPrint) : null;
 
 
       const trackCard = useRef();

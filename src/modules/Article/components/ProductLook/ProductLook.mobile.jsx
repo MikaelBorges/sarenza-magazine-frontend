@@ -11,14 +11,13 @@ const ProductLook = (props) => {
     let obj = {
       id: props.CTA.id,
       name: props.CTA.label,
-      position: 'Product Look'
+      position: 'Product Look',
+      strapId: `${props.CTA.id}-${props.CTA.label}-${eventName}`
     };
     useGTM(obj, eventName);
   };
 
-  {
     isVisible ? trackGTM(props, TrackEvent.PromotionPrint) : null;
-  }
 
   const trackCard = useRef();
   const isVisibleCard = useOnScreen(trackCard);
@@ -35,7 +34,8 @@ const ProductLook = (props) => {
       position: 'position',
       color: '',
       dimension69: '',
-      list: 'product look'
+      list: 'product look',
+      strapId: `${props.id}-${props.model}-${eventName}`
     };
     useGTM(obj, eventName);
   };
