@@ -14,8 +14,7 @@ const BlockEditoLong = ({ Title, Text, Image, Button, id }) => {
     let obj = {
       id: Button.id,
       name: Button.label,
-      position: 'Block Edito Long',
-      strapId: `${id}-${Button.label}-${eventName}`
+      position: 'Block Edito Long'
     };
     useGTM(obj, eventName);
   };
@@ -26,8 +25,7 @@ const BlockEditoLong = ({ Title, Text, Image, Button, id }) => {
         <div className={styles.blocText}>
           <h2 className={styles.title}>{Title}</h2>
           <Mardown options={{ forceInline: false }}>{Text}</Mardown>
-         { Button && <a href={Button.link} className={styles.link} ref={trackCTA} onClick={(e) => {
-           e.preventDefault()
+         { Button && <a href={Button.link} className={styles.link} ref={trackCTA} onClick={() => {
               trackGTM(Button, TrackEvent.PromotionClick);
             }}>
             {Button.label}

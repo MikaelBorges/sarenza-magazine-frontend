@@ -53,8 +53,7 @@ const ShoppingList = ({ vignette, title, description, button }) => {
       </div>
       {button !== null ? (
         <a type="button" className={`button ${styles.buttonShoppingList}`} href={button.link} ref={trackCTA}
-        onClick={(e) => {
-          e.preventDefault();
+        onClick={() => {
           trackGTM(button, TrackEvent.PromotionClick);
         }}>
           {button.label}

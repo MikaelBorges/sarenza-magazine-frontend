@@ -13,8 +13,7 @@ const BlockEditoLong = ({ Title, Text, Image, Button, id }) => {
     let obj = {
       id: Button.id,
       name: Button.label,
-      position: 'Block Edito Long',
-      strapId: `${id}-${Button.label}-${eventName}`
+      position: 'Block Edito Long'
     };
     useGTM(obj, eventName);
   };
@@ -31,8 +30,7 @@ const BlockEditoLong = ({ Title, Text, Image, Button, id }) => {
             href={Button.link}
             className={styles.link}
             ref={trackCTA}
-            onClick={(e) => {
-              e.preventDefault();
+            onClick={() => {
               trackGTM(Button, TrackEvent.PromotionClick);
             }}>
             {Button.label}

@@ -20,8 +20,7 @@ const Duo = ({ duo_image, title, duo_paragraphe, button, id }) => {
     let obj = {
       id: button.id,
       name: button.label,
-      position: 'DUO',
-      strapId: `${id}-${button.label}-${eventName}`
+      position: 'DUO'
     };
     useGTM(obj, eventName);
   };
@@ -62,8 +61,7 @@ const Duo = ({ duo_image, title, duo_paragraphe, button, id }) => {
         ) : null}
         {button !== null ? (
           <div className={styles.button}>
-            <a className="button" href={button.link} ref={trackCTA} onClick={(e) => {
-           e.preventDefault()
+            <a className="button" href={button.link} ref={trackCTA} onClick={() => {
               trackGTM(button, TrackEvent.PromotionClick);
             }}>
               {button.label}

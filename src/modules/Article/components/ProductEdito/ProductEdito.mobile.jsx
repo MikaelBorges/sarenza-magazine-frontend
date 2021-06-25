@@ -12,8 +12,7 @@ const ProductEdito = ({ Title, Text, Vignette, CTA }) => {
     let obj = {
       id: CTA.id,
       name: CTA.label,
-      position: 'Product EDITO',
-      strapId: `${CTA.id}-${CTA.label}-${eventName}`
+      position: 'Product EDITO'
     };
     useGTM(obj, eventName);
   };
@@ -49,7 +48,10 @@ const ProductEdito = ({ Title, Text, Vignette, CTA }) => {
       <div className={styles.wrapperVignettes}>
         {Vignette.map((item) => {
           return (
-            <a href={item.url} className={styles.url} ref={trackCard}  key={item.id}>
+            <a href={item.url} className={styles.url} ref={trackCard}  key={item.id} onClick={
+              ()=>{ 
+                trackGTMCard(item, TrackEvent.ProductClick)
+            }}>
               { isVisibleCard ? trackGTMCard(item, TrackEvent.ProductPrint) : null}
               <div className={styles.vignette} data-pcid={item.pcid}>
                 <img
@@ -69,8 +71,7 @@ const ProductEdito = ({ Title, Text, Vignette, CTA }) => {
       </div>
 
       {CTA && (
-        <a href={CTA.link} className={styles.link}ref={trackCTA} onClick={(e) => {
-          e.preventDefault();
+        <a href={CTA.link} className={styles.link}ref={trackCTA} onClick={() => {
           trackGTM(CTA, TrackEvent.PromotionClick);
         }}>
           {CTA.label}

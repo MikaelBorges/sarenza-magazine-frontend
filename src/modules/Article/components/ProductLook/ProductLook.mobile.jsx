@@ -11,8 +11,7 @@ const ProductLook = (props) => {
     let obj = {
       id: props.CTA.id,
       name: props.CTA.label,
-      position: 'Product Look',
-      strapId: `${props.CTA.id}-${props.CTA.label}-${eventName}`
+      position: 'Product Look'
     };
     useGTM(obj, eventName);
   };
@@ -55,8 +54,7 @@ const ProductLook = (props) => {
               href={vignette.url}
               className={styles.url}
               key={vignette.id}
-              onClick={(e) => {
-                e.preventDefault();
+              onClick={() => {
                 trackGTMCard(vignette, TrackEvent.ProductClick);
               }}
               ref={trackCard}>
@@ -83,8 +81,7 @@ const ProductLook = (props) => {
           href={props.CTA.link}
           className={styles.link}
           ref={trackCTA}
-          onClick={(e) => {
-            e.preventDefault();
+          onClick={() => {
             trackGTM(props, TrackEvent.PromotionClick);
           }}>
           {props.CTA.label}
