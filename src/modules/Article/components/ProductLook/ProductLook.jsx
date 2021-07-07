@@ -5,7 +5,7 @@ import useGTM, { TrackEvent } from 'utils/useGTM';
 
 const ProductLook = ({Image, Title, Text, Vignettes, CTA}) => {
   const trackCTA = useRef();
-  const isVisible = useOnScreen(trackCTA);
+  const isVisible = CTA ? useOnScreen(trackCTA) : false;
 
   const trackGTM = (CTA, eventName) => {
     let obj = {

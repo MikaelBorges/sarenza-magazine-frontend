@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, {useRef} from 'react';
+import React, { useRef } from 'react';
 import Slider from 'react-slick';
 
 import ShoppingCard from './ShoppingCard/ShoppingCard';
@@ -26,7 +26,7 @@ const ShoppingList = ({ vignette, title, description, button }) => {
   };
 
   const trackCTA = useRef();
-  const isVisible = useOnScreen(trackCTA);
+  const isVisible = button !== null ? useOnScreen(trackCTA) : false;
 
   const trackGTM = (button, eventName) => {
     let obj = {
@@ -39,23 +39,23 @@ const ShoppingList = ({ vignette, title, description, button }) => {
 
   isVisible ? trackGTM(button, TrackEvent.PromotionPrint) : null;
 
-  
+
   return (
     <div className={styles.shoppingList}>
       <div className="title-edito2">{title}</div>
       <p className={styles.intro}>{description}</p>
       <div className={styles.SliderContainer}>
         <Slider {...settings} className={styles.cards}>
-          {vignette.map((card, position ) => {
-            return <ShoppingCard {...card} key={`${card.pcid}-${position}`} position={position}/>;
+          {vignette.map((card, position) => {
+            return <ShoppingCard {...card} key={`${card.pcid}-${position}`} position={position} />;
           })}
         </Slider>
       </div>
       {button !== null ? (
         <a type="button" className={`button ${styles.buttonShoppingList}`} href={button.link} ref={trackCTA}
-        onClick={() => {
-          trackGTM(button, TrackEvent.PromotionClick);
-        }}>
+          onClick={() => {
+            trackGTM(button, TrackEvent.PromotionClick);
+          }}>
           {button.label}
         </a>
       ) : null}

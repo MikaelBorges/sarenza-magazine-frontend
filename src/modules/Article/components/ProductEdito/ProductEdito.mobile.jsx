@@ -6,7 +6,7 @@ import useGTM, { TrackEvent } from 'utils/useGTM';
 const ProductEdito = ({ Title, Text, Vignette, CTA }) => {
 
   const trackCTA = useRef();
-  const isVisible = useOnScreen(trackCTA);
+  const isVisible = CTA ? useOnScreen(trackCTA) : false;
 
   const trackGTM = (CTA, eventName) => {
     let obj = {

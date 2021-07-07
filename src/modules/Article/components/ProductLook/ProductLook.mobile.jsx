@@ -5,7 +5,7 @@ import useGTM, { TrackEvent } from 'utils/useGTM';
 
 const ProductLook = (props) => {
   const trackCTA = useRef();
-  const isVisible = useOnScreen(trackCTA);
+  const isVisible = props.CTA ? useOnScreen(trackCTA) : false;
 
   const trackGTM = (props, eventName) => {
     let obj = {

@@ -11,7 +11,7 @@ const DuoMobile = ({ duo_image, title, duo_paragraphe, button, id }) => {
 
 
   const trackCTA = useRef();
-  const isVisible = useOnScreen(trackCTA);
+  const isVisible = button !== null ? useOnScreen(trackCTA) : false;
 
 
   const trackGTM = (button, eventName) => {

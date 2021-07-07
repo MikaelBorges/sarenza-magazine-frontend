@@ -23,7 +23,7 @@ const ShoppingList = ({ vignette, title, description, button }) => {
   };
 
   const trackCTA = useRef();
-  const isVisible = useOnScreen(trackCTA);
+  const isVisible = button !== null ? useOnScreen(trackCTA) : false;
 
   const trackGTM = (button, eventName) => {
     let obj = {
