@@ -2,8 +2,10 @@ import React, { useRef } from 'react';
 import styles from './ProductLook.module.scss';
 import useOnScreen from 'utils/useOnScreen';
 import useGTM, { TrackEvent } from 'utils/useGTM';
+import ProductLookCard from './ProductLookCard/ProductLookCard';
 
 const ProductLook = ({Image, Title, Text, Vignettes, CTA}) => {
+  console.log(Vignettes)
   const trackCTA = useRef();
   const isVisible = useOnScreen(trackCTA);
 
@@ -19,25 +21,7 @@ const ProductLook = ({Image, Title, Text, Vignettes, CTA}) => {
   isVisible ? trackGTM(CTA, TrackEvent.PromotionPrint) : null;
 
 
-      const trackCard = useRef();
-      const isVisibleCard = useOnScreen(trackCard);
-    
-      const trackGTMCard = (vignette, eventName) => {
-        let obj = {
-          brand: vignette.brand,
-          category: '',
-          name: vignette.model,
-          pid: '',
-          price: '',
-          id: vignette.pcid,
-          variant: '',
-          position: 'position',
-          color: '',
-          dimension69: '',
-          list: 'product look'
-        };
-        useGTM(obj, eventName);
-      };
+ 
 
   return (
     <section className={styles.productLook}>
@@ -45,25 +29,9 @@ const ProductLook = ({Image, Title, Text, Vignettes, CTA}) => {
       <div className={styles.blockScrollable}>
         <h2 className={styles.title}>{Title}</h2>
         <p className={styles.paragraphe}>{Text}</p>
-        {Vignettes.map((vignette) =>    
-             (
-            <a href={vignette.url} className={styles.url} ref={trackCard} key={vignette.id}>
-              { isVisibleCard ? trackGTMCard(vignette, TrackEvent.ProductPrint) : null}
-              <div className={styles.vignette} data-pcid={vignette.pcid}>
-                <img
-                  src={vignette.visuelUrl}
-                  alt={`image du produit ${vignette.brand} - ${vignette.model}`}
-                  className={styles.imgVignette}
-                />
-                <div className={styles.containerTxt}>
-                  <span className={styles.statuLabel}>{vignette.statusLabel}</span>
-                  <span className={styles.brand}>{vignette.brand}</span>
-                  <span className={styles.model}>{vignette.model}</span>
-                </div>
-              </div>
-            </a>
-          )
-        )}
+        {Vignettes.map((vignette) => {
+            return <ProductLookCard {...vignette} key={`${vignette.pcid}`} />;
+          })}
         {CTA && (
           <a
             href={CTA.link}

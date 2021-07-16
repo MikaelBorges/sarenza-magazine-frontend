@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import styles from './ProductLook.mobile.module.scss';
 import useOnScreen from 'utils/useOnScreen';
 import useGTM, { TrackEvent } from 'utils/useGTM';
+import ProductLookCard_mobile from './ProductLookCard/ProductLookCard_mobile';
 
 const ProductLook = (props) => {
   const trackCTA = useRef();
@@ -19,27 +20,6 @@ const ProductLook = (props) => {
 
     isVisible ? trackGTM(props, TrackEvent.PromotionPrint) : null;
 
-  const trackCard = useRef();
-  const isVisibleCard = useOnScreen(trackCard);
-
-  const trackGTMCard = (props,vignette, eventName) => {
-    let obj = {
-      brand: props.brand,
-      category: '',
-      name: props.model,
-      pid: '',
-      price: '',
-      id: props.pcid,
-      variant: '',
-      position: 'position',
-      color: '',
-      dimension69: '',
-      list: 'product look',
-      strapId: `${props.id}-${props.model}-${eventName}`
-    };
-    useGTM(obj, eventName);
-  };
-
   return (
     <section className={styles.productLook}>
       <div className={styles.blockScrollable}>
@@ -50,32 +30,7 @@ const ProductLook = (props) => {
       <div className={styles.vignettesContainer}>
       
         {props.Vignettes.map((vignette) => {
-          return (
-            <a
-              href={vignette.url}
-              className={styles.url}
-              key={vignette.id}
-              onClick={(e) => {
-                e.preventDefault();
-                trackGTMCard(vignette, TrackEvent.ProductClick);
-              }}
-              ref={trackCard}>
-              {isVisibleCard ? trackGTMCard(vignette, TrackEvent.ProductPrint) : null}
-
-              <div className={styles.vignette} key={vignette.id} data-pcid={vignette.pcid}>
-                <img
-                  src={vignette.visuelUrl}
-                  alt={`image du produit ${vignette.brand} - ${vignette.model}`}
-                  className={styles.imgVignette}
-                />
-                <div className={styles.containerTxt}>
-                  <span className={styles.statuLabel}>{vignette.statusLabel}</span>
-                  <span className={styles.brand}>{vignette.brand}</span>
-                  <span className={styles.model}>{vignette.model}</span>
-                </div>
-              </div>
-            </a>
-          );
+          return <ProductLookCard_mobile {...vignette} key={`${vignette.pcid}`} />
         })}
       </div>
       {props.CTA && (
@@ -84,7 +39,6 @@ const ProductLook = (props) => {
           className={styles.link}
           ref={trackCTA}
           onClick={(e) => {
-            e.preventDefault();
             trackGTM(props, TrackEvent.PromotionClick);
           }}>
           {props.CTA.label}
