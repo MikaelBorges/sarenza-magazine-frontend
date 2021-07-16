@@ -7,7 +7,7 @@ import ProductLookCard from './ProductLookCard/ProductLookCard';
 const ProductLook = ({Image, Title, Text, Vignettes, CTA}) => {
   console.log(Vignettes)
   const trackCTA = useRef();
-  const isVisible = useOnScreen(trackCTA);
+  const isVisible = CTA ? useOnScreen(trackCTA) : false;
 
   const trackGTM = (CTA, eventName) => {
     let obj = {
@@ -37,9 +37,8 @@ const ProductLook = ({Image, Title, Text, Vignettes, CTA}) => {
             href={CTA.link}
             className={styles.link}
             ref={trackCTA}
-            onClick={(e) => {
-              e.preventDefault();
-              trackGTM(props, TrackEvent.PromotionClick);
+            onClick={() => {
+              trackGTM(CTA, TrackEvent.PromotionClick);
             }}>
             {CTA.label}
           </a>

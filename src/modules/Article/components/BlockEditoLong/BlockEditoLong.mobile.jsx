@@ -5,9 +5,9 @@ import Mardown from 'markdown-to-jsx';
 import useOnScreen from 'utils/useOnScreen';
 import useGTM, { TrackEvent } from 'utils/useGTM';
 
-const BlockEditoLong = ({ Title, Text, Image, Button }) => {
+const BlockEditoLong = ({ Title, Text, Image, Button, id }) => {
   const trackCTA = useRef();
-  const isVisible = useOnScreen(trackCTA);
+  const isVisible = Button? useOnScreen(trackCTA) : false;
 
   const trackGTM = (Button, eventName) => {
     let obj = {
@@ -30,8 +30,7 @@ const BlockEditoLong = ({ Title, Text, Image, Button }) => {
             href={Button.link}
             className={styles.link}
             ref={trackCTA}
-            onClick={(e) => {
-              e.preventDefault();
+            onClick={() => {
               trackGTM(Button, TrackEvent.PromotionClick);
             }}>
             {Button.label}

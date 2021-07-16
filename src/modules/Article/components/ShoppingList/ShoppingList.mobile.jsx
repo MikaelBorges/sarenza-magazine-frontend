@@ -23,7 +23,7 @@ const ShoppingList = ({ vignette, title, description, button }) => {
   };
 
   const trackCTA = useRef();
-  const isVisible = useOnScreen(trackCTA);
+  const isVisible = button !== null ? useOnScreen(trackCTA) : false;
 
   const trackGTM = (button, eventName) => {
     let obj = {
@@ -51,8 +51,7 @@ const ShoppingList = ({ vignette, title, description, button }) => {
           type="button"
           className={`button ${styles.buttonShoppingList_mobile}`}
           href={button.link} ref={trackCTA}
-          onClick={(e) => {
-            e.preventDefault();
+          onClick={() => {
             trackGTM(button, TrackEvent.PromotionClick);
           }}>
           {button.label}

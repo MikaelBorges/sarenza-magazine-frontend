@@ -6,14 +6,13 @@ import ProductLookCard_mobile from './ProductLookCard/ProductLookCard_mobile';
 
 const ProductLook = (props) => {
   const trackCTA = useRef();
-  const isVisible = useOnScreen(trackCTA);
+  const isVisible = props.CTA ? useOnScreen(trackCTA) : false;
 
   const trackGTM = (props, eventName) => {
     let obj = {
       id: props.CTA.id,
       name: props.CTA.label,
-      position: 'Product Look',
-      strapId: `${props.CTA.id}-${props.CTA.label}-${eventName}`
+      position: 'Product Look'
     };
     useGTM(obj, eventName);
   };

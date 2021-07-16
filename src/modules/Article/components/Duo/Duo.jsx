@@ -10,10 +10,10 @@ import styles from './Duo.module.scss';
 import useOnScreen from 'utils/useOnScreen';
 import useGTM, {TrackEvent} from 'utils/useGTM';
 
-const Duo = ({ duo_image, title, duo_paragraphe, button }) => {
+const Duo = ({ duo_image, title, duo_paragraphe, button, id }) => {
 
   const trackCTA = useRef();
-  const isVisible = useOnScreen(trackCTA);
+  const isVisible = button !== null ? useOnScreen(trackCTA) : false;
 
 
   const trackGTM = (button, eventName) => {
@@ -61,8 +61,7 @@ const Duo = ({ duo_image, title, duo_paragraphe, button }) => {
         ) : null}
         {button !== null ? (
           <div className={styles.button}>
-            <a className="button" href={button.link} ref={trackCTA} onClick={(e) => {
-           e.preventDefault()
+            <a className="button" href={button.link} ref={trackCTA} onClick={() => {
               trackGTM(button, TrackEvent.PromotionClick);
             }}>
               {button.label}
