@@ -7,7 +7,7 @@ import Banner from './components/Banner/Banner.mobile';
 import ReadMore from './components/ReadMore/ReadMore.mobile';
 import { getComponent } from './config/LoadableComponent.mobile';
 
-const scrollToRef = (ref) => window.scrollTo({behavior: "smooth", top: ref.current.offsetTop - "200px"});
+const scrollToRef = (ref) => window.scrollTo({behavior: "smooth", top: 0});
 
 const Article = ({ article, recentArticle }) => {
   const myRef = useRef(null);

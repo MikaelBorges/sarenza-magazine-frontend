@@ -11,7 +11,7 @@ import { useRouter } from 'next/router'
 import useGTM, {TrackEvent} from 'utils/useGTM';
 
 
-const scrollToRef = (ref) => window.scrollTo({behavior: "smooth", top: ref.current.offsetTop - "200px"});
+const scrollToRef = () => window.scrollTo({behavior: "smooth", top: 0});
 
 const Article = ({ article, recentArticle }) => {
  
