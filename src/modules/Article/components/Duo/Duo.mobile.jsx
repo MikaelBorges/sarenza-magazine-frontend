@@ -1,12 +1,28 @@
-/* eslint-disable react/button-has-type */
-/* eslint-disable camelcase */
+
 import Markdown from 'markdown-to-jsx';
 import { replaceByJsx } from 'modules/Article/utils';
-import React from 'react';
+import React, {useRef} from 'react';
 
 import styles from './Duo.mobile.module.scss';
+import useOnScreen from 'utils/useOnScreen';
+import useGTM, {TrackEvent} from 'utils/useGTM';
 
-const DuoMobile = ({ duo_image, title, duo_paragraphe, button }) => {
+const DuoMobile = ({ duo_image, title, duo_paragraphe, button, id }) => {
+
+
+  const trackCTA = useRef();
+  const isVisible = button !== null ? useOnScreen(trackCTA) : false;
+
+
+  const trackGTM = (button, eventName) => {
+    let obj = {
+      id: button.id,
+      name: button.label,
+      position: 'DUO'
+    };
+    useGTM(obj, eventName);
+  };
+
   return (
     <section className={styles.container}>
       <div className={styles.imageContainer}>
@@ -46,9 +62,12 @@ const DuoMobile = ({ duo_image, title, duo_paragraphe, button }) => {
       </div>
       {button !== null ? (
         <div className={styles.button}>
-          <a className="button" href={button.link}>
+          <a className="button" href={button.link} ref={trackCTA} onClick={() => {
+              trackGTM(button, TrackEvent.PromotionClick);
+            }}>
             {button.label}
           </a>
+          {isVisible ? trackGTM(button, TrackEvent.PromotionPrint) : null}
         </div>
       ) : null}
     </section>

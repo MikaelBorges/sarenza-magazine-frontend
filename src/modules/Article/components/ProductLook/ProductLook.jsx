@@ -1,36 +1,46 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import styles from './ProductLook.module.scss';
+import useOnScreen from 'utils/useOnScreen';
+import useGTM, { TrackEvent } from 'utils/useGTM';
+import ProductLookCard from './ProductLookCard/ProductLookCard';
 
-const ProductLook = (props) => {
+const ProductLook = ({Image, Title, Text, Vignettes, CTA}) => {
+  console.log(Vignettes)
+  const trackCTA = useRef();
+  const isVisible = CTA ? useOnScreen(trackCTA) : false;
+
+  const trackGTM = (CTA, eventName) => {
+    let obj = {
+      id: CTA.id,
+      name: CTA.label,
+      position: 'Product Look'
+    };
+    useGTM(obj, eventName);
+  };
+
+  isVisible ? trackGTM(CTA, TrackEvent.PromotionPrint) : null;
+
+
+ 
+
   return (
     <section className={styles.productLook}>
-      <img src={props.Image.url} alt={props.Image.alt} className={styles.poster} />
+      <img src={Image.url} alt={Image.alt} className={styles.poster} />
       <div className={styles.blockScrollable}>
-        <h2 className={styles.title}>{props.Title}</h2>
-        <p className={styles.paragraphe}>{props.Text}</p>
-        {
-            props.Vignettes.map((vignette)=>{
-                return (
-                    <a href={vignette.url} className={styles.url}>
-                    <div className={styles.vignette} key={vignette.id} data-pcid={vignette.pcid}>
-                      <img
-                        src={vignette.visuelUrl}
-                        alt={`image du produit ${vignette.brand} - ${vignette.model}`}
-                        className={styles.imgVignette}
-                      />
-                      <div className={styles.containerTxt}>
-                        <span className={styles.statuLabel}>{vignette.statusLabel}</span>
-                        <span className={styles.brand}>{vignette.brand}</span>
-                        <span className={styles.model}>{vignette.model}</span>
-                      </div>
-                    </div>
-                  </a>
-                )
-            })
-        }
-          {props.CTA && (
-          <a href={props.CTA.link} className={styles.link}>
-            {props.CTA.label}
+        <h2 className={styles.title}>{Title}</h2>
+        <p className={styles.paragraphe}>{Text}</p>
+        {Vignettes.map((vignette) => {
+            return <ProductLookCard {...vignette} key={`${vignette.pcid}`} />;
+          })}
+        {CTA && (
+          <a
+            href={CTA.link}
+            className={styles.link}
+            ref={trackCTA}
+            onClick={() => {
+              trackGTM(CTA, TrackEvent.PromotionClick);
+            }}>
+            {CTA.label}
           </a>
         )}
       </div>

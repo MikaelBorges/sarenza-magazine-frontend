@@ -5,7 +5,7 @@ import styles from './ShoppingCard.module.scss';
 import useOnScreen from 'utils/useOnScreen';
 import useGTM, {TrackEvent} from 'utils/useGTM';
 
-const ShoppingCard = ({ visuelUrl, url, statusLabel, model, pcid, brand, position }) => {
+const ShoppingCard = ({ visuelUrl, url, statusLabel, model, pcid, brand, position, id }) => {
 
   const [favoriteStatus, setFavoriteStatus] = useState(false);
 
@@ -30,7 +30,8 @@ const ShoppingCard = ({ visuelUrl, url, statusLabel, model, pcid, brand, positio
       position: `${position}`,
       color:'',
       dimension69 : '',
-      list:'product-slider-magazine'
+      list:'slider-magazine',
+      strapId: `${id}-${model}-${eventName}`
     };
     useGTM(obj, eventName);
   };

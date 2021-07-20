@@ -4,11 +4,27 @@
 
 import Markdown from 'markdown-to-jsx';
 import { replaceByJsx } from 'modules/Article/utils';
-import React from 'react';
+import React, {useRef} from 'react';
 
 import styles from './Duo.module.scss';
+import useOnScreen from 'utils/useOnScreen';
+import useGTM, {TrackEvent} from 'utils/useGTM';
 
-const Duo = ({ duo_image, title, duo_paragraphe, button }) => {
+const Duo = ({ duo_image, title, duo_paragraphe, button, id }) => {
+
+  const trackCTA = useRef();
+  const isVisible = button !== null ? useOnScreen(trackCTA) : false;
+
+
+  const trackGTM = (button, eventName) => {
+    let obj = {
+      id: button.id,
+      name: button.label,
+      position: 'DUO'
+    };
+    useGTM(obj, eventName);
+  };
+
   return (
     <section className={styles.container}>
       {duo_image &&
@@ -45,9 +61,12 @@ const Duo = ({ duo_image, title, duo_paragraphe, button }) => {
         ) : null}
         {button !== null ? (
           <div className={styles.button}>
-            <a className="button" href={button.link}>
+            <a className="button" href={button.link} ref={trackCTA} onClick={() => {
+              trackGTM(button, TrackEvent.PromotionClick);
+            }}>
               {button.label}
             </a>
+            {isVisible ? trackGTM(button, TrackEvent.PromotionPrint) : null}
           </div>
         ) : null}
       </div>
