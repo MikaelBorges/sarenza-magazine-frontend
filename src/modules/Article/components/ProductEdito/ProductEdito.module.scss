@@ -1,3 +1,5 @@
+@import '../../../../app/components/_styles/theme';
+
 .productEdito {
   max-width: 1008px;
   display: flex;
@@ -18,10 +20,6 @@
     font-weight: bold;
     line-height: 32px;
     color: #1d1d1b;
-  }
-  .text {
-    font-size: 16px;
-    line-height: 25px;
   }
   .link {
     position: relative;
@@ -116,5 +114,45 @@
         flex: 1 1 25%;
     }
 
+  }
+}
+.big{
+  font-size: 16px;
+  line-height: 25px;
+  color: #999999;
+}
+
+.verbatim {
+  &:before {
+    content: '“';
+    color: $color-sarenza;
+    font-size: 200px;
+    line-height: 200px;
+    display: table-cell;
+    position: relative;
+    top: 124px;
+    font-family: 'robotoc';
+  }
+
+  font-size: 40px;
+  line-height: 46px;
+  font-weight: bolder;
+  color: $color-secondary;
+  text-transform: uppercase;
+  text-align: center;
+  display: table;
+  margin-top: -138px;
+  font-family: 'futur';
+
+  &:after {
+    content: '„';
+    color: $color-sarenza;
+    font-size: 200px;
+    line-height: 200px;
+    display: table-cell;
+    vertical-align: bottom;
+    position: relative;
+    top: -10px;
+    font-family: 'robotoc';
   }
 }

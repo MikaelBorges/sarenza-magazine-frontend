@@ -5,7 +5,6 @@ import useGTM, { TrackEvent } from 'utils/useGTM';
 import ProductLookCard from './ProductLookCard/ProductLookCard';
 
 const ProductLook = ({Image, Title, Text, Vignettes, CTA}) => {
-  console.log(Vignettes)
   const trackCTA = useRef();
   const isVisible = CTA ? useOnScreen(trackCTA) : false;
 

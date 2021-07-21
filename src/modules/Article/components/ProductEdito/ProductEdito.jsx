@@ -3,6 +3,8 @@ import styles from './ProductEdito.module.scss';
 import useOnScreen from 'utils/useOnScreen';
 import useGTM, { TrackEvent } from 'utils/useGTM';
 import ProductEditoCard from './ProductEditoCard/ProductEditoCard';
+import Markdown from 'markdown-to-jsx';
+import { replaceByJsx } from 'modules/Article/utils';
 
 const ProductEdito = ({ Title, Text, Vignette, CTA }) => {
   const trackCTA = useRef();
@@ -23,7 +25,29 @@ const ProductEdito = ({ Title, Text, Vignette, CTA }) => {
     <section className={styles.productEdito}>
       <div className={styles.wrapperText}>
         <h2 className={styles.title}>{Title}</h2>
-        <p className={styles.text}>{Text}</p>
+        {Text !== null ? (
+          <>
+            {replaceByJsx(Text).map((item, index) => {
+              if (item.type === 'text') {
+                return (
+                  <div className={styles.big} key={`Product-edito-text-${index}`}>
+                    <Markdown options={{ forceInline: false }}>{item.text}</Markdown>
+                  </div>
+                );
+              }
+              if (item.type === 'verbatim') {
+                return (
+                  <div className={styles.verbatimContainer} key={`Product-edito-verbatim-${index}`}>
+                    <div className={styles.verbatim}>
+                      <Markdown options={{ forceInline: false }}>{item.text}</Markdown>
+                    </div>
+                  </div>
+                );
+              }
+              return null;
+            })}
+          </>
+        ) : null}
         {CTA && (
           <a href={CTA.link} className={styles.link} ref={trackCTA} onClick={() => {
             trackGTM(CTA, TrackEvent.PromotionClick);
