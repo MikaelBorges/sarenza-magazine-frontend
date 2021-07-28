@@ -60,7 +60,7 @@ export const getServerSideProps = wrapper.getServerSideProps(async (ctx) => {
     await timeout(
       constant.article.timeout,
       fetch(
-        `${serverRuntimeConfig.API_URL}/articles?_limit=4&_sort=updated_at:desc&rubriques.url=${rubriqueName}`
+        `${serverRuntimeConfig.API_URL}/articles?_limit=4&_sort=isSeo:asc,updated_at:desc&rubriques.url=${rubriqueName}`
       )
     )
   ).json();
