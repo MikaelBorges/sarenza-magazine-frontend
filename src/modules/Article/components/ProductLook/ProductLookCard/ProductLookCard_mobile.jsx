@@ -30,8 +30,7 @@ const ProductLookCard_mobile = ({url, pcid, visuelUrl, brand, model, statusLabel
         <a
           href={url}
           className={styles.url}
-          onClick={(e) => {
-            e.preventDefault();
+          onClick={() => {
             trackGTMCard(TrackEvent.ProductClick);
           }}
           ref={trackCard}>

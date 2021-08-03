@@ -3,9 +3,10 @@ import styles from './ProductLook.module.scss';
 import useOnScreen from 'utils/useOnScreen';
 import useGTM, { TrackEvent } from 'utils/useGTM';
 import ProductLookCard from './ProductLookCard/ProductLookCard';
+import Markdown from 'markdown-to-jsx';
+
 
 const ProductLook = ({Image, Title, Text, Vignettes, CTA}) => {
-  console.log(Vignettes)
   const trackCTA = useRef();
   const isVisible = CTA ? useOnScreen(trackCTA) : false;
 
@@ -20,15 +21,12 @@ const ProductLook = ({Image, Title, Text, Vignettes, CTA}) => {
 
   isVisible ? trackGTM(CTA, TrackEvent.PromotionPrint) : null;
 
-
- 
-
   return (
     <section className={styles.productLook}>
       <img src={Image.url} alt={Image.alt} className={styles.poster} />
       <div className={styles.blockScrollable}>
         <h2 className={styles.title}>{Title}</h2>
-        <p className={styles.paragraphe}>{Text}</p>
+        <Markdown options={{ forceInline: false }}>{Text}</Markdown>
         {Vignettes.map((vignette) => {
             return <ProductLookCard {...vignette} key={`${vignette.pcid}`} />;
           })}
