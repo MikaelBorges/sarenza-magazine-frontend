@@ -9,12 +9,12 @@ import Markdown from 'markdown-to-jsx';
 const ProductLook = ({Image, Title, Text, Vignettes, CTA}) => {
   const trackCTA = useRef();
   const isVisible = CTA ? useOnScreen(trackCTA) : false;
-
   const trackGTM = (CTA, eventName) => {
     let obj = {
       id: CTA.id,
       name: CTA.label,
-      position: 'Product Look'
+      position: 'Product Look',
+      strapId: `${CTA.id}-${CTA.label}-${eventName}`
     };
     useGTM(obj, eventName);
   };

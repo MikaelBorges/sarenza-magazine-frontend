@@ -14,7 +14,8 @@ const BlockEditoLong = ({ Title, Text, Image, Button, id }) => {
     let obj = {
       id: Button.id,
       name: Button.label,
-      position: 'Block Edito Long'
+      position: 'Block Edito Long',
+      strapId: `${Button.id}-${Button.label}-${eventName}`
     };
     useGTM(obj, eventName);
   };
