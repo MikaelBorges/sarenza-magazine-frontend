@@ -18,7 +18,8 @@ const DuoMobile = ({ duo_image, title, duo_paragraphe, button, id }) => {
     let obj = {
       id: button.id,
       name: button.label,
-      position: 'DUO'
+      position: 'DUO',
+      strapId: `${button.id}-${button.label}-${eventName}`
     };
     useGTM(obj, eventName);
   };

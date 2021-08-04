@@ -14,7 +14,8 @@ const ProductEdito = ({ Title, Text, Vignette, CTA }) => {
     let obj = {
       id: CTA.id,
       name: CTA.label,
-      position: 'Product EDITO'
+      position: 'Product EDITO',
+      strapId: `${CTA.id}-${CTA.label}-${eventName}`
     };
     useGTM(obj, eventName);
   };

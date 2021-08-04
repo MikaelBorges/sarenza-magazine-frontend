@@ -4,7 +4,7 @@ import useOnScreen from 'utils/useOnScreen';
 import useGTM, {TrackEvent} from 'utils/useGTM';
 
 
-const ProductLookCard = ({url, pcid, visuelUrl, brand, model, statusLabel}) => {
+const ProductLookCard = ({url, pcid, visuelUrl, brand, model, statusLabel, id}) => {
 
     const trackCard = useRef();
     const isVisibleCard = useOnScreen(trackCard);
@@ -21,7 +21,8 @@ const ProductLookCard = ({url, pcid, visuelUrl, brand, model, statusLabel}) => {
         position: 'position',
         color: '',
         dimension69: '',
-        list: 'product look'
+        list: 'product look',
+        strapId: `${id}-${model}-${eventName}`
       };
       useGTM(obj, eventName);
     };

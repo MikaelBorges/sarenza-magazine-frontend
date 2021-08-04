@@ -8,7 +8,6 @@ import useOnScreen from 'utils/useOnScreen';
 import useGTM, {TrackEvent} from 'utils/useGTM';
 
 const Articles = ({ articles, position }) => {
-
   const trackReadMore = useRef();
   const isVisible = useOnScreen(trackReadMore);
   const rubriqueName = useRouter().query.rubriqueName;
@@ -18,7 +17,8 @@ const Articles = ({ articles, position }) => {
       id: `${rubriqueName === undefined ? 'Tous les articles' : rubriqueName}`,
       name: `${article.title}`,
       creative: `${article.image.small}`,
-      position: 'A lire aussi'
+      position: 'A lire aussi',
+      strapId: `${article.title}-${article.publishDate}-${eventName}`
     };
     useGTM(obj, eventName);
   };

@@ -3,44 +3,46 @@ import styles from './ProductLook.mobile.module.scss';
 import useOnScreen from 'utils/useOnScreen';
 import useGTM, { TrackEvent } from 'utils/useGTM';
 import ProductLookCard_mobile from './ProductLookCard/ProductLookCard_mobile';
+import Markdown from 'markdown-to-jsx';
 
-const ProductLook = (props) => {
+const ProductLook = ({Image, Title, Text, Vignettes, CTA}) => {
   const trackCTA = useRef();
-  const isVisible = props.CTA ? useOnScreen(trackCTA) : false;
+  const isVisible = CTA ? useOnScreen(trackCTA) : false;
 
-  const trackGTM = (props, eventName) => {
+  const trackGTM = (CTA, eventName) => {
     let obj = {
-      id: props.CTA.id,
-      name: props.CTA.label,
-      position: 'Product Look'
+      id: CTA.id,
+      name: CTA.label,
+      position: 'Product Look',
+      strapId: `${CTA.id}-${CTA.label}-${eventName}`
     };
     useGTM(obj, eventName);
   };
 
-    isVisible ? trackGTM(props, TrackEvent.PromotionPrint) : null;
+    isVisible ? trackGTM(CTA, TrackEvent.PromotionPrint) : null;
 
   return (
     <section className={styles.productLook}>
       <div className={styles.blockScrollable}>
-        <h2 className={styles.title}>{props.Title}</h2>
-        <p className={styles.paragraphe}>{props.Text}</p>
+        <h2 className={styles.title}>{Title}</h2>
+        <Markdown options={{ forceInline: false }}>{Text}</Markdown>
       </div>
-      <img src={props.Image.url} alt={props.Image.alt} className={styles.poster} />
+      <img src={Image.url} alt={Image.alt} className={styles.poster} />
       <div className={styles.vignettesContainer}>
       
-        {props.Vignettes.map((vignette) => {
+        {Vignettes.map((vignette) => {
           return <ProductLookCard_mobile {...vignette} key={`${vignette.pcid}`} />
         })}
       </div>
-      {props.CTA && (
+      {CTA && (
         <a
-          href={props.CTA.link}
+          href={CTA.link}
           className={styles.link}
           ref={trackCTA}
           onClick={(e) => {
             trackGTM(props, TrackEvent.PromotionClick);
           }}>
-          {props.CTA.label}
+          {CTA.label}
         </a>
       )}
     </section>

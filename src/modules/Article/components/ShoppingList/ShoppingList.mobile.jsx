@@ -29,7 +29,8 @@ const ShoppingList = ({ vignette, title, description, button }) => {
     let obj = {
       id: button.id,
       name: button.label,
-      position: 'Slider article'
+      position: 'Slider article',
+      strapId: `${button.id}-${button.label}-${eventName}`
     };
     useGTM(obj, eventName);
   };

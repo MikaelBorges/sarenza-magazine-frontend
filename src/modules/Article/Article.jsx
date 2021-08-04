@@ -24,14 +24,14 @@ const Article = ({ article, recentArticle }) => {
        date_publication: `${article.publishDate}`,
        date_mise_a_jour: `${article.updatedDate}`,
        categorie_article: `${rubriqueName}`,
-       titre_article: `${article.title}`
+       titre_article: `${article.title}`,
     };
     useGTM(obj);
   };
 
   useEffect(() => {
     trackGTM(article);
-
+    
   }, [])
 
   return article ? (

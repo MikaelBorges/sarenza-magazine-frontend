@@ -20,9 +20,11 @@ const ArticleItem = ({ article, size, position }) => {
       id: `${rubriqueName === undefined ? 'Tous les articles' : rubriqueName}`,
       name: `${article.title}`,
       creative: `${article.image}`,
-      position: ''
+      position: '',
+      strapId: `${article.title}-${article.image}-${eventName}`
     };
     useGTM(obj, eventName);
+
   };
 
   {isVisible ? trackGTM(article, TrackEvent.PromotionPrint) : null}

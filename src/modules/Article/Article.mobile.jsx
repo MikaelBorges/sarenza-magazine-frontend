@@ -6,13 +6,29 @@ import styles from './Article.mobile.module.scss';
 import Banner from './components/Banner/Banner.mobile';
 import ReadMore from './components/ReadMore/ReadMore.mobile';
 import { getComponent } from './config/LoadableComponent.mobile';
+import useGTM, {TrackEvent} from 'utils/useGTM';
 
 const scrollToRef = (ref) => window.scrollTo({behavior: "smooth", top: 0});
 
 const Article = ({ article, recentArticle }) => {
   const myRef = useRef(null);
   const executeScroll = () => scrollToRef(myRef);
+  const rubriqueName = useRouter().query.rubriqueName;
 
+   const trackGTM = (article) => {
+    let obj = {
+       date_publication: `${article.publishDate}`,
+       date_mise_a_jour: `${article.updatedDate}`,
+       categorie_article: `${rubriqueName}`,
+       titre_article: `${article.title}`,
+    };
+    useGTM(obj);
+  };
+
+  useEffect(() => {
+    trackGTM(article);
+    
+  }, [])
   return article ? (
     <div className={styles.article}>
       <a ref={myRef}></a>
