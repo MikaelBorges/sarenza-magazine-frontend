@@ -1,9 +1,10 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useRef } from 'react';
 
 
 import ArticleItem from './ArticleItem/ArticleItem.mobile';
 import styles from './ReadMore.mobile.module.scss';
+import { useRouter } from 'next/router';
 import useOnScreen from 'utils/useOnScreen';
 import useGTM, {TrackEvent} from 'utils/useGTM';
 
