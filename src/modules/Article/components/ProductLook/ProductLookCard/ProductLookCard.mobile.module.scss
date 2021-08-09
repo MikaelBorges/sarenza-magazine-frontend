@@ -1,8 +1,8 @@
 .url {
     outline: none;
-    &:nth-child(odd) {
-      margin-right: 17px;
-    }
+  }
+  .url:not(:last-child){
+    margin-right: 17px;
   }
   .vignette {
     display: inline-block;
