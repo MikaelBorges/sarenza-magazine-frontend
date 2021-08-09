@@ -1,11 +1,12 @@
 /* eslint-disable no-irregular-whitespace */
 import PropTypes from 'prop-types';
-import React, {useRef} from 'react';
+import React, { useRef, useEffect } from 'react';
 
 import styles from './Article.mobile.module.scss';
 import Banner from './components/Banner/Banner.mobile';
 import ReadMore from './components/ReadMore/ReadMore.mobile';
 import { getComponent } from './config/LoadableComponent.mobile';
+import { useRouter } from 'next/router'
 import useGTM, {TrackEvent} from 'utils/useGTM';
 
 const scrollToRef = (ref) => window.scrollTo({behavior: "smooth", top: 0});
