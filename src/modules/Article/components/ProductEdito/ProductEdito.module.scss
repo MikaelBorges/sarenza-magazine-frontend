@@ -1,3 +1,5 @@
+@import '../../../../app/components/_styles/theme';
+
 .productEdito {
   max-width: 1008px;
   display: flex;
@@ -7,49 +9,6 @@
   padding-bottom: 48px;
   margin-bottom: 48px;
   margin: 24px auto;
-
-  .url{
-    outline: none;
-    text-decoration: none;
-    &:nth-child(odd) {
-        margin-right: 17px;
-      }
-}
-
-.vignette {
-    max-width: 200px;
-    margin-bottom: 24px;
-    @media screen and (min-width:975px){
-      max-width: 216px;
-    }
-  }
-.containerTxt {
-    text-align: left;
-    margin-left: 5px;
-  }
-  .statuLabel {
-    color: #ff2157;
-    font-size: 12px;
-    font-family: 'RobotoC';
-    font-weight: bold;
-    margin: 7px 0 4px 0;
-    display: block;
-  }
-  .brand {
-    display: block;
-    font-size: 14px;
-    font-family: 'RobotoC';
-    font-weight: bold;
-    color: #1d1d1b;
-  }
-  .model {
-    display: block;
-    color: #999999;
-    font-family: 'RobotoC';
-    font-size: 12px;
-    margin-top: 8px;
-  }
-
   
   .title {
     font-size: 24px;
@@ -61,10 +20,6 @@
     font-weight: bold;
     line-height: 32px;
     color: #1d1d1b;
-  }
-  .text {
-    font-size: 16px;
-    line-height: 25px;
   }
   .link {
     position: relative;
@@ -159,5 +114,45 @@
         flex: 1 1 25%;
     }
 
+  }
+}
+.big{
+  font-size: 16px;
+  line-height: 25px;
+  color: #999999;
+}
+
+.verbatim {
+  &:before {
+    content: '“';
+    color: $color-sarenza;
+    font-size: 200px;
+    line-height: 200px;
+    display: table-cell;
+    position: relative;
+    top: 124px;
+    font-family: 'robotoc';
+  }
+
+  font-size: 40px;
+  line-height: 46px;
+  font-weight: bolder;
+  color: $color-secondary;
+  text-transform: uppercase;
+  text-align: center;
+  display: table;
+  margin-top: -138px;
+  font-family: 'futur';
+
+  &:after {
+    content: '„';
+    color: $color-sarenza;
+    font-size: 200px;
+    line-height: 200px;
+    display: table-cell;
+    vertical-align: bottom;
+    position: relative;
+    top: -10px;
+    font-family: 'robotoc';
   }
 }
