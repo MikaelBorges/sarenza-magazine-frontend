@@ -42,7 +42,8 @@ export const variousText = (model = {}) => {
   return {
     id: model.id,
     title: model.Title || '',
-    text: model.Text || ''
+    text: model.Text || '',
+    background: model.background || false
   };
 };
 export const newsletter = (model = {}) => {
