@@ -6,7 +6,7 @@ const VariousTextMobile = ({ data }) => {
   return (
     <>
       {data && (
-        <section className="mobile-app no-background">
+        <section className={`mobile-app ${!data.background ? 'no-background' : ''}`}>
           <div className="title-level2">
             <span>{parse(data.title)}</span>
           </div>
