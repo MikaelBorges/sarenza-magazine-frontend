@@ -1,5 +1,5 @@
 
-## Installation
+## Installation 
 
 /!\ Mettre à jour le .env (dupliquer le .env.example)
 
