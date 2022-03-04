@@ -40,7 +40,7 @@ export const getServerSideProps = wrapper.getServerSideProps(async (ctx) => {
 
   const response = await timeout(
     constant.article.timeout,
-    fetch(`${serverRuntimeConfig.API_URL}/articles/?url=${slug}`)
+    fetch(`${serverRuntimeConfig.API_URL}/api/articles/?url=${slug}`)
   ).catch((e) => {
     console.log(`Error getting article "${slug}"`, e);
     return { hasError: true };
@@ -60,7 +60,7 @@ export const getServerSideProps = wrapper.getServerSideProps(async (ctx) => {
     await timeout(
       constant.article.timeout,
       fetch(
-        `${serverRuntimeConfig.API_URL}/articles?_limit=4&_sort=isSeo:asc,updated_at:desc&rubriques.url=${rubriqueName}`
+        `${serverRuntimeConfig.API_URL}/api/articles?_limit=4&_sort=isSeo:asc,updated_at:desc&rubriques.url=${rubriqueName}`
       )
     )
   ).json();

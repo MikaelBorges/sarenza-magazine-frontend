@@ -1,25 +1,28 @@
 import processToHome from 'modules/Home/model/Home';
 import { getApolloClient } from 'utils/apollo';
 import getPageProps from 'utils/getPageProps';
-import { HOME_QUERY_ALL } from '../apollo/queries/home/homeQuery';
-
-import Home from '../modules/Home/Home';
-import HomeMobile from '../modules/Home/Home.mobile';
-import constant from '../infrastructure/constant';
-import ContextHelper from '../utils/ContextHelper';
+import { HOME_QUERY_ALL_V4 } from "apollo/queries/home/homeQueryV4";
+import Home from 'modules/Home/Home';
+import HomeMobile from 'modules/Home/Home.mobile';
+import constant from 'infrastructure/constant';
+import ContextHelper from 'utils/ContextHelper';
 import Layout from 'modules/Layout/Layout';
 
-
-const HomePage = ({ homeData, menus, genders, footer, isMobile, seo }) => {
-  
+export default function HomePage({ homeData, menus, genders, footer, isMobile, seo }) {
   return (
-    <>
-      <Layout menus={menus} genders={genders} footer={footer} isMobile={isMobile} metaData={{title: homeData.header.title, description: `${seo.prefix}${homeData.header.description}`}}>
-        {isMobile ? <HomeMobile data={homeData} /> : <Home data={homeData} />}
-      </Layout>
-    </>
+    <Layout
+      menus={menus}
+      genders={genders}
+      footer={footer}
+      isMobile={isMobile}
+      metaData={{
+        title: homeData?.header?.title,
+        description: `${seo.prefix}${homeData?.header?.description}`
+      }}>
+      {isMobile ? <HomeMobile data={homeData} /> : <Home data={homeData} />}
+    </Layout>
   );
-};
+}
 
 export const getServerSideProps = async (ctx) => {
   const { res } = ctx;
@@ -34,11 +37,11 @@ export const getServerSideProps = async (ctx) => {
   const start = page ? (parseInt(page) - 1) * 12 + 1 : 0;
   const limit = page ? 12 : 13;
 
-  // const start = 0;
-  // const limit = 100;
-
   const { data, error } = await apolloClient.execQuery(
-    { query: HOME_QUERY_ALL, variables: { ...ctx.query, limit: limit, start: start } },
+    {
+      query: HOME_QUERY_ALL_V4,
+      variables: { limit, start }
+    },
     { timeout: constant.home.timeout }
   );
 
@@ -52,7 +55,6 @@ export const getServerSideProps = async (ctx) => {
 
   const homeData = processToHome(data, undefined, page);
 
-
   return {
     props: {
       homeData,
@@ -62,9 +64,6 @@ export const getServerSideProps = async (ctx) => {
       seo,
       isMobile: ct.context.device.mobile || false,
       UrlPrefix: ct.context.route.link_prefix
-
     }
   };
 };
-
-export default HomePage;

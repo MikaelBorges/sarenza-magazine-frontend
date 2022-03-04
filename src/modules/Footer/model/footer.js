@@ -35,7 +35,7 @@ export const needHelp = (model = {}) => {
     id: model.id,
     title: model.Title || '',
     text: model.Text || '',
-    links: model.Link.map((item) => button(item))
+    links: model.Link.map((item) => button(item)) 
   };
 };
 export const variousText = (model = {}) => {
@@ -73,7 +73,7 @@ export const review = (model = {}) => {
     id: model.id,
     title: model.Title || '',
     rate: model.Rate || '',
-    maxrate: model.maxRate || '',
+    maxrate: model.MaxRate || '',
     votes: model.Votes || {}
   };
 };
@@ -104,16 +104,16 @@ export const countrySelectors = (model = []) => {
 
 const footer = (model = {}) => {
   return {
-    needHelp: needHelp(model.NeedHelp),
-    variousText: variousText(model.VariousText),
-    reassurances: reassurances(model.Reassurance) || [],
-    newsletter: newsletter(model.Newsletter),
-    blockLinks: blockLinks(model.BlockLinks) || [],
-    review: review(model.Reviews),
-    socialMedia: socialMedia(model.SocialMedia),
-    partnerIcons: partnerIcons(model.PartnerIcon),
-    footerLinks: footerLinks(model.FooterLink),
-    countrySelectors: countrySelectors(model.CountrySelector)
+    needHelp: needHelp(model.attributes.NeedHelp),
+    variousText: variousText(model.attributes.VariousText),
+    reassurances: reassurances(model.attributes.Reassurance) || [],
+    newsletter: newsletter(model.attributes.Newsletter),
+    blockLinks: blockLinks(model.attributes.BlockLinks) || [],
+    review: review(model.attributes.Reviews),
+    socialMedia: socialMedia(model.attributes.SocialMedia),
+    partnerIcons: partnerIcons(model.attributes.PartnerIcon),
+    footerLinks: footerLinks(model.attributes.FooterLink),
+    countrySelectors: countrySelectors(model.attributes.CountrySelector)
   };
 };
 export default footer;

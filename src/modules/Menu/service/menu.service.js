@@ -7,8 +7,8 @@ const { serverRuntimeConfig } = getConfig();
 
 const getMenu = async () => {
   try {
-    const res = await timeout(constant.menu.timeout, fetch(`${serverRuntimeConfig.API_URL}/menus`));
-    const data = await res.json();
+    const res = await timeout(constant.menu.timeout, fetch(`${serverRuntimeConfig.API_URL}/api/menus`));
+    const {data} = await res.json();
     return menu(data);
   } catch (error) {
     console.log('Error in getMenu', error);

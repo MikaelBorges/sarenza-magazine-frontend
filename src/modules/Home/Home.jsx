@@ -33,8 +33,8 @@ const Home = ({ data, isRubrique }) => {
         <Display
           text={data.displayFirst.text}
           button={{
-            label: data.displayFirst.button.label,
-            url: data.displayFirst.button.link
+            label: data.displayFirst.button?.label,
+            url: data.displayFirst.button?.link
           }}
           whiteTheme={data.displayFirst.whiteTheme}
         />
@@ -44,12 +44,12 @@ const Home = ({ data, isRubrique }) => {
       )}
       {data.displaySecond &&
         onlyFirstPage &&
-        data.displaySecond.text(
+        data.displaySecond.text && (
           <Display
             text={data.displaySecond.text}
             button={{
-              label: data.displaySecond.button.label,
-              url: data.displaySecond.button.link
+              label: data.displaySecond.button?.label,
+              url: data.displaySecond.button?.link
             }}
             whiteTheme={data.displaySecond.whiteTheme}
           />

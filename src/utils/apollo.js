@@ -8,12 +8,17 @@ const { serverRuntimeConfig } = getConfig();
 
 const { API_URL } = serverRuntimeConfig;
 
+let client;
+
 export const getApolloClient = () => {
-  return new ApolloClient({
-    cache: new InMemoryCache(),
-    link: new HttpLink({
-      uri: `${API_URL}/graphql`,
-      fetch
-    })
-  });
+  if (!client) {
+    client = new ApolloClient({
+      cache: new InMemoryCache(),
+      link: new HttpLink({
+        uri: `${API_URL}/graphql`,
+        fetch
+      })
+    });
+  }
+  return client;
 };

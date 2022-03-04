@@ -1,107 +1,67 @@
-const processToHomeArticle = (model = {}) => {
-  try {
-    return (
-      model.id && {
-        id: model.id,
-        title: model.title || '',
-        author: model.author || '',
-        publishDate: new Date(model.published_at).toLocaleDateString('fr-FR'),
-        image: model.image || 'Image inconnue',
-        ImageArticleMobile: model.ImageArticleMobile || 'Image inconnue',
-        link:
-          (model.rubriques &&
-            model.rubriques.length > 0 &&
-            `/${model.rubriques[0].url}/${model.url}`) ||
-          ''
-      }
-    );
-  } catch (e) {
-    throw Error(e.message);
-  }
-};
-
-const getMarquee = (model, rubrique, type = 'top') => {
-  if (!rubrique) {
-    if (type === 'top') {
-      return (model.home.marqueeTop && model.home.marqueeTop.MarqueeComponent) || null;
-    }
-    return (model.home.marquee && model.home.marquee.MarqueeComponent) || null;
-  }
-
-  const marquees = model.rubriques.find((heading) => heading.url === rubrique);
-
-  if (!marquees) {
-    return false;
-  }
-  if (type === 'top') {
-    return (
-      (marquees.marquee_top &&
-        marquees.marquee_top.MarqueeComponent.length > 0 &&
-        marquees.marquee_top.MarqueeComponent) ||
-      null
-    );
-  }
-  return (
-    (marquees.marquee_bottom &&
-      marquees.marquee_bottom.MarqueeComponent.length > 0 &&
-      marquees.marquee_bottom.MarqueeComponent) ||
-    null
-  );
-};
-function getDisplay(model, rubrique, type = 'top') {
-  if (!rubrique) {
-    if (type === 'top') {
-      return model.home.displayTop && model.home.displayTop.Display
-        ? model.home.displayTop.Display
-        : null;
-    }
-    return model.home.displayBottom && model.home.displayBottom.Display
-      ? model.home.displayBottom.Display
-      : null;
-  }
-  const rubriqueItem = model.rubriques.find((heading) => heading.url === rubrique);
-  if (!rubriqueItem) {
-    return false;
-  }
-  if (type === 'top') {
-    return rubriqueItem.display_top && rubriqueItem.display_top.Display;
-  }
-  return rubriqueItem.display_bottom && rubriqueItem.display_bottom.Display;
-}
-const processToRubrique = (model = []) => {
+function processToHomeArticle(article = {}) {
   return {
-    url: model.url,
-    name: model.rubrique,
-    id: model.id,
-    order: model.order
+    id: article.id,
+    title: article.attributes.title || '',
+    author: article.attributes.author || '',
+    publishDate: new Date(article.attributes.published_at).toLocaleDateString('fr-FR'),
+    image: article.attributes.image || 'Image inconnue',
+    ImageArticleMobile: article.attributes.ImageArticleMobile || 'Image inconnue',
+    link:
+      article.attributes.rubriques?.data && article.attributes.rubriques?.data?.length > 0
+        ? `/${article.attributes.rubriques.data?.[0]?.url}/${article.attributes.url}`
+        : ''
   };
-};
+}
 
-const processToHome = (model = {}, rubrique, page) => {
-  if (!model || !model.articles) return {};
-  const aLaUne = page ? {} : model.articles[0];
-  // model.articles.find((it) => {
-  //   return model.home && model.home.ArticleUne
-  //     ? model.home.ArticleUne.id === it.id &&
-  //         (it.rubriques.some((r) => r.url === rubrique) || !rubrique)
-  //     : null;
-  // }) || model.articles[0];
+function getMarquee(model, rubrique, type = 'top') {
+  const selectedMarquee = type === 'top' ? 'marqueeTop' : 'marquee';
+  if (!rubrique) return model?.home?.data?.attributes?.[selectedMarquee] || null;
+
+  const marquee = model.rubriques.data.find((heading) => heading.attributes.url === rubrique);
+  if (!marquee) return null;
+  return type === 'top' ? marquee?.marquee_top || null : marquee?.marquee_bottom || null;
+}
+
+function getDisplay(model, rubrique, type = 'top') {
+  const selectedDisplay = type === 'top' ? 'displayTop' : 'displayBottom';
+  if (!rubrique) return model?.home?.data?.attributes?.[selectedDisplay] || null;
+
+  const rubriqueItem = model.rubriques.data.find((heading) => heading.attributes.url === rubrique);
+
+  if (!rubriqueItem) return null;
+  return type === 'top' ? rubriqueItem?.display_top || null : rubriqueItem?.display_bottom || null;
+}
+
+function processToRubrique(rubrique) {
+  return {
+    id: rubrique.id,
+    url: rubrique.attributes.url,
+    name: rubrique.attributes.rubrique,
+    order: rubrique.attributes.order
+  };
+}
+
+export default function processToHome(model = {}, rubrique, page) {
+  if (!model || !model?.articles) return {};
+
+  const { shortDescription, title } = model.home.data.attributes;
+  const aLaUne = page ? {} : model.articles.data?.[0];
 
   return {
     header: {
-      title: model.home.title || '',
-      description: model.home.shortDescription || '',
-      rubriques: model.rubriques.map(processToRubrique).sort((a, b) => a.order - b.order) || []
+      title: title || '',
+      description: shortDescription || '',
+      rubriques: model.rubriques.data.map(processToRubrique).sort((a, b) => a.order - b.order) || []
     },
-    currentRubrique: model.rubriques.find(r => r.url === rubrique) || {},
-    numberArticles: model.articleCount - 1,
+    currentRubrique: rubrique
+      ? model.rubriques.data.find((r) => r.attributes.url === rubrique) || {}
+      : {},
+    numberArticles: model.articles.meta.pagination.total,
     firstArticle: processToHomeArticle(aLaUne) || {},
-    articles: model.articles.filter((it) => it.id !== aLaUne.id).map(processToHomeArticle),
-    marquee: getMarquee(model, rubrique, 'bottom') || [],
-    marqueeTop: getMarquee(model, rubrique, 'top') || [],
+    articles: model.articles.data.filter((it) => it.id !== aLaUne.id).map(processToHomeArticle),
+    marquee: getMarquee(model, rubrique, 'bottom'),
+    marqueeTop: getMarquee(model, rubrique, 'top'),
     displayFirst: getDisplay(model, rubrique, 'top'),
     displaySecond: getDisplay(model, rubrique, 'bottom')
   };
-};
-
-export default processToHome;
+}

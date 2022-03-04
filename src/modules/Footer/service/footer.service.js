@@ -8,10 +8,10 @@ const { serverRuntimeConfig } = getConfig();
 const getFooter = async () => {
   try {
     const res = await timeout(constant.footer.timeout, fetch(
-      `${serverRuntimeConfig.API_URL}/footers/1`
+      `${serverRuntimeConfig.API_URL}/api/footers/1?populate=*`
     ));
     if (res.status === 200) {
-      const data = await res.json();
+      const { data } = await res.json();
       return footer(data);
     }else{
       return {}
