@@ -2,7 +2,7 @@
 
 export const StyleFooter = () => {
   return (
-    <style>
+    <style jsx global>
       {`
         #MainFooter {
           margin-top: 32px;

@@ -1,14 +1,14 @@
 function processToHomeArticle(article = {}) {
   return {
-    id: article.id,
-    title: article.attributes.title || '',
-    author: article.attributes.author || '',
-    publishDate: new Date(article.attributes.published_at).toLocaleDateString('fr-FR'),
-    image: article.attributes.image || 'Image inconnue',
-    ImageArticleMobile: article.attributes.ImageArticleMobile || 'Image inconnue',
+    id: article.id || '',
+    title: article.attributes?.title || '',
+    author: article.attributes?.author || '',
+    publishDate: new Date(article.attributes?.published_at).toLocaleDateString('fr-FR') || null,
+    image: article.attributes?.image || 'Image inconnue',
+    ImageArticleMobile: article.attributes?.ImageArticleMobile || 'Image inconnue',
     link:
-      article.attributes.rubriques?.data && article.attributes.rubriques?.data?.length > 0
-        ? `/${article.attributes.rubriques.data?.[0]?.attributes?.url}/${article.attributes.url}`
+      article.attributes?.rubriques?.data && article.attributes.rubriques?.data?.length > 0
+        ? `/${article.attributes?.rubriques?.data?.[0]?.attributes?.url}/${article.attributes.url}`
         : ''
   };
 }

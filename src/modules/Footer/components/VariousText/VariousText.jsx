@@ -9,7 +9,7 @@ const VariousText = ({ data }) => {
         <div className="title-level3">
           <span>{parse(data.title)}</span>
         </div>
-        <p>{parse(data.text)}</p>
+        <div>{parse(data.text)}</div>
       </div>}
     </>
   );

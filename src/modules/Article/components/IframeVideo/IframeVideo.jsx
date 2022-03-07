@@ -7,7 +7,7 @@ const IframeVideo = ({ image, iframe_url, iframe_page }) => {
   const [play, setPlay] = useState(false);
   const handlePlay = useCallback(() => {
     const cookieConsentList = getCookieConsentList();
-    cookieConsentList.includes('Socials') ? setPlay(true) : window.open(iframe_page || iframe_url);
+    cookieConsentList?.includes('Socials') ? setPlay(true) : window.open(iframe_page || iframe_url);
   });
   return (
     <div className={styles.video}>

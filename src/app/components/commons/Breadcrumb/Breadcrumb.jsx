@@ -85,7 +85,7 @@ function getLabel(urlKey, article, rubriques, router) {
   }
   if (rubriques) {
     if (urlKey === 'rubriqueName') {
-      return rubriques.header.rubriques.find((r) => router.query[urlKey] === r.url).name;
+      return rubriques.header.rubriques.find((r) => router.query[urlKey] === r.url)?.name;
     }
   }
   return router.query[urlKey].replace(/-/g, ' ');
