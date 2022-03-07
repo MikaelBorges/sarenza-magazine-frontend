@@ -1,19 +1,19 @@
 export function ArticleModel(model = {}) {
   return {
-    text: model.text || '',
-    title: model.title || '',
+    text: model.attributes.text || '',
+    title: model.attributes.title || '',
     image: {
-      small: model.ImageArticleMobile || '',
-      medium: (model && model.ImageArticleMobile) || '',
-      large: model.image || ''
+      small: model.attributes.ImageArticleMobile || '',
+      medium: model.attributes.ImageArticleMobile || '',
+      large: model.attributes.image || ''
     },
-    modules: model.module || [],
-    updatedDate: new Date(model.updated_at).toLocaleDateString('fr-FR'),
-    publishDate: new Date(model.published_at).toLocaleDateString('fr-FR'),
-    author: model.author || '',
-    subtitle: model.subtitle || '',
-    rubrique: model.rubriques[0],
-    link: (model.rubriques && `/${model.rubriques[0].url}/${model.url}`) || '',
+    modules: model.attributes?.module || [],
+    updatedDate: new Date(model.attributes.updatedAt).toLocaleDateString('fr-FR'),
+    publishDate: new Date(model.attributes.publishedAt).toLocaleDateString('fr-FR'),
+    author: model.attributes.author || '',
+    subtitle: model.attributes.subtitle || '',
+    rubrique: model?.attributes?.rubriques?.data?.[0] || null,
+    link: model.attributes?.rubriques?.data ? `/${model?.attributes?.rubriques?.data?.[0]?.attributes?.url}/${model.attributes.url}` : '',
   };
 }
 

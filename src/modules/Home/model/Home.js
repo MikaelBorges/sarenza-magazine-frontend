@@ -8,7 +8,7 @@ function processToHomeArticle(article = {}) {
     ImageArticleMobile: article.attributes.ImageArticleMobile || 'Image inconnue',
     link:
       article.attributes.rubriques?.data && article.attributes.rubriques?.data?.length > 0
-        ? `/${article.attributes.rubriques.data?.[0]?.url}/${article.attributes.url}`
+        ? `/${article.attributes.rubriques.data?.[0]?.attributes?.url}/${article.attributes.url}`
         : ''
   };
 }

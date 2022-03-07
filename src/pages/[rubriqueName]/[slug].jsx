@@ -2,15 +2,17 @@ import Articles from 'modules/Article/Article';
 import ArticlesMobile from 'modules/Article/Article.mobile';
 import { ArticleModel, ArticlesModel } from 'modules/Article/model/Article';
 import Layout from 'modules/Layout/Layout';
-import getConfig from 'next/config';
-import React from 'react';
 import { getPageProps } from 'utils/getPageProps';
-import constant from '../../infrastructure/constant';
-import { timeout } from '../../utils/httpUtils';
+import constant from 'infrastructure/constant';
 import ContextHelper from 'utils/ContextHelper';
-import wrapper from '../../app/store';
+import wrapper from 'app/store';
+import { ARTICLES_QUERY_V4, ARTICLES_RECENT_QUERY_V4 } from 'apollo/queries/articles/articlesV4';
+import { getApolloClient } from 'utils/apollo';
+import qs from 'qs';
+import { timeout } from 'utils/httpUtils';
+import getConfig from 'next/config';
 
-const Article = ({ article, menus, genders, footer, recentArticle, isMobile, seo }) => {
+export default function Article({ article, menus, genders, footer, recentArticle, isMobile, seo }) {
   return (
     <Layout
       menus={menus}
@@ -19,9 +21,7 @@ const Article = ({ article, menus, genders, footer, recentArticle, isMobile, seo
       isMobile={isMobile}
       metaData={{
         title: article.title,
-        description: `${seo.prefix}${
-          article.title
-        }`
+        description: `${seo.prefix}${article.title}`
       }}>
       {isMobile ? (
         <ArticlesMobile article={article} recentArticle={recentArticle} />
@@ -30,54 +30,82 @@ const Article = ({ article, menus, genders, footer, recentArticle, isMobile, seo
       )}
     </Layout>
   );
-};
+}
 
 export const getServerSideProps = wrapper.getServerSideProps(async (ctx) => {
-  const { serverRuntimeConfig } = getConfig();
-
   const { slug, rubriqueName } = ctx.query;
+
   const ct = new ContextHelper(ctx);
+  const isMobile = ct.context.device.mobile || false;
 
-  const response = await timeout(
-    constant.article.timeout,
-    fetch(`${serverRuntimeConfig.API_URL}/api/articles/?url=${slug}`)
-  ).catch((e) => {
-    console.log(`Error getting article "${slug}"`, e);
-    return { hasError: true };
-  });
+  const [article, recentArticle, { menus, genders, footer, seo }] = await Promise.all([
+    getArticleBySlug(slug),
+    getRecentArticle({ rubriqueName, slug }),
+    getPageProps()
+  ]);
 
-  if (!serverRuntimeConfig.DEBUG && response.hasError) {
-    ctx.res.statusCode = 301;
-    ctx.res.setHeader('Location', constant.redirectLocation); // Replace <link> with your url link
-    return { props: {} };
-  }
-
-  const data = await response.json();
-
-  const { menus, genders, footer, seo } = await getPageProps();
-
-  const recentArticle = await (
-    await timeout(
-      constant.article.timeout,
-      fetch(
-        `${serverRuntimeConfig.API_URL}/api/articles?_limit=4&_sort=isSeo:asc,updated_at:desc&rubriques.url=${rubriqueName}`
-      )
-    )
-  ).json();
-
-  const article = ArticleModel(data[0]);
   ctx.store.dispatch({ type: 'ARTICLE_SUCCESS', article });
+
   return {
     props: {
       article,
-      recentArticle: ArticlesModel(recentArticle.filter((item) => item.url !== slug).slice(0, 3)),
+      recentArticle,
       menus,
       genders,
       footer,
-      isMobile: ct.context.device.mobile || false,
+      isMobile,
       seo
     }
   };
 });
 
-export default Article;
+async function getArticleBySlug(slug) {
+  const { serverRuntimeConfig } = getConfig();
+  const apolloClient = getApolloClient();
+
+  const { data } = await apolloClient.execQuery(
+    { query: ARTICLES_QUERY_V4, variables: { slug } },
+    { timeout: constant.home.timeout }
+  );
+  const article = ArticleModel(data.articles.data?.[0]);
+
+  const query = qs.stringify(
+    {
+      populate: {
+        //   rubriques: { populate: '*' },
+        module: { populate: '*' }
+      },
+      filters: {
+        url: {
+          $eq: slug
+        }
+      }
+    },
+    {
+      encodeValuesOnly: true
+    }
+  );
+  const response = await timeout(
+    constant.article.timeout,
+    fetch(`${serverRuntimeConfig.API_URL}/api/articles?${query}`)
+  ).catch((e) => {
+    console.log(`Error getting article "${slug}"`, e);
+    return { hasError: true };
+  });
+  const articlesRaw = await response.json();
+
+  article.modules = articlesRaw.data?.[0]?.attributes?.module || null;
+
+  return article;
+}
+
+async function getRecentArticle({ rubriqueName, slug }) {
+  const apolloClient = getApolloClient();
+
+  const { data: articles } = await apolloClient.execQuery(
+    { query: ARTICLES_RECENT_QUERY_V4, variables: { rubriqueName, slug } },
+    { timeout: constant.home.timeout }
+  );
+  const recentArticle = ArticlesModel(articles.articles.data);
+  return recentArticle;
+}
