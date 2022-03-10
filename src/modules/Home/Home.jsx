@@ -9,7 +9,6 @@ import MainComponent from './components/Articles/MainComponent/MainComponent';
 import Header from './components/Header/Header';
 import { useRouter } from 'next/router';
 
-
 const Home = ({ data, isRubrique }) => {
   const { query } = useRouter();
   const onlyFirstPage = !query.page;
@@ -27,7 +26,11 @@ const Home = ({ data, isRubrique }) => {
         />
       )}
       {data.articles && data.articles.slice(0, 5).length > 0 && (
-        <Articles articles={data.articles.slice(0, 5)} position={1} firstArticle={data.firstArticle}/>
+        <Articles
+          articles={data.articles.slice(0, 5)}
+          position={1}
+          firstArticle={data.firstArticle}
+        />
       )}
       {data.displayFirst && onlyFirstPage && (
         <Display
@@ -42,18 +45,16 @@ const Home = ({ data, isRubrique }) => {
       {data.articles && data.articles.slice(5, 12).length > 0 && (
         <Articles articles={data.articles.slice(5, 12)} position={2} />
       )}
-      {data.displaySecond &&
-        onlyFirstPage &&
-        data.displaySecond.text && (
-          <Display
-            text={data.displaySecond.text}
-            button={{
-              label: data.displaySecond.button?.label,
-              url: data.displaySecond.button?.link
-            }}
-            whiteTheme={data.displaySecond.whiteTheme}
-          />
-        )}
+      {data.displaySecond && onlyFirstPage && data.displaySecond.text && (
+        <Display
+          text={data.displaySecond.text}
+          button={{
+            label: data.displaySecond.button?.label,
+            url: data.displaySecond.button?.link
+          }}
+          whiteTheme={data.displaySecond.whiteTheme}
+        />
+      )}
       {data.marquee && onlyFirstPage ? (
         <Marquee
           marquee={{

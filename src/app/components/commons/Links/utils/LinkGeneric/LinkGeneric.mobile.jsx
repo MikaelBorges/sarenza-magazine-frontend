@@ -93,8 +93,8 @@ const LinkGeneric = ({
           onClick={onClick}
           disabled={disabled}
           pagination={pagination}
-            first={first}
-            last={last}
+          first={first}
+          last={last}
           className={cssClasses}
           data-testid={dataTestid}>
           {iconName ? (
@@ -117,12 +117,9 @@ LinkGeneric.propTypes = {
   disabled:
     PropTypes.bool /* if true, the item is disabled, the mouse has a forbidden pointer and
     the links do not work */,
-    pagination:
-    PropTypes.bool,
-    first:
-    PropTypes.bool,
-    last:
-    PropTypes.bool,
+  pagination: PropTypes.bool,
+  first: PropTypes.bool,
+  last: PropTypes.bool,
   onClick: PropTypes.func /* function describing the behaviour of the item when clicked on */,
   onFocus: PropTypes.func,
   onKeyDown: PropTypes.func,
@@ -184,8 +181,8 @@ LinkGeneric.defaultProps = {
   title: '',
   dataTestid: '',
   pagination: false,
-  first:false,
-   last:false
+  first: false,
+  last: false
 };
 
 export default LinkGeneric;

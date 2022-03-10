@@ -10,7 +10,7 @@
     "test": "jest",
     "lint:style": "stylelint **/*.css",
     "lint": "eslint --fix .",
-    "format": "prettier --write './**/*.{js,jsx,scss,css,md,json}' --config ./.prettierrc",
+    "format": "prettier --write {,*/**/}*.{js,jsx,ts,tsx,json,scss} --config ./.prettierrc",
     "disable:telemetry": "next telemetry disable",
     "enable:telemetry": "next telemetry enable",
     "debug": "set \"NODE_OPTIONS=--inspect\" && next dev"

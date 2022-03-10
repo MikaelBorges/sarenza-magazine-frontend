@@ -8,13 +8,9 @@ const ArticleTitle = ({ title, author, size, position, firstArticle, updateDate 
     <>
       <div className={style.resume}>
         {(size < 2 && position === 1) || (size > 2 && position === 2) || firstArticle ? (
-          <h2 className={huge }>
-            {title}
-          </h2>
+          <h2 className={huge}>{title}</h2>
         ) : (
-          <h2 className={style.medium}>
-            {title}
-          </h2>
+          <h2 className={style.medium}>{title}</h2>
         )}
       </div>
       <div className={style.author}>

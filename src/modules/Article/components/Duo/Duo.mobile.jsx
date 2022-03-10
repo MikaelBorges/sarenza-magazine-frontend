@@ -1,18 +1,14 @@
-
 import Markdown from 'markdown-to-jsx';
 import { replaceByJsx } from 'modules/Article/utils';
-import React, {useRef} from 'react';
+import React, { useRef } from 'react';
 
 import styles from './Duo.mobile.module.scss';
 import useOnScreen from 'utils/useOnScreen';
-import useGTM, {TrackEvent} from 'utils/useGTM';
+import useGTM, { TrackEvent } from 'utils/useGTM';
 
 const DuoMobile = ({ duo_image, title, duo_paragraphe, button, id }) => {
-
-
   const trackCTA = useRef();
   const isVisible = button !== null ? useOnScreen(trackCTA) : false;
-
 
   const trackGTM = (button, eventName) => {
     let obj = {
@@ -31,9 +27,7 @@ const DuoMobile = ({ duo_image, title, duo_paragraphe, button, id }) => {
       </div>
       <div className={styles.textPart}>
         <div className={styles.titleTextPart}>
-          <h2 className={styles.huge}>
-            {title}
-          </h2>
+          <h2 className={styles.huge}>{title}</h2>
         </div>
         {duo_paragraphe !== null ? (
           <div className={styles.paragraph}>
@@ -63,7 +57,11 @@ const DuoMobile = ({ duo_image, title, duo_paragraphe, button, id }) => {
       </div>
       {button !== null ? (
         <div className={styles.button}>
-          <a className="button" href={button.link} ref={trackCTA} onClick={() => {
+          <a
+            className="button"
+            href={button.link}
+            ref={trackCTA}
+            onClick={() => {
               trackGTM(button, TrackEvent.PromotionClick);
             }}>
             {button.label}

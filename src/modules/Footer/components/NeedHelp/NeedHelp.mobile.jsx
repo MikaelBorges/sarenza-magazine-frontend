@@ -4,7 +4,7 @@ import React from 'react';
 const NeedHelpMobile = ({ data }) => {
   return (
     <>
-      {data &&
+      {data && (
         <>
           <div className="title-level2">{parse(data.title)}</div>
           <p>{parse(data.text)}</p>
@@ -19,7 +19,8 @@ const NeedHelpMobile = ({ data }) => {
               </a>
             ))}
           </section>
-        </>}
+        </>
+      )}
     </>
   );
 };

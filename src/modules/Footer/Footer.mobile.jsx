@@ -13,41 +13,44 @@ import React from 'react';
 import StyleFooter from './StyleFooter/StyleFooter.mobile';
 
 const FooterMobile = ({ footer }) => {
-  return (
-    footer ? (
-      <footer id="MainFooter">
-        <ul className="advantages10reasons gtm-zone" data-track-zone="advantages10reasons">
-          {footer.reassurances && footer.reassurances.map((reassurance) => {
+  return footer ? (
+    <footer id="MainFooter">
+      <ul className="advantages10reasons gtm-zone" data-track-zone="advantages10reasons">
+        {footer.reassurances &&
+          footer.reassurances.map((reassurance) => {
             return <ReassurancesMobile data={reassurance} key={reassurance.id} />;
           })}
-        </ul>
-        <section className="help">
-          <NeedHelpMobile data={footer.needHelp} />
-        </section>
-        <NewsletterMobile data={footer.newsletter} />
-        <VariousTextMobile data={footer.variousText} />
-        <ReviewsMobile data={footer.review} />
+      </ul>
+      <section className="help">
+        <NeedHelpMobile data={footer.needHelp} />
+      </section>
+      <NewsletterMobile data={footer.newsletter} />
+      <VariousTextMobile data={footer.variousText} />
+      <ReviewsMobile data={footer.review} />
 
-        <nav className="footer-nav" role="navigation">
-          {footer.blockLinks && footer.blockLinks.map((blockLink) => {
+      <nav className="footer-nav" role="navigation">
+        {footer.blockLinks &&
+          footer.blockLinks.map((blockLink) => {
             return <BlockLinksMobile data={blockLink} key={blockLink.id} />;
           })}
 
-          <PartnerIconMobile data={footer.partnerIcons}/>
+        <PartnerIconMobile data={footer.partnerIcons} />
 
-          <CountrySelectorMobile data={footer.countrySelectors} />
-        </nav>
+        <CountrySelectorMobile data={footer.countrySelectors} />
+      </nav>
 
-        <ul className="legal-navigation">
-          {footer.footerLinks && footer.footerLinks.map((footerLink) => {
+      <ul className="legal-navigation">
+        {footer.footerLinks &&
+          footer.footerLinks.map((footerLink) => {
             return <FooterLinkMobile data={footerLink} key={footerLink.id} />;
           })}
-        </ul>
-        <SocialMediaMobile data={footer.socialMedia} />
+      </ul>
+      <SocialMediaMobile data={footer.socialMedia} />
 
-        {typeof window !== 'undefined' && <StyleFooter />}
-      </footer>
-    ): <></>
+      {typeof window !== 'undefined' && <StyleFooter />}
+    </footer>
+  ) : (
+    <></>
   );
 };
 

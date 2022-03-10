@@ -1,48 +1,48 @@
 @import '../../../../app/components/_styles/theme';
 
 .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    flex-wrap: nowrap;
-    margin: 48px 0 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: nowrap;
+  margin: 48px 0 0 0;
 }
 
 .picture {
-    flex: 0 1 auto;
-    max-width: 365px;
-    > img {
-        display: block;
-        width: 365px;
-        height: auto;
-    }
+  flex: 0 1 auto;
+  max-width: 365px;
+  > img {
+    display: block;
+    width: 365px;
+    height: auto;
+  }
 }
 
 .textContainer {
-    margin-left: 40px;
-    padding: 40px;
-    text-align: left;
-    flex: 1;
-    background-color: #F2F2F2;
+  margin-left: 40px;
+  padding: 40px;
+  text-align: left;
+  flex: 1;
+  background-color: #f2f2f2;
 
-    > h3 {
-        font-family: robotoc, $safe-fonts;
-        font-size: 16px;
-        font-weight: normal;
-        color: #737373;
-        line-height: 24px;
-        margin: 0;
-        text-transform: uppercase;
-    }
+  > h3 {
+    font-family: robotoc, $safe-fonts;
+    font-size: 16px;
+    font-weight: normal;
+    color: #737373;
+    line-height: 24px;
+    margin: 0;
+    text-transform: uppercase;
+  }
 
-    > p {
-        margin: 4px 0 16px 0;
-        font-family: robotoc, $safe-fonts;
-        font-size: 16px;
-        font-weight: bold;
-        color: #1D1D1B;
-        line-height: 24px;
-    }
+  > p {
+    margin: 4px 0 16px 0;
+    font-family: robotoc, $safe-fonts;
+    font-size: 16px;
+    font-weight: bold;
+    color: #1d1d1b;
+    line-height: 24px;
+  }
 }
 
 @import 'IdentityFiche.module.wide.scss';

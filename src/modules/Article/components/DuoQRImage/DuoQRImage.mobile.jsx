@@ -6,12 +6,8 @@ import PropTypes from 'prop-types';
 const DuoQRImageMobile = ({ Title, Text, Image }) => {
   return (
     <div className={styles.duoQR}>
-      {Title && (
-        <h2 className={`title-edito2 ${styles.mainTitle}`}>{Title}</h2>
-      )}
-      {Image && (
-        <img className={styles.image} src={Image.url} alt={Image.alt} />
-      )}
+      {Title && <h2 className={`title-edito2 ${styles.mainTitle}`}>{Title}</h2>}
+      {Image && <img className={styles.image} src={Image.url} alt={Image.alt} />}
       {Text && (
         <Markdown
           className={styles.richTextContainer}
@@ -26,7 +22,7 @@ const DuoQRImageMobile = ({ Title, Text, Image }) => {
               h6: { props: { className: `title-edito2 ${styles.secondaryTitles}` } }
             }
           }}>
-        {Text}
+          {Text}
         </Markdown>
       )}
     </div>

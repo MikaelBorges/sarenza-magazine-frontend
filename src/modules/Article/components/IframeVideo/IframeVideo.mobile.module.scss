@@ -1,19 +1,19 @@
-.video{
-    position: relative;
-    padding-bottom: 56.25%;
-    height: 0;
-    width: 100%;
-    overflow: hidden;
+.video {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  width: 100%;
+  overflow: hidden;
 }
-.iframe{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+.iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
-.play { 
+.play {
   background: #ff2157;
   color: #ffffff;
   font-size: 14px;
@@ -37,4 +37,4 @@
     border-bottom: 7px solid transparent;
     border-left: 10px solid #fff;
   }
-  }
+}

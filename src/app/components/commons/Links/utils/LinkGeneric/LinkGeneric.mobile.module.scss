@@ -67,7 +67,6 @@
   @include buttonDigit;
 }
 
-
 .disabled {
   //opacity: 0.4;
   color: $color-text-light;
@@ -76,18 +75,16 @@
   background-color: none;
   font-size: 14px;
   font-family: robotoc;
-  color: #A6A6A6;
+  color: #a6a6a6;
   letter-spacing: -0.4px;
   text-align: center;
   text-transform: uppercase;
   padding: 0 !important;
-  
-  
 }
-.pagination{
+.pagination {
   border: none;
   background-color: none;
-  font-family:robotoc;
+  font-family: robotoc;
   font-weight: bold;
   font-size: 14px;
   color: #000000;
@@ -96,11 +93,11 @@
   padding: 0 !important;
   text-transform: uppercase;
 }
-.first{
+.first {
   margin-right: 24px !important;
   margin-left: 0 !important;
 }
-.last{
+.last {
   margin-left: 24px !important;
   margin-right: 0 !important;
 }

@@ -7,9 +7,7 @@ const ArticleTitle = ({ title, author, updateDate }) => {
   return (
     <>
       <div className={style.resume}>
-        <h2 className={style.huge}>
-          {title}
-        </h2>
+        <h2 className={style.huge}>{title}</h2>
       </div>
       <div className={style.author}>
         <p className={style.small}>

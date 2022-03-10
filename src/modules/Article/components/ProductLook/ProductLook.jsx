@@ -5,8 +5,7 @@ import useGTM, { TrackEvent } from 'utils/useGTM';
 import ProductLookCard from './ProductLookCard/ProductLookCard';
 import Markdown from 'markdown-to-jsx';
 
-
-const ProductLook = ({Image, Title, Text, Vignettes, CTA}) => {
+const ProductLook = ({ Image, Title, Text, Vignettes, CTA }) => {
   const trackCTA = useRef();
   const isVisible = CTA ? useOnScreen(trackCTA) : false;
   const trackGTM = (CTA, eventName) => {
@@ -28,8 +27,8 @@ const ProductLook = ({Image, Title, Text, Vignettes, CTA}) => {
         <h2 className={styles.title}>{Title}</h2>
         <Markdown options={{ forceInline: false }}>{Text}</Markdown>
         {Vignettes.map((vignette) => {
-            return <ProductLookCard {...vignette} key={`${vignette.pcid}`} />;
-          })}
+          return <ProductLookCard {...vignette} key={`${vignette.pcid}`} />;
+        })}
         {CTA && (
           <a
             href={CTA.link}

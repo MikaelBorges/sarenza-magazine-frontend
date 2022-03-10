@@ -1,15 +1,14 @@
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
-import React, {useRef} from 'react';
+import React, { useRef } from 'react';
 
 import ArticleTitle from '../ArticleTitle/ArticleTitle';
 import styles from './ArticleItem.module.scss';
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/router';
 import useOnScreen from 'utils/useOnScreen';
-import useGTM, {TrackEvent} from 'utils/useGTM';
+import useGTM, { TrackEvent } from 'utils/useGTM';
 
 const ArticleItem = ({ article, size, position }) => {
-
   const rubriqueName = useRouter().query.rubriqueName;
 
   const trackArticle = useRef();
@@ -24,12 +23,12 @@ const ArticleItem = ({ article, size, position }) => {
       strapId: `${article.title}-${article.image}-${eventName}`
     };
     useGTM(obj, eventName);
-
   };
 
-  {isVisible ? trackGTM(article, TrackEvent.PromotionPrint) : null}
+  {
+    isVisible ? trackGTM(article, TrackEvent.PromotionPrint) : null;
+  }
 
-  
   return (
     <>
       <div
@@ -38,14 +37,12 @@ const ArticleItem = ({ article, size, position }) => {
             (size < 2 && position === 1) || (size > 2 && position === 2),
           [styles.containerImgContentThree]:
             (size >= 2 && position === 1) || (size <= 2 && position === 2)
-        })} ref={trackArticle} onClick={() => {
+        })}
+        ref={trackArticle}
+        onClick={() => {
           trackGTM(article, TrackEvent.PromotionClick);
         }}>
-        <img
-          src={article.ImageArticleMobile}
-          alt={"image"}
-          className={styles.images}
-        />
+        <img src={article.ImageArticleMobile} alt={'image'} className={styles.images} />
       </div>
       <ArticleTitle
         title={article.title}

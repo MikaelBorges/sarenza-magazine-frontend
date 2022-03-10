@@ -1,36 +1,36 @@
 .url {
-    outline: none;
-  }
-  .url:not(:last-child){
-    margin-right: 17px;
-  }
-  .vignette {
-    display: inline-block;
-    min-width: 60vw;
-  }
-  .containerTxt {
-    text-align: left;
-    margin-left: 5px;
-  }
-  .statuLabel {
-    color: #ff2157;
-    font-size: 12px;
-    font-family: 'RobotoC';
-    font-weight: bold;
-    margin: 7px 0 4px 0;
-    display: block;
-  }
-  .brand {
-    display: block;
-    font-size: 14px;
-    font-family: 'RobotoC';
-    font-weight: bold;
-    color: #1d1d1b;
-  }
-  .model {
-    display: block;
-    color: #999999;
-    font-family: 'RobotoC';
-    font-size: 12px;
-    margin-top: 8px;
-  }
+  outline: none;
+}
+.url:not(:last-child) {
+  margin-right: 17px;
+}
+.vignette {
+  display: inline-block;
+  min-width: 60vw;
+}
+.containerTxt {
+  text-align: left;
+  margin-left: 5px;
+}
+.statuLabel {
+  color: #ff2157;
+  font-size: 12px;
+  font-family: 'RobotoC';
+  font-weight: bold;
+  margin: 7px 0 4px 0;
+  display: block;
+}
+.brand {
+  display: block;
+  font-size: 14px;
+  font-family: 'RobotoC';
+  font-weight: bold;
+  color: #1d1d1b;
+}
+.model {
+  display: block;
+  color: #999999;
+  font-family: 'RobotoC';
+  font-size: 12px;
+  margin-top: 8px;
+}

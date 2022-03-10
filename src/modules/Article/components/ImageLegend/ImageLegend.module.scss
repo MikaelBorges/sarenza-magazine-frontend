@@ -3,14 +3,13 @@
   margin: 32px auto;
   max-width: 1008px;
 
-  .blockText{
-      
+  .blockText {
   }
-  .h5{
-      color: #FF2147;
-      font-size: 14px;
-      font-weight: bold;
-      font-family: futur, Arial Narrow, sans-serif;
+  .h5 {
+    color: #ff2147;
+    font-size: 14px;
+    font-weight: bold;
+    font-family: futur, Arial Narrow, sans-serif;
   }
   .h2 {
     color: #1d1d1b;
@@ -46,26 +45,26 @@
 
     .lastImage {
       max-width: 408px;
-      @media screen and (min-width:975px){
-        max-width: 618px
+      @media screen and (min-width: 975px) {
+        max-width: 618px;
       }
     }
 
-    .lastBlockText{
+    .lastBlockText {
       max-width: 350px;
       align-self: center;
     }
   }
 
-  .button{
+  .button {
     font-family: futur, Arial Narrow, sans-serif;
     font-size: 12px;
     text-decoration: underline;
     text-transform: uppercase;
-    color: #1D1D1B;
+    color: #1d1d1b;
     position: relative;
-    &:after{
-      content: "\e372";
+    &:after {
+      content: '\e372';
       font-family: pictenza;
       position: absolute;
       right: -11px;

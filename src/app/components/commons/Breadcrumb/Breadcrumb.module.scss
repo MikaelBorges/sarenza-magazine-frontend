@@ -8,13 +8,13 @@
     text-transform: inherit;
   }
   &:after {
-    content: "/";
+    content: '/';
     margin: 0 5px;
   }
 
   &:nth-last-child(1) {
     &:after {
-      content: " ";
+      content: ' ';
     }
   }
 }
@@ -25,7 +25,7 @@
 .active {
   pointer-events: none;
 }
-.h1{
+.h1 {
   font-size: 12px;
   font-family: robotoc;
   text-transform: inherit;

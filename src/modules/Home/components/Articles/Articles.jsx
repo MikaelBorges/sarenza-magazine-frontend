@@ -7,12 +7,9 @@ import styles from './Articles.module.scss';
 import { LinkComponent } from '@/components/commons/Links';
 
 const Articles = ({ articles, position }) => {
- 
   return (
     <div className={styles.container}>
-
       {articles.map((article, index) => {
- 
         return (
           <LinkComponent
             link={article.link}
@@ -20,13 +17,13 @@ const Articles = ({ articles, position }) => {
             extraClasses={classnames({
               [styles.content]: (index < 2 && position === 1) || (index > 2 && position === 2),
               [styles.contentThree]:
-              (index >= 2 && position === 1) || (index <= 2 && position === 2)
-            })}  >
+                (index >= 2 && position === 1) || (index <= 2 && position === 2)
+            })}>
             <ArticleItem article={article} size={index} position={position} />
           </LinkComponent>
         );
       })}
-      </div>
+    </div>
   );
 };
 

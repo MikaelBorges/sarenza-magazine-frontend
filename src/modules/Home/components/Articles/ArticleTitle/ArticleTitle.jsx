@@ -12,14 +12,10 @@ const ArticleTitle = ({ title, author, publishDate, size, position, firstArticle
           firstArticle ? (
             <h2 className={style.first}>{title}</h2>
           ) : (
-            <h2 className={style.huge}>
-              {title}
-            </h2>
+            <h2 className={style.huge}>{title}</h2>
           )
         ) : (
-          <h2 className={style.medium}>
-            {title}
-          </h2>
+          <h2 className={style.medium}>{title}</h2>
         )}
       </div>
       <div className={style.author}>

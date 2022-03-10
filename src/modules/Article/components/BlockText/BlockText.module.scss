@@ -2,7 +2,6 @@
 
 .blockText {
   //padding: 24px;
-  
 }
 
 .textPart {
@@ -23,7 +22,7 @@
   text-align: left;
   font-family: robotoc, $safe-fonts;
 }
-.title{
+.title {
   line-height: 28px;
   font-size: 24px;
   margin: 0;
@@ -47,7 +46,6 @@
   display: flex;
   justify-content: center;
   align-self: center;
-
 }
 
 .textPartIsAfter {
@@ -55,15 +53,15 @@
   margin: 0 0 0 24px;
 }
 
-.huge{
+.huge {
   font-size: 24px;
   line-height: 28px;
   color: #1d1d1b;
 }
 .big {
   font-size: 16px;
-    line-height: 25px;
-    color: #999999;
+  line-height: 25px;
+  color: #999999;
 }
 .verbatimBlockText {
   &:before {

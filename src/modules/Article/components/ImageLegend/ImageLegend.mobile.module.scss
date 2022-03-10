@@ -1,84 +1,83 @@
 .ImageLegend {
-    text-align: left;
-    margin: 32px auto;
-    max-width: 1008px;
-  
-    .blockText{
-        margin: 0 24px 24px;
-        order: 2;
-        .h5{
-            color: #FF2147;
-            font-size: 14px;
-        }
-        .h2 {
-          color: #1d1d1b;
-          margin-left: 0;
-        }
-        .p {
-          color: #737373;
-        }
+  text-align: left;
+  margin: 32px auto;
+  max-width: 1008px;
+
+  .blockText {
+    margin: 0 24px 24px;
+    order: 2;
+    .h5 {
+      color: #ff2147;
+      font-size: 14px;
     }
     .h2 {
       color: #1d1d1b;
-      margin: 0 24px 24px;
+      margin-left: 0;
     }
     .p {
       color: #737373;
-      margin: 0 24px 32px;
     }
-    .containerFlex {
-      margin-bottom: 32px;
-    }
-    .box {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      margin-top: 32px;
-  
-      .optionalImage {
-        order: 1;
-      }
-    }
-    .lastBlock {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
+  }
+  .h2 {
+    color: #1d1d1b;
+    margin: 0 24px 24px;
+  }
+  .p {
+    color: #737373;
+    margin: 0 24px 32px;
+  }
+  .containerFlex {
+    margin-bottom: 32px;
+  }
+  .box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 32px;
 
-      .lastImage {
-          order: 1;
-      }
-      .lastBlockText{
-        margin: 0 24px;
-        order: 2;
-        .h5{
-            color: #FF2147;
-            font-size: 14px;
-        }
-        .h2 {
-          color: #1d1d1b;
-          margin-left: 0;
-        }
-        .p {
-          color: #737373;
-        }
-      }
+    .optionalImage {
+      order: 1;
     }
-  
-    .button{
-      font-family: "Roboto";
-      font-weight: bold;
-      font-size: 12px;
-      text-decoration: underline;
-      position: relative;
-      &:after{
-        content: "\e372";
-        font-family: pictenza;
-        position: absolute;
-        right: -11px;
-        top: 0;
-        font-size: 1em;
-        color: black;
+  }
+  .lastBlock {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .lastImage {
+      order: 1;
+    }
+    .lastBlockText {
+      margin: 0 24px;
+      order: 2;
+      .h5 {
+        color: #ff2147;
+        font-size: 14px;
+      }
+      .h2 {
+        color: #1d1d1b;
+        margin-left: 0;
+      }
+      .p {
+        color: #737373;
       }
     }
   }
-  
+
+  .button {
+    font-family: 'Roboto';
+    font-weight: bold;
+    font-size: 12px;
+    text-decoration: underline;
+    position: relative;
+    &:after {
+      content: '\e372';
+      font-family: pictenza;
+      position: absolute;
+      right: -11px;
+      top: 0;
+      font-size: 1em;
+      color: black;
+    }
+  }
+}

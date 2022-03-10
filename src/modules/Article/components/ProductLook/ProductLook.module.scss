@@ -1,26 +1,26 @@
-.productLook:nth-of-type(odd){
-    .poster{
-        order: 1;
-        margin-right: 25px;
-        @media screen and (min-width: 975px){
-            margin-right: 32px;
-        }
+.productLook:nth-of-type(odd) {
+  .poster {
+    order: 1;
+    margin-right: 25px;
+    @media screen and (min-width: 975px) {
+      margin-right: 32px;
     }
-    .blockScrollable{
-        order:2;
-    }
+  }
+  .blockScrollable {
+    order: 2;
+  }
 }
-.productLook:nth-of-type(even){
-    .poster{
-        order: 2;
+.productLook:nth-of-type(even) {
+  .poster {
+    order: 2;
+  }
+  .blockScrollable {
+    order: 1;
+    margin-right: 25px;
+    @media screen and (min-width: 975px) {
+      margin-right: 32px;
     }
-    .blockScrollable{
-        order:1;
-        margin-right: 25px;
-        @media screen and (min-width: 975px){
-            margin-right: 32px;
-        }
-    }
+  }
 }
 .productLook {
   max-width: 1008px;
@@ -39,8 +39,8 @@
     position: -webkit-sticky; /* Safari */
     top: 20px;
     text-align: left;
-    @media screen and (min-width: 975px){
-        max-width: 634px;
+    @media screen and (min-width: 975px) {
+      max-width: 634px;
     }
   }
   .blockScrollable {
@@ -48,11 +48,11 @@
     align-items: flex-start;
     position: relative;
     display: flex;
-    flex-flow: row wrap; 
+    flex-flow: row wrap;
     text-align: left;
-    @media screen and (min-width: 975px){
-        max-width: 360px;
-    }  
+    @media screen and (min-width: 975px) {
+      max-width: 360px;
+    }
   }
   .title {
     font-size: 24px;
@@ -91,20 +91,19 @@
     transform: translateX(-50%);
     left: 50%;
 
-      
     &:after {
-        position: absolute;
-        right: 32px;
-        top: 14px;
-        margin-top: 0;
-        margin-left: 1.5em;
-        content: '\e372';
-        font-family: pictenza;
-        font-size: 1em;
-        font-style: normal;
-        speak: none;
-        font-weight: 700;
-        -webkit-font-smoothing: antialiased;
-      }
+      position: absolute;
+      right: 32px;
+      top: 14px;
+      margin-top: 0;
+      margin-left: 1.5em;
+      content: '\e372';
+      font-family: pictenza;
+      font-size: 1em;
+      font-style: normal;
+      speak: none;
+      font-weight: 700;
+      -webkit-font-smoothing: antialiased;
+    }
   }
 }

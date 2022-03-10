@@ -21,7 +21,9 @@ const IframeVideo = ({ image, iframe_url, iframe_page }) => {
       ) : (
         <>
           <Image src={image.url} alt={image.alt} onClick={handlePlay} />
-          <a className={styles.play} onClick={handlePlay}><span></span></a>
+          <a className={styles.play} onClick={handlePlay}>
+            <span></span>
+          </a>
         </>
       )}
     </div>

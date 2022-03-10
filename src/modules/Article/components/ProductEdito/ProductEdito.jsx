@@ -50,16 +50,20 @@ const ProductEdito = ({ Title, Text, Vignette, CTA }) => {
           </>
         ) : null}
         {CTA && (
-          <a href={CTA.link} className={styles.link} ref={trackCTA} onClick={() => {
-            trackGTM(CTA, TrackEvent.PromotionClick);
-          }}>
+          <a
+            href={CTA.link}
+            className={styles.link}
+            ref={trackCTA}
+            onClick={() => {
+              trackGTM(CTA, TrackEvent.PromotionClick);
+            }}>
             {CTA.label}
           </a>
         )}
       </div>
       <div className={styles.wrapperVignettes}>
         {Vignette.map((item) => {
-          return <ProductEditoCard {...item} key={item.pcid} />
+          return <ProductEditoCard {...item} key={item.pcid} />;
         })}
       </div>
     </section>

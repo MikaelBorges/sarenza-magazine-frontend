@@ -91,9 +91,8 @@ const Menu = ({ menus, genders }) => {
                       onKeyPress={() => {}}
                       tabIndex={-2}>
                       <a
-                          href={`/chaussure-${gender.gender.toLowerCase()}`}
-                          onClick={() => {
-                        }}
+                        href={`/chaussure-${gender.gender.toLowerCase()}`}
+                        onClick={() => {}}
                         onKeyPress={() => {}}
                         tabIndex={-3}>
                         {gender.gender}

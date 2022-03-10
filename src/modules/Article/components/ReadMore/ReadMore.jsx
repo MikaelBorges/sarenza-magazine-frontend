@@ -5,7 +5,7 @@ import ArticleItem from './ArticleItem/ArticleItem';
 import styles from './ReadMore.module.scss';
 import { useRouter } from 'next/router';
 import useOnScreen from 'utils/useOnScreen';
-import useGTM, {TrackEvent} from 'utils/useGTM';
+import useGTM, { TrackEvent } from 'utils/useGTM';
 
 const Articles = ({ articles, position }) => {
   const trackReadMore = useRef();
@@ -23,7 +23,6 @@ const Articles = ({ articles, position }) => {
     useGTM(obj, eventName);
   };
 
-
   return (
     <>
       <div className={styles.title}>À LIRE AUSSI</div>
@@ -34,9 +33,9 @@ const Articles = ({ articles, position }) => {
             className={styles.content}
             ref={trackReadMore}
             onClick={() => {
-              trackGTM(article, TrackEvent.PromotionClick );
+              trackGTM(article, TrackEvent.PromotionClick);
             }}>
-            {isVisible ? trackGTM(article, TrackEvent.PromotionPrint ) : null}
+            {isVisible ? trackGTM(article, TrackEvent.PromotionPrint) : null}
             <ArticleItem article={article} size={index} position={position} />
           </div>
         ))}

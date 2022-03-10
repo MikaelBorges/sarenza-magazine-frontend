@@ -4,20 +4,17 @@ import SubMenu from './subMenu';
 import useGTM from 'utils/useGTM';
 
 const Menu = ({ menus, genders }) => {
-
   const trackMenu = useRef();
-
 
   const trackGTM = (eventAction, eventLabel, eventName) => {
     let obj = {
       event: eventName,
-      eventCategory: "Click",
-      eventAction : eventAction,
-       eventLabel : eventLabel
+      eventCategory: 'Click',
+      eventAction: eventAction,
+      eventLabel: eventLabel
     };
     useGTM(obj, eventName);
   };
-
 
   const [openMenu, setOpenMenu] = useState(false);
 
@@ -38,7 +35,6 @@ const Menu = ({ menus, genders }) => {
     }
   }, [isHover]);
 
-
   if (!menus || menus.length <= 0) {
     return 'Loading...';
   }
@@ -54,8 +50,9 @@ const Menu = ({ menus, genders }) => {
             tabIndex={0}
             onClick={() => {
               setOpenMenu((show) => !show);
-              trackGTM("Menu", 'Open Menu', 'click')
-            }} ref={trackMenu}>
+              trackGTM('Menu', 'Open Menu', 'click');
+            }}
+            ref={trackMenu}>
             Menu
           </div>
           <div id="MainNavOverlay" style={{ display: 'none', opacity: 1 }} />
@@ -78,8 +75,9 @@ const Menu = ({ menus, genders }) => {
               onKeyPress={() => {}}
               onClick={() => {
                 setOpenMenu((show) => !show);
-                trackGTM("Menu","Close Menu", "click");
-              }} ref={trackMenu}>
+                trackGTM('Menu', 'Close Menu', 'click');
+              }}
+              ref={trackMenu}>
               Fermer
             </span>
             <div className="inner-scroll">
@@ -102,10 +100,10 @@ const Menu = ({ menus, genders }) => {
                         key={gender.id}>
                         <a
                           href={`/chaussure-${gender.gender.toLowerCase()}`}
-                          onClick={
-                            ()=>{ 
-                              trackGTM("Menu", `/chaussure-${gender.gender.toLowerCase()}`, "click");
-                          }} ref={trackMenu}>
+                          onClick={() => {
+                            trackGTM('Menu', `/chaussure-${gender.gender.toLowerCase()}`, 'click');
+                          }}
+                          ref={trackMenu}>
                           {gender.gender}
                         </a>
                       </li>
@@ -133,10 +131,11 @@ const Menu = ({ menus, genders }) => {
                         data-promo
                         data-ea
                         href={menu.url}
-                        style={{ color: menu.colorText || 'inherit' }} ref={trackMenu}  onClick={
-                            ()=>{
-                              trackGTM("Menu", `${menu.url}`, "click");
-                          }}>
+                        style={{ color: menu.colorText || 'inherit' }}
+                        ref={trackMenu}
+                        onClick={() => {
+                          trackGTM('Menu', `${menu.url}`, 'click');
+                        }}>
                         {menu.header.name}
                       </a>
                       {menu.items.length > 0 && (
@@ -167,12 +166,15 @@ const Menu = ({ menus, genders }) => {
                 // setSearch(e.target.value)
               }}
             />
-            <button className="pictenza pictenza-search" type="submit" onClick={
-              (e) => {
+            <button
+              className="pictenza pictenza-search"
+              type="submit"
+              onClick={(e) => {
                 // e.preventDefault()
                 // trackSearch()
-              }
-            } ref={trackMenu}/>
+              }}
+              ref={trackMenu}
+            />
           </form>
           <ul className="user-nav">
             <li data-partner>
@@ -183,8 +185,10 @@ const Menu = ({ menus, genders }) => {
                 data-ea
                 href="/faq"
                 target="_blank"
-                rel="noopener nofollow" ref={trackMenu} onClick={() => {
-                  trackGTM("Menu", 'FAQ', "click")
+                rel="noopener nofollow"
+                ref={trackMenu}
+                onClick={() => {
+                  trackGTM('Menu', 'FAQ', 'click');
                 }}>
                 <span>FAQ</span>
               </a>
@@ -192,55 +196,72 @@ const Menu = ({ menus, genders }) => {
             </li>
             {/* Account */}
             <li className="account">
-              <a href="/user/view" className="pictenza pictenza-account" ref={trackMenu} onClick={() => {
-                  trackGTM("Menu",'Compte', "click")
+              <a
+                href="/user/view"
+                className="pictenza pictenza-account"
+                ref={trackMenu}
+                onClick={() => {
+                  trackGTM('Menu', 'Compte', 'click');
                 }}>
                 <span data-rsx="Connecté">Compte</span>
               </a>
               {/* User layer */}
               <ul className="account-layer">
                 <li className="sign-in">
-                  <a className="east" href="/auth/sign-in/view" ref={trackMenu} onClick={() => {
-                  trackGTM("Menu",'Se connecter', "click")
-                }}>
+                  <a
+                    className="east"
+                    href="/auth/sign-in/view"
+                    ref={trackMenu}
+                    onClick={() => {
+                      trackGTM('Menu', 'Se connecter', 'click');
+                    }}>
                     Se connecter
                   </a>
                 </li>
                 <li>
-                  <a href="/user/view?zone=orders" ref={trackMenu} onClick={() => {
-                }}>Voir mes commandes</a>
+                  <a href="/user/view?zone=orders" ref={trackMenu} onClick={() => {}}>
+                    Voir mes commandes
+                  </a>
                 </li>
                 <li>
-                  <a href="/user/view?zone=orders" ref={trackMenu} onClick={() => {
-                }}>Faire un retour</a>
+                  <a href="/user/view?zone=orders" ref={trackMenu} onClick={() => {}}>
+                    Faire un retour
+                  </a>
                 </li>
                 <li>
-                  <a href="/user/view?zone=returns" ref={trackMenu} onClick={() => {
-                }}>Suivre mes retours et remboursements</a>
+                  <a href="/user/view?zone=returns" ref={trackMenu} onClick={() => {}}>
+                    Suivre mes retours et remboursements
+                  </a>
                 </li>
                 <li>
-                  <a href="/user/view?zone=addresses" ref={trackMenu} onClick={() => {
-                }}>Mon carnet d&lsquo;adresses</a>
+                  <a href="/user/view?zone=addresses" ref={trackMenu} onClick={() => {}}>
+                    Mon carnet d&lsquo;adresses
+                  </a>
                 </li>
                 <li>
-                  <a href="/user/view?zone=user-infos" ref={trackMenu} onClick={() => {
-                }}>Mes informations de connexion</a>
+                  <a href="/user/view?zone=user-infos" ref={trackMenu} onClick={() => {}}>
+                    Mes informations de connexion
+                  </a>
                 </li>
                 <li>
-                  <a href="/customer/alert/new/view" ref={trackMenu} onClick={() => {
-                }}>Alertes</a>
+                  <a href="/customer/alert/new/view" ref={trackMenu} onClick={() => {}}>
+                    Alertes
+                  </a>
                 </li>
                 <li>
-                  <a href="/user/view?zone=newsletters" ref={trackMenu} onClick={() => {
-                }}>Mes Newsletters et Alertes</a>
+                  <a href="/user/view?zone=newsletters" ref={trackMenu} onClick={() => {}}>
+                    Mes Newsletters et Alertes
+                  </a>
                 </li>
                 <li>
-                  <a className="cookie-set" ref={trackMenu} onClick={() => {
-                }}>Mes cookies</a>
+                  <a className="cookie-set" ref={trackMenu} onClick={() => {}}>
+                    Mes cookies
+                  </a>
                 </li>
                 <li>
-                  <a href="/user/view?zone=vouchers" ref={trackMenu} onClick={() => {
-                }}>Mes bons d&lsquo;achat</a>
+                  <a href="/user/view?zone=vouchers" ref={trackMenu} onClick={() => {}}>
+                    Mes bons d&lsquo;achat
+                  </a>
                 </li>
               </ul>
             </li>
@@ -261,8 +282,10 @@ const Menu = ({ menus, genders }) => {
               <a
                 data-encrypted="L2N1c3RvbWVyL2Zhdm9yaXRlL2xpc3Qvdmlldw=="
                 className="pictenza pictenza-favorites decrypt"
-                href="/customer/favorite/list/view" ref={trackMenu} onClick={() => {
-                  trackGTM("Menu", "Mes favoris", "click")
+                href="/customer/favorite/list/view"
+                ref={trackMenu}
+                onClick={() => {
+                  trackGTM('Menu', 'Mes favoris', 'click');
                 }}>
                 <span>Mes favoris</span>
               </a>
@@ -275,8 +298,12 @@ const Menu = ({ menus, genders }) => {
             </li>
             {/* Basket */}
             <li className="basket">
-              <a href="/checkout/basket/view" className="pictenza pictenza-basket" ref={trackMenu} onClick={() => {
-                  trackGTM("Menu","Panier", "click")
+              <a
+                href="/checkout/basket/view"
+                className="pictenza pictenza-basket"
+                ref={trackMenu}
+                onClick={() => {
+                  trackGTM('Menu', 'Panier', 'click');
                 }}>
                 <span>Panier</span>
               </a>

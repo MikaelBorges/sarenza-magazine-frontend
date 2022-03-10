@@ -61,23 +61,31 @@ class Pagination extends Component {
     this.gotoPage(this.state.currentPage + this.pageNeighbours * 2 + 1);
   };
   fetchPageNumbers = () => {
-    
     const currentPage = this.state.currentPage;
     const splitter = '...';
     /* Create full array of pages : [1,2,3,4,x] */
-    const pages = Array(this.totalPages).fill().map((x, i) => i + 1);
+    const pages = Array(this.totalPages)
+      .fill()
+      .map((x, i) => i + 1);
     /* On first and latest page extend neighbors */
     const neighbors = currentPage == 1 || currentPage == pages.length ? 2 : 1;
     const finalPages = pages.reduce((arr, item) => {
       if (
-        item === 1 /* First always there */
-        || (item == 2 && item + 1 >= currentPage - neighbors && item + 1 <= currentPage + neighbors) /* Prevent start solitary ellipsis : [1,'...',3,4,5,6] */
-        || (item >= currentPage - neighbors && item <= currentPage + neighbors) /* Intermediate pages */
-        || (item == pages.length - 1 && item - 1 >= currentPage - neighbors && item - 1 <= currentPage + neighbors) /* Prevent end solitary ellipsis : [1,2,3,4,'...',6] */
-        || item === pages.length /* Latest always there */
-      ) arr.push(item);
-      /* Add splitters */
-      else if (splitter !== arr[arr.length - 1]) arr.push(splitter);
+        item === 1 /* First always there */ ||
+        (item == 2 &&
+          item + 1 >= currentPage - neighbors &&
+          item + 1 <=
+            currentPage + neighbors) /* Prevent start solitary ellipsis : [1,'...',3,4,5,6] */ ||
+        (item >= currentPage - neighbors &&
+          item <= currentPage + neighbors) /* Intermediate pages */ ||
+        (item == pages.length - 1 &&
+          item - 1 >= currentPage - neighbors &&
+          item - 1 <=
+            currentPage + neighbors) /* Prevent end solitary ellipsis : [1,2,3,4,'...',6] */ ||
+        item === pages.length /* Latest always there */
+      )
+        arr.push(item);
+      /* Add splitters */ else if (splitter !== arr[arr.length - 1]) arr.push(splitter);
 
       return arr;
     }, []);
@@ -87,7 +95,6 @@ class Pagination extends Component {
     finalPages.push(RIGHT_PAGE);
 
     return finalPages;
-
   };
 
   render() {

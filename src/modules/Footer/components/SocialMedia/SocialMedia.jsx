@@ -6,18 +6,20 @@ const SocialMedia = ({ data }) => {
     <>
       <div className="title-nav">{data && data.title}</div>
       <ul className="list social-media">
-        {(data && data.socialMediaItem) && data.socialMediaItem.map((item) => {
-          return (
-            <li key={item.id}>
-              <a
-                href={item.href}
-                className={`ea-tracker gtm-click sprited ${item.label}`}
-                key={item.label}>
-                {item.name}
-              </a>
-            </li>
-          );
-        })}
+        {data &&
+          data.socialMediaItem &&
+          data.socialMediaItem.map((item) => {
+            return (
+              <li key={item.id}>
+                <a
+                  href={item.href}
+                  className={`ea-tracker gtm-click sprited ${item.label}`}
+                  key={item.label}>
+                  {item.name}
+                </a>
+              </li>
+            );
+          })}
       </ul>
     </>
   );

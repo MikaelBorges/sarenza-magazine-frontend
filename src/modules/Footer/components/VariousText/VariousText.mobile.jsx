@@ -4,12 +4,16 @@ import React from 'react';
 
 const VariousTextMobile = ({ data }) => {
   return (
-    <>{data && <section className="mobile-app no-background">
-      <div className="title-level2">
-        <span>{parse(data.title)}</span>
-      </div>
-      <p>{parse(data.text)}</p>
-    </section>}</>
+    <>
+      {data && (
+        <section className="mobile-app no-background">
+          <div className="title-level2">
+            <span>{parse(data.title)}</span>
+          </div>
+          <p>{parse(data.text)}</p>
+        </section>
+      )}
+    </>
   );
 };
 

@@ -7,9 +7,7 @@ import { CHEVRON_RIGHT } from '../Icon/constants';
 import styles from './Display.module.scss';
 
 const Display = ({ text, button, whiteTheme }) => {
-
   return (
- 
     text && (
       <section className={classnames(styles.section, { [styles.blueOne]: whiteTheme })}>
         <div className={classnames(styles.title, { [styles.blueOne__title]: whiteTheme })}>

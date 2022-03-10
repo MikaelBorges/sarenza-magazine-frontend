@@ -1,14 +1,13 @@
 import PropTypes from 'prop-types';
-import React, {useRef} from 'react';
+import React, { useRef } from 'react';
 
 import ArticleTitle from '../ArticleTitle/ArticleTitle.mobile';
 import styles from './ArticleItem.mobile.module.scss';
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/router';
 import useOnScreen from 'utils/useOnScreen';
-import useGTM, {TrackEvent} from 'utils/useGTM';
+import useGTM, { TrackEvent } from 'utils/useGTM';
 
 const ArticleItem = ({ article, size, position }) => {
-
   const rubriqueName = useRouter().query.rubriqueName;
 
   const trackArticle = useRef();
@@ -23,15 +22,22 @@ const ArticleItem = ({ article, size, position }) => {
       strapId: `${article.title}-${article.image}-${eventName}`
     };
     useGTM(obj, eventName);
-
   };
 
-  {isVisible ? trackGTM(article, TrackEvent.PromotionPrint) : null}
+  {
+    isVisible ? trackGTM(article, TrackEvent.PromotionPrint) : null;
+  }
   return (
     <>
-      <img src={article.ImageArticleMobile} className={styles.image} alt={"image"} ref={trackArticle} onClick={() => {
+      <img
+        src={article.ImageArticleMobile}
+        className={styles.image}
+        alt={'image'}
+        ref={trackArticle}
+        onClick={() => {
           trackGTM(article, TrackEvent.PromotionClick);
-        }} />
+        }}
+      />
       <ArticleTitle
         title={article.title}
         author={article.author}

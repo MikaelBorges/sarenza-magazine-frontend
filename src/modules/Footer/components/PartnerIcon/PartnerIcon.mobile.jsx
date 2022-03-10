@@ -4,15 +4,16 @@ import React, { useState } from 'react';
 const PartnerIconMobile = ({ data }) => {
   let iconGroup = [];
 
-  data && data.forEach((partnerIconItem) => {
-    if (!iconGroup.some((item) => item.title === partnerIconItem.title)) {
-      iconGroup.push({
-        title: partnerIconItem.title,
-        id: partnerIconItem.id,
-        items: data.filter((item) => item.title === partnerIconItem.title)
-      });
-    }
-  });
+  data &&
+    data.forEach((partnerIconItem) => {
+      if (!iconGroup.some((item) => item.title === partnerIconItem.title)) {
+        iconGroup.push({
+          title: partnerIconItem.title,
+          id: partnerIconItem.id,
+          items: data.filter((item) => item.title === partnerIconItem.title)
+        });
+      }
+    });
 
   const [isActive, setActive] = useState(false);
 
@@ -38,7 +39,6 @@ const PartnerIconMobile = ({ data }) => {
               <li key={`partner-${partner.id}-${index}`}>
                 <a
                   href={partner.href}
-
                   className={`ea-tracker gtm-click partners-com-${partner.payment} sprited`}
                   shipping={partner.shipping}
                   quality={partner.quality}
