@@ -35,7 +35,7 @@ export const needHelp = (model = {}) => {
     id: model.id,
     title: model.Title || '',
     text: model.Text || '',
-    links: model.Link.map((item) => button(item)) 
+    links: model.Link.map((item) => button(item))
   };
 };
 export const variousText = (model = {}) => {

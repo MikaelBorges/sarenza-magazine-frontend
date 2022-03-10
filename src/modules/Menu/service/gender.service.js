@@ -1,7 +1,8 @@
 import getConfig from 'next/config';
-import { timeout } from '../../../utils/httpUtils';
+import constant from 'utils/constant';
+import { timeout } from 'utils/httpUtils';
+
 import genders from '../model/genders';
-import constant from 'infrastructure/constant';
 
 const { serverRuntimeConfig } = getConfig();
 

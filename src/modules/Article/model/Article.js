@@ -13,7 +13,9 @@ export function ArticleModel(model = {}) {
     author: model.attributes.author || '',
     subtitle: model.attributes.subtitle || '',
     rubrique: model?.attributes?.rubriques?.data?.[0] || null,
-    link: model.attributes?.rubriques?.data ? `/${model?.attributes?.rubriques?.data?.[0]?.attributes?.url}/${model.attributes.url}` : '',
+    link: model.attributes?.rubriques?.data
+      ? `/${model?.attributes?.rubriques?.data?.[0]?.attributes?.url}/${model.attributes.url}`
+      : ''
   };
 }
 
@@ -22,5 +24,3 @@ export function ArticlesModel(model = []) {
     return ArticleModel(art);
   });
 }
-
-

@@ -1,8 +1,9 @@
 import { HttpLink } from '@apollo/client';
 import { InMemoryCache } from 'apollo-cache-inmemory';
-import { SrzApolloClient as ApolloClient } from './SrzApolloClient';
 import fetch from 'isomorphic-unfetch';
 import getConfig from 'next/config';
+
+import { SrzApolloClient as ApolloClient } from './SrzApolloClient';
 
 const { serverRuntimeConfig } = getConfig();
 

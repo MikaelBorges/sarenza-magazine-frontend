@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Meta(props) {
+function Meta() {
   return (
     <>
       <title>Sarenza - Magazine</title>

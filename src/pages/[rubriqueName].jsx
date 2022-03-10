@@ -1,17 +1,12 @@
-import React from 'react';
-import processToHome from 'modules/Home/model/Home';
-import { getApolloClient } from 'utils/apollo';
-import getPageProps from 'utils/getPageProps';
-import { HOME_QUERY_RUBRIQUE_V4 } from 'apollo/queries/home/homeQueryV4';
-import Home from '../modules/Home/Home';
-import HomeMobile from '../modules/Home/Home.mobile';
-import constant from '../infrastructure/constant';
+import Home from 'modules/Home/Home';
+import HomeMobile from 'modules/Home/Home.mobile';
 import ContextHelper from 'utils/ContextHelper';
 import Layout from 'modules/Layout/Layout';
 import wrapper from '../app/store';
+import { redirectToErrorPage } from 'utils/redirectToErrorPage';
+import { getRubriques, getPageProps } from 'modules/api';
 
-const ArticleList = ({ rubriques, menus, genders, footer, isMobile, seo }) => {
-  console.log({ rubriques });
+export default function ArticleList({ rubriques, menus, genders, footer, isMobile, seo }) {
   return (
     <Layout
       menus={menus}
@@ -25,51 +20,37 @@ const ArticleList = ({ rubriques, menus, genders, footer, isMobile, seo }) => {
       {isMobile ? <HomeMobile data={rubriques} isRubrique /> : <Home data={rubriques} isRubrique />}
     </Layout>
   );
-};
+}
 
 export const getServerSideProps = wrapper.getServerSideProps(async (ctx) => {
-  const { res } = ctx;
-
   const ct = new ContextHelper(ctx);
-  global.srz_ctx = ct.context;
-
-  const apolloClient = getApolloClient();
 
   const rubriqueName = ctx.query.rubriqueName;
   const page = ctx.query.page;
   const start = page ? (parseInt(page) - 1) * 12 + 1 : 0;
   const limit = page ? 12 : 13;
+  const isMobile = ct.context.device.mobile || false;
+  const UrlPrefix = ct.context.route.link_prefix;
 
-  const { data, error } = await apolloClient.execQuery(
-    { query: HOME_QUERY_RUBRIQUE_V4, variables: { rubriqueName, limit, start } },
-    { timeout: constant.home.timeout }
-  );
+  const [{ rubriques, error }, { menus, genders, footer, seo }] = await Promise.all([
+    getRubriques({ rubriqueName, limit, start, page }),
+    getPageProps()
+  ]);
 
-  if (!ct.context.DEBUG && error && error.hasError) {
-    res.statusCode = 301;
-    res.setHeader('Location', constant.redirectLocation); // Replace <link> with your url link
-    return { props: {} };
-  }
-
-  const { menus, genders, footer, seo } = await getPageProps();
-
-  const rubriques = processToHome(data, rubriqueName, page);
-  const isRubrique = rubriqueName;
+  if (!ct.context.DEBUG && error?.hasError) return redirectToErrorPage(ctx.res);
 
   ctx.store.dispatch({ type: 'RUBRIQUE_SUCCESS', rubriques });
 
   return {
     props: {
       rubriques,
-      isRubrique,
+      isRubrique: rubriqueName,
       menus,
       genders,
       footer,
-      isMobile: ct.context.device.mobile || false,
-      UrlPrefix: ct.context.route.link_prefix,
+      isMobile,
+      UrlPrefix,
       seo
     }
   };
 });
-
-export default ArticleList;

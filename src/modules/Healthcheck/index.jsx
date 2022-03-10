@@ -25,7 +25,7 @@ function Healthcheck(props) {
   );
 }
 
-export const getServerSideProps = async (ctx) => {
+export const getServerSideProps = async () => {
   return {
     props: {
       serverRuntimeConfig,

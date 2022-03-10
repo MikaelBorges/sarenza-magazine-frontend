@@ -8,7 +8,7 @@ import Banner from './components/Banner/Banner';
 import ReadMore from './components/ReadMore/ReadMore';
 import { getComponent } from './config/LoadableComponent';
 import { useRouter } from 'next/router'
-import useGTM, {TrackEvent} from 'utils/useGTM';
+import useGTM from 'utils/useGTM';
 
 
 const scrollToRef = () => window.scrollTo({behavior: "smooth", top: 0});
