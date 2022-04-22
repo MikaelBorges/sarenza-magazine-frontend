@@ -7,8 +7,6 @@ import styles from './ShoppingList.module.scss';
 import useOnScreen from 'utils/useOnScreen';
 import useGTM, { TrackEvent } from 'utils/useGTM';
 
-
-
 const ShoppingList = ({ vignette, title, description, button }) => {
   const position = Object.keys(vignette);
   const settings = {
@@ -40,7 +38,6 @@ const ShoppingList = ({ vignette, title, description, button }) => {
 
   isVisible ? trackGTM(button, TrackEvent.PromotionPrint) : null;
 
-
   return (
     <div className={styles.shoppingList}>
       <div className="title-edito2">{title}</div>
@@ -53,7 +50,11 @@ const ShoppingList = ({ vignette, title, description, button }) => {
         </Slider>
       </div>
       {button !== null ? (
-        <a type="button" className={`button ${styles.buttonShoppingList}`} href={button.link} ref={trackCTA}
+        <a
+          type="button"
+          className={`button ${styles.buttonShoppingList}`}
+          href={button.link}
+          ref={trackCTA}
           onClick={() => {
             trackGTM(button, TrackEvent.PromotionClick);
           }}>

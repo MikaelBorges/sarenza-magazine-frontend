@@ -5,12 +5,14 @@ import React from 'react';
 const VariousText = ({ data }) => {
   return (
     <>
-      {data && <div className="mobile-app no-background">
-        <div className="title-level3">
-          <span>{parse(data.title)}</span>
+      {data && (
+        <div className={`mobile-app ${!data.background ? 'no-background' : ''}`}>
+          <div className="title-level3">
+            <span>{parse(data.title)}</span>
+          </div>
+          <p>{parse(data.text)}</p>
         </div>
-        <p>{parse(data.text)}</p>
-      </div>}
+      )}
     </>
   );
 };

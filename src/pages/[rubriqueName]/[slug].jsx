@@ -1,16 +1,11 @@
 import Articles from 'modules/Article/Article';
 import ArticlesMobile from 'modules/Article/Article.mobile';
-import { ArticleModel, ArticlesModel } from 'modules/Article/model/Article';
 import Layout from 'modules/Layout/Layout';
-import getConfig from 'next/config';
-import React from 'react';
-import { getPageProps } from 'utils/getPageProps';
-import constant from '../../infrastructure/constant';
-import { timeout } from '../../utils/httpUtils';
 import ContextHelper from 'utils/ContextHelper';
-import wrapper from '../../app/store';
+import wrapper from 'app/store';
+import { getArticleBySlug, getRecentArticle, getPageProps } from 'modules/api';
 
-const Article = ({ article, menus, genders, footer, recentArticle, isMobile, seo }) => {
+export default function Article({ article, menus, genders, footer, recentArticle, isMobile, seo }) {
   return (
     <Layout
       menus={menus}
@@ -19,9 +14,7 @@ const Article = ({ article, menus, genders, footer, recentArticle, isMobile, seo
       isMobile={isMobile}
       metaData={{
         title: article.title,
-        description: `${seo.prefix}${
-          article.title
-        }`
+        description: `${seo.prefix}${article.title}`
       }}>
       {isMobile ? (
         <ArticlesMobile article={article} recentArticle={recentArticle} />
@@ -30,54 +23,38 @@ const Article = ({ article, menus, genders, footer, recentArticle, isMobile, seo
       )}
     </Layout>
   );
-};
+}
 
 export const getServerSideProps = wrapper.getServerSideProps(async (ctx) => {
-  const { serverRuntimeConfig } = getConfig();
-
-  const { slug, rubriqueName } = ctx.query;
   const ct = new ContextHelper(ctx);
 
-  const response = await timeout(
-    constant.article.timeout,
-    fetch(`${serverRuntimeConfig.API_URL}/articles/?url=${slug}`)
-  ).catch((e) => {
-    console.log(`Error getting article "${slug}"`, e);
-    return { hasError: true };
-  });
+  const { slug, rubriqueName } = ctx.query;
+  const isMobile = ct.context.device.mobile || false;
 
-  if (!serverRuntimeConfig.DEBUG && response.hasError) {
-    ctx.res.statusCode = 301;
-    ctx.res.setHeader('Location', constant.redirectLocation); // Replace <link> with your url link
-    return { props: {} };
-  }
+  const [
+    { article, error: errorArticle },
+    { recentArticle, error: errorRecentArticle },
+    { menus, genders, footer, seo }
+  ] = await Promise.all([
+    getArticleBySlug(slug),
+    getRecentArticle({ rubriqueName, slug }),
+    getPageProps()
+  ]);
 
-  const data = await response.json();
+  if (!ct.context.DEBUG && (errorArticle?.hasError || errorRecentArticle?.hasError))
+    return redirectToErrorPage(ctx.res);
 
-  const { menus, genders, footer, seo } = await getPageProps();
-
-  const recentArticle = await (
-    await timeout(
-      constant.article.timeout,
-      fetch(
-        `${serverRuntimeConfig.API_URL}/articles?_limit=4&_sort=isSeo:asc,updated_at:desc&rubriques.url=${rubriqueName}`
-      )
-    )
-  ).json();
-
-  const article = ArticleModel(data[0]);
   ctx.store.dispatch({ type: 'ARTICLE_SUCCESS', article });
+
   return {
     props: {
       article,
-      recentArticle: ArticlesModel(recentArticle.filter((item) => item.url !== slug).slice(0, 3)),
+      recentArticle,
       menus,
       genders,
       footer,
-      isMobile: ct.context.device.mobile || false,
+      isMobile,
       seo
     }
   };
 });
-
-export default Article;

@@ -1,17 +1,17 @@
 @media screen and (min-width: 975px) {
-    .container {
-        max-width: 1008px;
-        margin-left: auto;
-        margin-right: auto;
+  .container {
+    max-width: 1008px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .picture {
+    max-width: 480px;
+    > img {
+      width: 480px;
     }
-    .picture {
-        max-width: 480px;
-        > img {
-            width: 480px;
-        }
-    }
-    .textContainer {
-        margin-left: 24px;
-        padding: 24px;
-    }
+  }
+  .textContainer {
+    margin-left: 24px;
+    padding: 24px;
+  }
 }

@@ -1,4 +1,4 @@
-import React, {useRef} from 'react';
+import React, { useRef } from 'react';
 import styles from './ProductEdito.mobile.module.scss';
 import useOnScreen from 'utils/useOnScreen';
 import useGTM, { TrackEvent } from 'utils/useGTM';
@@ -7,7 +7,6 @@ import Markdown from 'markdown-to-jsx';
 import { replaceByJsx } from 'modules/Article/utils';
 
 const ProductEdito = ({ Title, Text, Vignette, CTA }) => {
-
   const trackCTA = useRef();
   const isVisible = CTA ? useOnScreen(trackCTA) : false;
 
@@ -22,7 +21,6 @@ const ProductEdito = ({ Title, Text, Vignette, CTA }) => {
   };
 
   isVisible ? trackGTM(CTA, TrackEvent.PromotionPrint) : null;
-
 
   return Title && Text && Vignette ? (
     <section className={styles.productEdito}>
@@ -56,14 +54,18 @@ const ProductEdito = ({ Title, Text, Vignette, CTA }) => {
       </div>
       <div className={styles.wrapperVignettes}>
         {Vignette.map((item) => {
-          return <ProductEditoCard_mobile {...item} key={`${item.pcid}-${item.position}`} />
+          return <ProductEditoCard_mobile {...item} key={`${item.pcid}-${item.position}`} />;
         })}
       </div>
 
       {CTA && (
-        <a href={CTA.link} className={styles.link}ref={trackCTA} onClick={() => {
-          trackGTM(CTA, TrackEvent.PromotionClick);
-        }}>
+        <a
+          href={CTA.link}
+          className={styles.link}
+          ref={trackCTA}
+          onClick={() => {
+            trackGTM(CTA, TrackEvent.PromotionClick);
+          }}>
           {CTA.label}
         </a>
       )}

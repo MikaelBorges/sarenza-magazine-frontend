@@ -7,9 +7,7 @@ import ChildrenWithIcon from './components/ChildrenWithIcon';
 import styles from './LinkGeneric.module.scss';
 import getConfig from 'next/config';
 
-
 const { serverRuntimeConfig } = getConfig();
-
 
 const LinkGeneric = ({
   type,
@@ -37,11 +35,9 @@ const LinkGeneric = ({
   pagination,
   first,
   last
-  
 }) => {
   const linkPrefix = serverRuntimeConfig.CDN_PREFIX || '';
   link = absolute ? link : (linkPrefix ? linkPrefix : '') + link;
-
 
   const childrenLabel = children && <span className={styles.buttonLabel}>{children}</span>;
   const cssClasses = classnames(
@@ -58,7 +54,7 @@ const LinkGeneric = ({
     },
     ...(baseLinkStyle || [{ 0: 'default' }])
   );
-  
+
   if (type === LINK_TYPE.TEXT && link) {
     const linkProps = {
       target: newTab ? '_blank' : undefined,
@@ -154,12 +150,9 @@ LinkGeneric.propTypes = {
   disabled:
     PropTypes.bool /* if true, the item is disabled, the mouse has a forbidden pointer and
     the links do not work */,
-    pagination:
-    PropTypes.bool,
-    first:
-    PropTypes.bool,
-    last:
-    PropTypes.bool,
+  pagination: PropTypes.bool,
+  first: PropTypes.bool,
+  last: PropTypes.bool,
   onClick: PropTypes.func /* function describing the behaviour of the item when clicked on */,
   onFocus: PropTypes.func,
   onKeyDown: PropTypes.func,
@@ -223,8 +216,8 @@ LinkGeneric.defaultProps = {
   children: undefined,
   title: '',
   dataTestid: '',
-  first:false,
-  last:false
+  first: false,
+  last: false
 };
 
 export default LinkGeneric;

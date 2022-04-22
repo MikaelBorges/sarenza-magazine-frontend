@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, {useRef} from 'react';
+import React, { useRef } from 'react';
 import Slider from 'react-slick';
 
 import ShoppingCard from './ShoppingCard/ShoppingCard';
@@ -51,7 +51,8 @@ const ShoppingList = ({ vignette, title, description, button }) => {
         <a
           type="button"
           className={`button ${styles.buttonShoppingList_mobile}`}
-          href={button.link} ref={trackCTA}
+          href={button.link}
+          ref={trackCTA}
           onClick={() => {
             trackGTM(button, TrackEvent.PromotionClick);
           }}>

@@ -1,49 +1,50 @@
-.DuoImage{
-position: relative;
+.DuoImage {
+  position: relative;
 }
-.container{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
-.Intro{
-color: #ff2157;
-text-align: center;
-font-family: Futur;
-font-size: 24px;
-line-height: 30px;
-max-width: 720px;
-margin: 48px auto 40px;
-@media screen and (min-width:975px){
-    max-width: 864px; 
+.Intro {
+  color: #ff2157;
+  text-align: center;
+  font-family: Futur;
+  font-size: 24px;
+  line-height: 30px;
+  max-width: 720px;
+  margin: 48px auto 40px;
+  @media screen and (min-width: 975px) {
+    max-width: 864px;
+  }
 }
+.BlockLeft {
+  flex: 0 1 auto;
+  max-width: 615px;
+  margin-right: 16px;
+  align-self: flex-start;
 }
-.BlockLeft{
-flex: 0 1 auto;
-max-width:615px;
-margin-right: 16px;
-align-self: flex-start;
-}
-.BlockRight{
-flex: 0 1 auto;
-max-width: 377px;
-align-self: flex-start;
-margin-top: 56px;
->.title,.Text{
+.BlockRight {
+  flex: 0 1 auto;
+  max-width: 377px;
+  align-self: flex-start;
+  margin-top: 56px;
+  > .title,
+  .Text {
     padding-left: 16px;
+  }
 }
+.imageLeft {
+  width: 100%;
 }
-.imageLeft{
-width: 100%;
+.imageRight {
+  width: 100%;
 }
-.imageRight{
-width: 100%;
+.title {
+  color: #1d1d1b;
+  font-family: robotoc;
+  text-align: left;
 }
-.title{
-color: #1D1D1B;
-font-family: robotoc;
-text-align: left;
-}
-.Text{
-text-align: left;
+.Text {
+  text-align: left;
 }

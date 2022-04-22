@@ -21,7 +21,7 @@
   }
 }
 
-.container:nth-of-type(odd){
+.container:nth-of-type(odd) {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -64,7 +64,7 @@
   width: 338px;
   margin-bottom: 24px;
 }
-.title{
+.title {
   line-height: 28px;
   font-size: 24px;
   margin: 0;
@@ -72,14 +72,13 @@
 
 .button {
   margin: 32px 0 0;
-
 }
-.huge{
+.huge {
   font-size: 24px;
   line-height: 28px;
   color: #1d1d1b;
 }
-.big{
+.big {
   font-size: 16px;
   line-height: 25px;
   color: #999999;

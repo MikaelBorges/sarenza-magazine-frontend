@@ -5,7 +5,7 @@ import useGTM, { TrackEvent } from 'utils/useGTM';
 import ProductLookCard_mobile from './ProductLookCard/ProductLookCard_mobile';
 import Markdown from 'markdown-to-jsx';
 
-const ProductLook = ({Image, Title, Text, Vignettes, CTA}) => {
+const ProductLook = ({ Image, Title, Text, Vignettes, CTA }) => {
   const trackCTA = useRef();
   const isVisible = CTA ? useOnScreen(trackCTA) : false;
 
@@ -19,7 +19,7 @@ const ProductLook = ({Image, Title, Text, Vignettes, CTA}) => {
     useGTM(obj, eventName);
   };
 
-    isVisible ? trackGTM(CTA, TrackEvent.PromotionPrint) : null;
+  isVisible ? trackGTM(CTA, TrackEvent.PromotionPrint) : null;
 
   return (
     <section className={styles.productLook}>
@@ -29,9 +29,8 @@ const ProductLook = ({Image, Title, Text, Vignettes, CTA}) => {
       </div>
       <img src={Image.url} alt={Image.alt} className={styles.poster} />
       <div className={styles.vignettesContainer}>
-      
         {Vignettes.map((vignette) => {
-          return <ProductLookCard_mobile {...vignette} key={`${vignette.pcid}`} />
+          return <ProductLookCard_mobile {...vignette} key={`${vignette.pcid}`} />;
         })}
       </div>
       {CTA && (

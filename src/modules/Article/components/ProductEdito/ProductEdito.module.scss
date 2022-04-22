@@ -9,7 +9,7 @@
   padding-bottom: 48px;
   margin-bottom: 48px;
   margin: 24px auto;
-  
+
   .title {
     font-size: 24px;
     text-align: left;
@@ -40,21 +40,20 @@
     line-height: 16px;
     margin-top: 8px;
 
-      
     &:after {
-        position: absolute;
-        right: 32px;
-        top: 14px;
-        margin-top: 0;
-        margin-left: 1.5em;
-        content: '\e372';
-        font-family: pictenza;
-        font-size: 1em;
-        font-style: normal;
-        speak: none;
-        font-weight: 700;
-        -webkit-font-smoothing: antialiased;
-      }
+      position: absolute;
+      right: 32px;
+      top: 14px;
+      margin-top: 0;
+      margin-left: 1.5em;
+      content: '\e372';
+      font-family: pictenza;
+      font-size: 1em;
+      font-style: normal;
+      speak: none;
+      font-weight: 700;
+      -webkit-font-smoothing: antialiased;
+    }
   }
 }
 .productEdito:nth-of-type(odd) {
@@ -65,10 +64,10 @@
     position: relative;
     flex: 1 1 50%;
     display: flex;
-    flex-flow: row wrap; 
-    @media screen and (min-width: 975px){
-        flex: 1 1 20%;
-    }  
+    flex-flow: row wrap;
+    @media screen and (min-width: 975px) {
+      flex: 1 1 20%;
+    }
   }
 
   .wrapperText {
@@ -80,9 +79,9 @@
     top: 20px;
     text-align: left;
     margin-right: 25px;
-    @media screen and (min-width: 975px){
-        margin-right: 56px;
-        flex: 1 1 25%;
+    @media screen and (min-width: 975px) {
+      margin-right: 56px;
+      flex: 1 1 25%;
     }
   }
 }
@@ -96,11 +95,11 @@
     display: flex;
     flex-flow: row wrap;
     margin-right: 25px;
-    @media screen and (min-width: 975px){
-        flex: 1 1 26%;
-        margin-right: 56px;
-    } 
+    @media screen and (min-width: 975px) {
+      flex: 1 1 26%;
+      margin-right: 56px;
     }
+  }
   .wrapperText {
     align-self: flex-start;
     order: 2;
@@ -109,14 +108,13 @@
     position: -webkit-sticky; /* Safari */
     top: 20px;
     text-align: left;
-    @media screen and (min-width: 975px){
-        margin-right: 56px;
-        flex: 1 1 25%;
+    @media screen and (min-width: 975px) {
+      margin-right: 56px;
+      flex: 1 1 25%;
     }
-
   }
 }
-.big{
+.big {
   font-size: 16px;
   line-height: 25px;
   color: #999999;

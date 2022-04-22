@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React, { useState, useRef } from 'react';
 import styles from './ShoppingCard.mobile.module.scss';
 import useOnScreen from 'utils/useOnScreen';
-import useGTM, {TrackEvent} from 'utils/useGTM';
+import useGTM, { TrackEvent } from 'utils/useGTM';
 
 const ShoppingCardMobile = ({
   cardImage,
@@ -23,20 +23,19 @@ const ShoppingCardMobile = ({
   const trackProduct = useRef();
   const isVisible = useOnScreen(trackProduct);
 
-
   const trackGTM = (eventName) => {
     let obj = {
       brand: `${brand}`,
       category: `${''}`,
       name: `${model}`,
       pid: `${''}`,
-      price:`${ ''}`,
+      price: `${''}`,
       id: `${pcid}`,
       variant: '',
       position: `${position}`,
-      color:'',
-      dimension69 : '',
-      list:'slider-magazine',
+      color: '',
+      dimension69: '',
+      list: 'slider-magazine',
       strapId: `${id}-${model}-${eventName}`
     };
     useGTM(obj, eventName);
@@ -44,10 +43,15 @@ const ShoppingCardMobile = ({
 
   return (
     <li className={styles.card}>
-      <a href={urlProduct} className={styles.cardLink} role="button" tabIndex={-1} ref={trackProduct} onClick={
-      ()=>{ 
-       trackGTM(TrackEvent.ProductClick) 
-    }}>
+      <a
+        href={urlProduct}
+        className={styles.cardLink}
+        role="button"
+        tabIndex={-1}
+        ref={trackProduct}
+        onClick={() => {
+          trackGTM(TrackEvent.ProductClick);
+        }}>
         {isVisible ? trackGTM(TrackEvent.ProductPrint) : null}
         <div className={styles.cardImageContainer}>
           <img className={styles.cardImage} src={cardImage} alt={titleProduct} />

@@ -52,7 +52,7 @@
   font-weight: bold;
   font-size: 16px;
   margin-bottom: 8px;
-  @media screen and (min-width:975px){
+  @media screen and (min-width: 975px) {
     margin-top: 24px;
   }
 }
@@ -63,7 +63,6 @@
   overflow: hidden;
   text-overflow: ellipsis;
   padding-right: 8px;
-
 }
 
 .cardSubcontainer {
@@ -100,7 +99,6 @@
   background-color: white;
   outline: none;
 }
-
 
 @keyframes heartOn {
   0% {

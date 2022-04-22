@@ -9,7 +9,7 @@ export const replaceByJsx = (tpl) => {
         }
       );
     })
-    .filter((r) => r != '');
+    .filter((r) => r !== '');
 
   return t;
 };

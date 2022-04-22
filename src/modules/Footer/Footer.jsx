@@ -18,28 +18,31 @@ const Footer = ({ footer }) => {
   const handleToggle = () => {
     setActive(!isActive);
   };
-  return (
-    footer ? (
-      <footer id="MainFooter" data-track-zone="Transverse" className="gtm-zone">
-        <ul className="advantages10reasons">
-          {footer.reassurances && footer.reassurances.map((reassurance) => {
+  return footer ? (
+    <footer id="MainFooter" data-track-zone="Transverse" className="gtm-zone">
+      <ul className="advantages10reasons">
+        {footer.reassurances &&
+          footer.reassurances.map((reassurance) => {
             return <Reassurances data={reassurance} key={reassurance.id} />;
           })}
-        </ul>
-        <Newsletter data={footer.newsletter} />
-        <div className="help">
-          <NeedHelp data={footer.needHelp} />
-          <VariousText data={footer.variousText} />
+      </ul>
+      <Newsletter data={footer.newsletter} />
+      <div className="help">
+        <NeedHelp data={footer.needHelp} />
+        <VariousText data={footer.variousText} />
+      </div>
+      <nav className="footer-nav" role="navigation">
+        <div className="col avis">
+          <Reviews data={footer.review} />
         </div>
-        <nav className="footer-nav" role="navigation">
-          <div className="col avis">
-            <Reviews data={footer.review} />
+        <BlockLinks data={footer.blockLinks} />
+        <div className="col">
+          <div className="title-nav">
+            {footer.blockLinks && footer.blockLinks.slice(3, 4)[0].title}
           </div>
-          <BlockLinks data={footer.blockLinks} />
-          <div className="col">
-            <div className="title-nav">{footer.blockLinks && footer.blockLinks.slice(3, 4)[0].title}</div>
-            <ul className="list">
-              {footer.blockLinks && footer.blockLinks.slice(3, 4)[0].links.map((item) => {
+          <ul className="list">
+            {footer.blockLinks &&
+              footer.blockLinks.slice(3, 4)[0].links.map((item) => {
                 return (
                   <li key={item.id}>
                     <a href={item.href} className="ea-tracker gtm-click" data-ea>
@@ -48,36 +51,37 @@ const Footer = ({ footer }) => {
                   </li>
                 );
               })}
-            </ul>
-            <SocialMedia data={footer.socialMedia} />
-          </div>
-        </nav>
-        <div className="partners">
-          <ul className="fold sprite">
-            {footer.partnerIcons && footer.partnerIcons.map((partnerIcon,  index) => {
+          </ul>
+          <SocialMedia data={footer.socialMedia} />
+        </div>
+      </nav>
+      <div className="partners">
+        <ul className="fold sprite">
+          {footer.partnerIcons &&
+            footer.partnerIcons.map((partnerIcon, index) => {
               return <PartnerIcon data={partnerIcon} key={`${partnerIcon.id}-${index}`} />;
             })}
-          </ul>
-        </div>
-        <div className="legal">
-          <ul className="legal-navigation">
-            {footer.footerLinks && footer.footerLinks.map((footerLink) => {
+        </ul>
+      </div>
+      <div className="legal">
+        <ul className="legal-navigation">
+          {footer.footerLinks &&
+            footer.footerLinks.map((footerLink) => {
               return <FooterLink data={footerLink} key={footerLink.id} />;
             })}
-          </ul>
-          <div
-            className={isActive ? 'country-selector' : 'open country-selector'}
-            onClick={handleToggle}
-            onKeyDown={handleToggle}
-            role="button"
-            tabIndex="0">
-            <CountrySelector data={footer.countrySelectors} />
-          </div>
+        </ul>
+        <div
+          className={isActive ? 'country-selector' : 'open country-selector'}
+          onClick={handleToggle}
+          onKeyDown={handleToggle}
+          role="button"
+          tabIndex="0">
+          <CountrySelector data={footer.countrySelectors} />
         </div>
-        {typeof window !== 'undefined' && <StyleFooter />}
-      </footer>
-    ) : null
-  );
+      </div>
+      {typeof window !== 'undefined' && <StyleFooter />}
+    </footer>
+  ) : null;
 };
 
 export default Footer;

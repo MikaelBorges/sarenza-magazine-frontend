@@ -10,7 +10,7 @@
     "test": "jest",
     "lint:style": "stylelint **/*.css",
     "lint": "eslint --fix .",
-    "format": "prettier --write './**/*.{js,jsx,scss,css,md,json}' --config ./.prettierrc",
+    "format": "prettier --write {,*/**/}*.{js,jsx,ts,tsx,json,scss} --config ./.prettierrc",
     "disable:telemetry": "next telemetry disable",
     "enable:telemetry": "next telemetry enable",
     "debug": "set \"NODE_OPTIONS=--inspect\" && next dev"
@@ -32,6 +32,7 @@
     "next-redux-wrapper": "^6.0.2",
     "next-with-apollo": "^5.1.0",
     "prop-types": "^15.7.2",
+    "qs": "^6.10.3",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-gtm-module": "^2.0.11",

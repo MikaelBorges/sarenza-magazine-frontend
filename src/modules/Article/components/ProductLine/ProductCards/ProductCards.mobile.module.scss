@@ -1,11 +1,11 @@
 /* select only first item, when there are four items or more */
-.vignette:first-child:nth-last-child(n+4) {
+.vignette:first-child:nth-last-child(n + 4) {
   padding-left: 16px;
 }
 
 /* select all items, when there are four items or more */
-.vignette:first-child:nth-last-child(n+4),
-.vignette:first-child:nth-last-child(n+4) ~ .vignette {
+.vignette:first-child:nth-last-child(n + 4),
+.vignette:first-child:nth-last-child(n + 4) ~ .vignette {
   display: table-cell;
   padding-right: 16px;
 
@@ -40,7 +40,7 @@
     display: block;
     width: 100%;
   }
-  >.gellule{
+  > .gellule {
     background: #ffffff;
   }
 }

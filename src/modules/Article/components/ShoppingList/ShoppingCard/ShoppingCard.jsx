@@ -3,10 +3,9 @@ import React, { useState, useRef } from 'react';
 
 import styles from './ShoppingCard.module.scss';
 import useOnScreen from 'utils/useOnScreen';
-import useGTM, {TrackEvent} from 'utils/useGTM';
+import useGTM, { TrackEvent } from 'utils/useGTM';
 
 const ShoppingCard = ({ visuelUrl, url, statusLabel, model, pcid, brand, position, id }) => {
-
   const [favoriteStatus, setFavoriteStatus] = useState(false);
 
   function handleClick(e) {
@@ -17,32 +16,32 @@ const ShoppingCard = ({ visuelUrl, url, statusLabel, model, pcid, brand, positio
   const trackProduct = useRef();
   const isVisible = useOnScreen(trackProduct);
 
-
   const trackGTM = (eventName) => {
     let obj = {
       brand: `${brand}`,
       category: `${''}`,
       name: `${model}`,
       pid: `${''}`,
-      price:`${ ''}`,
+      price: `${''}`,
       id: `${pcid}`,
       variant: '',
       position: `${position}`,
-      color:'',
-      dimension69 : '',
-      list:'slider-magazine',
+      color: '',
+      dimension69: '',
+      list: 'slider-magazine',
       strapId: `${id}-${model}-${eventName}`
     };
     useGTM(obj, eventName);
   };
 
-
   return (
-    <div className={styles.card} ref={trackProduct} onClick={
-      ()=>{ 
-       trackGTM(TrackEvent.ProductClick) 
-    }}>
-            {isVisible ? trackGTM(TrackEvent.ProductPrint) : null}
+    <div
+      className={styles.card}
+      ref={trackProduct}
+      onClick={() => {
+        trackGTM(TrackEvent.ProductClick);
+      }}>
+      {isVisible ? trackGTM(TrackEvent.ProductPrint) : null}
       <a href={url} className={styles.cardLink} role="button" tabIndex={-1}>
         <div className={styles.cardSubcontainer}>
           <img className={styles.image} src={visuelUrl} alt={model} />
@@ -58,12 +57,12 @@ const ShoppingCard = ({ visuelUrl, url, statusLabel, model, pcid, brand, positio
               tabIndex={-2}
             />
           )}
-        <div className={styles.cardTextContainer}>
-          {statusLabel && <span className={styles.stateLabel}>{statusLabel}</span>}
-          <span className={styles.titleProduct}>{brand}</span>
-          <span className={styles.descriptionProduct}>{model}</span>
+          <div className={styles.cardTextContainer}>
+            {statusLabel && <span className={styles.stateLabel}>{statusLabel}</span>}
+            <span className={styles.titleProduct}>{brand}</span>
+            <span className={styles.descriptionProduct}>{model}</span>
+          </div>
         </div>
-      </div>
       </a>
     </div>
   );

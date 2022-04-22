@@ -1,15 +1,13 @@
 import PropTypes from 'prop-types';
 import React, { useRef } from 'react';
 
-
 import ArticleItem from './ArticleItem/ArticleItem.mobile';
 import styles from './ReadMore.mobile.module.scss';
 import { useRouter } from 'next/router';
 import useOnScreen from 'utils/useOnScreen';
-import useGTM, {TrackEvent} from 'utils/useGTM';
+import useGTM, { TrackEvent } from 'utils/useGTM';
 
 const Articles = ({ articles, position }) => {
-
   const trackReadMore = useRef();
   const isVisible = useOnScreen(trackReadMore);
   const rubriqueName = useRouter().query.rubriqueName;
@@ -26,16 +24,17 @@ const Articles = ({ articles, position }) => {
   };
   return (
     <div className={styles.container}>
-      <div className={styles.title}>
-        À LIRE AUSSI
-      </div>
+      <div className={styles.title}>À LIRE AUSSI</div>
       {articles.map((article, index) => {
         return (
-          <div key={index} className={styles.content}ref={trackReadMore}
-          onClick={() => {
-            trackGTM(article, TrackEvent.PromotionClick );
-          }}>
-          {isVisible ? trackGTM(article, TrackEvent.PromotionPrint ) : null}
+          <div
+            key={index}
+            className={styles.content}
+            ref={trackReadMore}
+            onClick={() => {
+              trackGTM(article, TrackEvent.PromotionClick);
+            }}>
+            {isVisible ? trackGTM(article, TrackEvent.PromotionPrint) : null}
             <ArticleItem article={article} size={index} position={position} />
           </div>
         );

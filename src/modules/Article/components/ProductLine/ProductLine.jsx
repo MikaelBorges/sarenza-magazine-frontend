@@ -4,7 +4,6 @@ import styles from './ProductLine.module.scss';
 import ProductCards from './ProductCards/ProductCards';
 
 const ProductLine = ({ ProductCard }) => {
-
   const settings = {
     dots: false,
     infinite: false,

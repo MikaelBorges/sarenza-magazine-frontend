@@ -7,7 +7,7 @@ import useGTM, { TrackEvent } from 'utils/useGTM';
 
 const BlockEditoLong = ({ Title, Text, Image, Button, id }) => {
   const trackCTA = useRef();
-  const isVisible = Button? useOnScreen(trackCTA) : false;
+  const isVisible = Button ? useOnScreen(trackCTA) : false;
 
   const trackGTM = (Button, eventName) => {
     let obj = {
@@ -15,7 +15,6 @@ const BlockEditoLong = ({ Title, Text, Image, Button, id }) => {
       name: Button.label,
       position: 'Block Edito Long',
       strapId: `${Button.id}-${Button.label}-${eventName}`
-
     };
     useGTM(obj, eventName);
   };

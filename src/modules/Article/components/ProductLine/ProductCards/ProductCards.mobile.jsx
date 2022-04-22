@@ -3,7 +3,6 @@ import Image from '@/components/commons/Image/Image';
 import styles from './ProductCards.mobile.module.scss';
 
 const ProductCardMobile = ({ pcid, url_cta, url_image, url_text }) => {
-
   const [favoriteStatus, setFavoriteStatus] = useState(false);
   function handleClick(e) {
     e.preventDefault();
@@ -25,14 +24,10 @@ const ProductCardMobile = ({ pcid, url_cta, url_image, url_text }) => {
                   data-pcid={pcid}
                   onClick={(e) => handleClick(e)}
                   role="button"
-                  tabIndex={-2}
-                >
-                </span>
+                  tabIndex={-2}></span>
               )}
               {url_cta && (
-                <span
-                  className={`button darkseid pictenza pictenza-basket ${styles.gellule}`}
-                >
+                <span className={`button darkseid pictenza pictenza-basket ${styles.gellule}`}>
                   <span className={styles.onlyText}>{url_text}</span>
                 </span>
               )}

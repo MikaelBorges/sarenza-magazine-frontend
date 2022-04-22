@@ -96,7 +96,8 @@
   text-transform: uppercase;
   text-shadow: none;
   &:not(:disabled) {
-    &:hover, &:active {
+    &:hover,
+    &:active {
       border: none;
       background-color: none !important;
       background: none !important;
@@ -110,7 +111,6 @@
       text-transform: uppercase;
       text-shadow: none;
     }
-    
   }
 }
 .first {

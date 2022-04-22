@@ -47,15 +47,16 @@ const SubMenu = ({ data, tabId, menuId, setId }) => {
                   {itemFiltered.links.map((link) => {
                     return (
                       <li
-                        className={`link ${
-                          link.boldLink === true
-                            ? 'all'
-                            : ''
-                        }`}
+                        className={`link ${link.boldLink === true ? 'all' : ''}`}
                         key={link.label}>
                         <a href={link.link}>
                           {link.label}
-                          {link.labelPicto ? <span className={styles.picto} style={{ color: link.colorPicto }}> {link.labelPicto}</span> : null }
+                          {link.labelPicto ? (
+                            <span className={styles.picto} style={{ color: link.colorPicto }}>
+                              {' '}
+                              {link.labelPicto}
+                            </span>
+                          ) : null}
                         </a>
                       </li>
                     );

@@ -64,7 +64,7 @@ const Home = ({ data }) => {
           }}
         />
       )}
-      <Pagination totalRecords={data.numberArticles} pageLimit={12} isMobile={true} /> 
+      <Pagination totalRecords={data.numberArticles} pageLimit={12} isMobile={true} />
     </>
   );
 };

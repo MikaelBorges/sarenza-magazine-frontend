@@ -2,6 +2,7 @@ resources:
 - repo: self
 pool:  
   name: $(PoolName)
+  vmImage: 'ubuntu-18.04'
 
 variables:
   - group: Internal

@@ -1,4 +1,4 @@
-.nav{
+.nav {
   margin: 64px 0 40px;
 }
 .ul {
@@ -7,10 +7,10 @@
   list-style: none;
   margin: 0 auto;
   padding: 0;
-    > li {
-      flex: 0 1 auto;
-      align-self: center;
-    }
+  > li {
+    flex: 0 1 auto;
+    align-self: center;
+  }
 }
 
 .button {
@@ -29,7 +29,7 @@
 
   &:not(:disabled) {
     &:hover,
-     &:active{
+    &:active {
       border: 1px solid #f2f2f2 !important;
       font-family: robotoc;
       font-weight: bold !important;
@@ -40,7 +40,7 @@
       background: none !important;
       text-shadow: none !important;
     }
-   }
+  }
 }
 
 .active {
@@ -52,16 +52,16 @@
   letter-spacing: -0.34px !important;
   text-align: center;
 }
-.first{
+.first {
   margin-right: 24px !important;
   margin-left: 0 !important;
 }
-.last{
+.last {
   margin-left: 24px !important;
   margin-right: 0 !important;
 }
 //mobOnly
-.total{
+.total {
   font-size: 18px;
   line-height: 40px;
   font-family: robotoc;

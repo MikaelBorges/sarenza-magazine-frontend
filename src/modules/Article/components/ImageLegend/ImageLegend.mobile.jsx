@@ -1,22 +1,20 @@
 import React from 'react';
-import styles from './ImageLegend.mobile.module.scss'
+import styles from './ImageLegend.mobile.module.scss';
 
 const ImageLegendMobile = (props) => {
-    return (
-        <div className={styles.ImageLegend}>
-        <h2 className={styles.h2}>{props.Title}</h2>
-        <p className={styles.p}>{props.Text}</p>
-        <div className={styles.containerFlex}>
-        {
-       props.VerticalImage && (
+  return (
+    <div className={styles.ImageLegend}>
+      <h2 className={styles.h2}>{props.Title}</h2>
+      <p className={styles.p}>{props.Text}</p>
+      <div className={styles.containerFlex}>
+        {props.VerticalImage && (
           <img
             src={props.VerticalImage.url}
             alt={props.VerticalImage.alt}
             className={styles.verticalImage}
           />
-       )}
-          {
-       props.ImageText && (
+        )}
+        {props.ImageText && (
           <div className={styles.box}>
             <img
               src={props.ImageText.url}
@@ -32,10 +30,10 @@ const ImageLegendMobile = (props) => {
               </a>
             </div>
           </div>
-       )}
-        </div>
-  {
-       props.ImageTextOptional && ( <div className={styles.lastBlock}>
+        )}
+      </div>
+      {props.ImageTextOptional && (
+        <div className={styles.lastBlock}>
           <div className={styles.lastBlockText}>
             <h5 className={styles.h5}>{props.ImageTextOptional.Subtitle}</h5>
             <h2 className={styles.h2}>{props.ImageTextOptional.Title}</h2>
@@ -49,9 +47,10 @@ const ImageLegendMobile = (props) => {
             alt={props.ImageTextOptional.alt}
             className={styles.lastImage}
           />
-        </div>)}
-      </div>
-    );
+        </div>
+      )}
+    </div>
+  );
 };
 
 export default ImageLegendMobile;

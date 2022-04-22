@@ -4,9 +4,11 @@ const getCookieObject = () => {
     let tried = null;
     try {
       tried = JSON.parse(decodeURIComponent(value));
-    } catch (e) { };
+    } catch (e) {
+      console.error(e);
+    }
     prev[name] = tried || value;
-    return prev
+    return prev;
   }, {});
 };
 

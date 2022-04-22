@@ -1,37 +1,37 @@
 .url {
-    outline: none;
-    text-decoration: none;
-    &:nth-child(odd) {
-      margin-right: 17px;
-    }
+  outline: none;
+  text-decoration: none;
+  &:nth-child(odd) {
+    margin-right: 17px;
   }
-  .vignette {
-    max-width: 171px;
-    margin-bottom: 24px;    
-  }
-  .containerTxt {
-    text-align: left;
-    margin-left: 5px;
-  }
-  .statuLabel {
-    color: #ff2157;
-    font-size: 12px;
-    font-family: 'RobotoC';
-    font-weight: bold;
-    margin: 7px 0 4px 0;
-    display: block;
-  }
-  .brand {
-    display: block;
-    font-size: 14px;
-    font-family: 'RobotoC';
-    font-weight: bold;
-    color: #1d1d1b;
-  }
-  .model {
-    display: block;
-    color: #999999;
-    font-family: 'RobotoC';
-    font-size: 12px;
-    margin-top: 8px;
-  }
+}
+.vignette {
+  max-width: 171px;
+  margin-bottom: 24px;
+}
+.containerTxt {
+  text-align: left;
+  margin-left: 5px;
+}
+.statuLabel {
+  color: #ff2157;
+  font-size: 12px;
+  font-family: 'RobotoC';
+  font-weight: bold;
+  margin: 7px 0 4px 0;
+  display: block;
+}
+.brand {
+  display: block;
+  font-size: 14px;
+  font-family: 'RobotoC';
+  font-weight: bold;
+  color: #1d1d1b;
+}
+.model {
+  display: block;
+  color: #999999;
+  font-family: 'RobotoC';
+  font-size: 12px;
+  margin-top: 8px;
+}

@@ -8,7 +8,7 @@
   padding-bottom: 48px;
   margin-bottom: 48px;
 
-  .boxButton{
+  .boxButton {
     align-self: center;
     align-items: flex-start;
     order: 1;
@@ -19,8 +19,7 @@
 
   .blocText {
     padding: 0 24px;
-      text-align: left;  
-
+    text-align: left;
   }
   .visual {
     align-self: flex-start;
@@ -41,7 +40,7 @@
     font-weight: bold;
     line-height: 32px;
     color: #1d1d1b;
-  
+
     &:nth-child(1) {
       color: #ff2157;
     }
@@ -52,7 +51,7 @@
     line-height: 25px;
   }
   .link {
-    position: relative; 
+    position: relative;
     font: 700 12px/14px robotoc, Arial Narrow, sans-serif;
     text-transform: uppercase;
     padding: 0 64px 0 32px;
@@ -69,8 +68,7 @@
     text-align: left;
     line-height: 16px;
     margin-top: 32px;
-    
-  
+
     &:after {
       position: absolute;
       right: 32px;
@@ -88,96 +86,90 @@
   }
 }
 .wrapper:nth-child(even) {
-    max-width: 1008px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin: 0 auto;
+  max-width: 1008px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0 auto;
+  position: relative;
+  padding-bottom: 48px;
+  margin-bottom: 48px;
+
+  .boxButton {
+    align-self: center;
+    order: 2;
+    width: 49.9%;
     position: relative;
-    padding-bottom: 48px;
-    margin-bottom: 48px;
-
-    .boxButton{
-        align-self: center;
-        order: 2;
-        width: 49.9%;
-        position: relative;
-      }
-
-    .blocText {
-      padding: 0 24px;
-      text-align: left;
-
-      
-    }
-    .visual {
-      align-self: flex-start;
-      max-width: 480px;
-      order: 1;
-      width: 49.9%;
-      flex: 1 1 50%;
-      position: sticky;
-      position: -webkit-sticky; /* Safari */
-      top: 20px;
-    }
-    .title {
-        font-size: 24px;
-        text-align: left;
-        margin: 0;
-        margin-bottom: 24px;
-        margin-top: 32px;
-        font-family: robotoC;
-        font-weight: bold;
-        line-height: 32px;
-        color: #1d1d1b;
-      
-        &:nth-child(1) {
-          color: #ff2157;
-        }
-      }
-      .text {
-        text-align: left;
-        font-size: 16px;
-        line-height: 25px;
-      }
-      .link {
-        position: relative;
-        display: inline-flex;
-        align-items: center;
-        vertical-align: middle;
-        font: 700 12px/14px robotoc, Arial Narrow, sans-serif;
-        text-transform: uppercase;
-        padding: 0 64px 0 32px;
-        background: #1d1d1b;
-        min-width: 96px;
-        height: 48px;
-        overflow: hidden;
-        outline: 0;
-        font-size: 12px;
-        color: #ffffff;
-        letter-spacing: -0.34px;
-        text-align: left;
-        line-height: 16px;
-        text-decoration: none;
-        margin-top: 32px;
-
-      
-        &:after {
-          position: absolute;
-          right: 32px;
-          top: 14px;
-          margin-top: 0;
-          margin-left: 1.5em;
-          content: '\e372';
-          font-family: pictenza;
-          font-size: 1em;
-          font-style: normal;
-          speak: none;
-          font-weight: 700;
-          -webkit-font-smoothing: antialiased;
-        }
-      }
   }
 
+  .blocText {
+    padding: 0 24px;
+    text-align: left;
+  }
+  .visual {
+    align-self: flex-start;
+    max-width: 480px;
+    order: 1;
+    width: 49.9%;
+    flex: 1 1 50%;
+    position: sticky;
+    position: -webkit-sticky; /* Safari */
+    top: 20px;
+  }
+  .title {
+    font-size: 24px;
+    text-align: left;
+    margin: 0;
+    margin-bottom: 24px;
+    margin-top: 32px;
+    font-family: robotoC;
+    font-weight: bold;
+    line-height: 32px;
+    color: #1d1d1b;
 
+    &:nth-child(1) {
+      color: #ff2157;
+    }
+  }
+  .text {
+    text-align: left;
+    font-size: 16px;
+    line-height: 25px;
+  }
+  .link {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    vertical-align: middle;
+    font: 700 12px/14px robotoc, Arial Narrow, sans-serif;
+    text-transform: uppercase;
+    padding: 0 64px 0 32px;
+    background: #1d1d1b;
+    min-width: 96px;
+    height: 48px;
+    overflow: hidden;
+    outline: 0;
+    font-size: 12px;
+    color: #ffffff;
+    letter-spacing: -0.34px;
+    text-align: left;
+    line-height: 16px;
+    text-decoration: none;
+    margin-top: 32px;
 
+    &:after {
+      position: absolute;
+      right: 32px;
+      top: 14px;
+      margin-top: 0;
+      margin-left: 1.5em;
+      content: '\e372';
+      font-family: pictenza;
+      font-size: 1em;
+      font-style: normal;
+      speak: none;
+      font-weight: 700;
+      -webkit-font-smoothing: antialiased;
+    }
+  }
+}

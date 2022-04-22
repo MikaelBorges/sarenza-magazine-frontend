@@ -38,13 +38,14 @@ module.exports = {
   rules: {
     'prettier/prettier': ['error', {}, { usePrettierrc: true }],
     'react/react-in-jsx-scope': 'off',
-    'no-console': 'error',
     'react/prop-types': 'off',
     'import/no-extraneous-dependencies': 'off',
     'react/jsx-props-no-spreading': 'off',
     'import/no-unresolved': 'off',
     'simple-import-sort/sort': 'error',
     'import/extensions': 0,
+    'import/prefer-default-export': 'off',
+    'no-console': 'off',
     'jsx-a11y/anchor-is-valid': [
       'error',
       {
